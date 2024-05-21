@@ -1,0 +1,35 @@
+#pragma once
+
+#include <lcom/lcf.h>
+#include "vector.h"
+#include "ball/ball.h"
+#include "mouseModel.h"
+#include "cue.h"
+
+typedef enum GAME_STATE {
+  AIMING,
+  SHOOTING,
+  WAITING,
+  SIMULATING,
+} GAME_STATE;
+
+typedef struct Table{
+  xpm_image_t img;
+  vector_t* sides;
+  Ball** balls;
+  uint8_t ballNumber;
+  GAME_STATE state;
+  Mouse* mouse;
+  Cue* cue;
+} Table;
+
+
+Table * newTable();
+
+void destroyTable(Table* table);
+
+int drawTable(Table* table);
+
+int updateCueState(Table* table, bool power);
+
+bool getColisionPoint(Table* table, vector_t*collisionPoint);

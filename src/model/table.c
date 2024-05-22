@@ -4,6 +4,7 @@
 #include "../physics/utilities.h"
 #include "../viewer/cueViewer.h"
 #include "../xpms/table.xpm"
+#include "../xpms/biggerTable.xpm"
 #include "math.h"
 
 Table *newTable() {
@@ -34,7 +35,7 @@ Table *newTable() {
   table->balls[6] = newBall(otherBallPosition);
   // Set image
   xpm_image_t img;
-  xpm_load(tableXpm, XPM_8_8_8, &img);
+  xpm_load(biggerTableXpm, XPM_8_8_8, &img);
   table->img = img;
 
   // Set mouse
@@ -59,6 +60,10 @@ void destroyTable(Table *table) {
 }
 
 int drawTable(Table *table) {
+
+
+  drawXPMImage(table->img, 512, 384, 0);
+
 
   for (size_t i = 0; i < table->ballNumber; i++) {
     Ball *ball = table->balls[i];

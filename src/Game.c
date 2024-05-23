@@ -62,6 +62,7 @@ int gameLoop(Resources* resources){
             switch (state)
             {
             case MAIN_MENU:
+            
               break;
             case PLAYING:
               resources->state = playingControllerHandle(resources->table, TIMER, NULL, 0, get_elapsed());

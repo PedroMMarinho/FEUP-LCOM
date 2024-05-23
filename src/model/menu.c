@@ -12,7 +12,7 @@ Menu* newMenu(MenuType type,vector_t prevMousePos, bool win){
       menu->buttons[0] = newButton(mainMenuPlay,mainMenuPlaySelected,{400,400},{50,100});
       menu->buttons[1] = newButton(mainMenuInstructions,mainMenuInstructionsSelected,{400,500},{50,100});
       menu->buttons[2] = newButton(mainMenuExit,mainMenuExitSelected,{400,600},{50,100});
-      menu->backgroundImg = mainMenuBackground;
+      menu->backgroundImg = menuBackground;
       break;
     case GAME_MODE_MENU:
         menu->nOptions = 3;
@@ -32,7 +32,7 @@ Menu* newMenu(MenuType type,vector_t prevMousePos, bool win){
     case GAME_OVER_MENU:
         menu->nOptions = 1;
         menu->buttons = (Button**)malloc(sizeof(Button*)*menu->nOptions);
-        menu->buttons[0] = newButton(gameOverMenuBa rMenuBackSelected,{400,600},{50,100});
+        menu->buttons[0] = newButton(gameOverMenuBack, gameOverMenuBackSelected,{400,600},{50,100});
         menu->backgroundImg = win ? gameOverMenuWinBackground : gameOverMenuLoseBackground;
         break;
     }

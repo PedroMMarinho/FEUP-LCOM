@@ -10,11 +10,10 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
   switch (interruptType) {
     case TIMER:
       if (elapsed % (sys_hz() / 30) == 0) {
-        if (cleanCanvas())
-          return 1;
         if (drawTable(table)){
           return OVER;
         }
+        if (swap_buffers()) return 1;
       }
       break;
     case MOUSE:

@@ -4,6 +4,7 @@
 int mapMemory(uint16_t mode);
 int changeMode(uint16_t mode);
 
+int (swap_buffers)();
 
 int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color);
 

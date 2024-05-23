@@ -10,6 +10,8 @@ typedef struct Menu {
   int nOptions;
   int selectedOption;
   Mouse* mouse;
+  xpm_image_t mouseImg;
+  xpm_image_t mouseImgHover;
   Button** buttons;
 } Menu;
 

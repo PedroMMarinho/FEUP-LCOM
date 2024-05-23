@@ -1,55 +1,82 @@
 #include "menu.h"
+#include "viewer/menuViewer.h"
 
+
+#include "xpms/menu/back.xpm"
+#include "xpms/menu/backSelected.xpm"
+#include "xpms/menu/gameModeMenuLocal.xpm"
+#include "xpms/menu/gameModeMenuLocalSelected.xpm"
+#include "xpms/menu/gameModeMenuOnline.xpm"
+#include "xpms/menu/gameModeMenuOnlineSelected.xpm"
+#include "xpms/menu/mainMenuExit.xpm"
+#include "xpms/menu/mainMenuExitSelected.xpm"
+#include "xpms/menu/mainMenuPlay.xpm"
+#include "xpms/menu/mainMenuPlaySelected.xpm"
+#include "xpms/menu/menuBackground.xpm"
+#include "xpms/menu/mainMenuInfo.xpm"
+#include "xpms/menu/mainMenuInfoSelected.xpm"
+#include "xpms/menu/menuMouse.xpm"
 
 Menu* newMenu(MenuType type,vector_t prevMousePos, bool win){
   Menu* menu = (Menu*)malloc(sizeof(Menu));
+  setMenuType(menu,type);
+  menu->mouse = newMouse(prevMousePos);
+  menu->mouseImg = menuMouse;
+  menu->mouseImgHover = menuMouse;
+  return menu;
+}
+void setMenuType(Menu* menu, MenuType type){
   menu->type = type;
-    switch (type)
-    {
-    case MAIN_MENU:
+  switch (type)
+  {
+  case MAIN_MENU:
+    menu->nOptions = 3;
+    menu->buttons = (Button**)malloc(sizeof(Button*)*menu->nOptions);
+    menu->buttons[0] = newButton(mainMenuPlay,mainMenuPlaySelected,{400,400},{50,100});
+    menu->buttons[1] = newButton(mainMenuInfo,mainMenuInfoSelected,{400,500},{50,100});
+    menu->buttons[2] = newButton(mainMenuExit,mainMenuExitSelected,{400,600},{50,100});
+    menu->backgroundImg = menuBackground;
+    break;
+  case GAME_MODE_MENU:
       menu->nOptions = 3;
       menu->buttons = (Button**)malloc(sizeof(Button*)*menu->nOptions);
-      menu->buttons[0] = newButton(mainMenuPlay,mainMenuPlaySelected,{400,400},{50,100});
-      menu->buttons[1] = newButton(mainMenuInstructions,mainMenuInstructionsSelected,{400,500},{50,100});
-      menu->buttons[2] = newButton(mainMenuExit,mainMenuExitSelected,{400,600},{50,100});
+      menu->buttons[0] = newButton(gameModeMenuLocal,gameModeMenuLocalSelected,{400,400},{50,100});
+      menu->buttons[1] = newButton(gameModeMenuOnline,gameModeMenuOnlineSelected,{400,500},{50,100});
+      menu->buttons[2] = newButton(back,backSelected,{400,600},{50,100});
       menu->backgroundImg = menuBackground;
       break;
-    case GAME_MODE_MENU:
-        menu->nOptions = 3;
-        menu->buttons = (Button**)malloc(sizeof(Button*)*menu->nOptions);
-        menu->buttons[0] = newButton(gameModeMenuLocal,gameModeMenuLocalSelected,{400,400},{50,100});
-        menu->buttons[1] = newButton(gameModeMenuOnline,gameModeMenuOnlineSelected,{400,500},{50,100});
-        menu->buttons[2] = newButton(gameModeMenuBack,gameModeMenuBackSelected,{400,600},{50,100});
-        menu->backgroundImg = gameModeMenuBackground;
-        break;
-    case INSTRUCTIONS_MENU:
-        menu->nOptions = 1;
-        menu->buttons = (Button**)malloc(sizeof(Button*)*menu->nOptions);
-        menu->buttons[0] = newButton(instructionsMenuBack,instructionsMenuBackSelected,{400,600},{50,100});
-        menu->backgroundImg = instructionsMenuBackground;
+  case INSTRUCTIONS_MENU:
+      menu->nOptions = 1;
+      menu->buttons = (Button**)malloc(sizeof(Button*)*menu->nOptions);
+      menu->buttons[0] = newButton(back,backSelected,{400,600},{50,100});
+      menu->backgroundImg = menuBackground;
 
-        break;
-    case GAME_OVER_MENU:
-        menu->nOptions = 1;
-        menu->buttons = (Button**)malloc(sizeof(Button*)*menu->nOptions);
-        menu->buttons[0] = newButton(gameOverMenuBack, gameOverMenuBackSelected,{400,600},{50,100});
-        menu->backgroundImg = win ? gameOverMenuWinBackground : gameOverMenuLoseBackground;
-        break;
-    }
+      break;
+  case GAME_OVER_MENU:
+      menu->nOptions = 1;
+      menu->buttons = (Button**)malloc(sizeof(Button*)*menu->nOptions);
+      menu->buttons[0] = newButton(back, backSelected,{400,600},{50,100});
+      menu->backgroundImg = menuBackground;
+      break;
+  }
   menu->selectedOption = -1;
-  menu->mouse = newMouse(prevMousePos);
-  return menu;
 }
 void destroyMenu(Menu* menu){
   free(menu->mouse);
   free(menu);
 }
-void drawMenu(Menu* menu){
-  drawBackground(menu->backgroundImg);
+void resetMenu(Menu* menu){
+  menu->selectedOption = -1;
   for(int i = 0; i < menu->nOptions; i++){
-    drawButton(menu->buttons[i]);
+    destroyButton(menu->buttons[i]);
   }
-  drawMouse(menu->mouse);
+}
+void drawMenu(Menu* menu){
+  drawMenuBackground(menu->backgroundImg);
+  for(int i = 0; i < menu->nOptions; i++){
+    drawMenuButton(menu->buttons[i]);
+  }
+  drawMenuMouse(menu->mouse,menu->mouseImg,menu->mouseImgHover,menu->selectedOption != -1);
 }
 void updateSelectedOption(Menu* menu, int option){
   menu->selectedOption = option;

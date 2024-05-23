@@ -4,7 +4,7 @@
 typedef struct Button {
   xpm_image_t img;
   xpm_image_t imgSelected;
-  vector_t position;
+  vector_t pos;
   vector_t size;
   bool selected;
 } Button;

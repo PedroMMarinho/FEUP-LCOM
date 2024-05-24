@@ -1,9 +1,9 @@
 /* XPM */
-static char *gameModeMenuOnlineSelected[] = {
+static xpm_row_t const gameModeMenuOnlineSelectedXpm[] = {
 /* columns rows colors chars-per-pixel */
 "200 200 17 1 ",
 "  c None",
-". c black",
+". c #000000",
 "X c #093815",
 "o c #0D451A",
 "O c #145B26",

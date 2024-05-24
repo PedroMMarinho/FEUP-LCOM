@@ -4,7 +4,7 @@
 
 typedef enum STATE {
   PLAYING,
-  MAIN_MENU,
+  MENU,
   OVER,
 } STATE;
 

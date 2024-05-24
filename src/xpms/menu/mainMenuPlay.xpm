@@ -1,8 +1,8 @@
 /* XPM */
-static const char *mainMenuPlay[] = {
+static  xpm_row_t const mainMenuPlayXpm[] = {
 /* columns rows colors chars-per-pixel */
 "200 200 18 1 ",
-"  c black",
+"  c #000000",
 ". c #031129",
 "X c #0D4D1E",
 "o c #125E25",
@@ -18,7 +18,7 @@ static const char *mainMenuPlay[] = {
 "- c #25B849",
 "; c #21CF4F",
 ": c #D19A88",
-"> c white",
+"> c #ffffff",
 ", c None",
 /* pixels */
 ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",

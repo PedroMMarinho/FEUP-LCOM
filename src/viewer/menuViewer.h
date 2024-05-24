@@ -1,8 +1,10 @@
 #pragma once
 #include <lcom/lcf.h>
+#include "../model/button.h"
+#include "../model/mouseModel.h"
 
-void drawMenuBackground(xpm_image_t img);
+int drawMenuBackground(xpm_image_t img);
 
-void drawMenuButton(Button* button);
+int drawMenuButton(Button* button);
 
-void drawMenuMouse(Menu* menu);
+int  drawMenuMouse(Mouse* mouse, xpm_image_t mouseImg, xpm_image_t imgMouseHover, bool isHovering);

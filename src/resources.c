@@ -3,17 +3,23 @@
 #include "resources.h"
 #include "model/table.h"
 #include "model/ball/ball.h"
+#include "model/menu.h"
 
 Resources* loadResources(){
 
   Resources* resources = (Resources*)malloc(sizeof(Resources));
-  resources->table = newTable();
-  resources->state = PLAYING;
+  resources->menu = newMenu(MAIN_MENU);
+  resources->state = MENU;  
   return resources;
 }
 
 void destroyResources(Resources* resources){
-  destroyTable(resources->table);
+  if(resources->state == PLAYING){
+    destroyTable(resources->table);
+  }
+  else if(resources->state == MENU){
+    destroyMenu(resources->menu);
+  }
   free(resources->table);
   free(resources);
 }

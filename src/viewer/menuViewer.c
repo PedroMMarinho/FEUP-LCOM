@@ -1,27 +1,24 @@
 #include "menuViewer.h"
 #include "../labs/graphics.h"
-#include "../model/vector.h"
-#include "../model/button.h"
-#include "../model/mouseModel.h"
-void drawMenuBackground(xpm_image_t img){
-  drawXPMImage(img,0,0,0);
+int drawMenuBackground(xpm_image_t img){
+  if(drawXPMImage(img,512,381,0)) return 1;
+  return 0;
 }
-void drawMenuButton(Button* button){
+int drawMenuButton(Button* button){
     if(button->selected){
-        drawXPMImage(button->imgSelected,button->pos.x,button->pos.y,0);
-        
+        if(drawXPMImage(button->imgSelected,button->pos.x+100,button->pos.y+25,0)) return 1;
     }
     else{
-        drawXPMImage(button->img,button->pos.x,button->pos.y,0);
+        if(drawXPMImage(button->img,button->pos.x+100,button->pos.y+25,0)) return 1;
     }
+    return 0;
 }
-void drawMenuMouse(Mouse* mouse, xpm_image_t mouseImg, xpm_image_t imgMouseHover, bool isHovering){
+int drawMenuMouse(Mouse* mouse, xpm_image_t mouseImg, xpm_image_t imgMouseHover, bool isHovering){
     if(isHovering){
-        drawXPMImage(mouseImgHover,mouse->pos.x,mouse->pos.y,0);
-        
+        if(drawXPMImage(imgMouseHover,mouse->pos.x,mouse->pos.y,0)) return 1;
     }
     else{
-        drawXPMImage(mouseImg,mouse->pos.x,mouse->pos.y,0);
+        if(drawXPMImage(mouseImg,mouse->pos.x,mouse->pos.y,0)) return 1;
     }
+    return 0;
 }
-    

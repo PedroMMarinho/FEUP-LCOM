@@ -3,8 +3,9 @@
 
 
 
-Mouse* newMouse( vector_t initialPos =  {300, 300}){
+Mouse* newMouse(){
   Mouse* mouse = (Mouse*)malloc(sizeof(Mouse));
+  vector_t initialPos =  {300, 300};
   mouse->pos  = initialPos;
   return mouse;
 }

@@ -1,9 +1,9 @@
 /* XPM */
-static char *back[] = {
+static xpm_row_t const backXpm[] = {
 /* columns rows colors chars-per-pixel */
 "200 200 18 1 ",
 "  c None",
-". c black",
+". c #000000",
 "X c #031129",
 "o c #0D4D1E",
 "O c #125E25",
@@ -19,7 +19,7 @@ static char *back[] = {
 "; c #25B849",
 ": c #21CF4F",
 "> c #D19A88",
-", c white",
+", c #ffffff",
 /* pixels */
 "                                                                                                                                                                                                        ",
 "                                                                                                                                                                                                        ",

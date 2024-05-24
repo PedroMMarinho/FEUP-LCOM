@@ -1,9 +1,9 @@
 /* XPM */
-static char *backSelected[] = {
+static xpm_row_t const backSelectedXpm[] = {
 /* columns rows colors chars-per-pixel */
 "200 200 34 1 ",
 "  c None",
-". c black",
+". c #000000",
 "X c #1C1800",
 "o c #020C1D",
 "O c #1E231A",

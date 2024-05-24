@@ -1,8 +1,0 @@
-
-static xpm_row_t const coiso[] = {
-  "32 3 2 1",
-  "  c None",
-  "x c #FFFFFF",
-  "                                ",
-  "              xxx               ",
-  "            xxxxxxx             "};

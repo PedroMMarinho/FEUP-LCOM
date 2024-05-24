@@ -14,6 +14,7 @@
 #include "States/states.h"
 
 #include "controllers/playingController.h"
+#include "controllers/menuController.h"
 
 #include "resources.h"
 
@@ -43,8 +44,6 @@ int gameLoop(Resources* resources){
     return 1;
     uint8_t timer_iqr;
     if (timer_subscribe_int(&timer_iqr)) return 1;
-
-  
   while (resources->state != OVER) {
     STATE state = resources->state;
     /* Get a request message. */
@@ -61,8 +60,8 @@ int gameLoop(Resources* resources){
             timer_int_handler();
             switch (state)
             {
-            case MAIN_MENU:
-            
+            case MENU:
+              resources->state = menuControllerHandle(resources->menu, TIMER, NULL, 0, get_elapsed());
               break;
             case PLAYING:
               resources->state = playingControllerHandle(resources->table, TIMER, NULL, 0, get_elapsed());
@@ -78,7 +77,11 @@ int gameLoop(Resources* resources){
             if (isPacketComplete()){
               struct packet packet = getMousePacket();
               switch (state){
-                case MAIN_MENU:
+                case MENU:
+                resources->state = menuControllerHandle(resources->menu, MOUSE, &packet, 0, 0);
+                if(resources->state == PLAYING){
+                  resources->table = newTable();
+                }
                   break;
                 case PLAYING:
                   resources->state = playingControllerHandle(resources->table, MOUSE, &packet, 0, 0);
@@ -96,7 +99,8 @@ int gameLoop(Resources* resources){
             printf("The received scanCode is: %x\n", scancode);
             switch (state)
             {
-            case MAIN_MENU:
+            case MENU:
+              resources->state = menuControllerHandle(resources->menu, KEYBOARD, NULL, scancode, 0);
               break;
             case PLAYING:
               resources->state = playingControllerHandle(resources->table, KEYBOARD, NULL, scancode, 0);

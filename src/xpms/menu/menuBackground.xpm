@@ -1,5 +1,5 @@
 /* XPM */
-static char *menuBackground[] = {
+static xpm_row_t const menuBackgroundXpm[] = {
 /* columns rows colors chars-per-pixel */
 "1024 768 256 2 ",
 "   c #1D0F1C",

@@ -4,6 +4,13 @@
 #include "vector.h"
 #include "button.h"
 
+typedef enum MenuType {
+  MAIN_MENU,
+  GAME_MODE_MENU,
+  INSTRUCTIONS_MENU,
+  GAME_OVER_MENU,
+} MenuType;
+
 typedef struct Menu {
   xpm_image_t backgroundImg;
   MenuType type;  
@@ -16,16 +23,10 @@ typedef struct Menu {
 } Menu;
 
 
-typedef enum MenuType {
-  MAIN_MENU,
-  GAME_MODE_MENU,
-  INSTRUCTIONS_MENU,
-  GAME_OVER_MENU,
-} MenuType;
-
-Menu* newMenu(MenuType type,vector_t prevMousePos,bool win = false);
-
+Menu* newMenu(MenuType type);
 void destroyMenu(Menu* menu);
-void drawMenu(Menu* menu);
+void setMenuType(Menu* menu, MenuType type);
+void resetMenu(Menu* menu);
+int drawMenu(Menu* menu);
 int seeIfMouseIsOverOption(Menu* menu,int *option);
 void updateSelectedOption(Menu* menu, int option);

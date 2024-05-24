@@ -1,9 +1,9 @@
 /* XPM */
-static const char *menuMouse[] = {
+static xpm_row_t const menuMouseXpm[] = {
 /* columns rows colors chars-per-pixel */
 "24 42 3 1 ",
-"  c black",
-". c white",
+"  c #000000",
+". c #ffffff",
 "X c None",
 /* pixels */
 "XXXXXXXXXXXXXXXXXXXXXXXX",

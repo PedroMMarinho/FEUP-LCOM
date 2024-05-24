@@ -26,3 +26,5 @@ uint8_t B(uint32_t color);
 int drawXPMImage(xpm_image_t img, double x, double y, double angle);
 
 int (cleanCanvas)();
+
+int swap_buffers();

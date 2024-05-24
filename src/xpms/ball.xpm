@@ -1,5 +1,5 @@
 /* XPM */
-static const xpm_row_t ballXpm[] = {
+static xpm_row_t const ballXpm[] = {
 /* columns rows colors chars-per-pixel */
 "40 40 58 1 ",
 "  c None",

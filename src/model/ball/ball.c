@@ -8,8 +8,8 @@
 Ball *newBall(vector_t position){
   Ball* ball = (Ball*)malloc(sizeof(Ball));
   ball->position = position;
-
-
+  ball->radius = 20;
+  ball->state = STATIONARY;
   // Set image
 
   xpm_image_t img;

@@ -18,9 +18,27 @@
 #include "resources.h"
 
 
+// Includes for physics testing
+#include "physics/evolve.h"
+
 int initGame(){
   Resources* resources = loadResources();
   printf("created resources\n");
+
+  // Testing of the physics
+  Ball* ball = resources->table->balls[0];
+  ball->velocity.x = 4; 
+  ball->velocity.y = 5; 
+  ball->ang_velocity.x = 7; 
+  ball->ang_velocity.y = 8; 
+  ball->ang_velocity.z = 5; 
+  ball->position.x = 1;
+  ball->position.y = 2;
+  ball->state = SLIDING;
+
+  evolveBallMotion(resources->table, ball, 1);
+  printf("FINISHED EVOLVING");
+
   return gameLoop(resources);
 
 }

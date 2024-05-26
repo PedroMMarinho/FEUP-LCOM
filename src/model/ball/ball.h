@@ -15,12 +15,14 @@ typedef enum BALL_STATE{
 
 typedef  struct Ball
 {
-  enum BALL_STATE state;
+  BALL_STATE state;
   vector_t position;
   vector_t velocity;
-  vector_t ang_velocity;
+  vector3_t ang_velocity;
   xpm_image_t img;
+  size_t radius;
 }Ball;
+
 
 Ball *newBall(vector_t position);
 

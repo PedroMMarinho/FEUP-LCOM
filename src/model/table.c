@@ -48,6 +48,13 @@ Table *newTable() {
   // Set state
   table->state = AIMING;
 
+
+  // Set physics attributes
+  table->gravityAcceleration = 9.81;
+  table->slidingFriction = 0.2;
+  table->spinningFriction = 0.01;
+  table->rollingFriction = 0.01;
+
   return table;
 }
 

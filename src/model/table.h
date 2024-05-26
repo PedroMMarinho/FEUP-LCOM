@@ -21,6 +21,14 @@ typedef struct Table{
   GAME_STATE state;
   Mouse* mouse;
   Cue* cue;
+
+  // Physics measurments
+  double slidingFriction;
+  double spinningFriction;
+  double rollingFriction;
+  double gravityAcceleration;
+  size_t ballRadius;
+
 } Table;
 
 

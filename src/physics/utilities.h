@@ -24,3 +24,5 @@ vector_t relativeVelocity(Ball* ball);
 double getSlideTime(Ball* ball, double u, double g);
 
 double getRollTime(Ball* ball, double u, double g);
+
+double getSpinTime(Ball* ball, double u, double g);

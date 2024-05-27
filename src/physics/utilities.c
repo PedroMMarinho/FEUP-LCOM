@@ -52,6 +52,16 @@ vector_t relativeVelocity(Ball *ball) {
   return relVelocity;
 }
 
+
+double getSpinTime(Ball* ball, double u, double g){
+
+  if (u == 0 )return INFINITY;
+
+  return abs(ball->ang_velocity.z) * 2 * ball->radius / (5 * u * g);
+
+}
+
+
 double getRollTime(Ball* ball, double u, double g){
 
   if (u == 0) return INFINITY;

@@ -34,7 +34,7 @@ int initGame(){
   ball->ang_velocity.z = 5; 
   ball->position.x = 1;
   ball->position.y = 2;
-  ball->state = ROLLING;
+  ball->state = SPINNING;
 
   evolveBallMotion(resources->table, ball, 1);
   printf("FINISHED EVOLVING");

@@ -30,16 +30,16 @@ void evolveBallMotion(Table *table, Ball *ball, double time) {
 
     case ROLLING:
       printf("---- ROLLING ----");
-      double rollingTime = getRollTime(ball, table->rollingFriction, table->gravityAcceleration);
+      double rollTime = getRollTime(ball, table->rollingFriction, table->gravityAcceleration);
 
-      sprintf(a, "%f", rollingTime);
+      sprintf(a, "%f", rollTime);
       printf("The time is: %s\n", a);
 
-      evolveRollState(ball,MIN(time, rollingTime),  table->rollingFriction, table->spinningFriction, table->gravityAcceleration);
+      evolveRollState(ball,MIN(time, rollTime),  table->rollingFriction, table->spinningFriction, table->gravityAcceleration);
 
-      if (time >= rollingTime) {
-        ball->state = "spinning";
-        time -= rollingTime;
+      if (time >= rollTime) {
+        ball->state = SPINNING;
+        time -= rollTime;
       }
       else
         return;
@@ -47,6 +47,21 @@ void evolveBallMotion(Table *table, Ball *ball, double time) {
       break;
 
     case SPINNING:
+      printf("---- ROLLING ----");
+      double spinTime = getSpinTime(ball, table->spinningFriction, table->gravityAcceleration);
+
+      sprintf(a, "%f", spinTime);
+      printf("The time is: %s\n", a);
+      evolvePrependicularSpin(ball, MIN(spinTime, time), table->spinningFriction, table->gravityAcceleration);
+
+      sprintf(a, "%f", ball->ang_velocity.z);
+      printf("The ball is: %s\n", a);
+
+
+      if (time >= spinTime){
+        ball->state = STATIONARY;
+        time -= spinTime;
+      }else return;
 
       break;
     default:

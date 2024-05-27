@@ -52,14 +52,22 @@ vector_t relativeVelocity(Ball *ball) {
   return relVelocity;
 }
 
+double getRollTime(Ball* ball, double u, double g){
+
+  if (u == 0) return INFINITY;
+  return magnitudeOf(ball->velocity) / (u * g);
+}
+
+
 double getSlideTime(Ball *ball, double u, double g) {
   if (u == 0)
-    return 0;
+    return INFINITY;
+
+  char a[40];
 
   double part1 = 2 * magnitudeOf(relativeVelocity(ball));
   double part2 = (7 * u * g);
 
-  char a[40];
   sprintf(a, "%f", u);
   printf("u= %s\n", a);
   sprintf(a, "%f", g);

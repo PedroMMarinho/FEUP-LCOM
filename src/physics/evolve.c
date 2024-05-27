@@ -4,6 +4,7 @@
 #include <math.h>
 
 void evolveBallMotion(Table *table, Ball *ball, double time) {
+  char a[40];
 
   switch (getBallState(ball)) {
     case STATIONARY:
@@ -14,24 +15,37 @@ void evolveBallMotion(Table *table, Ball *ball, double time) {
     case SLIDING: {
 
       double slideTime = getSlideTime(ball, table->slidingFriction, table->gravityAcceleration);
-      char a[20];
       sprintf(a, "%f", slideTime);
       printf("The time is: %s\n", a);
 
-      // if t >= dtau_E_slide:
-      //     rvw = evolve_slide_state(rvw, R, m, u_s, u_sp, g, dtau_E_slide)
-      //     state = const.rolling
-      //     t -= dtau_E_slide
-      // else:
-      //     return evolve_slide_state(rvw, R, m, u_s, u_sp, g, t), const.sliding
-
       evolveSlideState(ball, MIN(slideTime, time), table->spinningFriction, table->slidingFriction, table->gravityAcceleration);
-
+      if (time >= slideTime) {
+        ball->state = ROLLING;
+        time -= slideTime;
+      }
+      else
+        return;
       break;
     }
 
     case ROLLING:
+      printf("---- ROLLING ----");
+      double rollingTime = getRollTime(ball, table->rollingFriction, table->gravityAcceleration);
 
+      sprintf(a, "%f", rollingTime);
+      printf("The time is: %s\n", a);
+
+
+
+      evolveRollState(ball,MIN(time, rollingTime),  table->rollingFriction, table->spinningFriction, table->gravityAcceleration);
+        // dtau_E_roll = ptmath.get_roll_time(rvw, u_r, g)
+
+        // if t >= dtau_E_roll:
+        //     rvw = evolve_roll_state(rvw, R, u_r, u_sp, g, dtau_E_roll)
+        //     state = const.spinning
+        //     t -= dtau_E_roll
+        // else:
+        //     return evolve_roll_state(rvw, R, u_r, u_sp, g, t), const.rolling
       break;
 
     case SPINNING:
@@ -41,6 +55,50 @@ void evolveBallMotion(Table *table, Ball *ball, double time) {
       break;
   }
 }
+
+void evolveRollState(Ball* ball,double t,  double uRolling, double uSpinning, double g){
+
+  // For printing floats
+  char a[40];
+
+  if (!t)return;
+  
+  vector_t v0 = normalizeVector(ball->velocity);
+
+  ball->position.x = ball->position.x + ball->velocity.x * t - 0.5 * uRolling * g * t* t * v0.x;
+  ball->position.y = ball->position.y + ball->velocity.y * t - 0.5 * uRolling * g * t* t * v0.y;
+    
+  ball->velocity.x = ball->velocity.x - uRolling * g * t * v0.x;
+  ball->velocity.y = ball->velocity.y - uRolling * g * t * v0.y;
+
+  vector_t temp = {ball->velocity.x / ball->radius, ball->velocity.y / ball->radius};
+  vector_t xyAngVelocity = rotate2d(temp , M_PI / 2);
+  ball->ang_velocity.x = xyAngVelocity.x;
+  ball->ang_velocity.y = xyAngVelocity.y;
+  evolvePrependicularSpin(ball, t, uSpinning, g);
+
+  // debugger
+  printf("\n\n---- FINAL COORDINATES -----\n");
+
+  sprintf(a, "%fl", ball->position.x);
+  printf("The position: x.%s  ", a);
+  sprintf(a, "%fl", ball->position.y);
+  printf("y. %s\n", a);
+
+  sprintf(a, "%fl", ball->velocity.x);
+  printf("The velocity: x.%s  ", a);
+  sprintf(a, "%fl", ball->velocity.y);
+  printf("y. %s\n", a);
+
+  sprintf(a, "%fl", ball->ang_velocity.x);
+  printf("The angVelocity: x.%s  ", a);
+  sprintf(a, "%fl", ball->ang_velocity.y);
+  printf("y. %s ", a);
+  sprintf(a, "%fl", ball->ang_velocity.z);
+  printf("z. %s \n\n", a);
+}
+
+
 
 void evolveSlideState(Ball *ball, double t, double uSpinning, double uSliding, double g) {
 
@@ -148,6 +206,10 @@ void evolveSlideState(Ball *ball, double t, double uSpinning, double uSliding, d
   sprintf(a, "%fl", ball->ang_velocity.z);
   printf("z. %s \n\n", a);
 }
+
+
+
+
 
 void evolvePrependicularSpin(Ball *ball, double t, double uSpinning, double g) {
 

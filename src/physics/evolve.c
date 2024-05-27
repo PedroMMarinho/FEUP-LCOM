@@ -35,17 +35,15 @@ void evolveBallMotion(Table *table, Ball *ball, double time) {
       sprintf(a, "%f", rollingTime);
       printf("The time is: %s\n", a);
 
-
-
       evolveRollState(ball,MIN(time, rollingTime),  table->rollingFriction, table->spinningFriction, table->gravityAcceleration);
-        // dtau_E_roll = ptmath.get_roll_time(rvw, u_r, g)
 
-        // if t >= dtau_E_roll:
-        //     rvw = evolve_roll_state(rvw, R, u_r, u_sp, g, dtau_E_roll)
-        //     state = const.spinning
-        //     t -= dtau_E_roll
-        // else:
-        //     return evolve_roll_state(rvw, R, u_r, u_sp, g, t), const.rolling
+      if (time >= rollingTime) {
+        ball->state = "spinning";
+        time -= rollingTime;
+      }
+      else
+        return;
+
       break;
 
     case SPINNING:

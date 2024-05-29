@@ -38,46 +38,23 @@ int initGame() {
   printf("THE RESULT: %s\n", aString);
 
   Ball* ball1 = resources->table->balls[0];
-  ball1->position.x = 539;
-  ball1->position.y = 444;
+  ball1->position.x = 200;
+  ball1->position.y = 0;
 
-  ball1->velocity.x = -13;
-  ball1->velocity.y = -241;
+  ball1->velocity.x = 0;
+  ball1->velocity.y = 10;
 
-  ball1->ang_velocity.x = 14;
-  ball1->ang_velocity.y = 49;
-  ball1->ang_velocity.z = 53;
+  ball1->ang_velocity.x = 0;
+  ball1->ang_velocity.y = 0;
+  ball1->ang_velocity.z = 0;
 
   ball1->state = ROLLING;
 
-
-
-  Ball* ball2 = resources->table->balls[1];
-
-  ball2->position.x = 30;
-  ball2->position.y = 30;
-
-  ball2->velocity.x = -4;
-  ball2->velocity.y = -2;
-
-  ball2->ang_velocity.x = 7;
-  ball2->ang_velocity.y = 8;
-  ball2->ang_velocity.z = 5;
-
-  ball2->state = SLIDING;
-
-  QuarticCoeff coef = getBallBallCollisionCoeff(ball1, ball2, resources->table->rollingFriction, resources->table->slidingFriction, resources->table->gravityAcceleration);
-  printf("The coef: ");
-  sprintf(aString, "%fl", coef.a);
-  printf("%s | ", aString);
-  sprintf(aString, "%fl", coef.b);
-  printf("%s | ", aString);
-  sprintf(aString, "%fl", coef.c);
-  printf("%s | ", aString);
-  sprintf(aString, "%fl", coef.d);
-  printf("%s | ", aString);
-  sprintf(aString, "%fl", coef.e);
-  printf("%s | \n", aString);
+  vector_t p1 = {100, 400};
+  vector_t p2 = {300, 400};
+  double result = getBallCushionCollisionTime(resources->table, ball1, p1, p2);
+  sprintf(aString, "%fl", result);
+  printf("The result: %s", aString);
 
 
   return gameLoop(resources);

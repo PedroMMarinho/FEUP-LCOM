@@ -40,7 +40,7 @@ Event getNextBallBallCollision(Table *table) {
   colisionNumber--;
 
   double collisionTime;
-  size_t i = findSmallerCoeficient(colisionNumber, coeficients, &collisionTime);
+  int i = findSmallerCoeficient(colisionNumber, coeficients, &collisionTime);
   if (i == -1)
     return event;
 
@@ -52,3 +52,37 @@ Event getNextBallBallCollision(Table *table) {
   free(coeficients);
   return event;
 }
+
+
+Event getNextBallCushionCollision(Table* table){
+  Event event = {INFINITY, INVALID, 0, 0, 0};
+
+  for (size_t i=0; i < table->ballNumber; i++){
+
+    Ball* ball = table->balls[i];
+
+    if (ballNotMoving(ball)) continue;
+
+
+    // TODO: is the hard code ok in this case?
+    for (size_t j=0; j < 23; j++){
+
+      vector_t p1 = table->cushionPoints[j];
+      vector_t p2 = table->cushionPoints[(j+1)%23];
+
+      double collisionTime = getBallCushionCollisionTime(table, ball, p1, p2);
+
+      if (collisionTime < event.time){
+        event.time = collisionTime;
+        event.type = BALL_CUSHION;
+        event.ball1 = i;
+        event.cushionId = j;
+      }
+
+    }
+
+  }
+
+  return event;
+}
+

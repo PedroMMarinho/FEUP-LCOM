@@ -15,7 +15,7 @@ typedef enum GAME_STATE {
 
 typedef struct Table{
   xpm_image_t img;
-  vector_t* sides;
+  vector_t* cushionPoints;
   Ball** balls;
   uint8_t ballNumber;
   GAME_STATE state;

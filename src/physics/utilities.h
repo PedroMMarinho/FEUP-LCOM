@@ -40,5 +40,7 @@ double getRollTime(Ball* ball, double u, double g);
 
 double getSpinTime(Ball* ball, double u, double g);
 
+double getBallCushionCollisionTime(Table *table, Ball *ball, vector_t p1, vector_t p2);
+
 QuarticCoeff getBallBallCollisionCoeff(Ball* ball1, Ball* ball2, double uRolling, double uSlidding, double g);
 

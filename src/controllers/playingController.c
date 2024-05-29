@@ -10,8 +10,7 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
   switch (interruptType) {
     case TIMER:
       if (elapsed % (sys_hz() / 30) == 0) {
-        if (cleanCanvas())
-          return 1;
+        
         if (drawTable(table)){
           return OVER;
         }
@@ -19,6 +18,7 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
           printf("Error swapping buffers\n");
           return OVER;
         }
+        
       }
       break;
     case MOUSE:

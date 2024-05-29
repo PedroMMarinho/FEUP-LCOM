@@ -59,7 +59,8 @@ void destroyTable(Table *table) {
 }
 
 int drawTable(Table *table) {
-
+  if(vg_draw_rectangle(0, 0, 1024, 768, 0x00ff00))
+    return 1;
   for (size_t i = 0; i < table->ballNumber; i++) {
     Ball *ball = table->balls[i];
     if (drawXPMImage(getBallImage(ball), getBallPosition(ball).x, getBallPosition(ball).y, 0))

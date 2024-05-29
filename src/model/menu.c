@@ -21,7 +21,6 @@
 
 
 
-
 Menu* newMenu(MenuType type){
   Menu* menu = (Menu*)malloc(sizeof(Menu));
   setMenuType(menu,type);

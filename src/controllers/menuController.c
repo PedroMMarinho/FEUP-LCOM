@@ -72,19 +72,16 @@ STATE handleGameOverMenu(Menu *menu, int option) {
 STATE menuControllerHandle(Menu *menu, DEVICE interruptType, const struct packet *packet, uint8_t scanCode, unsigned elapsed) {
   switch (interruptType) {
     case TIMER:
-      if (elapsed % (sys_hz() / 30) == 0) {
-        if (cleanCanvas()){
-          printf("Error cleaning canvas\n");
+      if (elapsed % (sys_hz() / 25) == 0) {
+        if (drawMenu(menu)) {
+          printf("Error drawing menu\n");
           return OVER;
         }
         if(swap_buffers()){
           printf("Error swapping buffers\n");
           return OVER;
         }
-        if (drawMenu(menu)) {
-          printf("Error drawing menu\n");
-          return OVER;
-        }
+        
       
         
         

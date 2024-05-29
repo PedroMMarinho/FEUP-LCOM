@@ -114,7 +114,8 @@ int vg_draw_pattern(uint8_t no_rectangles, uint32_t first, uint8_t step) {
 }
 
 int (cleanCanvas)(){
-  memset(video_mem_first, 0, vram_size);
+  memset(video_mem_secondary, 0, vram_size);
+  printf("Canvas cleaned\n");
   return 0;
 }
 
@@ -145,7 +146,7 @@ int drawXPMImage(xpm_image_t img, double x, double y, double angle){
 
 
       uint16_t posX = x + changedX;
-      uint16_t posY = y + changedY;
+      uint16_t posY = y + changedY * -1;
       if (draw_pixel(posX , posY, color)) return 1;
       }
     }
@@ -217,5 +218,6 @@ int (swap_buffers)(){
   void *temp = video_mem_first;
   video_mem_first = video_mem_secondary;
   video_mem_secondary = temp;
+  cleanCanvas();
   return 0;
 }

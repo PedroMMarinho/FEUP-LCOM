@@ -1,8 +1,7 @@
 #include "button.h"
 
-Button* newButton(xpm_image_t img, xpm_image_t imgSelected, vector_t pos, vector_t size){
+Button* newButton( xpm_image_t imgSelected, vector_t pos, vector_t size){
   Button* button = (Button*)malloc(sizeof(Button));
-  button->img = img;
   button->imgSelected = imgSelected;
   button->pos = pos;
   button->size = size;

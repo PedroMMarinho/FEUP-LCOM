@@ -48,7 +48,7 @@ int draw_pixel(uint16_t x, uint16_t y, uint32_t color){
 
   unsigned bytesPerPixel = (bits_per_pixel + 7) / 8;
   unsigned index = (x + y * h_res) * bytesPerPixel;
-  if (memcpy(video_mem_first + index, &color, bytesPerPixel) == NULL) return 1;
+  if (memcpy(video_mem_secondary + index, &color, bytesPerPixel) == NULL) return 1;
   return 0;
 }
 
@@ -209,7 +209,7 @@ int (swap_buffers)(){
 
   r.ax = 0x4F07;
   r.bh = 0x00;
-  r.bl = 0x80; 
+  r.bl = 0x00; 
   r.dx = new_dx;
   r.intno = 0x10;
   if(sys_int86(&r)) return 1;

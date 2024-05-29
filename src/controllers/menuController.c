@@ -1,6 +1,7 @@
 #include "menuController.h"
 #include "../labs/graphics.h"
 #include "../model/table.h"
+bool bobr = false;
 
 STATE handleMainMenu(Menu *menu, int option) {
   printf("option stuff: %d\n", option);
@@ -76,14 +77,17 @@ STATE menuControllerHandle(Menu *menu, DEVICE interruptType, const struct packet
           printf("Error cleaning canvas\n");
           return OVER;
         }
-        if (drawMenu(menu)) {
-          printf("Error drawing menu\n");
-          return OVER;
-        }
         if(swap_buffers()){
           printf("Error swapping buffers\n");
           return OVER;
         }
+        if (drawMenu(menu)) {
+          printf("Error drawing menu\n");
+          return OVER;
+        }
+      
+        
+        
       }
       break;
     case MOUSE:

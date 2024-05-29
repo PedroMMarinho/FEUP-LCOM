@@ -2,11 +2,11 @@
 #include "model/vector.h"
 #include "xpms/ball.xpm"
 
-#include "labs/keyboard.h"
-#include "labs/timer.h"
-#include "labs/kbc.h"
 #include "labs/graphics.h"
+#include "labs/kbc.h"
+#include "labs/keyboard.h"
 #include "labs/mouse.h"
+#include "labs/timer.h"
 
 #include "viewer/cueViewer.h"
 #include "viewer/lineViewer.h"
@@ -17,36 +17,75 @@
 
 #include "resources.h"
 
-
 // Includes for physics testing
-#include "physics/evolve.h"
+#include "physics/utilities.h"
 
-int initGame(){
-  Resources* resources = loadResources();
+int initGame() {
+  Resources *resources = loadResources();
   printf("created resources\n");
 
-  // Testing of the physics
-  Ball* ball = resources->table->balls[0];
-  ball->velocity.x = 4; 
-  ball->velocity.y = 5; 
-  ball->ang_velocity.x = 7; 
-  ball->ang_velocity.y = 8; 
-  ball->ang_velocity.z = 5; 
-  ball->position.x = 1;
-  ball->position.y = 2;
-  ball->state = SPINNING;
+  // Testing of quartic solver
+  double a, b, c, d, e;
+  a = 2;
+  b = 1;
+  c = -72;
+  d = 9;
+  e = 66;
+  char aString[20];
 
-  evolveBallMotion(resources->table, ball, 1);
-  printf("FINISHED EVOLVING");
+  double root = smallerPositiveQuarticRoot(a, b, c, d, e);
+  sprintf(aString, "%fl", root);
+  printf("THE RESULT: %s\n", aString);
+
+  Ball* ball1 = resources->table->balls[0];
+  ball1->position.x = 539;
+  ball1->position.y = 444;
+
+  ball1->velocity.x = -13;
+  ball1->velocity.y = -241;
+
+  ball1->ang_velocity.x = 14;
+  ball1->ang_velocity.y = 49;
+  ball1->ang_velocity.z = 53;
+
+  ball1->state = ROLLING;
+
+
+
+  Ball* ball2 = resources->table->balls[1];
+
+  ball2->position.x = 30;
+  ball2->position.y = 30;
+
+  ball2->velocity.x = -4;
+  ball2->velocity.y = -2;
+
+  ball2->ang_velocity.x = 7;
+  ball2->ang_velocity.y = 8;
+  ball2->ang_velocity.z = 5;
+
+  ball2->state = SLIDING;
+
+  QuarticCoeff coef = getBallBallCollisionCoeff(ball1, ball2, resources->table->rollingFriction, resources->table->slidingFriction, resources->table->gravityAcceleration);
+  printf("The coef: ");
+  sprintf(aString, "%fl", coef.a);
+  printf("%s | ", aString);
+  sprintf(aString, "%fl", coef.b);
+  printf("%s | ", aString);
+  sprintf(aString, "%fl", coef.c);
+  printf("%s | ", aString);
+  sprintf(aString, "%fl", coef.d);
+  printf("%s | ", aString);
+  sprintf(aString, "%fl", coef.e);
+  printf("%s | \n", aString);
+
 
   return gameLoop(resources);
-
 }
 
-int gameLoop(Resources* resources){
+int gameLoop(Resources *resources) {
   mapMemory(0x118);
   changeMode(0x118);
-
 
   int r;
   message msg;
@@ -59,10 +98,10 @@ int gameLoop(Resources* resources){
   uint8_t keyboard_iqr;
   if (keyboard_subscribe(&keyboard_iqr))
     return 1;
-    uint8_t timer_iqr;
-    if (timer_subscribe_int(&timer_iqr)) return 1;
+  uint8_t timer_iqr;
+  if (timer_subscribe_int(&timer_iqr))
+    return 1;
 
-  
   while (resources->state != OVER) {
     STATE state = resources->state;
     /* Get a request message. */
@@ -75,26 +114,26 @@ int gameLoop(Resources* resources){
       switch (_ENDPOINT_P(msg.m_source)) {
         case HARDWARE:
 
-          if (msg.m_notify.interrupts & timer_iqr){
+          if (msg.m_notify.interrupts & timer_iqr) {
             timer_int_handler();
-            switch (state)
-            {
-            case MAIN_MENU:
-              break;
-            case PLAYING:
-              resources->state = playingControllerHandle(resources->table, TIMER, NULL, 0, get_elapsed());
-              break;
-            default:
-              break;
+            switch (state) {
+              case MAIN_MENU:
+                break;
+              case PLAYING:
+                resources->state = playingControllerHandle(resources->table, TIMER, NULL, 0, get_elapsed());
+                break;
+              default:
+                break;
             }
           }
-        
+
           if (msg.m_notify.interrupts & mouse_iqr) {
             mouse_ih();
-            if (mouseError()) return 1;
-            if (isPacketComplete()){
+            if (mouseError())
+              return 1;
+            if (isPacketComplete()) {
               struct packet packet = getMousePacket();
-              switch (state){
+              switch (state) {
                 case MAIN_MENU:
                   break;
                 case PLAYING:
@@ -111,15 +150,14 @@ int gameLoop(Resources* resources){
               return 1;
             uint8_t scancode = getKeyboardScancode();
             printf("The received scanCode is: %x\n", scancode);
-            switch (state)
-            {
-            case MAIN_MENU:
-              break;
-            case PLAYING:
-              resources->state = playingControllerHandle(resources->table, KEYBOARD, NULL, scancode, 0);
-              break;
-            default:
-              break;
+            switch (state) {
+              case MAIN_MENU:
+                break;
+              case PLAYING:
+                resources->state = playingControllerHandle(resources->table, KEYBOARD, NULL, scancode, 0);
+                break;
+              default:
+                break;
             }
           }
         default:
@@ -134,13 +172,14 @@ int gameLoop(Resources* resources){
     return 1;
   if (keyboard_unsubscribe())
     return 1;
-  if (timer_unsubscribe_int()) return 1;
+  if (timer_unsubscribe_int())
+    return 1;
 
   printf("Exiting video mode\n");
-  if (vg_exit()) return 1;
+  if (vg_exit())
+    return 1;
   printf("Cleaning resources\n");
   destroyResources(resources);
   printf("Everything finished\n");
   return 0;
-
 }

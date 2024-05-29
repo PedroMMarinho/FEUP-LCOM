@@ -32,7 +32,7 @@ vector_t getBallVelocity(Ball* ball){
   return ball->velocity;
 }
 
-vector_t getBallAngVelocity(Ball* ball){
+vector3_t getBallAngVelocity(Ball* ball){
   return ball->ang_velocity;
 }
 
@@ -42,4 +42,8 @@ BALL_STATE getBallState(Ball* ball){
 
 xpm_image_t getBallImage(Ball* ball){
   return ball->img;
+}
+
+bool ballNotMoving(Ball* ball){
+  return (ball->state == POCKETED || ball->state == STATIONARY || ball->state == SPINNING);
 }

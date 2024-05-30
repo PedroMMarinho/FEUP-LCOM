@@ -33,10 +33,6 @@ int initGame() {
   e = 66;
   char aString[20];
 
-  double root = smallerPositiveQuarticRoot(a, b, c, d, e);
-  sprintf(aString, "%fl", root);
-  printf("THE RESULT: %s\n", aString);
-
   Ball* ball1 = resources->table->balls[0];
   ball1->position.x = 200;
   ball1->position.y = 0;
@@ -50,11 +46,20 @@ int initGame() {
 
   ball1->state = ROLLING;
 
-  vector_t p1 = {100, 400};
-  vector_t p2 = {300, 400};
-  double result = getBallCushionCollisionTime(resources->table, ball1, p1, p2);
-  sprintf(aString, "%fl", result);
-  printf("The result: %s", aString);
+  vector_t pocket = {200, 200};
+  QuarticCoeff result = getBallPocketCollisionCoeff(ball1, pocket, resources->table->pocketRadius, resources->table->rollingFriction, resources->table->slidingFriction, resources->table->gravityAcceleration);
+
+
+  sprintf(aString, "%fl", result.a);
+  printf("The result: %s | ", aString);
+  sprintf(aString, "%fl", result.b);
+  printf(" %s | ", aString);
+  sprintf(aString, "%fl", result.c);
+  printf(" %s | ", aString);
+  sprintf(aString, "%fl", result.d);
+  printf(" %s | ", aString);
+  sprintf(aString, "%fl", result.e);
+  printf(" %s | \n", aString);
 
 
   return gameLoop(resources);

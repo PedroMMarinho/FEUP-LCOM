@@ -20,5 +20,7 @@ typedef struct Event {
   int ball1;
   int ball2;
   int cushionId;
+  // TODO: NECESSARY TO SAVE THE POCKET ???
+  int pocket;
 
 }Event;

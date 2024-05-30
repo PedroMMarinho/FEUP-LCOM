@@ -370,6 +370,68 @@ QuarticCoeff getBallBallCollisionCoeff(Ball *ball1, Ball *ball2, double uRolling
   return coefficient;
 }
 
+QuarticCoeff getBallPocketCollisionCoeff(Ball *ball, vector_t pocket, double radius, double uRolling, double uSlidding, double g) {
+  char aString[30];
+
+  double ang = angle(ball->velocity);
+  sprintf(aString, "%fl", ang);
+  printf("The angle: %s\n", aString);
+
+  double v = magnitudeOf(ball->velocity);
+
+  vector_t u = get_uVec(ball, ang);
+
+  sprintf(aString, "%fl", u.x);
+  printf("u: %s | ", aString);
+  sprintf(aString, "%fl", u.y);
+  printf("%s\n", aString);
+
+  double K = -0.5 * g * (ball->state == SLIDING ? uSlidding : uRolling);
+  sprintf(aString, "%fl", K);
+  printf("K: %s\n", aString);
+  double cosseno = cos(ang);
+  double seno = sin(ang);
+
+  sprintf(aString, "%fl", cosseno);
+  printf("cos: %s\n", aString);
+  sprintf(aString, "%fl", seno);
+  printf("seno: %s\n", aString);
+
+
+  vector_t a, b;
+  a.x = K * (u.x * cosseno - u.y * seno);
+  a.y = K * (u.x * seno + u.y * cosseno);
+  b.x = v * cosseno;
+  b.y = v * seno;
+  vector_t c = {ball->position.x, ball->position.y};
+
+
+  sprintf(aString, "%fl", a.x);
+  printf("a: %s | ", aString);
+  sprintf(aString, "%fl", a.y);
+  printf("%s\n", aString);
+
+  sprintf(aString, "%fl", b.x);
+  printf("b: %s | ", aString);
+  sprintf(aString, "%fl", b.y);
+  printf("%s\n", aString);
+
+  sprintf(aString, "%fl", c.x);
+  printf("c: %s | ", aString);
+  sprintf(aString, "%fl", c.y);
+  printf("%s\n", aString);
+
+  QuarticCoeff coefficient;
+
+  coefficient.a = 0.5 * (a.x*a.x + a.y*a.y);
+  coefficient.b = a.x * b.x + a.y * b.y;
+  coefficient.c = a.x * (c.x - pocket.x) + a.y * (c.y - pocket.y) + 0.5 * (b.x*b.x + b.y*b.y);
+  coefficient.d = b.x * (c.x - pocket.x) + b.y * (c.y - pocket.y);
+  coefficient.e = 0.5 * (pocket.x * pocket.x + pocket.y * pocket.y + c.x*c.x + c.y*c.y - radius*radius)-(c.x * pocket.x+ c.y * pocket.y);
+
+  return coefficient;
+}
+
 int findSmallerCoeficient(size_t n, QuarticCoeff *coeficients, double *result) {
 
   int index = -1;

@@ -44,3 +44,5 @@ double getBallCushionCollisionTime(Table *table, Ball *ball, vector_t p1, vector
 
 QuarticCoeff getBallBallCollisionCoeff(Ball* ball1, Ball* ball2, double uRolling, double uSlidding, double g);
 
+QuarticCoeff getBallPocketCollisionCoeff(Ball *ball, vector_t pocket, double radius, double uRolling, double uSlidding, double g);
+

@@ -38,6 +38,11 @@ Table *newTable() {
   xpm_load(biggerTableXpm, XPM_8_8_8, &img);
   table->img = img;
 
+  // Set pockets
+  table->pocketRadius = 25;
+
+  // Set cushions
+
   // Set mouse
   table->mouse = newMouse();
 

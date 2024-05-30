@@ -14,6 +14,7 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
         if (drawTable(table)){
           return OVER;
         }
+        
         if(swap_buffers()){
           printf("Error swapping buffers\n");
           return OVER;

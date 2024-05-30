@@ -7,11 +7,14 @@
 static uint8_t* video_mem_first;
 static uint8_t* video_mem_secondary;
 static bool isSecondBuffer = false;
+static u32_t vram_base;  
+static u32_t vram_base_secondary;
 static vbe_mode_info_t modeInfo;
 static u32_t vram_size;
 static unsigned h_res;	        /* Horizontal resolution in pixels */
 static unsigned v_res;	        /* Vertical resolution in pixels */
 static unsigned bits_per_pixel; /* Number of VRAM bits per pixel */
+static unsigned bytes_per_pixel;
 
 int changeMode(uint16_t mode){
   reg86_t r86;
@@ -115,7 +118,6 @@ int vg_draw_pattern(uint8_t no_rectangles, uint32_t first, uint8_t step) {
 
 int (cleanCanvas)(){
   memset(video_mem_secondary, 0, vram_size);
-  printf("Canvas cleaned\n");
   return 0;
 }
 
@@ -146,7 +148,7 @@ int drawXPMImage(xpm_image_t img, double x, double y, double angle){
 
 
       uint16_t posX = x + changedX;
-      uint16_t posY = y + changedY * -1;
+      uint16_t posY = y + changedY;
       if (draw_pixel(posX , posY, color)) return 1;
       }
     }
@@ -157,43 +159,42 @@ int(mapMemory)(uint16_t mode){
   /* Use VBE function 0x01 to initialize vram_base and vram_size */
   if(vbe_get_mode_info(mode,&modeInfo)) return 1;
 
-  struct minix_mem_range mr_first,mr_secondary;
-  unsigned int vram_base;  /* VRAM's physical addresss */
-  unsigned int vram_base_secondary;
-  unsigned int vram_size;  /* VRAM's size, but you can use the frame-buffer size, instead */
+ if (vbe_get_mode_info(mode, &modeInfo)) return 1; // Get Mode info
+
+  struct minix_mem_range mrFirst, mrSecondary;
   int r;
 
+  bits_per_pixel = modeInfo.BitsPerPixel;
+  bytes_per_pixel = (bits_per_pixel + 7)/8;
   h_res = modeInfo.XResolution;
   v_res = modeInfo.YResolution;
 
-  bits_per_pixel = modeInfo.BitsPerPixel;
+  vram_size = h_res * v_res * bytes_per_pixel;
 
-  vram_size = h_res * v_res * ((bits_per_pixel+7) / 8);
   vram_base = modeInfo.PhysBasePtr;
-
   vram_base_secondary = modeInfo.PhysBasePtr + vram_size;
 
-  /* Allow memory mapping */
-  mr_first.mr_base = (phys_bytes) vram_base;
-  mr_secondary.mr_base = (phys_bytes)vram_base_secondary;    
+  mrFirst.mr_base = (phys_bytes) vram_base;	
+  mrFirst.mr_limit = mrFirst.mr_base + vram_size * 2; 
+  mrSecondary.mr_base = (phys_bytes)vram_base_secondary;
 
-  mr_first.mr_limit = mr_first.mr_base + vram_size * 2;
-
-
-  if( OK != (r = sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mr_first))) return 1;
+  if( OK != (r = sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mrFirst))){
+    panic("sys_privctl (ADD_MEM) failed: %d\n", r);
+    return 1;
+  }
 
   /* Map memory */
+  video_mem_first = vm_map_phys(SELF, (void *)mrFirst.mr_base, vram_size);
+  video_mem_secondary = vm_map_phys(SELF, (void *)mrSecondary.mr_base, vram_size);
 
-  video_mem_first = vm_map_phys(SELF, (void *)mr_first.mr_base, vram_size);
 
-  video_mem_secondary = vm_map_phys(SELF, (void *)mr_secondary.mr_base, vram_size);
+  if(video_mem_first == MAP_FAILED || video_mem_secondary == MAP_FAILED){
+    panic("couldn't map video memory");
+    return 1;
+  }
 
-  if(video_mem_first == MAP_FAILED || video_mem_secondary == MAP_FAILED) return 1;
-  
-  /*Initialize memory to be a black screen*/
   memset(video_mem_first, 0, vram_size);
   memset(video_mem_secondary, 0, vram_size);
-
   return 0;
 }
 int (swap_buffers)(){

@@ -1,7 +1,6 @@
 #include "menuController.h"
 #include "../labs/graphics.h"
 #include "../model/table.h"
-bool bobr = false;
 
 STATE handleMainMenu(Menu *menu, int option) {
   printf("option stuff: %d\n", option);

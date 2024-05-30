@@ -15,5 +15,5 @@ int drawAim();
 void drawLineOverlap(unsigned int aXStart, unsigned int aYStart, unsigned int aXEnd, unsigned int aYEnd, uint8_t aOverlap,
                      uint32_t aColor);
 
-                  
+                
 void drawThickLine(vector_t start, vector_t end, unsigned int aThickness, uint32_t aColor);

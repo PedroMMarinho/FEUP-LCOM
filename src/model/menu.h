@@ -13,6 +13,7 @@ typedef enum MenuType {
 
 typedef struct Menu {
   xpm_image_t backgroundImg;
+  xpm_image_t mainMenuLogo;
   MenuType type;  
   int nOptions;
   int selectedOption;
@@ -27,6 +28,6 @@ Menu* newMenu(MenuType type);
 void destroyMenu(Menu* menu);
 void setMenuType(Menu* menu, MenuType type);
 void resetMenu(Menu* menu);
-int drawMenu(Menu* menu);
+int drawMenu(Menu* menu,int time);
 int seeIfMouseIsOverOption(Menu* menu,int *option);
 void updateSelectedOption(Menu* menu, int option);

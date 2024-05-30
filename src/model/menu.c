@@ -12,13 +12,13 @@
 #include "xpms/menu/mainMenuExitSelected.xpm"
 #include "xpms/menu/mainMenuPlay.xpm"
 #include "xpms/menu/mainMenuPlaySelected.xpm"
-#include "xpms/menu/menuBackground.xpm"
+#include "xpms/menu/mainMenuBackground.xpm"
 #include "xpms/menu/mainMenuInfo.xpm"
 #include "xpms/menu/mainMenuInfoSelected.xpm"
 #include "xpms/menu/menuMouse.xpm"
 #include "xpms/menu/menuMouseHover.xpm"
-#include "xpms/menu/mainMenuBackground.xpm"
-
+#include "xpms/menu/instructionsMenuBackground.xpm"
+#include "xpms/menu/logo.xpm"
 
 
 Menu* newMenu(MenuType type){
@@ -38,8 +38,8 @@ void setMenuType(Menu* menu, MenuType type){
   
   xpm_image_t menuBackground;
   
-  vector_t pos = {350,500};
-  vector_t size = {200,100};
+  vector_t pos = {195,500};
+  vector_t size = {200,102};
   xpm_image_t gameModeMenuLocal;
   xpm_image_t gameModeMenuLocalSelected;
   xpm_image_t gameModeMenuOnline;
@@ -52,14 +52,14 @@ void setMenuType(Menu* menu, MenuType type){
   xpm_image_t mainMenuInfoSelected;
   xpm_image_t mainMenuExit;
   xpm_image_t mainMenuExitSelected;
+  xpm_image_t logo;
   
-  xpm_load(menuBackgroundXpm, XPM_8_8_8, &menuBackground);
-  menu->backgroundImg = menuBackground;
+  
   switch (type)
   {
   case MAIN_MENU:
-    
-     menu->nOptions = 3;
+  
+    menu->nOptions = 3;
     menu->buttons = (Button**)malloc(sizeof(Button*)*menu->nOptions);    
     xpm_load(mainMenuPlayXpm, XPM_8_8_8, &mainMenuPlay);
     xpm_load(mainMenuPlaySelectedXpm, XPM_8_8_8, &mainMenuPlaySelected);
@@ -70,13 +70,18 @@ void setMenuType(Menu* menu, MenuType type){
     
   
     menu->buttons[0] = newButton(mainMenuPlay,mainMenuPlaySelected,pos,size);
-    pos.x = 650;
+    pos.x = 629;
     menu->buttons[1] = newButton(mainMenuInfo,mainMenuInfoSelected,pos,size);
-    pos.y = 670;
-    pos.x = 450;
+    pos.y = 650;
+    pos.x = 412;
     menu->buttons[2] = newButton(mainMenuExit,mainMenuExitSelected,pos,size);
+    xpm_load(mainMenuBackgroundXpm, XPM_8_8_8, &menuBackground);
+    printf("Background loaded\n");
+    menu->backgroundImg = menuBackground;
+    xpm_load(logoXpm, XPM_8_8_8, &logo);
+      
     
-   
+    menu->mainMenuLogo = logo;
     break;
   case GAME_MODE_MENU:
     
@@ -89,23 +94,25 @@ void setMenuType(Menu* menu, MenuType type){
       xpm_load(backXpm, XPM_8_8_8, &back);
       xpm_load(backSelectedXpm, XPM_8_8_8, &backSelected);
       menu->buttons[0] = newButton(gameModeMenuLocal,gameModeMenuLocalSelected,pos,size);
-      pos.x = 650;
+      pos.x = 629;
       menu->buttons[1] = newButton(gameModeMenuOnline,gameModeMenuOnlineSelected,pos,size);
-      pos.y = 670;
-      pos.x = 450;
+      pos.y = 650;
+      pos.x = 412;
       menu->buttons[2] = newButton(back,backSelected,pos,size);
-    
+      xpm_load(mainMenuBackgroundXpm, XPM_8_8_8, &menuBackground);
+      menu->backgroundImg = menuBackground;
       
       break;
   case INSTRUCTIONS_MENU:
-  
-    menu->nOptions = 1;
+      pos.x = 629;
+      pos.y = 650;
+      menu->nOptions = 1;
       menu->buttons = (Button**)malloc(sizeof(Button*)*menu->nOptions);
       xpm_load(backXpm, XPM_8_8_8, &back);
       xpm_load(backSelectedXpm, XPM_8_8_8, &backSelected);
       menu->buttons[0] = newButton(back,backSelected,pos,size);
-  
-      
+      xpm_load(instructionsMenuBackgroundXpm, XPM_8_8_8, &menuBackground);
+      menu->backgroundImg = menuBackground;
       break;
   case GAME_OVER_MENU:
        
@@ -114,8 +121,8 @@ void setMenuType(Menu* menu, MenuType type){
       xpm_load(backXpm, XPM_8_8_8, &back);
       xpm_load(backSelectedXpm, XPM_8_8_8, &backSelected);
       menu->buttons[0] = newButton(back, backSelected,pos,size);
-      
-      
+      xpm_load(mainMenuBackgroundXpm, XPM_8_8_8, &menuBackground);
+      menu->backgroundImg = menuBackground;
      break;
   }
   menu->selectedOption = -1;
@@ -130,8 +137,11 @@ void resetMenu(Menu* menu){
     destroyButton(menu->buttons[i]);
   }
 }
-int drawMenu(Menu* menu){
+int drawMenu(Menu* menu,int time){
   if( drawMenuBackground(menu->backgroundImg)) return 1;
+  if(menu->type == MAIN_MENU ){
+    if(drawMenuLogo(menu->mainMenuLogo,time)) return 1;
+  }
   for(int i = 0; i < menu->nOptions; i++){
     if(drawMenuButton(menu->buttons[i])) return 1;
   }

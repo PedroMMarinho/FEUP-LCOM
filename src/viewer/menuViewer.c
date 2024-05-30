@@ -22,3 +22,9 @@ int drawMenuMouse(Mouse* mouse, xpm_image_t mouseImg, xpm_image_t imgMouseHover,
     }
     return 0;
 }
+int drawMenuLogo(xpm_image_t img,int time){
+    int y = 175 + (int)(sin(time*0.05)*10);
+    if(drawXPMImage(img,512,y,0)) return 1;
+    return 0;
+}
+

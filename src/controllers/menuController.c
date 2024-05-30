@@ -72,7 +72,7 @@ STATE menuControllerHandle(Menu *menu, DEVICE interruptType, const struct packet
   switch (interruptType) {
     case TIMER:
       if (elapsed % (sys_hz() / 25) == 0) {
-        if (drawMenu(menu)) {
+        if (drawMenu(menu,elapsed)) {
           printf("Error drawing menu\n");
           return OVER;
         }

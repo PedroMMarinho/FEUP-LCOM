@@ -13,3 +13,4 @@ Mouse* newMouse(){
 void destroyMouse(Mouse* mouse){
   free(mouse);
 }
+

@@ -153,6 +153,7 @@ int drawXPMImage(xpm_image_t img, double x, double y, double angle){
       }
     }
   }
+  
   return 0;
 }
 int(mapMemory)(uint16_t mode){

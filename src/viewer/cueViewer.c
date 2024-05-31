@@ -8,7 +8,7 @@
 
 int drawCue(Table* table){
   Cue* cue = table->cue;
-  drawXPMImage(cue->img, cue->position.x, cue->position.y, M_PI - cue->angle);
+  drawXPMImage(cue->img, cue->position.x, cue->position.y, cue->angle);
 
   drawThickLine(table->balls[0]->position, cue->colisionPoint, 3, 0xffffff);
   drawXPMImage(cue->guideImg, cue->colisionPoint.x, cue->colisionPoint.y, 0);

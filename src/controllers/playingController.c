@@ -12,6 +12,11 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
     case TIMER:
       if (elapsed % (sys_hz() / 30) == 0) {
 
+        if (table->state == SIMULATING){
+          if (!updatePhysics(table, 1.0/30.0)){
+            table->state = AIMING;
+          }
+        }       
 
         if (drawTable(table)){
           return OVER;
@@ -44,7 +49,6 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
           if (!packet->lb){
             if (table->cue->charge) {
               table->state = SIMULATING;
-              table->cue->charge = 0;
               processShot(table);
             }else{
               table->state = AIMING;

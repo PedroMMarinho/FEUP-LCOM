@@ -4,6 +4,50 @@
 #include "math.h"
 #include "physicsMacros.h"
 
+
+
+
+void printEvent(Event* event){
+
+  printf("Type: %d",event->type);
+  printf("Time: ");
+  printFloat(event->time);
+  printf("\n");
+}
+
+void printFloat(double num){
+
+  char a[30];
+  sprintf(a, "%fl", num);
+  printf("%s\n", a);
+}
+
+void printCoef(QuarticCoeff q){
+
+  char a[30];
+  sprintf(a, "%fl", q.a);
+  printf("a - %s\n", a);
+  sprintf(a, "%fl", q.b);
+  printf("b - %s\n", a);
+  sprintf(a, "%fl", q.c);
+  printf("c - %s\n", a);
+  sprintf(a, "%fl", q.d);
+  printf("d - %s\n", a);
+  sprintf(a, "%fl", q.e);
+  printf("e - %s\n", a);
+
+}
+
+void printVector(vector_t vec){
+
+  char a[30];
+
+  sprintf(a, "%fl", vec.x);
+  printf("x - %s\n", a);
+  sprintf(a, "%fl", vec.y);
+  printf("y - %s\n", a);
+}
+
 double angle(vector_t vec1) {
 
   double ang = atan2(vec1.y, vec1.x);
@@ -192,20 +236,6 @@ double getSlideTime(Ball *ball, double u, double g) {
   if (u == 0)
     return INFINITY;
 
-  char a[40];
-
-  double part1 = 2 * magnitudeOf(relativeVelocity(ball));
-  double part2 = (7 * u * g);
-
-  sprintf(a, "%f", u);
-  printf("u= %s\n", a);
-  sprintf(a, "%f", g);
-  printf("g= %s\n", a);
-  sprintf(a, "%f", part1);
-  printf("Part 1 = %s   ", a);
-  sprintf(a, "%f", part2);
-  printf("Part 2 = %s\n", a);
-
   return 2 * magnitudeOf(relativeVelocity(ball)) / (7 * u * g);
 }
 
@@ -285,8 +315,6 @@ vector_t get_uVec(Ball *ball, double ang) {
 
 QuarticCoeff getBallBallCollisionCoeff(Ball *ball1, Ball *ball2, double uRolling, double uSlidding, double g) {
 
-  printf("--- Coeficient Start ----\n");
-  char aString[30];
 
   vector_t a1 = {0, 0};
   vector_t b1 = {0, 0};
@@ -295,16 +323,12 @@ QuarticCoeff getBallBallCollisionCoeff(Ball *ball1, Ball *ball2, double uRolling
 
   if (!ballNotMoving(ball1)) {
     double ang = angle(ball1->velocity);
-    sprintf(aString, "%fl", ang);
-    printf("The angle: %s\n", aString);
 
     double v1 = magnitudeOf(ball1->velocity);
 
     vector_t u1 = get_uVec(ball1, ang);
 
     double K1 = -0.5 * g * (ball1->state == SLIDING ? uSlidding : uRolling);
-    sprintf(aString, "%fl", K1);
-    printf("K1: %s\n", aString);
     double cosseno = cos(ang);
     double seno = sin(ang);
 
@@ -314,28 +338,13 @@ QuarticCoeff getBallBallCollisionCoeff(Ball *ball1, Ball *ball2, double uRolling
     b1.y = v1 * seno;
   }
 
-  // Debug
-  sprintf(aString, "%fl", a1.x);
-  printf("a1: %s", aString);
-  sprintf(aString, "%fl", a1.y);
-  printf(",%s\n", aString);
-
-  sprintf(aString, "%fl", b1.x);
-  printf("b1: %s", aString);
-  sprintf(aString, "%fl", b1.y);
-  printf(",%s\n", aString);
-
   if (!ballNotMoving(ball2)) {
     double ang = angle(ball2->velocity);
-    sprintf(aString, "%fl", ang);
-    printf("The angle: %s\n", aString);
     double v2 = magnitudeOf(ball2->velocity);
 
     vector_t u2 = get_uVec(ball2, ang);
 
     double K2 = -0.5 * g * (ball2->state == SLIDING ? uSlidding : uRolling);
-    sprintf(aString, "%fl", K2);
-    printf("K2: %s\n", aString);
     double cosseno = cos(ang);
     double seno = sin(ang);
 
@@ -345,34 +354,11 @@ QuarticCoeff getBallBallCollisionCoeff(Ball *ball1, Ball *ball2, double uRolling
     b2.y = v2 * seno;
   }
 
-  sprintf(aString, "%fl", a2.x);
-  printf("a2: %s", aString);
-  sprintf(aString, "%fl", a2.y);
-  printf(",%s\n", aString);
-
-  sprintf(aString, "%fl", b2.x);
-  printf("b2: %s", aString);
-  sprintf(aString, "%fl", b2.y);
-  printf(",%s\n", aString);
 
   vector_t A = {a2.x - a1.x, a2.y - a1.y};
   vector_t B = {b2.x - b1.x, b2.y - b1.y};
   vector_t C = {ball2->position.x - ball1->position.x, ball2->position.y - ball1->position.y};
 
-  sprintf(aString, "%fl", A.x);
-  printf("A: %s", aString);
-  sprintf(aString, "%fl", A.y);
-  printf(",%s\n", aString);
-
-  sprintf(aString, "%fl", B.x);
-  printf("B: %s", aString);
-  sprintf(aString, "%fl", B.y);
-  printf(",%s\n", aString);
-
-  sprintf(aString, "%fl", C.x);
-  printf("C: %s", aString);
-  sprintf(aString, "%fl", C.y);
-  printf(",%s\n", aString);
 
   QuarticCoeff coefficient;
 
@@ -386,31 +372,18 @@ QuarticCoeff getBallBallCollisionCoeff(Ball *ball1, Ball *ball2, double uRolling
 }
 
 QuarticCoeff getBallPocketCollisionCoeff(Ball *ball, Pocket* pocket, double uRolling, double uSlidding, double g) {
-  char aString[30];
 
   double ang = angle(ball->velocity);
-  sprintf(aString, "%fl", ang);
-  printf("The angle: %s\n", aString);
 
   double v = magnitudeOf(ball->velocity);
 
   vector_t u = get_uVec(ball, ang);
 
-  sprintf(aString, "%fl", u.x);
-  printf("u: %s | ", aString);
-  sprintf(aString, "%fl", u.y);
-  printf("%s\n", aString);
 
   double K = -0.5 * g * (ball->state == SLIDING ? uSlidding : uRolling);
-  sprintf(aString, "%fl", K);
-  printf("K: %s\n", aString);
   double cosseno = cos(ang);
   double seno = sin(ang);
 
-  sprintf(aString, "%fl", cosseno);
-  printf("cos: %s\n", aString);
-  sprintf(aString, "%fl", seno);
-  printf("seno: %s\n", aString);
 
 
   vector_t a, b;
@@ -421,21 +394,6 @@ QuarticCoeff getBallPocketCollisionCoeff(Ball *ball, Pocket* pocket, double uRol
   vector_t c = {ball->position.x, ball->position.y};
 
 
-  sprintf(aString, "%fl", a.x);
-  printf("a: %s | ", aString);
-  sprintf(aString, "%fl", a.y);
-  printf("%s\n", aString);
-
-  sprintf(aString, "%fl", b.x);
-  printf("b: %s | ", aString);
-  sprintf(aString, "%fl", b.y);
-  printf("%s\n", aString);
-
-  sprintf(aString, "%fl", c.x);
-  printf("c: %s | ", aString);
-  sprintf(aString, "%fl", c.y);
-  printf("%s\n", aString);
-
   QuarticCoeff coefficient;
 
   coefficient.a = 0.5 * (a.x*a.x + a.y*a.y);
@@ -444,11 +402,11 @@ QuarticCoeff getBallPocketCollisionCoeff(Ball *ball, Pocket* pocket, double uRol
   coefficient.d = b.x * (c.x - pocket->position.x) + b.y * (c.y - pocket->position.y);
   coefficient.e = 0.5 * (pocket->position.x * pocket->position.x + pocket->position.y * pocket->position.y + c.x*c.x + c.y*c.y - pocket->radius*pocket->radius)-(c.x * pocket->position.x+ c.y * pocket->position.y);
 
+
   return coefficient;
 }
 
 int findSmallerCoeficient(size_t n, QuarticCoeff *coeficients, double *result) {
-
   int index = -1;
   double smallerResult = INFINITY;
 
@@ -461,5 +419,6 @@ int findSmallerCoeficient(size_t n, QuarticCoeff *coeficients, double *result) {
   }
 
   *result = smallerResult;
+  printf("Best coeficient=%d\n", index);
   return index;
 }

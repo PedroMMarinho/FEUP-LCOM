@@ -5,12 +5,23 @@
 #include "../model/ball/ball.h"
 #include "../model/cushion.h"
 #include "../model/pocket.h"
+#include "../model/event.h"
 
 
 
 typedef struct {
   double a, b, c, d, e;
 } QuarticCoeff;
+// DEBUGGING
+
+void printEvent(Event* event);
+
+void printFloat(double num);
+
+void printCoef(QuarticCoeff q);
+
+void printVector(vector_t vec);
+// Maths
 
 vector_t unitVector(vector_t a, vector_t b);
 

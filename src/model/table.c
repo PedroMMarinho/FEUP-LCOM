@@ -12,28 +12,28 @@ Table *newTable() {
   Table *table = (Table *) malloc(sizeof(Table));
 
   // Set balls
-  table->ballNumber = 7;
+  table->ballNumber = 2;
   table->balls = (Ball **) malloc(sizeof(Ball *) * table->ballNumber);
 
   vector_t cueBallPosition = {500, 500};
   table->balls[0] = newBall(cueBallPosition);
-  vector_t otherBallPosition = {100, 100};
+  vector_t otherBallPosition = {400, 400};
   table->balls[1] = newBall(otherBallPosition);
-  otherBallPosition.x = 100;
-  otherBallPosition.y = 500;
-  table->balls[2] = newBall(otherBallPosition);
-  otherBallPosition.x = 500;
-  otherBallPosition.y = 100;
-  table->balls[3] = newBall(otherBallPosition);
-  otherBallPosition.x = 300;
-  otherBallPosition.y = 400;
-  table->balls[4] = newBall(otherBallPosition);
-  otherBallPosition.x = 700;
-  otherBallPosition.y = 400;
-  table->balls[5] = newBall(otherBallPosition);
-  otherBallPosition.x = 100;
-  otherBallPosition.y = 800;
-  table->balls[6] = newBall(otherBallPosition);
+  // otherBallPosition.x = 100;
+  // otherBallPosition.y = 500;
+  // table->balls[2] = newBall(otherBallPosition);
+  // otherBallPosition.x = 500;
+  // otherBallPosition.y = 200;
+  // table->balls[3] = newBall(otherBallPosition);
+  // otherBallPosition.x = 300;
+  // otherBallPosition.y = 400;
+  // table->balls[4] = newBall(otherBallPosition);
+  // otherBallPosition.x = 700;
+  // otherBallPosition.y = 400;
+  // table->balls[5] = newBall(otherBallPosition);
+  // otherBallPosition.x = 800;
+  // otherBallPosition.y = 500;
+  // table->balls[6] = newBall(otherBallPosition);
   // Set image
   xpm_image_t img;
   xpm_load(finalTableXpm, XPM_8_8_8, &img);
@@ -49,16 +49,16 @@ Table *newTable() {
   table->pockets[1] = newPocket(p1, 24);
   p1.x = 987;
   p1.y = 201;
-  table->pockets[1] = newPocket(p1, 30);
+  table->pockets[2] = newPocket(p1, 30);
   p1.x = 987;
   p1.y = 687;
-  table->pockets[1] = newPocket(p1, 30);
+  table->pockets[3] = newPocket(p1, 30);
   p1.x = 41;
   p1.y = 201;
-  table->pockets[1] = newPocket(p1, 30);
+  table->pockets[4] = newPocket(p1, 30);
   p1.x = 41;
   p1.y = 687;
-  table->pockets[1] = newPocket(p1, 30);
+  table->pockets[5] = newPocket(p1, 30);
 
   // Set cushions
   p1.x = 38;
@@ -238,7 +238,6 @@ bool getColisionPoint(Table *table, vector_t *colisionPoint) {
       if (t < 0)
         continue;
       else {
-        printf("Found a collision\n");
         uint16_t distance = abs(ball->position.x - cueBall->position.x);
         if (distance < collisionXDistance) {
           collisionXDistance = distance;
@@ -279,7 +278,8 @@ int updateCueState(Table *table, bool power) {
   else {
     target = table->mouse->pos;
     cue->directionVector = unitVector(cueBall, target);
-    cue->angle = atan2(cueBall.y - target.y, cueBall.x - target.x);
+
+    cue->angle = angle(cue->directionVector);
 
     if (getColisionPoint(table, &cue->colisionPoint)) {
 
@@ -293,12 +293,10 @@ int updateCueState(Table *table, bool power) {
 
         cue->whiteBallVec.x = -cue->targetBallVec.y;
         cue->whiteBallVec.y = cue->targetBallVec.x;
-        printf("Angle greater than 0\n");
       }
       else {
         cue->whiteBallVec.x = cue->targetBallVec.y;
         cue->whiteBallVec.y = -cue->targetBallVec.x;
-        printf("Angle less than 0\n");
       }
 
       cue->colides = true;
@@ -314,8 +312,12 @@ int updateCueState(Table *table, bool power) {
   }
 
   float distance = cue->charge * cue->maximumDistance + cue->minimalDistance;
-  cue->position.x = cos(cue->angle) * (212 + distance) + cueBall.x;
-  cue->position.y = sin(cue->angle) * (212 + distance) + cueBall.y;
+  cue->position.x = 212 + distance;
+  cue->position.y = 0;
+  cue->position = rotate2d(cue->position, cue->angle + M_PI);
+  cue->position.x += cueBall.x;
+  cue->position.y += cueBall.y;
+
 
   return 0;
 }

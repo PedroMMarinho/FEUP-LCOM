@@ -1,8 +1,8 @@
 #include "resolver.h"
+#include "../events.h"
 #include "../physicsMacros.h"
 #include "../utilities.h"
 #include <math.h>
-#include "../events.h"
 // TODO: REMOVE ASSERT, FOR TESTING ONLY
 #include <assert.h>
 
@@ -21,6 +21,11 @@ void resolveEvent(Table *table, Event event) {
     case ROLLING_SPINNING:
       assertSpinning(event.ball1);
       updateBallNextTransition(table, event.ball1);
+      break;
+    case SLIDING_ROLLING:
+      printf("SOLVING SLIDING_ROLLING PROBLOEM\n");
+      event.ball1->state = ROLLING;
+      break;
     case BALL_BALL:
       resolveBallBall(event.ball1, event.ball2);
       updateBallNextTransition(table, event.ball1);
@@ -28,7 +33,7 @@ void resolveEvent(Table *table, Event event) {
       break;
     case BALL_CUSHION:
       resolveBallCushion(event.ball1, event.cushion, table->cushionRestitution);
-      updateBallNextTransition(table,event.ball1);
+      updateBallNextTransition(table, event.ball1);
       break;
     case BALL_POCKET:
       resolveBallPocket(event.ball1, table->pockets[event.pocket]);
@@ -45,19 +50,12 @@ void resolveEvent(Table *table, Event event) {
 }
 
 void resolveBallBall(Ball *ball1, Ball *ball2) {
-  char aString[30];
   makeBallsKiss(ball1, ball2);
 
-  printf("CALCULATE VELOCITIES\n");
 
   vector_t posVec = {ball2->position.x - ball1->position.x, ball2->position.y - ball1->position.y};
   vector_t n = normalizeVector(posVec);
   vector_t t = rotate2d(n, M_PI / 2);
-
-  sprintf(aString, "%fl", t.x);
-  printf("t: %s, ", aString);
-  sprintf(aString, "%fl", t.y);
-  printf(" %s\n", aString);
 
   vector_t velVec = {ball1->velocity.x - ball2->velocity.x, ball1->velocity.y - ball2->velocity.y};
   double velMagni = magnitudeOf(velVec);
@@ -72,55 +70,25 @@ void resolveBallBall(Ball *ball1, Ball *ball2) {
 
   ball2->velocity.x = n.x * velMagni * cosseno + ball2->velocity.x;
   ball2->velocity.y = n.y * velMagni * cosseno + ball2->velocity.y;
-
-  sprintf(aString, "%fl", ball1->velocity.x);
-  printf("P1: %s, ", aString);
-  sprintf(aString, "%fl", ball1->velocity.y);
-  printf(" %s\n", aString);
-
-  sprintf(aString, "%fl", ball2->velocity.x);
-  printf("P2: %s, ", aString);
-  sprintf(aString, "%fl", ball2->velocity.y);
-  printf(" %s\n", aString);
 }
 
 void makeBallsKiss(Ball *ball1, Ball *ball2) {
-  char aString[30];
-  printf("Make Balls Kiss \n");
 
   vector_t ballBallVec = {ball2->position.x - ball1->position.x, ball2->position.y - ball1->position.y};
 
   vector_t n = normalizeVector(ballBallVec);
 
-  sprintf(aString, "%fl", ball1->position.x);
-  printf("n: %s, ", aString);
-  sprintf(aString, "%fl", ball1->position.y);
-  printf(" %s\n", aString);
   // TODO - Fix the use of EPS to make it regular
   double correction = 2 * ball1->radius - magnitudeOf(ballBallVec) + 1e-8;
 
-  sprintf(aString, "%fl", correction);
-  printf("The correction: %s\n", aString);
   ball1->position.x += correction / 2 * n.x;
   ball1->position.y += correction / 2 * n.y;
 
   ball2->position.x -= correction / 2 * n.x;
   ball2->position.y -= correction / 2 * n.y;
-
-  sprintf(aString, "%fl", ball1->position.x);
-  printf("P1: %s, ", aString);
-  sprintf(aString, "%fl", ball1->position.y);
-  printf(" %s\n", aString);
-
-  sprintf(aString, "%fl", ball2->position.x);
-  printf("P2: %s, ", aString);
-  sprintf(aString, "%fl", ball2->position.y);
-  printf(" %s\n", aString);
 }
 
-void resolveBallCushion(Ball *ball, Cushion* cushion, double restitution) {
-  char aString[30];
-
+void resolveBallCushion(Ball *ball, Cushion *cushion, double restitution) {
 
   if (dotProduct(cushion->normal, ball->velocity) <= 0) {
     cushion->normal.x = -cushion->normal.x;
@@ -129,11 +97,6 @@ void resolveBallCushion(Ball *ball, Cushion* cushion, double restitution) {
 
   makeBallCushionKiss(ball, cushion);
 
-  sprintf(aString, "%fl", ball->position.x);
-  printf("P: %s, ", aString);
-  sprintf(aString, "%fl", ball->position.y);
-  printf(" %s\n", aString);
-
   double ang = angle(cushion->normal);
   vector_t velocityC = rotate2d(ball->velocity, -ang);
 
@@ -141,15 +104,9 @@ void resolveBallCushion(Ball *ball, Cushion* cushion, double restitution) {
 
   ball->velocity = rotate2d(velocityC, ang);
   ball->state = SLIDING;
-
-  sprintf(aString, "%fl", ball->velocity.x);
-  printf("V: %s, ", aString);
-  sprintf(aString, "%fl", ball->velocity.y);
-  printf(" %s\n", aString);
 }
 
-void makeBallCushionKiss(Ball *ball, Cushion* cushion) {
-
+void makeBallCushionKiss(Ball *ball, Cushion *cushion) {
 
   vector_t c = linePointClosestTo(cushion->p1, cushion->p2, ball->position);
 
@@ -162,7 +119,7 @@ void makeBallCushionKiss(Ball *ball, Cushion* cushion) {
   ball->position.y -= correction * cushion->normal.y;
 }
 
-void resolveBallPocket(Ball *ball, Pocket* pocket) {
+void resolveBallPocket(Ball *ball, Pocket *pocket) {
   ball->state = POCKETED;
   ball->position = pocket->position;
 }
@@ -182,6 +139,8 @@ void assertStationary(Ball *ball) {
   ball->ang_velocity.x = 0;
   ball->ang_velocity.y = 0;
   ball->ang_velocity.z = 0;
+
+  ball->state = STATIONARY;
 }
 
 void assertSpinning(Ball *ball) {
@@ -197,11 +156,12 @@ void assertSpinning(Ball *ball) {
 
   ball->ang_velocity.x = 0;
   ball->ang_velocity.y = 0;
+
+  ball->state = SPINNING;
 }
 
-void resolveStickBall(Cue* cue, Ball* ball, double maxSpeed){
+void resolveStickBall(Cue *cue, Ball *ball, double maxSpeed) {
 
-  char aString[30];
 
   // TODO: CHECK IF SPIN IS NOT TOO MUCH
   double sideSpin = cue->sideEnglish * ball->radius;
@@ -224,8 +184,6 @@ void resolveStickBall(Cue* cue, Ball* ball, double maxSpeed){
   // CHECK denominator = 1 + m / M + 5 / 2 / R**2 * temp
   double denominator = 1 + 5.0 / (2.0 * (ball->radius * ball->radius)) * temp;
 
-  sprintf(aString, "%fl", denominator);
-  printf("denominator: %s\n", aString);
 
   double F = numerator / denominator;
 
@@ -234,38 +192,18 @@ void resolveStickBall(Cue* cue, Ball* ball, double maxSpeed){
   vector3_t vec = {-c * seno + verticalSpin * cosseno, sideSpin * seno, -sideSpin * cosseno};
   vector3_t angVelocityB = {F / II * vec.x, F / II * vec.y, F / II * vec.z};
 
-  sprintf(aString, "%fl", II);
-  printf("II: %s\n, ", aString);
 
-  sprintf(aString, "%fl", angVelocityB.x);
-  printf("Wb: %s, ", aString);
-  sprintf(aString, "%fl", angVelocityB.y);
-  printf(" %s, ", aString);
-  sprintf(aString, "%fl", angVelocityB.z);
-  printf(" %s\n", aString);
 
   double ang = phi + M_PI / 2;
 
-  sprintf(aString, "%fl", ang);
-  printf("Ang: %s\n", aString);
-
   ball->velocity = rotate2d(velocityB, ang);
-  vector_t xyAngVelocity =  {angVelocityB.x, angVelocityB.y};
+  vector_t xyAngVelocity = {angVelocityB.x, angVelocityB.y};
   xyAngVelocity = rotate2d(xyAngVelocity, ang);
   ball->ang_velocity.x = xyAngVelocity.x;
   ball->ang_velocity.y = xyAngVelocity.y;
   ball->ang_velocity.z = angVelocityB.z;
 
-  sprintf(aString, "%fl", ball->velocity.x);
-  printf("V: %s, ", aString);
-  sprintf(aString, "%fl", ball->velocity.y);
-  printf(" %s\n", aString);
+  ball->state = SLIDING;
 
   
-  sprintf(aString, "%fl", ball->ang_velocity.x);
-  printf("W: %s, ", aString);
-  sprintf(aString, "%fl", ball->ang_velocity.y);
-  printf(" %s, ", aString);
-  sprintf(aString, "%fl", ball->ang_velocity.z);
-  printf(" %s\n", aString);
 }

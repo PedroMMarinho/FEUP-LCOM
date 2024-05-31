@@ -213,7 +213,7 @@ int drawXPMImage(xpm_image_t img, double x, double y, double angle){
 
 
       uint16_t posX = x + changedX;
-      uint16_t posY = y + changedY * -1;
+      uint16_t posY = y + changedY;
       if (draw_pixel(posX , posY, color)) return 1;
       }
     }

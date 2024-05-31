@@ -5,6 +5,8 @@
 #include "ball/ball.h"
 #include "mouseModel.h"
 #include "cue.h"
+#include "cushion.h"
+#include "pocket.h"
 
 typedef enum GAME_STATE {
   AIMING,
@@ -15,9 +17,8 @@ typedef enum GAME_STATE {
 
 typedef struct Table{
   xpm_image_t img;
-  vector_t* cushionPoints;
-  vector_t pockets[4];
-  size_t pocketRadius;
+  Cushion* cushions[18];
+  Pocket* pockets[6];
   Ball** balls;
   uint8_t ballNumber;
   GAME_STATE state;
@@ -32,6 +33,10 @@ typedef struct Table{
   double gravityAcceleration;
   double cushionRestitution;
   size_t ballRadius;
+
+
+  // Simulation
+  Event nextEvent;
 
 } Table;
 

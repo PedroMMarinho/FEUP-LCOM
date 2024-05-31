@@ -17,44 +17,10 @@
 
 #include "resources.h"
 
-// Includes for physics testing
-#include "physics/resolve/resolver.h"
-#include <math.h>
 
 int initGame() {
   Resources *resources = loadResources();
   printf("created resources\n");
-
-  // Testing of quartic solver
-  double a, b, c, d, e;
-  a = 2;
-  b = 1;
-  c = -72;
-  d = 9;
-  e = 66;
-
-  Ball* ball1 = resources->table->balls[0];
-  ball1->position.x = 0;
-  ball1->position.y = 0;
-
-  ball1->velocity.x = 0;
-  ball1->velocity.y = 0;
-
-  ball1->ang_velocity.x = 0;
-  ball1->ang_velocity.y = 0;
-  ball1->ang_velocity.z = 0;
-
-  ball1->state = SLIDING;
-
-  Cue* cue = resources->table->cue;
-  cue->sideEnglish = 0.2;
-  cue->verticalEnglish = -0.5;
-
-  cue->charge = 1;
-  cue->angle = 0;
-  cue->elevationAngle = 0;
-
-  resolveStickBall(cue, ball1, resources->table->maxSpeedShot);
 
   return gameLoop(resources);
 }
@@ -96,7 +62,7 @@ int gameLoop(Resources *resources) {
               case MAIN_MENU:
                 break;
               case PLAYING:
-                resources->state = playingControllerHandle(resources->table, TIMER, NULL, 0, get_elapsed());
+                resources->state = playingControllerHandle(resources->table, TIMER, NULL,0, get_elapsed());
                 break;
               default:
                 break;
@@ -130,7 +96,7 @@ int gameLoop(Resources *resources) {
               case MAIN_MENU:
                 break;
               case PLAYING:
-                resources->state = playingControllerHandle(resources->table, KEYBOARD, NULL, scancode, 0);
+                resources->state = playingControllerHandle(resources->table, KEYBOARD, NULL,scancode, 0);
                 break;
               default:
                 break;

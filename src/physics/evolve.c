@@ -6,6 +6,8 @@
 void evolveBallMotion(Table *table, Ball *ball, double time) {
   char a[40];
 
+  ball->transition->time -= time;
+
   switch (getBallState(ball)) {
     case STATIONARY:
     case POCKETED:

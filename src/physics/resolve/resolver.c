@@ -2,6 +2,7 @@
 #include "../physicsMacros.h"
 #include "../utilities.h"
 #include <math.h>
+#include "../events.h"
 // TODO: REMOVE ASSERT, FOR TESTING ONLY
 #include <assert.h>
 
@@ -14,22 +15,29 @@ void resolveEvent(Table *table, Event event) {
       // Assert that velocity is almost 0 and that set them to 0
     case SPINNING_STATIONARY:
     case ROLLING_STATIONARY:
-      assertStationary(table->balls[event.ball1]);
+      assertStationary(event.ball1);
+      updateBallNextTransition(table, event.ball1);
       break;
     case ROLLING_SPINNING:
-      assertSpinning(table->balls[event.ball1]);
+      assertSpinning(event.ball1);
+      updateBallNextTransition(table, event.ball1);
     case BALL_BALL:
-      resolveBallBall(table->balls[event.ball2], table->balls[event.ball2]);
+      resolveBallBall(event.ball1, event.ball2);
+      updateBallNextTransition(table, event.ball1);
+      updateBallNextTransition(table, event.ball2);
       break;
     case BALL_CUSHION:
-      resolveBallCushion(table->balls[event.ball1], table->cushionPoints[event.cushionId], table->cushionPoints[(event.cushionId + 1) % 24], table->cushionRestitution);
+      resolveBallCushion(event.ball1, event.cushion, table->cushionRestitution);
+      updateBallNextTransition(table,event.ball1);
       break;
     case BALL_POCKET:
-      resolveBallPocket(table->balls[event.ball1], table->pockets[event.pocket]);
+      resolveBallPocket(event.ball1, table->pockets[event.pocket]);
+      updateBallNextTransition(table, event.ball1);
       break;
     case STICK_BALL:
       // CHECK: WHITE IS ALWAYS BALL 0 ??
-      resolveStickBall(table->cue, table->balls[0], table->maxSpeedShot);
+      resolveStickBall(table->cue, event.ball1, table->maxSpeedShot);
+      updateBallNextTransition(table, event.ball1);
       break;
     default:
       break;
@@ -110,27 +118,23 @@ void makeBallsKiss(Ball *ball1, Ball *ball2) {
   printf(" %s\n", aString);
 }
 
-void resolveBallCushion(Ball *ball, vector_t p1, vector_t p2, double restitution) {
+void resolveBallCushion(Ball *ball, Cushion* cushion, double restitution) {
   char aString[30];
 
-  double lx = p2.x - p1.x == 0 ? 1 : -(p2.y - p1.y) / (p2.x - p1.x);
-  double ly = p2.x - p1.x == 0 ? 0 : 1;
 
-  vector_t normal = {lx, ly};
-  normal = normalizeVector(normal);
-  if (dotProduct(normal, ball->velocity) <= 0) {
-    normal.x = -normal.x;
-    normal.y = -normal.y;
+  if (dotProduct(cushion->normal, ball->velocity) <= 0) {
+    cushion->normal.x = -cushion->normal.x;
+    cushion->normal.y = -cushion->normal.y;
   }
 
-  makeBallCushionKiss(ball, p1, p2, normal);
+  makeBallCushionKiss(ball, cushion);
 
   sprintf(aString, "%fl", ball->position.x);
   printf("P: %s, ", aString);
   sprintf(aString, "%fl", ball->position.y);
   printf(" %s\n", aString);
 
-  double ang = angle(normal);
+  double ang = angle(cushion->normal);
   vector_t velocityC = rotate2d(ball->velocity, -ang);
 
   velocityC.x *= -restitution;
@@ -144,22 +148,23 @@ void resolveBallCushion(Ball *ball, vector_t p1, vector_t p2, double restitution
   printf(" %s\n", aString);
 }
 
-void makeBallCushionKiss(Ball *ball, vector_t p1, vector_t p2, vector_t normal) {
+void makeBallCushionKiss(Ball *ball, Cushion* cushion) {
 
-  vector_t c = linePointClosestTo(p1, p2, ball->position);
+
+  vector_t c = linePointClosestTo(cushion->p1, cushion->p2, ball->position);
 
   // TODO: CREATE FUNCIONS FOR THIS??
   // TODO: FIX USE OF EPS
   vector_t connection = {ball->position.x - c.x, ball->position.y - c.y};
   double correction = ball->radius - magnitudeOf(connection) + 1e-9;
 
-  ball->position.x -= correction * normal.x;
-  ball->position.y -= correction * normal.y;
+  ball->position.x -= correction * cushion->normal.x;
+  ball->position.y -= correction * cushion->normal.y;
 }
 
-void resolveBallPocket(Ball *ball, vector_t pocket) {
+void resolveBallPocket(Ball *ball, Pocket* pocket) {
   ball->state = POCKETED;
-  ball->position = pocket;
+  ball->position = pocket->position;
 }
 
 void assertStationary(Ball *ball) {

@@ -209,7 +209,7 @@ double getSlideTime(Ball *ball, double u, double g) {
   return 2 * magnitudeOf(relativeVelocity(ball)) / (7 * u * g);
 }
 
-double getBallCushionCollisionTime(Table *table, Ball *ball, vector_t p1, vector_t p2) {
+double getBallCushionCollisionTime(Table *table, Ball *ball, Cushion* cushion) {
 
   if (ballNotMoving(ball))
     return INFINITY;
@@ -217,9 +217,9 @@ double getBallCushionCollisionTime(Table *table, Ball *ball, vector_t p1, vector
   double ang = angle(ball->velocity);
   double v = magnitudeOf(ball->velocity);
 
-  double lx = p2.x - p1.x == 0 ? 1 : -(p2.y - p1.y) / (p2.x - p1.x);
-  double ly = p2.x - p1.x == 0 ? 0 : 1;
-  double l0 = (p2.x - p1.x) == 0 ? -p1.x : -lx * p1.x - p1.y;
+  double lx = cushion->lx;
+  double ly = cushion->ly;
+  double l0 = cushion->l0;
 
   vector_t u = get_uVec(ball, ang);
 
@@ -259,8 +259,8 @@ double getBallCushionCollisionTime(Table *table, Ball *ball, vector_t p1, vector
     evolveBallMotion(table, &ballCpy, root);
 
     // Check if colision happens in the actuall cushion not in the line that defines it
-    vector_t cushionLineVec = {p2.x - p1.x, p2.y - p1.y};
-    vector_t ballCornerVec = {p1.x - ballCpy.position.x, p1.y - ballCpy.position.y};
+    vector_t cushionLineVec = {cushion->p2.x - cushion->p1.x, cushion->p2.y - cushion->p1.y};
+    vector_t ballCornerVec = {cushion->p1.x - ballCpy.position.x, cushion->p1.y - ballCpy.position.y};
 
     double score = -dotProduct(ballCornerVec, cushionLineVec) / dotProduct(cushionLineVec, cushionLineVec);
     if (score < 0 || score > 1)
@@ -385,7 +385,7 @@ QuarticCoeff getBallBallCollisionCoeff(Ball *ball1, Ball *ball2, double uRolling
   return coefficient;
 }
 
-QuarticCoeff getBallPocketCollisionCoeff(Ball *ball, vector_t pocket, double radius, double uRolling, double uSlidding, double g) {
+QuarticCoeff getBallPocketCollisionCoeff(Ball *ball, Pocket* pocket, double uRolling, double uSlidding, double g) {
   char aString[30];
 
   double ang = angle(ball->velocity);
@@ -440,9 +440,9 @@ QuarticCoeff getBallPocketCollisionCoeff(Ball *ball, vector_t pocket, double rad
 
   coefficient.a = 0.5 * (a.x*a.x + a.y*a.y);
   coefficient.b = a.x * b.x + a.y * b.y;
-  coefficient.c = a.x * (c.x - pocket.x) + a.y * (c.y - pocket.y) + 0.5 * (b.x*b.x + b.y*b.y);
-  coefficient.d = b.x * (c.x - pocket.x) + b.y * (c.y - pocket.y);
-  coefficient.e = 0.5 * (pocket.x * pocket.x + pocket.y * pocket.y + c.x*c.x + c.y*c.y - radius*radius)-(c.x * pocket.x+ c.y * pocket.y);
+  coefficient.c = a.x * (c.x - pocket->position.x) + a.y * (c.y - pocket->position.y) + 0.5 * (b.x*b.x + b.y*b.y);
+  coefficient.d = b.x * (c.x - pocket->position.x) + b.y * (c.y - pocket->position.y);
+  coefficient.e = 0.5 * (pocket->position.x * pocket->position.x + pocket->position.y * pocket->position.y + c.x*c.x + c.y*c.y - pocket->radius*pocket->radius)-(c.x * pocket->position.x+ c.y * pocket->position.y);
 
   return coefficient;
 }

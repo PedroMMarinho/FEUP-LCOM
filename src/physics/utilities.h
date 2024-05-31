@@ -3,6 +3,10 @@
 #include "../model/vector.h"
 #include "../model/table.h"
 #include "../model/ball/ball.h"
+#include "../model/cushion.h"
+#include "../model/pocket.h"
+
+
 
 typedef struct {
   double a, b, c, d, e;
@@ -44,9 +48,9 @@ double getRollTime(Ball* ball, double u, double g);
 
 double getSpinTime(Ball* ball, double u, double g);
 
-double getBallCushionCollisionTime(Table *table, Ball *ball, vector_t p1, vector_t p2);
+double getBallCushionCollisionTime(Table *table, Ball *ball, Cushion* cushion);
 
 QuarticCoeff getBallBallCollisionCoeff(Ball* ball1, Ball* ball2, double uRolling, double uSlidding, double g);
 
-QuarticCoeff getBallPocketCollisionCoeff(Ball *ball, vector_t pocket, double radius, double uRolling, double uSlidding, double g);
+QuarticCoeff getBallPocketCollisionCoeff(Ball *ball, Pocket* pocket, double uRolling, double uSlidding, double g);
 

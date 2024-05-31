@@ -3,8 +3,9 @@
 #include "../labs/graphics.h"
 #include "../physics/utilities.h"
 #include "../viewer/cueViewer.h"
-#include "../xpms/table.xpm"
 #include "../xpms/biggerTable.xpm"
+#include "../xpms/table.xpm"
+#include "../xpms/finalTable.xpm"
 #include "math.h"
 
 Table *newTable() {
@@ -35,13 +36,121 @@ Table *newTable() {
   table->balls[6] = newBall(otherBallPosition);
   // Set image
   xpm_image_t img;
-  xpm_load(biggerTableXpm, XPM_8_8_8, &img);
+  xpm_load(finalTableXpm, XPM_8_8_8, &img);
   table->img = img;
 
   // Set pockets
-  table->pocketRadius = 25;
+  vector_t p1, p2;
+  p1.x = 514;
+  p1.y = 192;
+  table->pockets[0] = newPocket(p1, 24);
+  p1.x = 514;
+  p1.y = 698;
+  table->pockets[1] = newPocket(p1, 24);
+  p1.x = 987;
+  p1.y = 201;
+  table->pockets[1] = newPocket(p1, 30);
+  p1.x = 987;
+  p1.y = 687;
+  table->pockets[1] = newPocket(p1, 30);
+  p1.x = 41;
+  p1.y = 201;
+  table->pockets[1] = newPocket(p1, 30);
+  p1.x = 41;
+  p1.y = 687;
+  table->pockets[1] = newPocket(p1, 30);
 
   // Set cushions
+  p1.x = 38;
+  p1.y = 231;
+  p2.x = 55;
+  p2.y = 249;
+  table->cushions[0] = newCushion(p1, p2);
+  p1.x = 55;
+  p1.y = 249;
+  p2.x = 55;
+  p2.y = 638;
+  table->cushions[1] = newCushion(p1, p2);
+  p1.x = 55;
+  p1.y = 638;
+  p2.x = 38;
+  p2.y = 657;
+  table->cushions[2] = newCushion(p1, p2);
+  p1.x = 70;
+  p1.y = 690;
+  p2.x = 89;
+  p2.y = 672;
+  table->cushions[3] = newCushion(p1, p2);
+  p1.x = 89;
+  p1.y = 672;
+  p2.x = 487;
+  p2.y = 672;
+  table->cushions[4] = newCushion(p1, p2);
+  p1.x = 487;
+  p1.y = 672;
+  p2.x = 491;
+  p2.y = 690;
+  table->cushions[5] = newCushion(p1, p2);
+  p1.x = 537;
+  p1.y = 690;
+  p2.x = 542;
+  p2.y = 672;
+  table->cushions[6] = newCushion(p1, p2);
+  p1.x = 542;
+  p1.y = 672;
+  p2.x = 936;
+  p2.y = 672;
+  table->cushions[7] = newCushion(p1, p2);
+  p1.x = 936;
+  p1.y = 672;
+  p2.x = 955;
+  p2.y = 690;
+  table->cushions[8] = newCushion(p1, p2);
+  p1.x = 988;
+  p1.y = 657;
+  p2.x = 971;
+  p2.y = 638;
+  table->cushions[9] = newCushion(p1, p2);
+  p1.x = 971;
+  p1.y = 638;
+  p2.x = 971;
+  p2.y = 249;
+  table->cushions[10] = newCushion(p1, p2);
+  p1.x = 971;
+  p1.y = 249;
+  p2.x = 988;
+  p2.y = 231;
+  table->cushions[11] = newCushion(p1, p2);
+  p1.x = 955;
+  p1.y = 198;
+  p2.x = 936;
+  p2.y = 216;
+  table->cushions[12] = newCushion(p1, p2);
+  p1.x = 936;
+  p1.y = 216;
+  p2.x = 542;
+  p2.y = 216;
+  table->cushions[13] = newCushion(p1, p2);
+  p1.x = 542;
+  p1.y = 216;
+  p2.x = 537;
+  p2.y = 198;
+  table->cushions[14] = newCushion(p1, p2);
+  p1.x = 491;
+  p1.y = 198;
+  p2.x = 486;
+  p2.y = 216;
+  table->cushions[15] = newCushion(p1, p2);
+  p1.x = 486;
+  p1.y = 216;
+  p2.x = 89;
+  p2.y = 216;
+  table->cushions[16] = newCushion(p1, p2);
+  p1.x = 89;
+  p1.y = 216;
+  p2.x = 70;
+  p2.y = 198;
+  table->cushions[17] = newCushion(p1, p2);
 
   // Set mouse
   table->mouse = newMouse();
@@ -53,7 +162,6 @@ Table *newTable() {
 
   // Set state
   table->state = AIMING;
-
 
   // Set physics attributes
   table->gravityAcceleration = 9.81;
@@ -67,17 +175,24 @@ Table *newTable() {
 
 void destroyTable(Table *table) {
   for (size_t i = 0; i < table->ballNumber; i++) {
+    destroyBall(table->balls[i]);
     free(table->balls[i]);
   }
+  for (size_t i = 0; i<18; i++){
+    free(table->cushions[i]);
+  }
+  for (size_t i = 0; i<6; i++){
+    free(table->pockets[i]);
+  }
+
+  free(table->balls);
   free(table->mouse);
   free(table->cue);
 }
 
 int drawTable(Table *table) {
 
-
   drawXPMImage(table->img, 512, 384, 0);
-
 
   for (size_t i = 0; i < table->ballNumber; i++) {
     Ball *ball = table->balls[i];
@@ -95,6 +210,7 @@ int drawTable(Table *table) {
   }
   if (vg_draw_rectangle(table->mouse->pos.x, table->mouse->pos.y, 9, 9, 0xff0000))
     return 1;
+
   return 0;
 }
 
@@ -171,8 +287,8 @@ int updateCueState(Table *table, bool power) {
       cue->targetBallVec = unitVector(cue->colisionPoint, cue->targetBallCenter);
       cue->guideScalar = dotProduct(cue->directionVector, cue->targetBallVec);
 
-      double sinOfImpact = cue->directionVector.x *cue->targetBallVec.y  - cue->directionVector.y * cue->targetBallVec.x;
-     
+      double sinOfImpact = cue->directionVector.x * cue->targetBallVec.y - cue->directionVector.y * cue->targetBallVec.x;
+
       if (sinOfImpact < 0) {
 
         cue->whiteBallVec.x = -cue->targetBallVec.y;

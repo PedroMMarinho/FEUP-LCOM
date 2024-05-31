@@ -2,6 +2,7 @@
 #include <lcom/lcf.h>
 #include "ball.h"
 #include "../../xpms/ball.xpm"
+#include <math.h>
 
 
 
@@ -16,11 +17,15 @@ Ball *newBall(vector_t position){
   xpm_load(ballXpm, XPM_8_8_8, &img);
   ball->img = img;
 
+  Event transition = {INFINITY, INVALID, NULL, NULL, NULL, -1};
+  ball->transition = (Event*)malloc(sizeof(Event));
+  *ball->transition = transition;
+
   return ball;
 }
 
 void destroyBall(Ball* ball){
-  free(ball);
+  free(ball->transition);
 }
 
 

@@ -5,11 +5,14 @@
 #include "../viewer/cueViewer.h"
 #include "../viewer/lineViewer.h"
 #include "../xpms/ball.xpm"
+#include "../physics/simulate.h"
 
 STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct packet *packet, uint8_t scanCode, unsigned elapsed) {
   switch (interruptType) {
     case TIMER:
       if (elapsed % (sys_hz() / 30) == 0) {
+
+
         if (drawTable(table)){
           return OVER;
         }
@@ -42,6 +45,7 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
             if (table->cue->charge) {
               table->state = SIMULATING;
               table->cue->charge = 0;
+              processShot(table);
             }else{
               table->state = AIMING;
               table->cue->charge = 0;

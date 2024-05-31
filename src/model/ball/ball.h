@@ -4,6 +4,7 @@
 #include "../vector.h"
 #include "../event.h"
 
+
 typedef enum BALL_STATE {
   STATIONARY,
   SLIDING,
@@ -20,7 +21,7 @@ typedef struct Ball {
   xpm_image_t img;
   size_t radius;
 
-  Event transition;
+  Event* transition;
 } Ball;
 
 Ball *newBall(vector_t position);

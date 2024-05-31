@@ -1,5 +1,8 @@
 #pragma once
 #include <lcom/lcf.h>
+#include "cushion.h"
+
+struct Ball;
 
 typedef enum {
   BALL_BALL,
@@ -11,20 +14,17 @@ typedef enum {
   ROLLING_SPINNING,
   SLIDING_ROLLING,
   INVALID,
-}EVENT_TYPE;
-
-
+} EVENT_TYPE;
 
 typedef struct Event {
 
   double time;
   EVENT_TYPE type;
 
-  // TODO: MAYBE CHANGE TO STORE ACTUALL BALLS
-  int ball1;
-  int ball2;
-  int cushionId;
+  struct Ball *ball1;
+  struct Ball *ball2;
+  Cushion* cushion;
   // TODO: NECESSARY TO SAVE THE POCKET ???
   int pocket;
 
-}Event;
+} Event;

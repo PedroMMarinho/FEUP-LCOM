@@ -224,13 +224,6 @@ int (swap_buffers)(){
   return 0;
 }
 // string must contain only numbers(0-9) and lowercase letters(a-z), font must have numbers (0-9) occupying the first 10 positions and lowercase letters (a-z) occupying the next 26 positions, spacing is the space between characters
-int drawText(char* text, xpm_image_t* font,uint16_t x, uint16_t y,uint8_t spacing){
-  while(*text){
-    if (vg_draw_char(*text,font, x, y)) return 1;
-    x += 8;
-    text++;
-  }
-}
 int vg_draw_char(char c, xpm_image_t* font,uint16_t x, uint16_t y){
   if (c < 32 || c > 126) return 1;
   int offset = 0;
@@ -239,3 +232,14 @@ int vg_draw_char(char c, xpm_image_t* font,uint16_t x, uint16_t y){
   if (drawXPMImage(font[c-offset], x, y, 0)) return 1;
   return 0;
 }
+
+
+int drawText(char* text, xpm_image_t* font,uint16_t x, uint16_t y,uint8_t spacing){
+  while(*text){
+    if (vg_draw_char(*text,font, x, y)) return 1;
+    x += 8;
+    text++;
+  }
+  return 0;
+}
+

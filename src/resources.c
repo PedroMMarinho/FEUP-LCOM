@@ -9,7 +9,9 @@ Resources* loadResources(){
 
   Resources* resources = (Resources*)malloc(sizeof(Resources));
   resources->menu = newMenu(MAIN_MENU);
-  resources->state = MENU;  
+  resources->state = MENU;
+  int randomNumber = rand() % 10000 + 1000;  
+  sprintf(resources->playerName, "Guest%d", randomNumber);
   return resources;
 }
 

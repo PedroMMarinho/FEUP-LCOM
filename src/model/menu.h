@@ -8,6 +8,7 @@ typedef enum MenuType {
   MAIN_MENU,
   GAME_MODE_MENU,
   INSTRUCTIONS_MENU,
+  OPTIONS_MENU,
   GAME_OVER_MENU,
 } MenuType;
 

@@ -11,6 +11,7 @@ typedef struct Resources
   Table* table;
   Menu* menu;
   STATE state;
+  char playerName[20];
 } Resources;
 Resources * loadResources();
 

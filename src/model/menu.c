@@ -19,7 +19,11 @@
 #include "xpms/menu/menuMouseHover.xpm"
 #include "xpms/menu/instructionsMenuBackground.xpm"
 #include "xpms/menu/logo.xpm"
-
+#include "xpms/menu/mainMenuOptionsButton.xpm"
+#include "xpms/menu/optionsMenuBackground.xpm"
+#include "xpms/menu/optionsMenuSaveButton.xpm"
+#include "xpms/menu/optionsMenuSaveButtonSelected.xpm"
+#include "xpms/menu/mainMenuOptionsButtonSelected.xpm"
 
 Menu* newMenu(MenuType type){
   Menu* menu = (Menu*)malloc(sizeof(Menu));
@@ -53,13 +57,18 @@ void setMenuType(Menu* menu, MenuType type){
   xpm_image_t mainMenuExit;
   xpm_image_t mainMenuExitSelected;
   xpm_image_t logo;
-  
-  
+  xpm_image_t mainMenuOptionsButton;
+  xpm_image_t mainMenuOptionsButtonSelected;
+  xpm_image_t optionsMenuSaveButton;
+  xpm_image_t optionsMenuSaveButtonSelected;
+  xpm_image_t optionsMenuBackground;
+
+
   switch (type)
   {
   case MAIN_MENU:
   
-    menu->nOptions = 3;
+    menu->nOptions = 4;
     menu->buttons = (Button**)malloc(sizeof(Button*)*menu->nOptions);    
     xpm_load(mainMenuPlayXpm, XPM_8_8_8, &mainMenuPlay);
     xpm_load(mainMenuPlaySelectedXpm, XPM_8_8_8, &mainMenuPlaySelected);
@@ -67,6 +76,8 @@ void setMenuType(Menu* menu, MenuType type){
     xpm_load(mainMenuInfoSelectedXpm, XPM_8_8_8, &mainMenuInfoSelected);
     xpm_load(mainMenuExitXpm, XPM_8_8_8, &mainMenuExit);
     xpm_load(mainMenuExitSelectedXpm, XPM_8_8_8, &mainMenuExitSelected);
+    xpm_load(mainMenuOptionsButtonXpm, XPM_8_8_8, &mainMenuOptionsButton);
+    xpm_load(mainMenuOptionsButtonSelectedXpm, XPM_8_8_8, &mainMenuOptionsButtonSelected);
     
   
     menu->buttons[0] = newButton(mainMenuPlay,mainMenuPlaySelected,pos,size);
@@ -75,6 +86,8 @@ void setMenuType(Menu* menu, MenuType type){
     pos.y = 650;
     pos.x = 412;
     menu->buttons[2] = newButton(mainMenuExit,mainMenuExitSelected,pos,size);
+    pos.y = 500;
+    menu->buttons[3] = newButton(mainMenuOptionsButton,mainMenuOptionsButtonSelected,pos,size);
     xpm_load(mainMenuBackgroundXpm, XPM_8_8_8, &menuBackground);
     printf("Background loaded\n");
     menu->backgroundImg = menuBackground;
@@ -124,6 +137,22 @@ void setMenuType(Menu* menu, MenuType type){
       xpm_load(mainMenuBackgroundXpm, XPM_8_8_8, &menuBackground);
       menu->backgroundImg = menuBackground;
      break;
+  case OPTIONS_MENU:
+      pos.x = 629;
+      pos.y = 650;
+      menu->nOptions = 2;
+      menu->buttons = (Button**)malloc(sizeof(Button*)*menu->nOptions);
+      xpm_load(backXpm, XPM_8_8_8, &back);
+      xpm_load(backSelectedXpm, XPM_8_8_8, &backSelected);
+      xpm_load(optionsMenuSaveButtonXpm, XPM_8_8_8, &optionsMenuSaveButton);
+      xpm_load(optionsMenuSaveButtonSelectedXpm, XPM_8_8_8, &optionsMenuSaveButtonSelected);
+      menu->buttons[0] = newButton(optionsMenuSaveButton,optionsMenuSaveButtonSelected,pos,size);
+      pos.x = 200;
+      menu->buttons[1] = newButton(back,backSelected,pos,size);
+
+      xpm_load(optionsMenuBackgroundXpm, XPM_8_8_8, &optionsMenuBackground);
+      menu->backgroundImg = optionsMenuBackground;     
+      break;
   }
   menu->selectedOption = -1;
 }

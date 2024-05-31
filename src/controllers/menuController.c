@@ -5,7 +5,8 @@
 
 STATE handleMainMenu(Menu *menu, int option) {
   printf("option stuff: %d\n", option);
-  switch (option) { // 0 - Play, 1 - Instructions, 2 - Exit
+
+  switch (option) { // 0 - Play, 1 - Instructions, 2 - Exit, 3 - Options
     case 0:
       resetMenu(menu);
       setMenuType(menu, GAME_MODE_MENU);
@@ -20,6 +21,11 @@ STATE handleMainMenu(Menu *menu, int option) {
       resetMenu(menu);
       destroyMenu(menu);
       return OVER;
+      break;
+    case 3:
+      resetMenu(menu);
+      setMenuType(menu, OPTIONS_MENU);
+      return MENU;
       break;
     default:
       return OVER;
@@ -57,6 +63,24 @@ STATE handleInstructionsMenu(Menu *menu, int option) {
       return OVER;
   }
 }
+
+STATE handleOptionsMenu(Menu *menu, int option) {
+  switch (option) { // 0 - Back
+    case 0:
+      resetMenu(menu);
+      setMenuType(menu, MAIN_MENU);
+      return MENU;
+      break;
+    case 1:
+      resetMenu(menu);
+      setMenuType(menu, MAIN_MENU);
+      return MENU;
+      break;
+    default:
+      return OVER;
+  }
+}
+
 STATE handleGameOverMenu(Menu *menu, int option) {
   switch (option) { // 0 - Back
     case 0:
@@ -112,6 +136,9 @@ STATE menuControllerHandle(Menu *menu, DEVICE interruptType, const struct packet
               break;
             case INSTRUCTIONS_MENU:
               return handleInstructionsMenu(menu, menu->selectedOption);
+              break;
+            case OPTIONS_MENU:
+              return handleOptionsMenu(menu, menu->selectedOption);
               break;
             case GAME_OVER_MENU:
               return handleGameOverMenu(menu, menu->selectedOption);

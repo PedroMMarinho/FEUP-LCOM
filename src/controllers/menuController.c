@@ -71,11 +71,6 @@ STATE handleOptionsMenu(Menu *menu, int option) {
       setMenuType(menu, MAIN_MENU);
       return MENU;
       break;
-    case 1:
-      resetMenu(menu);
-      setMenuType(menu, MAIN_MENU);
-      return MENU;
-      break;
     default:
       return OVER;
   }
@@ -93,11 +88,138 @@ STATE handleGameOverMenu(Menu *menu, int option) {
   }
 }
 
-STATE menuControllerHandle(Menu *menu, DEVICE interruptType, const struct packet *packet, uint8_t scanCode, unsigned elapsed) {
+void convertScanCodeToChar(char* playerName, uint8_t scanCode){
+  if(scanCode == SCANCODE_BACKSPACE){
+    if(strlen(playerName) > 0){
+      playerName[strlen(playerName)-1] = '\0';
+    }
+  }
+  if(strlen(playerName)< 20){
+    switch (scanCode)
+    {
+    case SCANCODE_0:
+      strcat(playerName, "0");
+      break;
+    case SCANCODE_1:
+      strcat(playerName, "1");
+      break;
+    case SCANCODE_2:
+      strcat(playerName, "2");
+      break;
+    case SCANCODE_3:
+      strcat(playerName, "3");
+      break;
+    case SCANCODE_4:
+      strcat(playerName, "4");
+      break;
+    case SCANCODE_5:
+      strcat(playerName, "5");
+      break;
+    case SCANCODE_6:
+      strcat(playerName, "6");
+      break;
+    case SCANCODE_7:
+      strcat(playerName, "7");
+      break;
+    case SCANCODE_8:
+      strcat(playerName, "8");
+      break;
+    case SCANCODE_9:
+      strcat(playerName, "9");
+      break;
+    case SCANCODE_A:
+      strcat(playerName, "a");
+      break;
+    case SCANCODE_B:
+      strcat(playerName, "b");
+      break;
+    case SCANCODE_C:
+      strcat(playerName, "c");
+      break;
+    case SCANCODE_D:
+      strcat(playerName, "d");
+      break;
+    case SCANCODE_E:
+      strcat(playerName, "e");
+      break;
+    case SCANCODE_F:
+      strcat(playerName, "f");
+      break;
+    case SCANCODE_G:
+      strcat(playerName, "g");
+      break;
+    case SCANCODE_H:
+      strcat(playerName, "h");
+      break;
+    case SCANCODE_I:
+      strcat(playerName, "i");
+      break;
+    case SCANCODE_J:
+      strcat(playerName, "j");
+      break;
+    case SCANCODE_K:
+      strcat(playerName, "k");
+      break;
+    case SCANCODE_L:
+      strcat(playerName, "l");
+      break;
+    case SCANCODE_M:
+      strcat(playerName, "m");
+      break;
+    case SCANCODE_N:
+      strcat(playerName, "n");
+      break;
+    case SCANCODE_O:
+      strcat(playerName, "o");
+      break;
+    case SCANCODE_P:
+      strcat(playerName, "p");
+      break;
+    case SCANCODE_Q:
+      strcat(playerName, "q");
+      break;
+    case SCANCODE_R:
+      strcat(playerName, "r");
+      break;
+    case SCANCODE_S:
+      strcat(playerName, "s");
+      break;
+    case SCANCODE_T:
+      strcat(playerName, "t");
+      break;
+    case SCANCODE_U:
+      strcat(playerName, "u");
+      break;
+    case SCANCODE_V:
+      strcat(playerName, "v");
+      break;
+    case SCANCODE_W:
+      strcat(playerName, "w");
+      break;
+    case SCANCODE_X:
+      strcat(playerName, "x");
+      break;
+    case SCANCODE_Y:
+      strcat(playerName, "y");
+      break;
+    case SCANCODE_Z:
+      strcat(playerName, "z");
+      break;
+    default:
+      break;
+    }
+  }
+}
+
+void handleKeyboardOptionsMenu(char* playerName, uint8_t scanCode) {
+  convertScanCodeToChar(playerName, scanCode);
+}
+
+STATE menuControllerHandle(Menu *menu,char* playerName,DEVICE interruptType, const struct packet *packet, uint8_t scanCode, unsigned elapsed) {
   switch (interruptType) {
     case TIMER:
       if (elapsed % (sys_hz() / 25) == 0) {
-        if (drawMenu(menu,elapsed)) {
+        if (drawMenu(menu,elapsed,playerName)) {
           printf("Error drawing menu\n");
           return OVER;
         }
@@ -105,9 +227,7 @@ STATE menuControllerHandle(Menu *menu, DEVICE interruptType, const struct packet
           printf("Error swapping buffers\n");
           return OVER;
         }
-        
-      
-        
+         
         
       }
       break;
@@ -152,8 +272,14 @@ STATE menuControllerHandle(Menu *menu, DEVICE interruptType, const struct packet
       break;
     case KEYBOARD:
       if (scanCode == SCANCODE_ESC){
-        
         return OVER;
+      }
+      switch(menu->type){
+        case OPTIONS_MENU:
+          handleKeyboardOptionsMenu(playerName, scanCode);
+          break;
+        default:
+          break;
       }
       break;
     default:

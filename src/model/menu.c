@@ -24,6 +24,10 @@
 #include "xpms/menu/optionsMenuSaveButton.xpm"
 #include "xpms/menu/optionsMenuSaveButtonSelected.xpm"
 #include "xpms/menu/mainMenuOptionsButtonSelected.xpm"
+#include "xpms/font/font.xpm"
+
+
+
 
 Menu* newMenu(MenuType type){
   Menu* menu = (Menu*)malloc(sizeof(Menu));
@@ -59,10 +63,8 @@ void setMenuType(Menu* menu, MenuType type){
   xpm_image_t logo;
   xpm_image_t mainMenuOptionsButton;
   xpm_image_t mainMenuOptionsButtonSelected;
-  xpm_image_t optionsMenuSaveButton;
-  xpm_image_t optionsMenuSaveButtonSelected;
   xpm_image_t optionsMenuBackground;
-
+  
 
   switch (type)
   {
@@ -127,8 +129,7 @@ void setMenuType(Menu* menu, MenuType type){
       xpm_load(instructionsMenuBackgroundXpm, XPM_8_8_8, &menuBackground);
       menu->backgroundImg = menuBackground;
       break;
-  case GAME_OVER_MENU:
-       
+  case GAME_OVER_MENU:       
       menu->nOptions = 1;
       menu->buttons = (Button**)malloc(sizeof(Button*)*menu->nOptions);
       xpm_load(backXpm, XPM_8_8_8, &back);
@@ -138,17 +139,18 @@ void setMenuType(Menu* menu, MenuType type){
       menu->backgroundImg = menuBackground;
      break;
   case OPTIONS_MENU:
-      pos.x = 629;
       pos.y = 650;
-      menu->nOptions = 2;
+      pos.x = 412;
+      menu->nOptions = 1;
       menu->buttons = (Button**)malloc(sizeof(Button*)*menu->nOptions);
       xpm_load(backXpm, XPM_8_8_8, &back);
       xpm_load(backSelectedXpm, XPM_8_8_8, &backSelected);
-      xpm_load(optionsMenuSaveButtonXpm, XPM_8_8_8, &optionsMenuSaveButton);
-      xpm_load(optionsMenuSaveButtonSelectedXpm, XPM_8_8_8, &optionsMenuSaveButtonSelected);
-      menu->buttons[0] = newButton(optionsMenuSaveButton,optionsMenuSaveButtonSelected,pos,size);
-      pos.x = 200;
-      menu->buttons[1] = newButton(back,backSelected,pos,size);
+      menu->buttons[0] = newButton(back,backSelected,pos,size);
+      printf("Loading font\n");
+      menu->font = malloc(sizeof(xpm_image_t)*36);
+      for(int i = 0; i < 36; i++){
+        xpm_load(xpm_table[i], XPM_8_8_8, &menu->font[i]);
+      }
 
       xpm_load(optionsMenuBackgroundXpm, XPM_8_8_8, &optionsMenuBackground);
       menu->backgroundImg = optionsMenuBackground;     
@@ -166,11 +168,16 @@ void resetMenu(Menu* menu){
     destroyButton(menu->buttons[i]);
   }
 }
-int drawMenu(Menu* menu,int time){
+int drawMenu(Menu* menu,int time,char* playerName){
   if( drawMenuBackground(menu->backgroundImg)) return 1;
   if(menu->type == MAIN_MENU ){
     if(drawMenuLogo(menu->mainMenuLogo,time)) return 1;
   }
+  // draw player name
+  if(menu->type == OPTIONS_MENU){
+    if(drawPlayerName(playerName,menu->font,452,345,14)) return 1;
+  }
+
   for(int i = 0; i < menu->nOptions; i++){
     if(drawMenuButton(menu->buttons[i])) return 1;
   }

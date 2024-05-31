@@ -44,5 +44,6 @@
 // Special keys
 #define SCANCODE_ESC   0x01
 #define SCANCODE_ENTER 0x1C
+#define SCANCODE_BACKSPACE 0x0E
 
 #endif // SCANCODES_H

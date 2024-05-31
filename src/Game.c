@@ -61,7 +61,7 @@ int gameLoop(Resources* resources){
             switch (state)
             {
             case MENU:
-              resources->state = menuControllerHandle(resources->menu, TIMER, NULL, 0, get_elapsed());
+              resources->state = menuControllerHandle(resources->menu,resources->playerName, TIMER, NULL, 0, get_elapsed());
               break;
             case PLAYING:
               resources->state = playingControllerHandle(resources->table, TIMER, NULL, 0, get_elapsed());
@@ -78,7 +78,7 @@ int gameLoop(Resources* resources){
               struct packet packet = getMousePacket();
               switch (state){
                 case MENU:
-                resources->state = menuControllerHandle(resources->menu, MOUSE, &packet, 0, 0);
+                resources->state = menuControllerHandle(resources->menu,resources->playerName ,MOUSE, &packet, 0, 0);
                 if(resources->state == PLAYING){
                   resources->table = newTable();
                 }
@@ -100,7 +100,7 @@ int gameLoop(Resources* resources){
             switch (state)
             {
             case MENU:
-              resources->state = menuControllerHandle(resources->menu, KEYBOARD, NULL, scancode, 0);
+              resources->state = menuControllerHandle(resources->menu, resources->playerName,KEYBOARD, NULL, scancode, 0);
               break;
             case PLAYING:
               resources->state = playingControllerHandle(resources->table, KEYBOARD, NULL, scancode, 0);

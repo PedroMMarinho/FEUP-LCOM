@@ -228,7 +228,7 @@ int vg_draw_char(char c, xpm_image_t* font,uint16_t x, uint16_t y){
   if (c < 32 || c > 126) return 1;
   int offset = 0;
   if(c >= 48 && c <= 57) offset = 48;
-  else if(c >= 97 && c <= 122) offset = 97;
+  else if(c >= 97 && c <= 122) offset = 87;
   if (drawXPMImage(font[c-offset], x, y, 0)) return 1;
   return 0;
 }
@@ -236,8 +236,9 @@ int vg_draw_char(char c, xpm_image_t* font,uint16_t x, uint16_t y){
 
 int drawText(char* text, xpm_image_t* font,uint16_t x, uint16_t y,uint8_t spacing){
   while(*text){
+    printf("Drawing %c\n",*text);
     if (vg_draw_char(*text,font, x, y)) return 1;
-    x += 8;
+    x += spacing;
     text++;
   }
   return 0;

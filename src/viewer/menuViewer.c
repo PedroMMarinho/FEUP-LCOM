@@ -28,3 +28,9 @@ int drawMenuLogo(xpm_image_t img,int time){
     return 0;
 }
 
+int drawPlayerName(char* playerName, xpm_image_t* playerNameFont, uint16_t x, uint16_t y, uint8_t spacing){
+    if(drawText(playerName,playerNameFont,x,y,spacing)) return 1;
+    printf("Drawing player name\n");
+    return 0;
+}
+

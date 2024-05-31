@@ -11,7 +11,7 @@ Resources* loadResources(){
   resources->menu = newMenu(MAIN_MENU);
   resources->state = MENU;
   int randomNumber = rand() % 10000 + 1000;  
-  sprintf(resources->playerName, "Guest%d", randomNumber);
+  sprintf(resources->playerName, "guest%d", randomNumber);
   return resources;
 }
 

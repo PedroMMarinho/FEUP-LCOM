@@ -28,3 +28,6 @@ int drawXPMImage(xpm_image_t img, double x, double y, double angle);
 int (cleanCanvas)();
 
 int swap_buffers();
+
+int drawText(char* text, xpm_image_t* font,uint16_t x, uint16_t y,uint8_t spacing);
+

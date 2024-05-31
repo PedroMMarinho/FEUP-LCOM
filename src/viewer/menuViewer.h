@@ -13,3 +13,5 @@ int  drawMenuMouse(Mouse* mouse, xpm_image_t mouseImg, xpm_image_t imgMouseHover
 int drawMenuLogo(xpm_image_t img,int time);
 
 int drawPlayerName(char* playerName, xpm_image_t* playerNameFont, uint16_t x, uint16_t y, uint8_t spacing);
+
+int drawEllipses(xpm_image_t imgBall,int time);

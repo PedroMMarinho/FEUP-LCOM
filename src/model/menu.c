@@ -25,8 +25,8 @@
 #include "xpms/menu/optionsMenuSaveButtonSelected.xpm"
 #include "xpms/menu/mainMenuOptionsButtonSelected.xpm"
 #include "xpms/font/font.xpm"
-
-
+#include "xpms/menu/onlineMenuBackground.xpm"
+#include "xpms/menu/ellipsesBall.xpm"
 
 
 Menu* newMenu(MenuType type){
@@ -64,7 +64,7 @@ void setMenuType(Menu* menu, MenuType type){
   xpm_image_t mainMenuOptionsButton;
   xpm_image_t mainMenuOptionsButtonSelected;
   xpm_image_t optionsMenuBackground;
-  
+  xpm_image_t onlineMenuBackground;
 
   switch (type)
   {
@@ -155,9 +155,22 @@ void setMenuType(Menu* menu, MenuType type){
       xpm_load(optionsMenuBackgroundXpm, XPM_8_8_8, &optionsMenuBackground);
       menu->backgroundImg = optionsMenuBackground;     
       break;
+    case ONLINE_MENU:
+      pos.y = 650;
+      pos.x = 412;
+      menu->nOptions = 1;
+      menu->buttons = (Button**)malloc(sizeof(Button*)*menu->nOptions);
+      xpm_load(backXpm, XPM_8_8_8, &back);
+      xpm_load(backSelectedXpm, XPM_8_8_8, &backSelected);
+      menu->buttons[0] = newButton(back,backSelected,pos,size);
+      xpm_load(onlineMenuBackgroundXpm, XPM_8_8_8, &onlineMenuBackground);
+
+      menu->backgroundImg = onlineMenuBackground;
+      break;
   }
   menu->selectedOption = -1;
 }
+
 void destroyMenu(Menu* menu){
   free(menu->mouse);
   free(menu);
@@ -175,9 +188,14 @@ int drawMenu(Menu* menu,int time,char* playerName){
   }
   // draw player name
   if(menu->type == OPTIONS_MENU){
+
     if(drawPlayerName(playerName,menu->font,452,345,14)) return 1;
   }
-
+  if(menu->type == ONLINE_MENU){
+    xpm_image_t ellipsesBall;
+    xpm_load(ellipsesBallXpm, XPM_8_8_8, &ellipsesBall);
+    if(drawEllipses(ellipsesBall,time)) return 1;
+  }
   for(int i = 0; i < menu->nOptions; i++){
     if(drawMenuButton(menu->buttons[i])) return 1;
   }
@@ -203,3 +221,10 @@ void updateSelectedOption(Menu* menu, int option){
   }
   menu->selectedOption = option;
 }
+void destroyFont(xpm_image_t* font){
+  for(int i = 0; i < 36; i++){
+    free(font[i].bytes);
+  }
+  free(font);
+}
+

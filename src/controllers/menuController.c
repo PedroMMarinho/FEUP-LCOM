@@ -39,9 +39,10 @@ STATE handleGameModeMenu(Menu *menu, int option) {
       return PLAYING;
       break;
     case 1:
+      // Needs UART implementation 
       resetMenu(menu);
-      destroyMenu(menu);
-      return PLAYING;
+      setMenuType(menu,ONLINE_MENU);
+      return MENU;
       break;
     case 2:
       resetMenu(menu);
@@ -68,6 +69,7 @@ STATE handleOptionsMenu(Menu *menu, int option) {
   switch (option) { // 0 - Back
     case 0:
       resetMenu(menu);
+      destroyFont(menu->font);
       setMenuType(menu, MAIN_MENU);
       return MENU;
       break;
@@ -81,6 +83,19 @@ STATE handleGameOverMenu(Menu *menu, int option) {
     case 0:
       resetMenu(menu);
       setMenuType(menu, MAIN_MENU);
+      return MENU;
+      break;
+    default:
+      return OVER;
+  }
+}
+
+STATE handleOnlineMenu(Menu *menu, int option) {
+  switch (option) { // 0 - Back
+    case 0:
+      resetMenu(menu);
+      setMenuType(menu, GAME_MODE_MENU);
+      // Change STATE to WAITING
       return MENU;
       break;
     default:
@@ -262,6 +277,9 @@ STATE menuControllerHandle(Menu *menu,char* playerName,DEVICE interruptType, con
               break;
             case GAME_OVER_MENU:
               return handleGameOverMenu(menu, menu->selectedOption);
+              break;
+            case ONLINE_MENU:
+              return handleOnlineMenu(menu, menu->selectedOption);
               break;
             default:
               printf("Invalid menu type\n");

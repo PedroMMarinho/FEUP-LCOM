@@ -8,6 +8,7 @@ typedef enum MenuType {
   MAIN_MENU,
   GAME_MODE_MENU,
   INSTRUCTIONS_MENU,
+  ONLINE_MENU,
   OPTIONS_MENU,
   GAME_OVER_MENU,
 } MenuType;
@@ -33,3 +34,4 @@ void resetMenu(Menu* menu);
 int drawMenu(Menu* menu,int time,char* playerName);
 int seeIfMouseIsOverOption(Menu* menu,int *option);
 void updateSelectedOption(Menu* menu, int option);
+void destroyFont(xpm_image_t* font);

@@ -34,3 +34,14 @@ int drawPlayerName(char* playerName, xpm_image_t* playerNameFont, uint16_t x, ui
     return 0;
 }
 
+
+int drawEllipses(xpm_image_t imgBall,int time){
+    int x = 450;
+    int y = 430;
+    int spacing = 69;
+    int frame = (time/30)%4;
+    for(int i = 0; i < frame; i++){
+        if(drawXPMImage(imgBall,x + i*spacing,y,0)) return 1;
+    }
+    return 0;
+}

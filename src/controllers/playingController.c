@@ -5,6 +5,7 @@
 #include "../viewer/cueViewer.h"
 #include "../viewer/lineViewer.h"
 #include "../xpms/ball.xpm"
+#include "../labs/scancodes.h"
 
 STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct packet *packet, uint8_t scanCode, unsigned elapsed) {
   switch (interruptType) {
@@ -61,8 +62,9 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
     case KEYBOARD:
       printf("Detected keyboard with scanCode: %x\n", scanCode);
       printf("The comparation is %d", scanCode == 0x81);
-      if (scanCode == 0x81)
+      if (scanCode == SCANCODE_ESC) {
         return OVER;
+      }
       break;
     default:
       break;

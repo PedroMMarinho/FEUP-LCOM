@@ -1,6 +1,7 @@
 #include "menuController.h"
 #include "../labs/graphics.h"
 #include "../model/table.h"
+#include "../labs/scancodes.h"
 
 STATE handleMainMenu(Menu *menu, int option) {
   printf("option stuff: %d\n", option);
@@ -123,7 +124,7 @@ STATE menuControllerHandle(Menu *menu, DEVICE interruptType, const struct packet
       }
       break;
     case KEYBOARD:
-      if (scanCode == 0x81){
+      if (scanCode == SCANCODE_ESC){
         
         return OVER;
       }

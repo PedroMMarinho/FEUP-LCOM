@@ -11,6 +11,21 @@ double angle(vector_t vec1) {
   return ang < 0 ? 2 * M_PI + ang : ang;
 }
 
+double angleBetween(vector_t vec1, vector_t vec2){
+  double ang = atan2(vec1.y, vec1.x) - atan2(vec2.y, vec2.x);
+  return ang < 0 ? 2 * M_PI + ang : ang;
+}
+
+vector_t linePointClosestTo(vector_t p1, vector_t p2, vector_t p){
+  vector_t diff = {p2.x-p1.x, p2.y-p1.y};
+  vector_t connection = {p1.x - p.x, p1.y-p.y};
+
+  double t = -dotProduct(connection, diff) / dotProduct(diff, diff);
+
+  vector_t result = {p1.x + diff.x * t, p1.y + diff.y * t};
+  return result;
+}
+
 vector_t rotate2d(vector_t vec, double ang) {
 
   double cosseno = cos(ang);

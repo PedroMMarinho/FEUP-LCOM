@@ -18,7 +18,8 @@
 #include "resources.h"
 
 // Includes for physics testing
-#include "physics/utilities.h"
+#include "physics/resolve/resolver.h"
+#include <math.h>
 
 int initGame() {
   Resources *resources = loadResources();
@@ -31,36 +32,29 @@ int initGame() {
   c = -72;
   d = 9;
   e = 66;
-  char aString[20];
 
   Ball* ball1 = resources->table->balls[0];
-  ball1->position.x = 200;
+  ball1->position.x = 0;
   ball1->position.y = 0;
 
   ball1->velocity.x = 0;
-  ball1->velocity.y = 10;
+  ball1->velocity.y = 0;
 
   ball1->ang_velocity.x = 0;
   ball1->ang_velocity.y = 0;
   ball1->ang_velocity.z = 0;
 
-  ball1->state = ROLLING;
+  ball1->state = SLIDING;
 
-  vector_t pocket = {200, 200};
-  QuarticCoeff result = getBallPocketCollisionCoeff(ball1, pocket, resources->table->pocketRadius, resources->table->rollingFriction, resources->table->slidingFriction, resources->table->gravityAcceleration);
+  Cue* cue = resources->table->cue;
+  cue->sideEnglish = 0.2;
+  cue->verticalEnglish = -0.5;
 
+  cue->charge = 1;
+  cue->angle = 0;
+  cue->elevationAngle = 0;
 
-  sprintf(aString, "%fl", result.a);
-  printf("The result: %s | ", aString);
-  sprintf(aString, "%fl", result.b);
-  printf(" %s | ", aString);
-  sprintf(aString, "%fl", result.c);
-  printf(" %s | ", aString);
-  sprintf(aString, "%fl", result.d);
-  printf(" %s | ", aString);
-  sprintf(aString, "%fl", result.e);
-  printf(" %s | \n", aString);
-
+  resolveStickBall(cue, ball1, resources->table->maxSpeedShot);
 
   return gameLoop(resources);
 }

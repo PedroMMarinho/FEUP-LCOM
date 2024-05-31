@@ -49,6 +49,7 @@ Table *newTable() {
   // Set cue
   table->cue = newCue();
   updateCueState(table, false);
+  table->maxSpeedShot = 10;
 
   // Set state
   table->state = AIMING;
@@ -59,6 +60,7 @@ Table *newTable() {
   table->slidingFriction = 0.2;
   table->spinningFriction = 0.01;
   table->rollingFriction = 0.01;
+  table->cushionRestitution = 0.85;
 
   return table;
 }

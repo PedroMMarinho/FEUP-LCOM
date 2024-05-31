@@ -9,11 +9,12 @@ PROG=proj
 .PATH: ${.CURDIR}/model/
 .PATH: ${.CURDIR}/controllers/
 .PATH: ${.CURDIR}/physics/
+.PATH: ${.CURDIR}/physics/resolve/
 
 
 
 # source code files to be compiled
-SRCS = main.c graphics.c timer.c utils.c keyboard.c mouse.c kbc.c cueViewer.c lineViewer.c ball.c Game.c resources.c table.c mouseModel.c playingController.c utilities.c cue.c evolve.c events.c
+SRCS = main.c graphics.c timer.c utils.c keyboard.c mouse.c kbc.c cueViewer.c lineViewer.c ball.c Game.c resources.c table.c mouseModel.c playingController.c utilities.c cue.c evolve.c events.c resolver.c
 
 # additional compilation flags
 # "-Wall -Wextra -Werror -I . -std=c11 -Wno-unused-parameter" are already set

@@ -1,7 +1,8 @@
 
 #pragma once
-#include "../vector.h"
 #include <lcom/lcf.h>
+#include "../vector.h"
+#include "../event.h"
 
 typedef enum BALL_STATE {
   STATIONARY,
@@ -18,6 +19,8 @@ typedef struct Ball {
   vector3_t ang_velocity;
   xpm_image_t img;
   size_t radius;
+
+  Event transition;
 } Ball;
 
 Ball *newBall(vector_t position);

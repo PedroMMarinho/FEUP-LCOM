@@ -12,6 +12,10 @@ vector_t unitVector(vector_t a, vector_t b);
 
 double angle(vector_t vec1);
 
+double angleBetween(vector_t vec1, vector_t vec2);
+
+vector_t linePointClosestTo(vector_t p1, vector_t p2, vector_t p);
+
 vector_t normalizeVector(vector_t vector);
 
 double dotProduct(vector_t a, vector_t b);

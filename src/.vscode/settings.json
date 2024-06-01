@@ -13,6 +13,7 @@
     "pixmap.h": "c",
     "stddef.h": "c",
     "*.xpm": "c",
-    "stdio.h": "c"
+    "stdio.h": "c",
+    "multiplayercontroller.h": "c"
   },
 }

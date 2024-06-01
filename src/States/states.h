@@ -15,5 +15,6 @@ typedef enum DEVICE {
   RTC,
   PORT,
   TIMER,
+  SP,
 } DEVICE;
 

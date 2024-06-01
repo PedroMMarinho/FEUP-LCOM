@@ -2,6 +2,8 @@
 #include "../labs/graphics.h"
 #include "../model/table.h"
 #include "../labs/scancodes.h"
+#include "../labs/serialPort.h"
+
 
 STATE handleMainMenu(Menu *menu, int option) {
   printf("option stuff: %d\n", option);
@@ -42,7 +44,9 @@ STATE handleGameModeMenu(Menu *menu, int option) {
       // Needs UART implementation 
       resetMenu(menu);
       setMenuType(menu,ONLINE_MENU);
-      return MENU;
+
+      sp_ih();
+      return handleMultiplayerConnection();
       break;
     case 2:
       resetMenu(menu);
@@ -95,7 +99,7 @@ STATE handleOnlineMenu(Menu *menu, int option) {
     case 0:
       resetMenu(menu);
       setMenuType(menu, GAME_MODE_MENU);
-      // Change STATE to WAITING
+      resetMultiplayer();
       return MENU;
       break;
     default:

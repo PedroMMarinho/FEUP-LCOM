@@ -18,4 +18,8 @@ int(util_get_MSB)(uint16_t val, uint8_t *msb);
 
 int(util_get_LSB)(uint16_t val, uint8_t *lsb);
 
+void (delay_milli_seconds)(unsigned milli_seconds);
+
+uint8_t (bcd_binary)(uint8_t value);
+
 #endif

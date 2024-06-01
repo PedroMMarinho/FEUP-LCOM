@@ -6,6 +6,8 @@
 #include "../viewer/lineViewer.h"
 #include "../xpms/ball.xpm"
 #include "../labs/scancodes.h"
+#include "labs/rtc.h"
+
 
 STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct packet *packet, uint8_t scanCode, unsigned elapsed) {
   switch (interruptType) {
@@ -66,6 +68,16 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
         return OVER;
       }
       break;
+
+    case RTC:
+      printf("ROUND TIME: %d\n", get_round_time());
+      printf("GAME TIME: %d\n", get_game_time());
+      printf("TIME: %s\n", get_current_time());
+      break;
+
+    case SP:
+      break;
+      
     default:
       break;
   }

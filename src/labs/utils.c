@@ -53,3 +53,13 @@ int(util_get_MSB)(uint16_t val, uint8_t *msb) {
     return 0;
 }
 
+void (delay_milli_seconds)(unsigned milli_seconds){
+  tickdelay(micros_to_ticks(milli_seconds*1000));
+}
+
+uint8_t (bcd_binary)(uint8_t value) {
+  return (value >> 4) * 10 + (value & 0x0F);
+}
+
+
+

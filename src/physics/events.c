@@ -30,15 +30,19 @@ Event getNextBallBallCollision(Table *table) {
         continue;
 
       vector_t positionDiff = {ball1->position.x - ball2->position.x, ball1->position.y - ball2->position.y};
-      if (magnitudeOf(positionDiff) < (ball1->radius + ball2->radius))
+      if (magnitudeOf(positionDiff) < (ball1->radius + ball2->radius)){
+        printf("Ball inside each other\n");
+        printf("The distance between is: ");
+        printFloat(magnitudeOf(positionDiff));
         continue;
+      }
 
       balls2[collisionNumber] = j;
       balls1[collisionNumber] = i;
 
       coeficients[collisionNumber] = getBallBallCollisionCoeff(ball1, ball2, table->rollingFriction, table->slidingFriction, table->gravityAcceleration);
 
-      printCoef(coeficients[collisionNumber]);
+      // printCoef(coeficients[collisionNumber]);
 
       collisionNumber++;
     }
@@ -50,6 +54,7 @@ Event getNextBallBallCollision(Table *table) {
   double collisionTime;
   int i = findSmallerCoeficient(collisionNumber, coeficients, &collisionTime);
   if (i < 0) {
+    printEvent(&event);
     return event;
   }
 
@@ -63,7 +68,8 @@ Event getNextBallBallCollision(Table *table) {
   free(balls2);
 
   printf("Final ball ball\n");
-
+  printEvent(&event);
+  printf("\n\n");
   return event;
 }
 

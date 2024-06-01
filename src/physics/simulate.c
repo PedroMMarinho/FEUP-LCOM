@@ -17,14 +17,12 @@ bool updatePhysics(Table *table, double dt) {
   while (nextEvent.type != INVALID) {
 
     if (elapsed + nextEvent.time < dt) {
-      printf("------- Process FULL EVENT\n");
       // Event still happens before dt passed
       evolveBalls(table, nextEvent.time);
       resolveEvent(table, nextEvent);
       elapsed += nextEvent.time;
     }
     else {
-      printf("------- Process EVENT PART\n");
       evolveBalls(table, dt - elapsed);
       nextEvent.time -= dt - elapsed;
       table->nextEvent = nextEvent;

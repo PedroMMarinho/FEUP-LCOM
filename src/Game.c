@@ -26,7 +26,7 @@ int initGame() {
   printf("created resources\n");
 
 
-   
+
 
 
   return gameLoop(resources);
@@ -129,6 +129,6 @@ int gameLoop(Resources *resources) {
     return 1;
   printf("Cleaning resources\n");
   destroyResources(resources);
-  printf("Everything finished\n");
+  printf("Everything finished\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
   return 0;
 }

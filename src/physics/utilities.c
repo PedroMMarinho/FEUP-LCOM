@@ -18,7 +18,7 @@ void printEvent(Event* event){
 void printFloat(double num){
 
   char a[30];
-  sprintf(a, "%fl", num);
+  sprintf(a, "%f", num);
   printf("%s\n", a);
 }
 
@@ -42,9 +42,9 @@ void printVector(vector_t vec){
 
   char a[30];
 
-  sprintf(a, "%fl", vec.x);
+  sprintf(a, "%f", vec.x);
   printf("x - %s\n", a);
-  sprintf(a, "%fl", vec.y);
+  sprintf(a, "%f", vec.y);
   printf("y - %s\n", a);
 }
 

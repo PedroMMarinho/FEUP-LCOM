@@ -216,6 +216,7 @@ int(rtc_subscribe)(uint8_t *bit_no) {
     if(disable_interrupts()) return 1;
     if(update_interrupts(true)) return 1;
     if(alarm_interrupts(true)) return 1;
+    printf("RTC subscribed\n");
     return 0;
 }
 
@@ -227,6 +228,7 @@ int(rtc_unsubscribe)() {
         printf("Error: could not unsubscribe RTC interruption\n"); //copiado assim mudar tudo?? meter return
         return 1;
     }
+    printf("RTC unsubscribed\n");
 
     return 0;
 }

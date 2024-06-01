@@ -28,7 +28,7 @@
 #define LCR_5_BITS            (~BIT(0) & ~BIT(1))
 #define LCR_6_BITS            (BIT(0) & ~BIT(1))
 #define LCR_7_BITS            (~BIT(0) & BIT(1))
-#define LCR_8_BITS            (BIT(0) & BIT(1))
+#define LCR_8_BITS            (BIT(0) | BIT(1))
 #define LCR_ODD_PARITY        BIT(3)
 #define LCR_DLAB              BIT(7)
 
@@ -46,10 +46,10 @@
 #define IER_RLSI BIT(2)
 
 #define IIR_PENDING                    BIT(0)
-#define IIR_LINE_STATUS                (~BIT(1) & BIT(2) & BIT(3)) 
-#define IIR_DATA_AVAILABLE             (~BIT(1) & BIT(2) & ~BIT(3)) 
-#define IIR_CHARACTER_TIMEOUT          (BIT(1) & BIT(2) & ~BIT(3)) 
-#define IIR_TRANSMIT_HOLD_EMPTY        (~BIT(1) & ~BIT(2) & BIT(3)) 
+#define IIR_LINE_STATUS                (BIT(2) | BIT(1))
+#define IIR_DATA_AVAILABLE             (BIT(2)) 
+#define IIR_CHARACTER_TIMEOUT          (BIT(2) | BIT(3)) 
+#define IIR_TRANSMIT_HOLD_EMPTY        (BIT(1)) 
 
 
 #define FCR_ENABLE_FIFO                BIT(0)
@@ -75,7 +75,7 @@ void sp_ih();
 
 int sp_clear();
 
-
+void resetMultiplayer();
 
 
 

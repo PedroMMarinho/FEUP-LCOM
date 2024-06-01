@@ -5,7 +5,8 @@ static int sp_hookId = 7;
 static Queue* sendQueue;
 static Queue* receiveQueue;
 
-static int hold_reg_empty;
+static int hold_reg_empty = 1;
+bool sendByte = false;
 
 static int sp_read(int port, uint8_t* value){
     if(util_sys_inb(port + COM1, value)) return 1;
@@ -49,6 +50,26 @@ static int sp_bitrate(int bitrate) {
 }
 
 static int sp_init() {
+
+    //ENABLE INTERRUPTIONS
+    uint8_t ier;
+    if(sp_read(IER,&ier)) return 1;
+    ier = ier | (IER_RDAI | IER_THREI | IER_RLSI);
+    if(sp_write(IER, ier)) return 1;
+
+
+    //ENABLE FIFO AND CLEAR TRANSMITTER AND RECEIVER FIFO
+    uint8_t fcr;
+    if(sp_read(FCR,&fcr)) return 1;
+    fcr = fcr | (FCR_ENABLE_FIFO | FCR_CLEAR_RCVR_FIFO | FCR_CLEAR_XMIT_FIFO);
+    if(sp_write(FCR, fcr)) return 1;
+
+    sendQueue = new_queue();
+    receiveQueue = new_queue();
+
+    //SET BITRATE
+    if (sp_bitrate(115200)) return 1; 
+
     //SET PARITY AND BITS PER CHAR
     uint8_t lcr;
 
@@ -58,21 +79,6 @@ static int sp_init() {
 
     if(sp_write(LCR,lcr)) return 1;
 
-
-    //SET BITRATE
-    if (sp_bitrate(115200)) return 1; 
-
-    //ENABLE INTERRUPTIONS
-    uint8_t ier;
-    if(sp_read(IER,&ier)) return 1;
-    ier = ier | (IER_RDAI | IER_THREI | IER_RLSI);
-    if(sp_write(IER, ier)) return 1;
-
-    //ENABLE FIFO AND CLEAR TRANSMITTER AND RECEIVER FIFO
-    uint8_t fcr;
-    if(sp_read(FCR,&fcr)) return 1;
-    fcr = fcr | (FCR_ENABLE_FIFO | FCR_CLEAR_RCVR_FIFO | FCR_CLEAR_XMIT_FIFO);
-    if(sp_write(FCR, fcr)) return 1;
 
   return 0;
 }
@@ -103,6 +109,8 @@ static int sp_end() {
 
 int (sp_subscribe)(uint8_t *bit_no) {
 
+    if (sp_init()) return 1;
+
     if (bit_no == NULL) return 1;    
 
     *bit_no = BIT(sp_hookId);
@@ -111,11 +119,7 @@ int (sp_subscribe)(uint8_t *bit_no) {
         printf("Error: could not subscribe SP interruption\n");
         return 1;
     } 
-
-    if (sp_init()) return 1;
-
-    sendQueue = new_queue();
-    receiveQueue = new_queue();
+    sp_ih();
 
     return 0;
 }
@@ -130,7 +134,7 @@ int (sp_unsubscribe)() {
 }
 
 
-int sp_clear(){ //ver //copiado
+int sp_clear(){ // Change this  TODO
     uint8_t reg;
     reg = (FCR_CLEAR_RCVR_FIFO | FCR_CLEAR_XMIT_FIFO | FCR_ENABLE_FIFO);
     if(sp_write(FCR, reg)) return 1;
@@ -139,8 +143,10 @@ int sp_clear(){ //ver //copiado
 }
 
 
-int send_bytes_in_queue(){ //copiado //ver
+int send_bytes_in_queue(){ // Change this  TODO
+    
     if(queue_isEmpty(sendQueue)){
+        printf("queue is empty\n");
         hold_reg_empty = 1;
         return 1;
     }
@@ -159,8 +165,10 @@ int send_bytes_in_queue(){ //copiado //ver
 }
 
 
-int send_byte(uint8_t byte){ //copiado //ver
+int send_byte(uint8_t byte){ // Change this  TODO
+    printf("send_byte %x\n",byte);
     int pushed = queue_push(sendQueue,byte);
+
     if(hold_reg_empty){
         return send_bytes_in_queue();
     }else return pushed;
@@ -168,10 +176,9 @@ int send_byte(uint8_t byte){ //copiado //ver
 }
 
 
-int establish_connection(){ //copiado
+int establish_connection(){ // Change this  TODO
     bool connection = false;
     uint8_t frontByte = queue_front(receiveQueue);
-
     if(frontByte == 0x53){
         send_byte(0x54);
     }else if(frontByte == 0x54){
@@ -208,19 +215,25 @@ int establish_connection(){ //copiado
         send_byte(0x57);
     }else if(frontByte == 0x57){
         connection = true;
+    }else if(!sendByte){
+        send_byte(0x53);
+        sendByte = true;
     }
-
+    
     queue_pop(receiveQueue); // Ensure to always queue_pop the processed byte
     return connection;
 }
 
-int read_byte(){ //copiado
+int read_byte(){ 
     uint8_t reg, byte;
     sp_read(LSR, &reg);
+    
     if(reg & LSR_RECEIVER_DATA){
         sp_read(RBR, &byte);
+        
         if(!(reg & (LSR_OVERRUN_ERROR | LSR_PARITY_ERROR | LSR_FRAMING_ERROR))){
             queue_push(receiveQueue, byte);
+            printf("read_byte %x\n",byte);
             return 0;
         }
     }
@@ -228,17 +241,26 @@ int read_byte(){ //copiado
 }
 
 
-void sp_ih(){ //copiado
+void sp_ih(){ // Change this  TODO
     uint8_t reg;
     sp_read(IIR, &reg);
     while(!(reg & IIR_PENDING)) {
         if(reg & IIR_DATA_AVAILABLE){
+            printf("data available\n");
             while(!read_byte());
             sp_read(IIR, &reg);
         }
         if(reg & IIR_TRANSMIT_HOLD_EMPTY){
+            printf("transmit hold empty\n");
             send_bytes_in_queue();
             sp_read(IIR, &reg);
         }
     }
+}
+
+void resetMultiplayer(){
+    sendByte = false;
+    hold_reg_empty = 1;
+    while(queue_pop(sendQueue) != 0);
+    while(queue_pop(receiveQueue) != 0);
 }

@@ -6,6 +6,7 @@ bool multiplayer = false;
 
 STATE handleMultiplayerConnection() {
   if(establish_connection()){
+    printf("Connection established\n");
     multiplayer = true;
     return PLAYING;
   }

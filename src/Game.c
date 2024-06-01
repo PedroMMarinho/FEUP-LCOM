@@ -132,13 +132,18 @@ int gameLoop(Resources* resources){
 
           if (msg.m_notify.interrupts & sp_iqr){
             sp_ih();
+            printf("Interrupt received\n");
             switch (state)
             {
             case MENU:
               if(resources->menu->type == ONLINE_MENU){
                 resources->state = handleMultiplayerConnection();
+                if(resources->state == PLAYING){
+                  resources->table = newTable();
+                }
               }
               else{
+                printf("Clearing serial port\n");
                 sp_clear();
               }
               break;

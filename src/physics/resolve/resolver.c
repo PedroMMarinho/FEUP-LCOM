@@ -25,6 +25,7 @@ void resolveEvent(Table *table, Event event) {
     case SLIDING_ROLLING:
       printf("SOLVING SLIDING_ROLLING PROBLOEM\n");
       event.ball1->state = ROLLING;
+      updateBallNextTransition(table, event.ball1);
       break;
     case BALL_BALL:
       resolveBallBall(event.ball1, event.ball2);

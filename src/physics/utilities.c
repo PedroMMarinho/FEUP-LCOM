@@ -25,15 +25,15 @@ void printFloat(double num){
 void printCoef(QuarticCoeff q){
 
   char a[30];
-  sprintf(a, "%fl", q.a);
+  sprintf(a, "%f", q.a);
   printf("a - %s\n", a);
-  sprintf(a, "%fl", q.b);
+  sprintf(a, "%f", q.b);
   printf("b - %s\n", a);
-  sprintf(a, "%fl", q.c);
+  sprintf(a, "%f", q.c);
   printf("c - %s\n", a);
-  sprintf(a, "%fl", q.d);
+  sprintf(a, "%f", q.d);
   printf("d - %s\n", a);
-  sprintf(a, "%fl", q.e);
+  sprintf(a, "%f", q.e);
   printf("e - %s\n", a);
 
 }
@@ -193,7 +193,7 @@ int quartic(double a, double b, double c, double d, double e, double *ans) {
     ans[nroots++] = 0.5 * (sqrt_2m + delta) - 0.25 * b;
     ans[nroots++] = 0.5 * (sqrt_2m - delta) - 0.25 * b;
   }
-
+  printf("nroots: %d\n", nroots);
   return nroots;
 }
 
@@ -201,7 +201,10 @@ double smallerPositiveQuarticRoot(double a, double b, double c, double d, double
   double results[4];
   double bestResult = INFINITY;
   int size = quartic(a, b, c, d, e, results);
+  printf("%d - solutions!!!!\n", size);
   for (int i = 0; i < size; i++) {
+    printf("A result: ");
+    printFloat(results[i]);
     if (results[i] > 0 && results[i] < bestResult) {
       bestResult = results[i];
     }
@@ -241,6 +244,8 @@ double getSlideTime(Ball *ball, double u, double g) {
 
 double getBallCushionCollisionTime(Table *table, Ball *ball, Cushion* cushion) {
 
+  printf("Start\n");
+  
   if (ballNotMoving(ball))
     return INFINITY;
 
@@ -298,6 +303,10 @@ double getBallCushionCollisionTime(Table *table, Ball *ball, Cushion* cushion) {
     if (root < minTime)
       minTime = root;
   }
+
+
+  printf("End\n");
+
   return minTime;
 }
 

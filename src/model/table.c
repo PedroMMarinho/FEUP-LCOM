@@ -15,7 +15,7 @@ Table *newTable() {
   table->ballNumber = 2;
   table->balls = (Ball **) malloc(sizeof(Ball *) * table->ballNumber);
 
-  vector_t cueBallPosition = {500, 500};
+  vector_t cueBallPosition = {300, 300};
   table->balls[0] = newBall(cueBallPosition);
   vector_t otherBallPosition = {400, 400};
   table->balls[1] = newBall(otherBallPosition);
@@ -158,17 +158,17 @@ Table *newTable() {
   // Set cue
   table->cue = newCue();
   updateCueState(table, false);
-  table->maxSpeedShot = 10;
+  table->maxSpeedShot = 900;
 
   // Set state
   table->state = AIMING;
 
   // Set physics attributes
   table->gravityAcceleration = 9.81;
-  table->slidingFriction = 0.2;
+  table->slidingFriction = 12;
   table->spinningFriction = 0.01;
-  table->rollingFriction = 0.01;
-  table->cushionRestitution = 0.85;
+  table->rollingFriction = 12;
+  table->cushionRestitution = 0.5;
 
   return table;
 }
@@ -190,15 +190,24 @@ void destroyTable(Table *table) {
   free(table->cue);
 }
 
+//Test
+#include "../viewer/lineViewer.h"
+
 int drawTable(Table *table) {
 
-  drawXPMImage(table->img, 512, 384, 0);
+  drawXPMImage(table->img, 512, 443, 0);
 
   for (size_t i = 0; i < table->ballNumber; i++) {
     Ball *ball = table->balls[i];
     if (drawXPMImage(getBallImage(ball), getBallPosition(ball).x, getBallPosition(ball).y, 0))
       return 1;
   }
+
+  for (size_t i = 0; i < 18; i++) {
+    Cushion* cushion = table->cushions[i];
+    drawThickLine(cushion->p1, cushion->p2, 3, 0xffffff);
+  }
+
 
   switch (table->state) {
     case AIMING:
@@ -224,7 +233,7 @@ bool getColisionPoint(Table *table, vector_t *colisionPoint) {
   for (size_t i = 1; i < table->ballNumber; i++) {
     Ball *ball = table->balls[i];
 
-    vector_t s = {cueBall->position.x - ball->position.x, cueBall->position.x - ball->position.y};
+    vector_t s = {cueBall->position.x - ball->position.x, cueBall->position.y - ball->position.y};
     double b = s.x * cue->directionVector.x + s.y * cue->directionVector.y;
     // TODO Fix ball radius hard code
     double c = s.x * s.x + s.y * s.y - 40 * 40;

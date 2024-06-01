@@ -17,7 +17,7 @@ Ball *newBall(vector_t position){
   xpm_load(ballXpm, XPM_8_8_8, &img);
   ball->img = img;
 
-  Event transition = {INFINITY, INVALID, NULL, NULL, NULL, -1};
+  Event transition = newInvalidEvent();
   ball->transition = (Event*)malloc(sizeof(Event));
   *ball->transition = transition;
 

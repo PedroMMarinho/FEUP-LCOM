@@ -6,7 +6,7 @@
 
 void processShot(Table *table) {
   printf("Shot processed\n");
-  Event shotEvent = {0, STICK_BALL, table->balls[0], NULL, NULL, -1};
+  Event shotEvent = {0, STICK_BALL, table->balls[0], NULL, NULL,NULL,-1};
   table->nextEvent = shotEvent;
 }
 

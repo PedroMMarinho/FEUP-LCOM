@@ -34,8 +34,15 @@ void resolveEvent(Table *table, Event event) {
       updateBallNextTransition(table, event.ball1);
       updateBallNextTransition(table, event.ball2);
       break;
-    case BALL_CUSHION:
-      resolveBallCushion(event.ball1, event.cushion, table->cushionRestitution);
+    case BALL_LINEAR_CUSHION:
+      fixNormalDirection(event.linearCushion, event.ball1);
+      makeBallLinearCushionKiss(event.ball1, event.linearCushion);
+      resolveBallCushion(event.ball1, event.linearCushion->normal, table->cushionRestitution);
+      updateBallNextTransition(table, event.ball1);
+      break;
+    case BALL_CIRCULAR_CUSHION:
+      makeBallCircularCushionKiss(event.ball1, event.circularCushion);
+      resolveBallCushion(event.ball1, CircularCushionNormal(event.circularCushion, event.ball1), table->cushionRestitution);
       updateBallNextTransition(table, event.ball1);
       break;
     case BALL_POCKET:
@@ -81,55 +88,88 @@ void resolveBallBall(Ball *ball1, Ball *ball2) {
 
 void makeBallsKiss(Ball *ball1, Ball *ball2) {
 
-  printf("\n\n Make balls kiss \n");
-  printf("ball1 pos: \n");
-  printVector(ball1->position);
-  printf("ball2 pos: \n");
-  printVector(ball2->position);
-
   vector_t ballBallVec = {ball2->position.x - ball1->position.x, ball2->position.y - ball1->position.y};
-
-  printf("Distance: \n");
-  printFloat(magnitudeOf(ballBallVec));
 
   vector_t n = normalizeVector(ballBallVec);
 
   // TODO - Fix the use of EPS to make it regular
   double distance = magnitudeOf(ballBallVec);
   double error = 2.0 * ball1->radius - distance;
-  if (error > 0){
+  if (error > 0) {
     double correction = (error + 1e-5) / 2;
     ball1->position.x -= correction * n.x;
     ball1->position.y -= correction * n.y;
 
     ball2->position.x += correction * n.x;
     ball2->position.y += correction * n.y;
-
   }
-
-
-  printf("ball1 pos: \n");
-  printVector(ball1->position);
-  printf("ball2 pos: \n");
-  printVector(ball2->position);
-
-
-  vector_t finalVec = {ball2->position.x - ball1->position.x, ball2->position.y - ball1->position.y};
-
-  printf("Distance: \n");
-  printFloat(magnitudeOf(finalVec));
 }
 
-void resolveBallCushion(Ball *ball, Cushion *cushion, double restitution) {
+void resolveBallCushionRealistic(Ball *ball, vector_t cushionNormal, double restitution, double friction) {
 
-  if (dotProduct(cushion->normal, ball->velocity) <= 0) {
-    cushion->normal.x = -cushion->normal.x;
-    cushion->normal.y = -cushion->normal.y;
+  double psi = angle(cushionNormal);
+
+  vector_t velocityR = rotate2d(ball->velocity, -psi);
+  vector_t xyAngVelocity = {ball->ang_velocity.x, ball->ang_velocity.y};
+  vector_t xyAngVelocityR = rotate2d(xyAngVelocity, -psi);
+
+  double phi = fmod(angle(velocityR), (2 * M_PI));
+
+  double h = 14;
+  double theta_a = asin(h / ball->radius - 1);
+  double cosseno = cos(theta_a);
+  double seno = sin(theta_a);
+
+  vector_t s;
+  // sx = rvw_R[1, 0] * np.sin(theta_a) - rvw_R[1, 2] * np.cos(theta_a) + R * rvw_R[2, 1]
+  s.x = velocityR.x * seno + ball->radius * xyAngVelocityR.y;
+  s.y = -velocityR.y - ball->radius * ball->ang_velocity.z * cosseno + ball->radius * xyAngVelocityR.x * seno;
+  double c = velocityR.x * cosseno;
+
+  // CHECK MASS NECESSARY
+  // II = 2 / 5 * m * R**2
+  // A = 7 / 2 / m
+  // B = 1 / m
+
+  double II = 2 / 5 * (ball->radius * ball->radius);
+  double A = 7 / 2;
+  double B = 1;
+
+  double PzE = (1 + restitution) * c / B;
+  double PzS = sqrt(s.x * s.x + s.y * s.y) / A;
+
+  double PX, PY, PZ;
+
+  double helper = (1 + restitution) * c / B;
+  if (PzS <= PzE) {
+    PX = -s.x / A * seno - helper * cosseno;
+    PY = s.y / A;
+    PZ = s.x / A * cosseno - helper * seno;
+  }
+  else {
+    PX = -friction * helper * cos(phi) * seno - helper * cosseno;
+    PY = friction * helper * sin(phi);
+    PZ = friction * helper * cos(phi) * cosseno - helper * seno;
   }
 
-  makeBallCushionKiss(ball, cushion);
+  velocityR.x += PX;
+  velocityR.y += PY;
 
-  double ang = angle(cushion->normal);
+  xyAngVelocityR.x += -ball->radius / II * PY * seno;
+  xyAngVelocityR.y += ball->radius / II * (PX * seno - PZ * cosseno);
+  ball->ang_velocity.z += ball->radius / II * PY * cosseno;
+
+  ball->velocity = rotate2d(velocityR, psi);
+  xyAngVelocity = rotate2d(velocityR, psi);
+  ball->ang_velocity.x = xyAngVelocity.x;
+  ball->ang_velocity.y = xyAngVelocity.y;
+
+  ball->state = SLIDING;
+}
+
+void resolveBallCushion(Ball *ball, vector_t cushionNormal, double restitution) {
+
+  double ang = angle(cushionNormal);
   vector_t velocityC = rotate2d(ball->velocity, -ang);
 
   velocityC.x *= -restitution;
@@ -138,17 +178,34 @@ void resolveBallCushion(Ball *ball, Cushion *cushion, double restitution) {
   ball->state = SLIDING;
 }
 
-void makeBallCushionKiss(Ball *ball, Cushion *cushion) {
+void makeBallLinearCushionKiss(Ball *ball, LinearCushion *cushion) {
 
   vector_t c = linePointClosestTo(cushion->p1, cushion->p2, ball->position);
 
   // TODO: CREATE FUNCIONS FOR THIS??
   // TODO: FIX USE OF EPS
   vector_t connection = {ball->position.x - c.x, ball->position.y - c.y};
-  double correction = ball->radius - magnitudeOf(connection) + 1e-9;
 
-  ball->position.x -= correction * cushion->normal.x;
-  ball->position.y -= correction * cushion->normal.y;
+  double distance = magnitudeOf(connection);
+  double error = ball->radius - distance;
+  if (error > 0) {
+    double correction = (error + 1e-6) / 2;
+    ball->position.x -= correction * cushion->normal.x;
+    ball->position.y -= correction * cushion->normal.y;
+  }
+}
+
+void makeBallCircularCushionKiss(Ball *ball, CircularCushion *cushion) {
+  vector_t normal = CircularCushionNormal(cushion, ball);
+
+  vector_t connection = {ball->position.x - cushion->position.x, ball->position.y - cushion->position.y};
+  double distance = magnitudeOf(connection);
+  double error = ball->radius + cushion->radius - distance;
+  if (error > 0) {
+    double correction = (error + EPS_SPACE);
+    ball->position.x -= correction * normal.x;
+    ball->position.y -= correction * normal.y;
+  }
 }
 
 void resolveBallPocket(Ball *ball, Pocket *pocket) {
@@ -194,7 +251,6 @@ void assertSpinning(Ball *ball) {
 
 void resolveStickBall(Cue *cue, Ball *ball, double maxSpeed) {
 
-
   // TODO: CHECK IF SPIN IS NOT TOO MUCH
   double sideSpin = cue->sideEnglish * ball->radius;
   double verticalSpin = cue->verticalEnglish * ball->radius;
@@ -216,15 +272,12 @@ void resolveStickBall(Cue *cue, Ball *ball, double maxSpeed) {
   // CHECK denominator = 1 + m / M + 5 / 2 / R**2 * temp
   double denominator = 1 + 5.0 / (2.0 * (ball->radius * ball->radius)) * temp;
 
-
   double F = numerator / denominator;
 
   vector_t velocityB = {0, -F * cosseno};
 
   vector3_t vec = {-c * seno + verticalSpin * cosseno, sideSpin * seno, -sideSpin * cosseno};
   vector3_t angVelocityB = {F / II * vec.x, F / II * vec.y, F / II * vec.z};
-
-
 
   double ang = phi + M_PI / 2;
 
@@ -236,6 +289,4 @@ void resolveStickBall(Cue *cue, Ball *ball, double maxSpeed) {
   ball->ang_velocity.z = angVelocityB.z;
 
   ball->state = SLIDING;
-
-  
 }

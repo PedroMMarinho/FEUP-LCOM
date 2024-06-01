@@ -6,7 +6,8 @@ struct Ball;
 
 typedef enum {
   BALL_BALL,
-  BALL_CUSHION,
+  BALL_LINEAR_CUSHION,
+  BALL_CIRCULAR_CUSHION,
   BALL_POCKET,
   STICK_BALL,
   SPINNING_STATIONARY,
@@ -23,8 +24,12 @@ typedef struct Event {
 
   struct Ball *ball1;
   struct Ball *ball2;
-  Cushion* cushion;
+  LinearCushion* linearCushion;
+  CircularCushion* circularCushion;
+
   // TODO: NECESSARY TO SAVE THE POCKET ???
   int pocket;
 
 } Event;
+
+Event newInvalidEvent();

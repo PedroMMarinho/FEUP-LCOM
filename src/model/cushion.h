@@ -2,8 +2,9 @@
 #include <lcom/lcf.h>
 #include "vector.h"
 
+struct Ball;
 
-typedef struct Cushion{
+typedef struct LinearCushion{
 
   vector_t p1;
   vector_t p2;
@@ -14,7 +15,21 @@ typedef struct Cushion{
 
   vector_t normal;
 
-}Cushion;
+}LinearCushion;
 
 
-Cushion* newCushion(vector_t p1, vector_t p2);
+typedef struct CircularCushion{
+
+  vector_t position;
+  double radius;
+
+} CircularCushion;
+
+
+LinearCushion* newLinearCushion(vector_t p1, vector_t p2);
+
+void fixNormalDirection(LinearCushion* cushion,struct Ball* ball);
+
+CircularCushion* newCircularCushion(vector_t pos, double radius);
+
+vector_t CircularCushionNormal(CircularCushion* cushion,struct Ball* ball);

@@ -11,6 +11,7 @@
 
 typedef struct {
   double a, b, c, d, e;
+  bool valid;
 } QuarticCoeff;
 // DEBUGGING
 
@@ -59,9 +60,10 @@ double getRollTime(Ball* ball, double u, double g);
 
 double getSpinTime(Ball* ball, double u, double g);
 
-double getBallCushionCollisionTime(Table *table, Ball *ball, Cushion* cushion);
+double getBallLinearCushionCollisionTime(Table *table, Ball *ball, LinearCushion* cushion);
 
 QuarticCoeff getBallBallCollisionCoeff(Ball* ball1, Ball* ball2, double uRolling, double uSlidding, double g);
 
 QuarticCoeff getBallPocketCollisionCoeff(Ball *ball, Pocket* pocket, double uRolling, double uSlidding, double g);
 
+QuarticCoeff getBallCircularCushionCollisionCoeff(Ball *ball, CircularCushion* cushion, double uRolling, double uSlidding, double g);

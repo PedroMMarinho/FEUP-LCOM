@@ -2,9 +2,9 @@
 #include "../physics/utilities.h"
 
 
-Cushion* newCushion(vector_t p1, vector_t p2){
+LinearCushion* newLinearCushion(vector_t p1, vector_t p2){
 
-  Cushion* cushion = (Cushion*)malloc(sizeof(Cushion));
+  LinearCushion* cushion = (LinearCushion*)malloc(sizeof(LinearCushion));
 
   cushion->p1 = p1;
   cushion->p2 = p2;
@@ -17,3 +17,29 @@ Cushion* newCushion(vector_t p1, vector_t p2){
   cushion->normal = normalizeVector(normal);
   return cushion;
 }
+
+void fixNormalDirection(LinearCushion* cushion,struct Ball* ball){
+
+  if (dotProduct(cushion->normal, ball->velocity) <= 0) {
+    cushion->normal.x = -cushion->normal.x;
+    cushion->normal.y = -cushion->normal.y;
+  }
+}
+
+CircularCushion* newCircularCushion(vector_t pos, double radius){
+
+  CircularCushion* cushion = (CircularCushion*)malloc(sizeof(CircularCushion));
+
+  cushion->position = pos;
+  cushion->radius = radius;
+  return cushion;
+}
+
+vector_t CircularCushionNormal(CircularCushion* cushion, Ball* ball){
+
+  vector_t normal = {cushion->position.x - ball->position.x,  cushion->position.y - ball->position.y};
+  normal = normalizeVector(normal);
+  return normal;
+}
+
+

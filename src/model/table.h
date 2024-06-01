@@ -17,7 +17,8 @@ typedef enum GAME_STATE {
 
 typedef struct Table{
   xpm_image_t img;
-  Cushion* cushions[18];
+  LinearCushion* linearCushions[6];
+  CircularCushion* circularCushions[12];
   Pocket* pockets[6];
   Ball** balls;
   uint8_t ballNumber;
@@ -32,6 +33,7 @@ typedef struct Table{
   double rollingFriction;
   double gravityAcceleration;
   double cushionRestitution;
+  double cushionFriction;
   size_t ballRadius;
 
 

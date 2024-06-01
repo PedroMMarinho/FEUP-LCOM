@@ -9,7 +9,9 @@
 
 Event getNextBallBallCollision(Table* table);
 
-Event getNextBallCushionCollision(Table* table);
+Event getNextBallLinearCushionCollision(Table* table);
+
+Event getNextBallCircularCushionCollision(Table* table);
 
 Event getNextBallPocketCollision(Table* table);
 

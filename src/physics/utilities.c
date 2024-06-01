@@ -16,8 +16,7 @@ void printEvent(Event* event){
 }
 
 void printFloat(double num){
-
-  char a[30];
+  char a[90];
   sprintf(a, "%f", num);
   printf("%s\n", a);
 }
@@ -43,9 +42,9 @@ void printVector(vector_t vec){
   char a[30];
 
   sprintf(a, "%f", vec.x);
-  printf("x - %s\n", a);
+  printf("x: %s\n", a);
   sprintf(a, "%f", vec.y);
-  printf("y - %s\n", a);
+  printf("y: %s\n", a);
 }
 
 double angle(vector_t vec1) {
@@ -149,6 +148,9 @@ double cubic(double b, double c, double d) {
 }
 
 int quartic(double a, double b, double c, double d, double e, double *ans) {
+
+  printf("start");
+
   b = b / a;
   c = c / a;
   d = d / a;
@@ -158,8 +160,10 @@ int quartic(double a, double b, double c, double d, double e, double *ans) {
   double q = 0.125 * b * b * b - 0.5 * b * c + d;
   double m = cubic(p, 0.25 * p * p + 0.01171875 * b * b * b * b - e + 0.25 * b * d - 0.0625 * b * b * c, -0.125 * q * q);
   if (q == 0.0) {
-    if (m < 0.0)
+    if (m < 0.0){
+      printf("deu errado\n");
       return 0;
+    }
     int nroots = 0;
     double sqrt_2m = sqrt(2.0 * m);
     if (-m - p > 0.0) {
@@ -239,9 +243,14 @@ double getSlideTime(Ball *ball, double u, double g) {
   return 2 * magnitudeOf(relativeVelocity(ball)) / (7 * u * g);
 }
 
-double getBallCushionCollisionTime(Table *table, Ball *ball, Cushion* cushion) {
+double getBallLinearCushionCollisionTime(Table *table, Ball *ball, LinearCushion* cushion) {
 
-  
+  printf("Colision time check start\n");
+
+  printf("Cushion position: \n");
+  printVector(cushion->p1);
+  printVector(cushion->p2);
+
   if (ballNotMoving(ball))
     return INFINITY;
 
@@ -276,6 +285,8 @@ double getBallCushionCollisionTime(Table *table, Ball *ball, Cushion* cushion) {
 
   double minTime = INFINITY;
   for (int i = 0; i < nSolutions; i++) {
+    printf("A solution: ");
+    printFloat(solutions[i]);
     double root = solutions[i];
     if (root < EPS)
       continue;
@@ -301,7 +312,6 @@ double getBallCushionCollisionTime(Table *table, Ball *ball, Cushion* cushion) {
   }
 
 
-
   return minTime;
 }
 
@@ -319,6 +329,12 @@ vector_t get_uVec(Ball *ball, double ang) {
 
 QuarticCoeff getBallBallCollisionCoeff(Ball *ball1, Ball *ball2, double uRolling, double uSlidding, double g) {
 
+  QuarticCoeff coefficient;
+  if (ballNotMoving(ball1) && ballNotMoving(ball2)){
+    printf("Balls not moving, error\n");
+    coefficient.valid = false;
+    return coefficient;
+  }
 
   vector_t a1 = {0, 0};
   vector_t b1 = {0, 0};
@@ -364,18 +380,24 @@ QuarticCoeff getBallBallCollisionCoeff(Ball *ball1, Ball *ball2, double uRolling
   vector_t C = {ball2->position.x - ball1->position.x, ball2->position.y - ball1->position.y};
 
 
-  QuarticCoeff coefficient;
 
   coefficient.a = A.x * A.x + A.y * A.y;
   coefficient.b = 2 * A.x * B.x + 2 * A.y * B.y;
   coefficient.c = B.x * B.x + 2 * A.x * C.x + 2 * A.y * C.y + B.y * B.y;
   coefficient.d = 2 * B.x * C.x + 2 * B.y * C.y;
   coefficient.e = C.x * C.x + C.y * C.y - 4.0 * ball1->radius * ball1->radius;
+  coefficient.valid = true;
 
   return coefficient;
 }
 
 QuarticCoeff getBallPocketCollisionCoeff(Ball *ball, Pocket* pocket, double uRolling, double uSlidding, double g) {
+
+  QuarticCoeff coefficient;
+  if (ballNotMoving(ball)){
+    coefficient.valid = false;
+    return coefficient;
+  }
 
   double ang = angle(ball->velocity);
 
@@ -398,23 +420,65 @@ QuarticCoeff getBallPocketCollisionCoeff(Ball *ball, Pocket* pocket, double uRol
   vector_t c = {ball->position.x, ball->position.y};
 
 
-  QuarticCoeff coefficient;
-
   coefficient.a = 0.5 * (a.x*a.x + a.y*a.y);
   coefficient.b = a.x * b.x + a.y * b.y;
   coefficient.c = a.x * (c.x - pocket->position.x) + a.y * (c.y - pocket->position.y) + 0.5 * (b.x*b.x + b.y*b.y);
   coefficient.d = b.x * (c.x - pocket->position.x) + b.y * (c.y - pocket->position.y);
   coefficient.e = 0.5 * (pocket->position.x * pocket->position.x + pocket->position.y * pocket->position.y + c.x*c.x + c.y*c.y - pocket->radius*pocket->radius)-(c.x * pocket->position.x+ c.y * pocket->position.y);
+  coefficient.valid = true;
+
+  return coefficient;
+}
+
+
+QuarticCoeff getBallCircularCushionCollisionCoeff(Ball *ball, CircularCushion* cushion, double uRolling, double uSlidding, double g){
+
+  QuarticCoeff coefficient;
+  if (ballNotMoving(ball)){
+    coefficient.valid = false;
+    return coefficient;
+  }
+
+  double phi = angle(ball->velocity);
+  double v = magnitudeOf(ball->velocity);
+
+  vector_t u = get_uVec(ball, phi);
+
+  double K = -0.5 * g * (ball->state == SLIDING ? uSlidding:uRolling);
+  double cosseno = cos(phi);
+  double seno = sin(phi);
+
+  vector_t a, b;
+  a.x = K * (u.x * cosseno - u.y * seno);
+  a.y = K * (u.x * seno + u.y * cosseno);
+  b.x = v * cosseno;
+  b.y = v * seno;
+  vector_t c = {ball->position.x, ball->position.y};
+
+  coefficient.a = 0.5 * (a.x * a.x + a.y * a.y);
+  coefficient.b = a.x * b.x + a.y * b.y;
+  coefficient.c = a.x * (c.x - cushion->position.x) + a.y * (c.y - cushion->position.y) + 0.5 * (b.x * b.x + b.y*b.y);
+  coefficient.d = b.x * (c.x - cushion->position.x) + b.y * (c.y - cushion->position.y);
+  coefficient.e = 0.5 * (cushion->position.x * cushion->position.x + cushion->position.y * cushion->position.y + c.x * c.x  + c.y*c.y - (cushion->radius + ball->radius) * (cushion->radius + ball->radius))- (c.x * cushion->position.x + c.y * cushion->position.y);
+  coefficient.valid = true;
 
 
   return coefficient;
 }
+
+
+
+
 
 int findSmallerCoeficient(size_t n, QuarticCoeff *coeficients, double *result) {
   int index = -1;
   double smallerResult = INFINITY;
 
   for (size_t i = 0; i < n; i++) {
+
+    QuarticCoeff coef = coeficients[i];
+    if (!coef.valid) continue;
+
     double root = smallerPositiveQuarticRoot(coeficients[i].a, coeficients[i].b, coeficients[i].c, coeficients[i].d, coeficients[i].e);
     if (root < smallerResult) {
       index = i;

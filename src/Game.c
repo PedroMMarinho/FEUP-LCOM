@@ -25,10 +25,15 @@ int initGame() {
   Resources *resources = loadResources();
   printf("created resources\n");
 
+  double result[4];
+  int size = quartic(3464.499600,-10231.928676 , 14243.349677 ,-9877.078763 ,1643.328644 , result);
 
+  printf("%d results", size);
+  for (int i = 0; i<size; i++){
+    printFloat(result[i]);
+  }
 
-
-
+  return 0;
   return gameLoop(resources);
 }
 

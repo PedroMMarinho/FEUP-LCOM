@@ -5,8 +5,8 @@ static int sp_hookId = 7;
 static Queue* sendQueue;
 static Queue* receiveQueue;
 
-static int hold_reg_empty = 1;
-bool sendByte = false;
+static int transmitter_empty = 1;
+bool sendTrySync = false;
 
 static int sp_read(int port, uint8_t* value){
     if(util_sys_inb(port + COM1, value)) return 1;
@@ -134,106 +134,80 @@ int (sp_unsubscribe)() {
 }
 
 
-int sp_clear(){ // Change this  TODO
-    uint8_t reg;
-    reg = (FCR_CLEAR_RCVR_FIFO | FCR_CLEAR_XMIT_FIFO | FCR_ENABLE_FIFO);
-    if(sp_write(FCR, reg)) return 1;
+int sp_clear(){
+    uint8_t fcr;
+    if(sp_read(FCR, &fcr)) return 1;
+    fcr |= (FCR_CLEAR_RCVR_FIFO | FCR_CLEAR_XMIT_FIFO | FCR_ENABLE_FIFO);
+    if(sp_write(FCR, fcr)) return 1;
     while(queue_pop(receiveQueue) != 0);
     return 0;
 }
 
 
-int send_bytes_in_queue(){ // Change this  TODO
-    
+int send_queue_data(){ //send stored info in queue
+        
     if(queue_isEmpty(sendQueue)){
         printf("queue is empty\n");
-        hold_reg_empty = 1;
+        transmitter_empty = 1;
         return 1;
     }
 
-    uint8_t empty_transmitter;
+    uint8_t lsr;
 
     while(!queue_isEmpty(sendQueue)){
         sp_write(THR,queue_front(sendQueue));
         queue_pop(sendQueue);
-        sp_read(LSR, &empty_transmitter);
-        empty_transmitter &= LSR_TRANSMITTER_EMPTY_REG;
-        hold_reg_empty = empty_transmitter;
-        if(!empty_transmitter) return 1;
+        sp_read(LSR, &lsr);
+        transmitter_empty = lsr & LSR_TRANSMITTER_HOLD_EMPTY;
+        if(!transmitter_empty) return 1;
     }
     return 0;
 }
 
+int send_SP_data(uint8_t data){ 
+    printf("send_byte %x\n",data);
+    queue_push(sendQueue,data);
 
-int send_byte(uint8_t byte){ // Change this  TODO
-    printf("send_byte %x\n",byte);
-    int pushed = queue_push(sendQueue,byte);
-
-    if(hold_reg_empty){
-        return send_bytes_in_queue();
-    }else return pushed;
-    
+    if(transmitter_empty){
+        return send_queue_data();
+    }
+    else return 1;
 }
 
 
-int establish_connection(){ // Change this  TODO
+int establish_connection(){ 
     bool connection = false;
     uint8_t frontByte = queue_front(receiveQueue);
-    if(frontByte == 0x53){
-        send_byte(0x54);
-    }else if(frontByte == 0x54){
-        send_byte(0x55);
-    }else if(frontByte == 0x55){
-        // Generate a random byte that isn't one of the special protocol values
-        uint8_t srandByte;
-        do {
-            srandByte = rand();
-        } while(srandByte == ACK || srandByte == NACK || srandByte == END || srandByte == 0);
-
-        // Send synchronization bytes
-        send_byte(0x56);
-        send_byte(srandByte);
-
-        // Seed the random number generator
-        srandom(srandByte);
-    }else if(frontByte == 0x56){
-        queue_pop(receiveQueue); // Remove the 0x56 byte
-
-        // Extract the srandByte for synchronization
-        uint8_t srandByte;
-        do {
-            srandByte = queue_pop(receiveQueue); // Get the next byte
-        } while(srandByte == 0);
-
-        // Seed the random number generator
-        srandom(srandByte);
-
-        // Perform game synchronization tasks
+    if(frontByte == TRYSYNC){
+        send_SP_data(FIRSTSYNC);
+    }else if(frontByte == FIRSTSYNC){
         connection = true;
+        send_SP_data(SECONDSYNC); 
 
-        // Acknowledge synchronization completion
-        send_byte(0x57);
-    }else if(frontByte == 0x57){
+    }else if(frontByte == SECONDSYNC){ //1 more?? dizer que tbm entrou
         connection = true;
-    }else if(!sendByte){
-        send_byte(0x53);
-        sendByte = true;
+    }else if(!sendTrySync){
+        send_SP_data(TRYSYNC);
+        sendTrySync = true;
     }
     
-    queue_pop(receiveQueue); // Ensure to always queue_pop the processed byte
+    queue_pop(receiveQueue);
     return connection;
 }
 
-int read_byte(){ 
-    uint8_t reg, byte;
-    sp_read(LSR, &reg);
+
+int receive_SP_data(){ 
+    uint8_t lsr, rbr;
+    sp_read(LSR, &lsr);
     
-    if(reg & LSR_RECEIVER_DATA){
-        sp_read(RBR, &byte);
+    if(lsr & LSR_RECEIVER_DATA){
+        sp_read(RBR, &rbr);
+
+        int lsrError = lsr & (LSR_OVERRUN_ERROR | LSR_PARITY_ERROR | LSR_FRAMING_ERROR);
         
-        if(!(reg & (LSR_OVERRUN_ERROR | LSR_PARITY_ERROR | LSR_FRAMING_ERROR))){
-            queue_push(receiveQueue, byte);
-            printf("read_byte %x\n",byte);
+        if(!(lsrError)){
+            queue_push(receiveQueue, rbr);
+            printf("read_byte %x\n",rbr);
             return 0;
         }
     }
@@ -241,26 +215,26 @@ int read_byte(){
 }
 
 
-void sp_ih(){ // Change this  TODO
-    uint8_t reg;
-    sp_read(IIR, &reg);
-    while(!(reg & IIR_PENDING)) {
-        if(reg & IIR_DATA_AVAILABLE){
+void sp_ih(){ 
+    uint8_t interrupt;
+    sp_read(IIR, &interrupt);
+    while(!(interrupt & IIR_PENDING)) { //Interrupt Pending
+        if(interrupt & IIR_DATA_AVAILABLE){
             printf("data available\n");
-            while(!read_byte());
-            sp_read(IIR, &reg);
+            while(!receive_SP_data());
+            sp_read(IIR, &interrupt);
         }
-        if(reg & IIR_TRANSMIT_HOLD_EMPTY){
+        if(interrupt & IIR_TRANSMIT_HOLD_EMPTY){
             printf("transmit hold empty\n");
-            send_bytes_in_queue();
-            sp_read(IIR, &reg);
+            send_queue_data();
+            sp_read(IIR, &interrupt);
         }
     }
 }
 
 void resetMultiplayer(){
-    sendByte = false;
-    hold_reg_empty = 1;
+    sendTrySync = false;
+    transmitter_empty = 1;
     while(queue_pop(sendQueue) != 0);
     while(queue_pop(receiveQueue) != 0);
 }

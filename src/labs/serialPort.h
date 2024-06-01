@@ -17,17 +17,12 @@
 #define IIR 0x02
 #define FCR 0x02
 #define LCR 0x03
-#define MCR 0x04
 #define LSR 0x05
-#define MSR 0x06
-#define SR	 0x07 	// Scratchpad Register (Read/Write)
+
 
 #define DIVISOR_LATCH_LSB 0x00
 #define DIVISOR_LATCH_MSB 0x01
 
-#define LCR_5_BITS            (~BIT(0) & ~BIT(1))
-#define LCR_6_BITS            (BIT(0) & ~BIT(1))
-#define LCR_7_BITS            (~BIT(0) & BIT(1))
 #define LCR_8_BITS            (BIT(0) | BIT(1))
 #define LCR_ODD_PARITY        BIT(3)
 #define LCR_DLAB              BIT(7)
@@ -57,19 +52,17 @@
 #define FCR_CLEAR_XMIT_FIFO            BIT(2)
 
 
-#define ACK 0xFE
-#define NACK 0xDE
-#define END 0x40
+#define TRYSYNC      0x53 
+#define FIRSTSYNC    0x54
+#define SECONDSYNC   0x55
 
-int send_byte(uint8_t byte);
+int send_SP_data(uint8_t byte);
 
 int (sp_subscribe)(uint8_t *bit_no);
 
 int (sp_unsubscribe)();
 
 int establish_connection();
-
-bool get_multiplayer();
 
 void sp_ih();
 

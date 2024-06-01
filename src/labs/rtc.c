@@ -15,7 +15,7 @@ static int(rtc_read)(uint8_t reg, uint8_t *byte);
 
 static int(rtc_write)(uint8_t reg, uint8_t byte);
 
-void(wait_valid_rtc)();
+void(update_progress)();
 
 static int(inhibit_updates)(bool status);
 
@@ -96,20 +96,17 @@ char* (get_current_time)(){
 
 
 
-void(wait_valid_rtc)() {  //copiado
-  for (uint8_t regA = 0;;) {
-    rtc_read(RTC_B, &regA);
-    if (!(regA & RTC_REG_A_UIP)) break;
-    delay_milli_seconds(RTC_DELAY);
-  }
+void(update_progress)() { //check if there is an update in progress
+    uint8_t regA = 0; 
+    while (true)
+    {
+        rtc_read(RTC_A, &regA);
+        if (!(regA & RTC_REG_A_UIP)) break;
+        delay_milli_seconds(RTC_DELAY); 
+    }
+    
 }
 
-/**
- do {
-rtc_read(RTC_A, &regA);
-
-} while ( regA & RTC_UIP);
-*/
 
 static int(inhibit_updates)(bool status) {
     uint8_t regB = 0;
@@ -192,7 +189,7 @@ static int(disable_interrupts)() {
 }
 
 void(set_alarm)() {
-  wait_valid_rtc();
+  update_progress();
   inhibit_updates(true);
   rtc_write(RTC_HOUR_ALARM, RTC_DONT_CARE_VALUE);
   rtc_write(RTC_MINUTES_ALARM, RTC_DONT_CARE_VALUE);
@@ -208,7 +205,7 @@ int(rtc_subscribe)(uint8_t *bit_no) {
     rtc_read(RTC_C, &regC);
 
     *bit_no = BIT(rtc_hookId);
-    if (sys_irqsetpolicy(RTC_IRQ, IRQ_REENABLE, &rtc_hookId) != 0) { //copiado assim mudar tudo?? meter return
+    if (sys_irqsetpolicy(RTC_IRQ, IRQ_REENABLE, &rtc_hookId) != 0) {
         printf("Error: could not subscribe RTC interruption\n");
         return 1;
         }
@@ -225,7 +222,7 @@ int(rtc_unsubscribe)() {
     if(disable_interrupts()) return 1;
 
     if (sys_irqrmpolicy(&rtc_hookId) != 0) {
-        printf("Error: could not unsubscribe RTC interruption\n"); //copiado assim mudar tudo?? meter return
+        printf("Error: could not unsubscribe RTC interruption\n"); 
         return 1;
     }
     printf("RTC unsubscribed\n");
@@ -259,7 +256,7 @@ static int(rtc_year)(uint8_t *year) {
 
 
 static int(rtc_current_time_ih)() {
-    wait_valid_rtc();
+    update_progress();
     uint8_t hour = 0, minute = 0, second = 0, day = 0, month = 0, year = 0;
 
     if (rtc_second(&second) != 0 || rtc_minute(&minute) != 0 || rtc_hour(&hour) != 0 || rtc_day(&day) != 0 || rtc_month(&month) != 0 || rtc_year(&year) != 0) {

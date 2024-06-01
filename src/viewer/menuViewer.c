@@ -6,10 +6,10 @@ int drawMenuBackground(xpm_image_t img){
 }
 int drawMenuButton(Button* button){
     if(button->selected){
-        if(drawXPMImage(button->imgSelected,button->pos.x+100,button->pos.y+25,0)) return 1;
+        if(drawXPMImage(button->imgSelected,button->pos.x+100,button->pos.y+51,0)) return 1;
     }
     else{
-        if(drawXPMImage(button->img,button->pos.x+100,button->pos.y+25,0)) return 1;
+        if(drawXPMImage(button->img,button->pos.x+100,button->pos.y+51,0)) return 1;
     }
     return 0;
 }

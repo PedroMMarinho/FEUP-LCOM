@@ -30,15 +30,19 @@ Event getNextBallBallCollision(Table *table) {
         continue;
 
       vector_t positionDiff = {ball1->position.x - ball2->position.x, ball1->position.y - ball2->position.y};
-      if (magnitudeOf(positionDiff) < (ball1->radius + ball2->radius))
+      if (magnitudeOf(positionDiff) < (ball1->radius + ball2->radius)){
+        printf("Ball inside each other\n");
+        printf("The distance between is: ");
+        printFloat(magnitudeOf(positionDiff));
         continue;
+      }
 
       balls2[collisionNumber] = j;
       balls1[collisionNumber] = i;
 
       coeficients[collisionNumber] = getBallBallCollisionCoeff(ball1, ball2, table->rollingFriction, table->slidingFriction, table->gravityAcceleration);
 
-      printCoef(coeficients[collisionNumber]);
+      // printCoef(coeficients[collisionNumber]);
 
       collisionNumber++;
     }
@@ -46,10 +50,11 @@ Event getNextBallBallCollision(Table *table) {
   if (collisionNumber == 0) {
     return event;
   }
-  collisionNumber--;
+
   double collisionTime;
   int i = findSmallerCoeficient(collisionNumber, coeficients, &collisionTime);
   if (i < 0) {
+    printEvent(&event);
     return event;
   }
 
@@ -63,7 +68,8 @@ Event getNextBallBallCollision(Table *table) {
   free(balls2);
 
   printf("Final ball ball\n");
-
+  printEvent(&event);
+  printf("\n\n");
   return event;
 }
 
@@ -85,20 +91,23 @@ Event getNextBallCushionCollision(Table *table) {
       Cushion *cushion = table->cushions[j];
 
       double collisionTime = getBallCushionCollisionTime(table, ball, cushion);
-
       if (collisionTime < event.time) {
         event.time = collisionTime;
         event.type = BALL_CUSHION;
-        event.ball1 = table->balls[i];
+        event.ball1 = ball;
         event.cushion = cushion;
       }
     }
   }
+  printf("FInal colision\n");
+  printEvent(&event);
   return event;
 }
 
 Event getNextBallPocketCollision(Table *table) {
 
+
+  printf("POCKETTT\n");
   // TODO: CREATE BETTER CONSTRUCTOR ??
   Event event = {INFINITY, INVALID, NULL, NULL, 0, 0};
 
@@ -130,7 +139,6 @@ Event getNextBallPocketCollision(Table *table) {
   if (collisionNumber == 0) {
     return event;
   }
-  collisionNumber--;
 
   double collisionTime;
   int i = findSmallerCoeficient(collisionNumber, coeficients, &collisionTime);
@@ -162,25 +170,25 @@ Event getNextTransition(Table *table) {
     }
   }
 
+  printEvent(&nextTransition);
   return nextTransition;
 }
 
 Event getNextEvent(Table *table) {
-  printf("Begining\n");
+  printf("------------------------- Begining\n");
+
+
   Event event = {INFINITY, INVALID, NULL, NULL, NULL, -1};
   Event testEvent;
 
   testEvent = getNextTransition(table);
   event = testEvent.time < event.time ? testEvent : event;
 
-  printf("1\n");
   testEvent = getNextBallBallCollision(table);
   event = testEvent.time < event.time ? testEvent : event;
 
   testEvent = getNextBallCushionCollision(table);
   event = testEvent.time < event.time ? testEvent : event;
-
-  printf("2\n");
 
   testEvent = getNextBallPocketCollision(table);
   event = testEvent.time < event.time ? testEvent : event;
@@ -193,7 +201,7 @@ Event getNextEvent(Table *table) {
 void updateBallNextTransition(Table *table, Ball *ball) {
 
   if (ballNotMoving(ball)) {
-    Event transition = {0, INVALID, NULL, NULL, NULL, -1};
+    Event transition = {INFINITY, INVALID, NULL, NULL, NULL, -1};
     *ball->transition = transition;
     return;
   }

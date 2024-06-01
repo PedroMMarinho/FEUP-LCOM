@@ -26,19 +26,8 @@ int initGame() {
   printf("created resources\n");
 
 
-  // testing
-  Ball* ball1 = resources->table->balls[0];
 
-  ball1->velocity.x = 50;
-  ball1->velocity.y = 0;
-  ball1->state = SLIDING;
 
-  Ball* ball2 = resources->table->balls[1];
-  ball2->position.x = 600;
-  ball2->position.y = 500;
-  QuarticCoeff coef = getBallBallCollisionCoeff(ball1, ball2, resources->table->rollingFriction, resources->table->slidingFriction, resources->table->gravityAcceleration);
-
-  printCoef(coef);
 
   return gameLoop(resources);
 }
@@ -140,6 +129,6 @@ int gameLoop(Resources *resources) {
     return 1;
   printf("Cleaning resources\n");
   destroyResources(resources);
-  printf("Everything finished\n");
+  printf("Everything finished\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
   return 0;
 }

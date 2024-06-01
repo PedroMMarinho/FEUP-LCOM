@@ -10,7 +10,6 @@ void evolveBallMotion(Table *table, Ball *ball, double time) {
   switch (getBallState(ball)) {
     case STATIONARY:
     case POCKETED:
-      printf("Nothing changes in the ball\n");
       return;
       break;
     case SLIDING: {

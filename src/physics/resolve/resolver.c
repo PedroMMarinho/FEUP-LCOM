@@ -7,7 +7,7 @@
 #include <assert.h>
 
 void resolveEvent(Table *table, Event event) {
-
+  printf("Resolving eventss\n");
   switch (event.type) {
     case INVALID:
       return;
@@ -15,6 +15,7 @@ void resolveEvent(Table *table, Event event) {
       // Assert that velocity is almost 0 and that set them to 0
     case SPINNING_STATIONARY:
     case ROLLING_STATIONARY:
+      printf("Stationary endds\n");
       assertStationary(event.ball1);
       updateBallNextTransition(table, event.ball1);
       break;
@@ -25,8 +26,10 @@ void resolveEvent(Table *table, Event event) {
     case SLIDING_ROLLING:
       printf("SOLVING SLIDING_ROLLING PROBLOEM\n");
       event.ball1->state = ROLLING;
+      updateBallNextTransition(table, event.ball1);
       break;
     case BALL_BALL:
+      printf("RESOLVING BALL BALL\n");
       resolveBallBall(event.ball1, event.ball2);
       updateBallNextTransition(table, event.ball1);
       updateBallNextTransition(table, event.ball2);
@@ -52,6 +55,7 @@ void resolveEvent(Table *table, Event event) {
 void resolveBallBall(Ball *ball1, Ball *ball2) {
   makeBallsKiss(ball1, ball2);
 
+  printf("RESOLVE BALL BALL\n");
 
   vector_t posVec = {ball2->position.x - ball1->position.x, ball2->position.y - ball1->position.y};
   vector_t n = normalizeVector(posVec);
@@ -70,22 +74,50 @@ void resolveBallBall(Ball *ball1, Ball *ball2) {
 
   ball2->velocity.x = n.x * velMagni * cosseno + ball2->velocity.x;
   ball2->velocity.y = n.y * velMagni * cosseno + ball2->velocity.y;
+
+  ball1->state = SLIDING;
+  ball2->state = SLIDING;
 }
 
 void makeBallsKiss(Ball *ball1, Ball *ball2) {
 
+  printf("\n\n Make balls kiss \n");
+  printf("ball1 pos: \n");
+  printVector(ball1->position);
+  printf("ball2 pos: \n");
+  printVector(ball2->position);
+
   vector_t ballBallVec = {ball2->position.x - ball1->position.x, ball2->position.y - ball1->position.y};
+
+  printf("Distance: \n");
+  printFloat(magnitudeOf(ballBallVec));
 
   vector_t n = normalizeVector(ballBallVec);
 
   // TODO - Fix the use of EPS to make it regular
-  double correction = 2 * ball1->radius - magnitudeOf(ballBallVec) + 1e-8;
+  double distance = magnitudeOf(ballBallVec);
+  double error = 2.0 * ball1->radius - distance;
+  if (error > 0){
+    double correction = (error + 1e-5) / 2;
+    ball1->position.x -= correction * n.x;
+    ball1->position.y -= correction * n.y;
 
-  ball1->position.x += correction / 2 * n.x;
-  ball1->position.y += correction / 2 * n.y;
+    ball2->position.x += correction * n.x;
+    ball2->position.y += correction * n.y;
 
-  ball2->position.x -= correction / 2 * n.x;
-  ball2->position.y -= correction / 2 * n.y;
+  }
+
+
+  printf("ball1 pos: \n");
+  printVector(ball1->position);
+  printf("ball2 pos: \n");
+  printVector(ball2->position);
+
+
+  vector_t finalVec = {ball2->position.x - ball1->position.x, ball2->position.y - ball1->position.y};
+
+  printf("Distance: \n");
+  printFloat(magnitudeOf(finalVec));
 }
 
 void resolveBallCushion(Ball *ball, Cushion *cushion, double restitution) {
@@ -126,12 +158,12 @@ void resolveBallPocket(Ball *ball, Pocket *pocket) {
 
 void assertStationary(Ball *ball) {
   // TODO: USE BETTER EPS
-  assert(ball->velocity.x > EPS_SPACE);
-  assert(ball->velocity.y > EPS_SPACE);
+  assert(ball->velocity.x < EPS_SPACE);
+  assert(ball->velocity.y < EPS_SPACE);
 
-  assert(ball->ang_velocity.x > EPS_SPACE);
-  assert(ball->ang_velocity.y > EPS_SPACE);
-  assert(ball->ang_velocity.z > EPS_SPACE);
+  assert(ball->ang_velocity.x < EPS_SPACE);
+  assert(ball->ang_velocity.y < EPS_SPACE);
+  assert(ball->ang_velocity.z < EPS_SPACE);
 
   ball->velocity.x = 0;
   ball->velocity.y = 0;

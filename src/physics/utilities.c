@@ -201,10 +201,7 @@ double smallerPositiveQuarticRoot(double a, double b, double c, double d, double
   double results[4];
   double bestResult = INFINITY;
   int size = quartic(a, b, c, d, e, results);
-  printf("%d - solutions!!!!\n", size);
   for (int i = 0; i < size; i++) {
-    printf("A result: ");
-    printFloat(results[i]);
     if (results[i] > 0 && results[i] < bestResult) {
       bestResult = results[i];
     }
@@ -244,7 +241,6 @@ double getSlideTime(Ball *ball, double u, double g) {
 
 double getBallCushionCollisionTime(Table *table, Ball *ball, Cushion* cushion) {
 
-  printf("Start\n");
   
   if (ballNotMoving(ball))
     return INFINITY;
@@ -305,7 +301,6 @@ double getBallCushionCollisionTime(Table *table, Ball *ball, Cushion* cushion) {
   }
 
 
-  printf("End\n");
 
   return minTime;
 }

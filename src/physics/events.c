@@ -85,15 +85,12 @@ Event getNextBallCushionCollision(Table *table) {
       Cushion *cushion = table->cushions[j];
 
       double collisionTime = getBallCushionCollisionTime(table, ball, cushion);
-      printf("Time for contact: ");
-      printFloat(collisionTime);
       if (collisionTime < event.time) {
         event.time = collisionTime;
         event.type = BALL_CUSHION;
         event.ball1 = ball;
         event.cushion = cushion;
       }
-      printf("Now repeat\n");
     }
   }
   printf("FInal colision\n");
@@ -167,16 +164,12 @@ Event getNextTransition(Table *table) {
     }
   }
 
+  printEvent(&nextTransition);
   return nextTransition;
 }
 
 Event getNextEvent(Table *table) {
-  printf("Begining\n");
-
-  printf("Ball pos: ");
-  printVector(table->balls[0]->position);
-  printf("Ball pos: ");
-  printVector(table->balls[1]->position);
+  printf("------------------------- Begining\n");
 
 
   Event event = {INFINITY, INVALID, NULL, NULL, NULL, -1};
@@ -185,7 +178,6 @@ Event getNextEvent(Table *table) {
   testEvent = getNextTransition(table);
   event = testEvent.time < event.time ? testEvent : event;
 
-  printf("1\n");
   testEvent = getNextBallBallCollision(table);
   event = testEvent.time < event.time ? testEvent : event;
 
@@ -203,7 +195,7 @@ Event getNextEvent(Table *table) {
 void updateBallNextTransition(Table *table, Ball *ball) {
 
   if (ballNotMoving(ball)) {
-    Event transition = {0, INVALID, NULL, NULL, NULL, -1};
+    Event transition = {INFINITY, INVALID, NULL, NULL, NULL, -1};
     *ball->transition = transition;
     return;
   }

@@ -14,6 +14,7 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
 
         if (table->state == SIMULATING){
           if (!updatePhysics(table, 1.0/30.0)){
+            printf("PHYSICS TERMINATED\n");
             table->state = AIMING;
           }
         }       

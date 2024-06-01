@@ -17,23 +17,25 @@ bool updatePhysics(Table *table, double dt) {
   while (nextEvent.type != INVALID) {
 
     if (elapsed + nextEvent.time < dt) {
-      printf("NEED TO FIND ANOTHER\n");
+      printf("------- Process FULL EVENT\n");
       // Event still happens before dt passed
       evolveBalls(table, nextEvent.time);
       resolveEvent(table, nextEvent);
       elapsed += nextEvent.time;
     }
     else {
-      printf("Time to cook\n");
+      printf("------- Process EVENT PART\n");
       evolveBalls(table, dt - elapsed);
       nextEvent.time -= dt - elapsed;
       table->nextEvent = nextEvent;
       return true;
     }
+    printf("GETTING NEXT EVENT IN SAME UPDATE!!!!\n");
     nextEvent = getNextEvent(table);
     table->nextEvent = nextEvent;
 
   }
+  printf("FINAL EVENT - SIMULATION TERMINATED\n");
   return false;
 
   printf("Simulation physcis\n");
@@ -79,7 +81,6 @@ bool updatePhysics(Table *table, double dt) {
 }
 
 void evolveBalls(Table *table, double time) {
-  printf("EVOLVING BALLS\n");
   for (size_t i = 0; i < table->ballNumber; i++) {
     evolveBallMotion(table, table->balls[i], time);
   }

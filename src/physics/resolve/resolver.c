@@ -7,7 +7,7 @@
 #include <assert.h>
 
 void resolveEvent(Table *table, Event event) {
-
+  printf("Resolving eventss\n");
   switch (event.type) {
     case INVALID:
       return;
@@ -15,6 +15,7 @@ void resolveEvent(Table *table, Event event) {
       // Assert that velocity is almost 0 and that set them to 0
     case SPINNING_STATIONARY:
     case ROLLING_STATIONARY:
+      printf("Stationary endds\n");
       assertStationary(event.ball1);
       updateBallNextTransition(table, event.ball1);
       break;
@@ -127,12 +128,12 @@ void resolveBallPocket(Ball *ball, Pocket *pocket) {
 
 void assertStationary(Ball *ball) {
   // TODO: USE BETTER EPS
-  assert(ball->velocity.x > EPS_SPACE);
-  assert(ball->velocity.y > EPS_SPACE);
+  assert(ball->velocity.x < EPS_SPACE);
+  assert(ball->velocity.y < EPS_SPACE);
 
-  assert(ball->ang_velocity.x > EPS_SPACE);
-  assert(ball->ang_velocity.y > EPS_SPACE);
-  assert(ball->ang_velocity.z > EPS_SPACE);
+  assert(ball->ang_velocity.x < EPS_SPACE);
+  assert(ball->ang_velocity.y < EPS_SPACE);
+  assert(ball->ang_velocity.z < EPS_SPACE);
 
   ball->velocity.x = 0;
   ball->velocity.y = 0;

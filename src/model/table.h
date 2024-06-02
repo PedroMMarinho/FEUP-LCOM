@@ -1,6 +1,7 @@
 #pragma once
 
 #include <lcom/lcf.h>
+#include <stdbool.h>
 #include "vector.h"
 #include "ball/ball.h"
 #include "mouseModel.h"
@@ -14,6 +15,7 @@ typedef enum GAME_STATE {
   SHOOTING,
   WAITING,
   SIMULATING,
+  ADVANTAGE,
 } GAME_STATE;
 
 typedef struct Table{
@@ -30,7 +32,8 @@ typedef struct Table{
   double maxSpeedShot;
   Player* player1;
   Player* player2;
-  bool firstCollision;
+  Ball* firstBallHit;
+  bool pocketedOwnBall;
   // Physics measurments
   double slidingFriction;
   double spinningFriction;
@@ -56,3 +59,15 @@ int drawTable(Table* table,int gameTime, int roundTime);
 int updateCueState(Table* table, bool power);
 
 bool getColisionPoint(Table* table, vector_t*collisionPoint);
+
+void glueBall(Table* table);
+
+bool canDropBall(Table* table);
+
+void switchTurn(Table* table);
+
+Player* getPlayingPlayer(Table* table);
+
+Player* getNotPlayingPlayer(Table* table);
+
+

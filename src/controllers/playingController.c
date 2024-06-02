@@ -2,65 +2,115 @@
 
 #include "playingController.h"
 #include "../labs/graphics.h"
+#include "../labs/scancodes.h"
+#include "../model/player.h"
+#include "../physics/simulate.h"
 #include "../viewer/cueViewer.h"
 #include "../viewer/lineViewer.h"
 #include "../xpms/ball.xpm"
-#include "../model/player.h"
-#include "../labs/scancodes.h"
 #include "labs/rtc.h"
-#include "../physics/simulate.h"
 
 STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct packet *packet, uint8_t scanCode, unsigned elapsed) {
   switch (interruptType) {
     case TIMER:
       if (elapsed % (sys_hz() / 30) == 0) {
 
-        if (table->state == SIMULATING){
-          if (!updatePhysics(table, 1.0/30.0)){
-            if(table->firstCollision == false){
-               table->player1->isPlaying = !table->player1->isPlaying;
-                table->player2->isPlaying = !table->player2->isPlaying;
-                printf("Player 1 is playing: %d\n", table->player1->isPlaying);
+        if (table->state == SIMULATING) {
+          if (!updatePhysics(table, 1.0 / 30.0)) {
+
+            if (table->firstBallHit == NULL) { // no ball was hit
+              switchTurn(table);
               set_round_time(40);
+              table->state = ADVANTAGE;
+              printf("Player %d didn't hit any ball\n", getPlayingPlayer(table)->isPlaying);
             }
-            if(table->balls[0]->state == POCKETED){
-              table->player1->isPlaying = !table->player1->isPlaying;
-              table->player2->isPlaying = !table->player2->isPlaying;
-              vector_t pos = {269, 442};
-              table->balls[0]->position = pos;
-              table->balls[0]->state = STATIONARY;
-              set_round_time(40);
-              if(table->balls[1]->state == POCKETED){
-                return MENU;
-              }
-            }
-            if(table->balls[1]->state == POCKETED){
-              if(table->player1->isPlaying){
-                if(table->player1->ballType == PLAYERBALLNONE){
-                  return MENU; // Player lost
+            else {
+              if (getPlayingPlayer(table)->ballType != PLAYERBALLNONE) {
+              if (((table->firstBallHit->type != STRIPED) && (getPlayingPlayer(table)->ballType == PLAYERSTRIPED)) || ((table->firstBallHit->type != SOLID) && (getPlayingPlayer(table)->ballType == PLAYERSOLID))) { // player hit the wrong ball
+                if (table->balls[1]->state == POCKETED) {
+                  return MENU; // player lose
                 }
-              }else{
-                if(table->player2->ballType == PLAYERBALLNONE){
-                  return MENU; // Player lost
+                else {
+                  switchTurn(table);
+                  set_round_time(40);
+                  table->state = ADVANTAGE;
+                  printf("Player %d hit the wrong ball\n", getPlayingPlayer(table)->isPlaying);
                 }
               }
-              for(int i = 0; i < 16; i++){
-                if(table->balls[i]->type == table->player1->isPlaying ? table->player1->ballType : table->player2->ballType){
-                  if(table->balls[i]->state != POCKETED){
-                    return MENU; // Player lost
+              else {
+                if (table->balls[1]->state == POCKETED) {
+                  for (int i = 0; i < table->ballNumber; i++) {
+                    if (table->balls[i]->state != POCKETED) {
+                      if (((table->balls[i]->type == STRIPED) && (getPlayingPlayer(table)->ballType == PLAYERSTRIPED)) || ((table->balls[i]->type == SOLID) && (getPlayingPlayer(table)->ballType == PLAYERSOLID))) {
+                        return MENU; // player lose
+                      }
+                    }
+                  }
+                  return MENU; // player win
+                }
+                else {
+                  if (table->balls[0]->state == POCKETED) {
+                    switchTurn(table);
+                    set_round_time(40);
+                    table->state = ADVANTAGE;
+                  }
+                  else {
+                    if (!table->pocketedOwnBall) {
+                      switchTurn(table);
+                    }
+                    set_round_time(40);
                   }
                 }
               }
-              return MENU; // Player won
             }
-            table->state = AIMING;
+            else {
+              if (table->balls[1]->state == POCKETED) {
+                return MENU; // player lose
+              }
+              else {
+                if (table->balls[0]->state == POCKETED) {
+                  switchTurn(table);
+                  set_round_time(40);
+                  table->state = ADVANTAGE;
+                }
+                else {
+                  int solidBalls = 0;
+                  int stripedBalls = 0;
+                  for (int i = 0; i < table->ballNumber; i++) {
+                    if (table->balls[i]->state == POCKETED) {
+                      if (table->balls[i]->type == SOLID) {
+                        solidBalls++;
+                      }
+                      else if (table->balls[i]->type == STRIPED) {
+                        stripedBalls++;
+                      }
+                    }
+                  }
+                  if (solidBalls != 0 || stripedBalls != 0) {
+                    if (solidBalls > stripedBalls) {
+                      getPlayingPlayer(table)->ballType = PLAYERSOLID;
+                      getNotPlayingPlayer(table)->ballType = PLAYERSTRIPED;
+                    }
+                    else if (stripedBalls >= solidBalls) {
+                      getPlayingPlayer(table)->ballType = PLAYERSTRIPED;
+                      getNotPlayingPlayer(table)->ballType = PLAYERSOLID;
+                    }
+                  }
+                }
+              }
+            }
+            }
+            
+            if(table->state != ADVANTAGE){
+              table->state = AIMING;
+            }
           }
-        }       
-
-        if (drawTable(table,get_game_time(),get_round_time())){
+        }
+        if (drawTable(table, get_game_time(), get_round_time())) {
           return OVER;
         }
-        if (swap_buffers()) return 1;
+        if (swap_buffers())
+          return 1;
       }
       break;
     case MOUSE:
@@ -85,17 +135,25 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
           table->mouse->delta.x = 0;
           table->mouse->delta.y = 0;
 
-          if (!packet->lb){
+          if (!packet->lb) {
             if (table->cue->charge) {
               printf("\n\n\n\nStart simuilation\n\n\n\n\n\n\n");
               table->state = SIMULATING;
               processShot(table);
-            }else{
+            }
+            else {
               table->state = AIMING;
               table->cue->charge = 0;
             }
           }
           break;
+        case ADVANTAGE:
+
+          glueBall(table);
+          if (packet->lb && canDropBall(table)) {
+
+            table->state = AIMING;
+          }
         default:
           break;
       }
@@ -109,7 +167,7 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
       break;
 
     case RTC:
-      if(get_round_time() == 0){
+      if (get_round_time() == 0) {
         set_round_time(40);
         table->player1->isPlaying = !table->player1->isPlaying;
         table->player2->isPlaying = !table->player2->isPlaying;
@@ -119,7 +177,7 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
 
     case SP:
       break;
-      
+
     default:
       break;
   }

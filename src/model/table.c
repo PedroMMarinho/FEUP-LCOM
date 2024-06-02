@@ -253,6 +253,9 @@ Table *newTable() {
   table->rollingFriction = 12;
   table->cushionRestitution = 0.5;
   table->cushionFriction = 0.5;
+  // game logic variables
+  table->firstBallHit = NULL;
+  table->pocketedOwnBall = false;
 
   return table;
 }
@@ -450,3 +453,35 @@ int updateCueState(Table *table, bool power) {
 
   return 0;
 }
+
+void glueBall(Table* table) {
+  table->balls[0]->position.x = table->mouse->pos.x;
+  table->balls[0]->position.y = table->mouse->pos.y;
+}
+bool canDropBall(Table* table) {
+  for(size_t i = 1; i < table->ballNumber; i++){
+    if(table->balls[i]->state != POCKETED){
+      vector_t distance = {table->balls[0]->position.x - table->balls[i]->position.x, table->balls[0]->position.y - table->balls[i]->position.y};
+      if(magnitudeOf(distance) < table->balls[0]->radius + table->balls[i]->radius){
+        return false;
+      }
+    }
+  }
+  if(table->mouse->pos.x < 55 + table->balls[0]->radius || table->mouse->pos.x > 972 - table->balls[0]->radius || table->mouse->pos.y < 188 + table->balls[0]->radius|| table->mouse->pos.y > 672 - table->balls[0]->radius){
+    return false;
+  }
+  return true;
+}
+void switchTurn(Table* table){
+  table->player1->isPlaying = !table->player1->isPlaying;
+  table->player2->isPlaying = !table->player2->isPlaying;
+  table->firstBallHit = NULL;
+  table->pocketedOwnBall = false;
+}
+Player* getPlayingPlayer(Table* table){
+  return table->player1->isPlaying ? table->player1 : table->player2;
+}
+Player* getNotPlayingPlayer(Table* table){
+  return table->player1->isPlaying ? table->player2 : table->player1;
+}
+

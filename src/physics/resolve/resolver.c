@@ -29,20 +29,12 @@ void resolveEvent(Table *table, Event event) {
       updateBallNextTransition(table, event.ball1);
       break;
     case BALL_BALL:
-    printf("ball 1 type: %d\n", event.ball1->type);
-    printf("ball 2 type: %d\n", event.ball2->type);
-    if(table->player1->isPlaying){
-      if(((event.ball1->type == WHITE) && ((event.ball2->type == STRIPED && table->player1->ballType == PLAYERSTRIPED) || (event.ball2->type == SOLID && table->player1->ballType == PLAYERSOLID))) || ((event.ball2->type == WHITE) && ((event.ball1->type == STRIPED && table->player1->ballType == PLAYERSTRIPED) || (event.ball1->type == SOLID && table->player1->ballType == PLAYERSOLID)))){
-        printf("FAKJFKJKLAFJKLAFJKAJFKLJAFKLJAFKLJAFKLJ\n");
-      table->firstCollision = true;
-    }
-    }else{
-       if(((event.ball1->type == WHITE) && ((event.ball2->type == STRIPED && table->player2->ballType == PLAYERSTRIPED) || (event.ball2->type == SOLID && table->player2->ballType == PLAYERSOLID))) || ((event.ball2->type == WHITE) && ((event.ball1->type == STRIPED && table->player2->ballType == PLAYERSTRIPED) || (event.ball1->type == SOLID && table->player2->ballType == PLAYERSOLID)))){
-        printf("FAKJFKJKLAFJKLAFJKAJFKLJAFKLJAFKLJAFKLJ\n");
-      table->firstCollision = true;
+    ;
+      if(table->firstBallHit == NULL){
+        
+        table->firstBallHit = event.ball2;
+        
       }
-    }
-    
       resolveBallBall(event.ball1, event.ball2);
       updateBallNextTransition(table, event.ball1);
       updateBallNextTransition(table, event.ball2);
@@ -59,7 +51,10 @@ void resolveEvent(Table *table, Event event) {
       updateBallNextTransition(table, event.ball1);
       break;
     case BALL_POCKET:
-    printf("RESOLVE BALL POCKET\n");
+      printf("RESOLVE BALL POCKET\n");
+      if(((event.ball1->type == STRIPED) && (getPlayingPlayer(table)->ballType == PLAYERSTRIPED)) || ((event.ball1->type == SOLID) && (getPlayingPlayer(table)->ballType == PLAYERSOLID))){
+          table->pocketedOwnBall = true;
+      }
       resolveBallPocket(event.ball1, table, table->pockets[event.pocket]);
       updateBallNextTransition(table, event.ball1);
       break;

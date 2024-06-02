@@ -4,8 +4,9 @@
 #include <math.h>
 
 void evolveBallMotion(Table *table, Ball *ball, double time) {
-
-  ball->transition->time -= time;
+  if (ball->transition != NULL){
+    ball->transition->time -= time;
+  }
 
   switch (getBallState(ball)) {
     case STATIONARY:
@@ -38,12 +39,10 @@ void evolveBallMotion(Table *table, Ball *ball, double time) {
       }
       else
         return;
-
-      break;
     }
 
-    case SPINNING:
-      printf("---- ROLLING ----");
+    case SPINNING: {
+
       double spinTime = getSpinTime(ball, table->spinningFriction, table->gravityAcceleration);
 
       evolvePrependicularSpin(ball, MIN(spinTime, time), table->spinningFriction, table->gravityAcceleration);
@@ -56,6 +55,7 @@ void evolveBallMotion(Table *table, Ball *ball, double time) {
         return;
 
       break;
+    }
     default:
       break;
   }
@@ -133,9 +133,9 @@ void evolvePrependicularSpin(Ball *ball, double t, double uSpinning, double g) {
     return;
   }
 
-  double alpha = 5 * uSpinning * g / (2 * ball->radius);
+  double alpha = 5.0 * uSpinning * g / (2.0 * ball->radius);
   // Limit t so that decay stops at 0
-  t = MIN(t, ball->ang_velocity.z / alpha);
+  t = MIN(t, abs(ball->ang_velocity.z) / alpha);
   int sign = ball->ang_velocity.z > 0 ? 1 : -1;
-  ball->ang_velocity.z = ball->ang_velocity.z - sign * alpha * t;
+  ball->ang_velocity.z -= sign * alpha * t;
 }

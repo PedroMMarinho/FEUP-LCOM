@@ -3,6 +3,7 @@
 #include "evolve.h"
 #include "math.h"
 #include "physicsMacros.h"
+#include "equations.h"
 
 
 
@@ -102,116 +103,7 @@ double magnitudeOf(vector_t vector) {
 
 // Function to solve a cubic equation using the Cardano's formula
 
-int solveQuadratic(double a, double b, double c, double *ans) {
 
-  if (a == 0) {
-    double u = -c / b;
-    *ans = u;
-    return 1;
-  }
-
-  double d = b * b - (4 * a * c);
-  if (d < 0)
-    return 0;
-  if (d == 0) {
-    *ans = -b / (2 * a);
-    return 1;
-  }
-
-  double sqrtD = sqrt(d);
-  ans[0] = (-b + sqrtD) / (2 * a);
-  ans[1] = (-b - sqrtD) / (2 * a);
-  return 2;
-}
-
-double cubic(double b, double c, double d) {
-  double p = c - b * b / 3.0;
-  double q = 2.0 * b * b * b / 27.0 - b * c / 3.0 + d;
-
-  if (p == 0.0)
-    return pow(q, 1.0 / 3.0);
-  if (q == 0.0)
-    return 0.0;
-
-  double t = sqrt(fabs(p) / 3.0);
-  double g = 1.5 * q / (p * t);
-  if (p > 0.0)
-    return -2.0 * t * sinh(asinh(g) / 3.0) - b / 3.0;
-
-  if (4.0 * p * p * p + 27.0 * q * q < 0.0)
-    return 2.0 * t * cos(acos(g) / 3.0) - b / 3.0;
-
-  if (q > 0.0)
-    return -2.0 * t * cosh(acosh(-g) / 3.0) - b / 3.0;
-
-  return 2.0 * t * cosh(acosh(g) / 3.0) - b / 3.0;
-}
-
-int quartic(double a, double b, double c, double d, double e, double *ans) {
-
-  printf("start");
-
-  b = b / a;
-  c = c / a;
-  d = d / a;
-  e = e / a;
-
-  double p = c - 0.375 * b * b;
-  double q = 0.125 * b * b * b - 0.5 * b * c + d;
-  double m = cubic(p, 0.25 * p * p + 0.01171875 * b * b * b * b - e + 0.25 * b * d - 0.0625 * b * b * c, -0.125 * q * q);
-  if (q == 0.0) {
-    if (m < 0.0){
-      printf("deu errado\n");
-      return 0;
-    }
-    int nroots = 0;
-    double sqrt_2m = sqrt(2.0 * m);
-    if (-m - p > 0.0) {
-      double delta = sqrt(2.0 * (-m - p));
-      ans[nroots++] = -0.25 * b + 0.5 * (sqrt_2m - delta);
-      ans[nroots++] = -0.25 * b - 0.5 * (sqrt_2m - delta);
-      ans[nroots++] = -0.25 * b + 0.5 * (sqrt_2m + delta);
-      ans[nroots++] = -0.25 * b - 0.5 * (sqrt_2m + delta);
-    }
-
-    if (-m - p == 0.0) {
-      ans[nroots++] = -0.25 * b - 0.5 * sqrt_2m;
-      ans[nroots++] = -0.25 * b + 0.5 * sqrt_2m;
-    }
-
-    return nroots;
-  }
-
-  if (m < 0.0)
-    return 0;
-  double sqrt_2m = sqrt(2.0 * m);
-  int nroots = 0;
-  if (-m - p + q / sqrt_2m >= 0.0) {
-    double delta = sqrt(2.0 * (-m - p + q / sqrt_2m));
-    ans[nroots++] = 0.5 * (-sqrt_2m + delta) - 0.25 * b;
-    ans[nroots++] = 0.5 * (-sqrt_2m - delta) - 0.25 * b;
-  }
-
-  if (-m - p - q / sqrt_2m >= 0.0) {
-    double delta = sqrt(2.0 * (-m - p - q / sqrt_2m));
-    ans[nroots++] = 0.5 * (sqrt_2m + delta) - 0.25 * b;
-    ans[nroots++] = 0.5 * (sqrt_2m - delta) - 0.25 * b;
-  }
-  printf("nroots: %d\n", nroots);
-  return nroots;
-}
-
-double smallerPositiveQuarticRoot(double a, double b, double c, double d, double e) {
-  double results[4];
-  double bestResult = INFINITY;
-  int size = quartic(a, b, c, d, e, results);
-  for (int i = 0; i < size; i++) {
-    if (results[i] > 0 && results[i] < bestResult) {
-      bestResult = results[i];
-    }
-  }
-  return bestResult;
-}
 // Actually physics calculations
 
 vector_t relativeVelocity(Ball *ball) {
@@ -245,11 +137,7 @@ double getSlideTime(Ball *ball, double u, double g) {
 
 double getBallLinearCushionCollisionTime(Table *table, Ball *ball, LinearCushion* cushion) {
 
-  printf("Colision time check start\n");
 
-  printf("Cushion position: \n");
-  printVector(cushion->p1);
-  printVector(cushion->p2);
 
   if (ballNotMoving(ball))
     return INFINITY;
@@ -285,8 +173,6 @@ double getBallLinearCushionCollisionTime(Table *table, Ball *ball, LinearCushion
 
   double minTime = INFINITY;
   for (int i = 0; i < nSolutions; i++) {
-    printf("A solution: ");
-    printFloat(solutions[i]);
     double root = solutions[i];
     if (root < EPS)
       continue;
@@ -297,6 +183,7 @@ double getBallLinearCushionCollisionTime(Table *table, Ball *ball, LinearCushion
     ballCpy.velocity = ball->velocity;
     ballCpy.ang_velocity = ball->ang_velocity;
     ballCpy.state = ball->state;
+    ballCpy.transition = NULL;
 
     evolveBallMotion(table, &ballCpy, root);
 
@@ -331,7 +218,6 @@ QuarticCoeff getBallBallCollisionCoeff(Ball *ball1, Ball *ball2, double uRolling
 
   QuarticCoeff coefficient;
   if (ballNotMoving(ball1) && ballNotMoving(ball2)){
-    printf("Balls not moving, error\n");
     coefficient.valid = false;
     return coefficient;
   }
@@ -388,6 +274,7 @@ QuarticCoeff getBallBallCollisionCoeff(Ball *ball1, Ball *ball2, double uRolling
   coefficient.e = C.x * C.x + C.y * C.y - 4.0 * ball1->radius * ball1->radius;
   coefficient.valid = true;
 
+  printCoef(coefficient);
   return coefficient;
 }
 
@@ -487,6 +374,5 @@ int findSmallerCoeficient(size_t n, QuarticCoeff *coeficients, double *result) {
   }
 
   *result = smallerResult;
-  printf("Best coeficient=%d\n", index);
   return index;
 }

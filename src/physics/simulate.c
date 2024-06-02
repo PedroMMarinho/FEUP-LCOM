@@ -28,15 +28,12 @@ bool updatePhysics(Table *table, double dt) {
       table->nextEvent = nextEvent;
       return true;
     }
-    printf("GETTING NEXT EVENT IN SAME UPDATE!!!!\n");
     nextEvent = getNextEvent(table);
     table->nextEvent = nextEvent;
 
   }
-  printf("FINAL EVENT - SIMULATION TERMINATED\n");
   return false;
 
-  printf("Simulation physcis\n");
 
   if (nextEvent.time != 0) {
     evolveBalls(table, nextEvent.time);

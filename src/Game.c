@@ -17,23 +17,25 @@
 
 #include "resources.h"
 
-
 // testing includes
+#include "physics/equations.h"
 #include "physics/utilities.h"
 
 int initGame() {
   Resources *resources = loadResources();
   printf("created resources\n");
 
-  double result[4];
-  int size = quartic(3464.499600,-10231.928676 , 14243.349677 ,-9877.078763 ,1643.328644 , result);
+  double X, X1, Y1, X2, Y2;
+  QBC(1.000000,8.565835,-2.993093,-0.000000, &X, &X1, &Y1, &X2, &Y2);
 
-  printf("%d results", size);
-  for (int i = 0; i<size; i++){
-    printFloat(result[i]);
-  }
 
-  return 0;
+  printFloat(X);
+  printFloat(X1);
+  printFloat(Y1);
+  printFloat(X2);
+  printFloat(Y2);
+
+  
   return gameLoop(resources);
 }
 
@@ -74,7 +76,7 @@ int gameLoop(Resources *resources) {
               case MAIN_MENU:
                 break;
               case PLAYING:
-                resources->state = playingControllerHandle(resources->table, TIMER, NULL,0, get_elapsed());
+                resources->state = playingControllerHandle(resources->table, TIMER, NULL, 0, get_elapsed());
                 break;
               default:
                 break;
@@ -108,7 +110,7 @@ int gameLoop(Resources *resources) {
               case MAIN_MENU:
                 break;
               case PLAYING:
-                resources->state = playingControllerHandle(resources->table, KEYBOARD, NULL,scancode, 0);
+                resources->state = playingControllerHandle(resources->table, KEYBOARD, NULL, scancode, 0);
                 break;
               default:
                 break;

@@ -4,8 +4,8 @@
 #include "../physics/utilities.h"
 #include "../viewer/cueViewer.h"
 #include "../xpms/biggerTable.xpm"
-#include "../xpms/table.xpm"
 #include "../xpms/finalTable.xpm"
+#include "../xpms/table.xpm"
 #include "math.h"
 
 Table *newTable() {
@@ -107,11 +107,12 @@ Table *newTable() {
   p2.x = 89;
   p2.y = 216;
   table->linearCushions[5] = newLinearCushion(p1, p2);
+  p1.x = 463;
+  p1.y = 188;
+  p2.x= 564;
+  p2.y = 188;
   table->circularCushions[10] = newCircularCushion(p1, radius);
   table->circularCushions[11] = newCircularCushion(p2, radius);
- 
-
-
 
   // Set mouse
   table->mouse = newMouse();
@@ -140,13 +141,13 @@ void destroyTable(Table *table) {
     destroyBall(table->balls[i]);
     free(table->balls[i]);
   }
-  for (size_t i = 0; i<6; i++){
+  for (size_t i = 0; i < 6; i++) {
     free(table->linearCushions[i]);
   }
-  for (size_t i = 0; i<12; i++){
+  for (size_t i = 0; i < 12; i++) {
     free(table->circularCushions[i]);
   }
-  for (size_t i = 0; i<6; i++){
+  for (size_t i = 0; i < 6; i++) {
     free(table->pockets[i]);
   }
 
@@ -155,36 +156,34 @@ void destroyTable(Table *table) {
   free(table->cue);
 }
 
-//Test
+// Test
 #include "../viewer/lineViewer.h"
 
 int drawTable(Table *table) {
 
   drawXPMImage(table->img, 512, 443, 0);
 
-
-
   for (size_t i = 0; i < table->ballNumber; i++) {
     Ball *ball = table->balls[i];
-    if (drawXPMImage(getBallImage(ball), getBallPosition(ball).x, getBallPosition(ball).y, 0))
-      return 1;
+    if (ball->state != POCKETED) {
+
+      if (drawXPMImage(getBallImage(ball), getBallPosition(ball).x, getBallPosition(ball).y, 0))
+        return 1;
+    }
   }
 
-  // DEBUG 
+  // DEBUG
   xpm_image_t ballImg = getBallImage(table->balls[0]);
 
   for (size_t i = 0; i < 12; i++) {
-    CircularCushion* cushion = table->circularCushions[i];
+    CircularCushion *cushion = table->circularCushions[i];
     drawXPMImage(ballImg, cushion->position.x, cushion->position.y, 0);
   }
 
   for (size_t i = 0; i < 6; i++) {
-    LinearCushion* cushion = table->linearCushions[i];
+    LinearCushion *cushion = table->linearCushions[i];
     drawThickLine(cushion->p1, cushion->p2, 3, 0xffffff);
   }
-
-
-
 
   switch (table->state) {
     case AIMING:
@@ -303,7 +302,6 @@ int updateCueState(Table *table, bool power) {
   cue->position = rotate2d(cue->position, cue->angle + M_PI);
   cue->position.x += cueBall.x;
   cue->position.y += cueBall.y;
-
 
   return 0;
 }

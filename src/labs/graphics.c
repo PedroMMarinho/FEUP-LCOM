@@ -1,7 +1,8 @@
-#include <lcom/lcf.h>
 #include "graphics.h"
-#include "math.h"
+#include "graphicsMacros.h"
+#include <math.h>
 #include "stdio.h"
+
 
 
 static uint8_t* video_mem_first;
@@ -10,16 +11,18 @@ static bool isSecondBuffer = false;
 static u32_t vram_base;  
 static u32_t vram_base_secondary;
 static vbe_mode_info_t modeInfo;
+
 static u32_t vram_size;
 static unsigned h_res;	        /* Horizontal resolution in pixels */
 static unsigned v_res;	        /* Vertical resolution in pixels */
 static unsigned bits_per_pixel; /* Number of VRAM bits per pixel */
 static unsigned bytes_per_pixel;
 
+
 int changeMode(uint16_t mode){
   reg86_t r86;
   memset(&r86, 0, sizeof(r86));
-  r86.intno = 0x10;
+  r86.intno = INT;
   r86.bx = mode | BIT(14);
   r86.al = 0x02;
   r86.ah = 0x4f;
@@ -40,6 +43,75 @@ int changeMode(uint16_t mode){
 
 void* getVideoMem(){
   return video_mem_first;
+}
+
+int mapMemory(uint16_t mode){
+
+  if (vbe_get_mode_info(mode, &modeInfo)) return 1; // Get Mode info
+
+  struct minix_mem_range mrFirst, mrSecondary;
+  int r;
+
+  bits_per_pixel = modeInfo.BitsPerPixel;
+  bytes_per_pixel = (bits_per_pixel + 7)/8;
+  h_res = modeInfo.XResolution;
+  v_res = modeInfo.YResolution;
+
+  vram_size = h_res * v_res * bytes_per_pixel;
+
+  vram_base = modeInfo.PhysBasePtr;
+  vram_base_secondary = modeInfo.PhysBasePtr + vram_size;
+
+  mrFirst.mr_base = (phys_bytes) vram_base;	
+  mrFirst.mr_limit = mrFirst.mr_base + vram_size * 2; 
+  mrSecondary.mr_base = (phys_bytes)vram_base_secondary;
+
+  if( OK != (r = sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mrFirst))){
+    panic("sys_privctl (ADD_MEM) failed: %d\n", r);
+    return 1;
+  }
+
+  /* Map memory */
+  video_mem_first = vm_map_phys(SELF, (void *)mrFirst.mr_base, vram_size);
+  video_mem_secondary = vm_map_phys(SELF, (void *)mrSecondary.mr_base, vram_size);
+
+
+  if(video_mem_first == MAP_FAILED || video_mem_secondary == MAP_FAILED){
+    panic("couldn't map video memory");
+    return 1;
+  }
+
+  memset(video_mem_first, 0, vram_size);
+  memset(video_mem_secondary, 0, vram_size);
+  return 0;
+}
+
+int (swap_buffers)(){
+  reg86_t r;
+  memset(&r, 0, sizeof(struct reg86));
+  u16_t new_dx;
+
+  if(!isSecondBuffer){ 
+    new_dx = v_res;
+  }else{  
+    new_dx = 0;
+  }
+  isSecondBuffer = !isSecondBuffer;
+
+  r.ax = SET_GET_DISPLAY_START;
+  r.bh = 0x00;
+  r.bl = 0x00; 
+  r.dx = new_dx;
+  r.intno = INT;
+  if(sys_int86(&r)) return 1;
+
+  void *temp = video_mem_first;
+  video_mem_first = video_mem_secondary;
+  video_mem_secondary = temp;
+
+  cleanCanvas();
+  return 0;
+
 }
 
 int draw_pixel(uint16_t x, uint16_t y, uint32_t color){
@@ -156,73 +228,7 @@ int drawXPMImage(xpm_image_t img, double x, double y, double angle){
   
   return 0;
 }
-int(mapMemory)(uint16_t mode){
-  /* Use VBE function 0x01 to initialize vram_base and vram_size */
-  if(vbe_get_mode_info(mode,&modeInfo)) return 1;
 
- if (vbe_get_mode_info(mode, &modeInfo)) return 1; // Get Mode info
-
-  struct minix_mem_range mrFirst, mrSecondary;
-  int r;
-
-  bits_per_pixel = modeInfo.BitsPerPixel;
-  bytes_per_pixel = (bits_per_pixel + 7)/8;
-  h_res = modeInfo.XResolution;
-  v_res = modeInfo.YResolution;
-
-  vram_size = h_res * v_res * bytes_per_pixel;
-
-  vram_base = modeInfo.PhysBasePtr;
-  vram_base_secondary = modeInfo.PhysBasePtr + vram_size;
-
-  mrFirst.mr_base = (phys_bytes) vram_base;	
-  mrFirst.mr_limit = mrFirst.mr_base + vram_size * 2; 
-  mrSecondary.mr_base = (phys_bytes)vram_base_secondary;
-
-  if( OK != (r = sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mrFirst))){
-    panic("sys_privctl (ADD_MEM) failed: %d\n", r);
-    return 1;
-  }
-
-  /* Map memory */
-  video_mem_first = vm_map_phys(SELF, (void *)mrFirst.mr_base, vram_size);
-  video_mem_secondary = vm_map_phys(SELF, (void *)mrSecondary.mr_base, vram_size);
-
-
-  if(video_mem_first == MAP_FAILED || video_mem_secondary == MAP_FAILED){
-    panic("couldn't map video memory");
-    return 1;
-  }
-
-  memset(video_mem_first, 0, vram_size);
-  memset(video_mem_secondary, 0, vram_size);
-  return 0;
-}
-int (swap_buffers)(){
-  reg86_t r;
-  memset(&r, 0, sizeof(struct reg86));
-  u16_t new_dx;
-
-  if(!isSecondBuffer){ /*Caso de ser o main Buffer*/
-    new_dx = v_res;
-  }else{  /*Caso de ser o secondary*/
-    new_dx = 0;
-  }
-  isSecondBuffer = !isSecondBuffer;
-
-  r.ax = 0x4F07;
-  r.bh = 0x00;
-  r.bl = 0x00; 
-  r.dx = new_dx;
-  r.intno = 0x10;
-  if(sys_int86(&r)) return 1;
-
-  void *temp = video_mem_first;
-  video_mem_first = video_mem_secondary;
-  video_mem_secondary = temp;
-  cleanCanvas();
-  return 0;
-}
 // string must contain only numbers(0-9) and lowercase letters(a-z), font must have numbers (0-9) occupying the first 10 positions and lowercase letters (a-z) occupying the next 26 positions, spacing is the space between characters
 int vg_draw_char(char c, xpm_image_t* font,uint16_t x, uint16_t y){
   if (c < 32 || c > 126) return 1;

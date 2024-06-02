@@ -9,10 +9,13 @@ typedef struct Cue{
   double angle;
   vector_t directionVector;
   xpm_image_t img;
-  float charge;
+  double charge;
   float powerSensitivity;
   uint8_t maximumDistance;
   uint8_t minimalDistance;
+  double sideEnglish;
+  double verticalEnglish;
+  double elevationAngle;
 
   // Info about the guide lines
   vector_t colisionPoint;

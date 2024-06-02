@@ -5,24 +5,27 @@
 #include "../viewer/cueViewer.h"
 #include "../viewer/lineViewer.h"
 #include "../xpms/ball.xpm"
+
 #include "../labs/scancodes.h"
 #include "labs/rtc.h"
-
+#include "../physics/simulate.h"
 
 STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct packet *packet, uint8_t scanCode, unsigned elapsed) {
   switch (interruptType) {
     case TIMER:
       if (elapsed % (sys_hz() / 30) == 0) {
-        
+
+        if (table->state == SIMULATING){
+          if (!updatePhysics(table, 1.0/30.0)){
+            printf("PHYSICS TERMINATED\n");
+            table->state = AIMING;
+          }
+        }       
+
         if (drawTable(table)){
           return OVER;
         }
-        
-        if(swap_buffers()){
-          printf("Error swapping buffers\n");
-          return OVER;
-        }
-        
+        if (swap_buffers()) return 1;
       }
       break;
     case MOUSE:
@@ -49,8 +52,9 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
 
           if (!packet->lb){
             if (table->cue->charge) {
+              printf("\n\n\n\nStart simuilation\n\n\n\n\n\n\n");
               table->state = SIMULATING;
-              table->cue->charge = 0;
+              processShot(table);
             }else{
               table->state = AIMING;
               table->cue->charge = 0;

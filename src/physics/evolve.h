@@ -2,30 +2,13 @@
 #pragma once
 #include <lcom/lcf.h>
 #include "../model/ball/ball.h"
+#include "../model/table.h"
 
 
-void evolveBallMotion(Ball* ball){
+void evolveBallMotion(Table* table, Ball* ball, double time);
 
-  switch (getBallState(ball))
-  {
-  case STATIONARY: case POCKETED:
-    return;
-    break;
-  case SLIDING: 
-    
-  break;
+void evolveSlideState(Ball* ball, double t, double uSpinning, double uSliding, double g);
 
-  case ROLLING:
+void evolveRollState(Ball* ball, double t, double uRolling, double uSliding, double g);
 
-  break;
-
-  case SPINNING:
-
-  break;
-  default:
-    break;
-  }
-
-}
-
-
+void evolvePrependicularSpin(Ball* ball, double t , double uSpinning, double g);

@@ -1,0 +1,9 @@
+
+*
+!/**/
+!*.*
+!Makefile
+*.o
+*.txt
+.vscode
+lab7/*

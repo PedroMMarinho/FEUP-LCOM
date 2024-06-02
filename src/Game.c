@@ -1,14 +1,13 @@
 #include "Game.h"
 #include "model/vector.h"
 #include "xpms/ball.xpm"
-
-#include "labs/keyboard.h"
-#include "labs/timer.h"
-#include "labs/kbc.h"
 #include "labs/graphics.h"
+#include "labs/kbc.h"
+#include "labs/keyboard.h"
 #include "labs/mouse.h"
 #include "labs/rtc.h"
 #include "labs/serialPort.h"
+#include "labs/timer.h"
 
 #include "viewer/cueViewer.h"
 #include "viewer/lineViewer.h"
@@ -22,17 +21,16 @@
 #include "resources.h"
 
 
-int initGame(){
-  Resources* resources = loadResources();
+int initGame() {
+  Resources *resources = loadResources();
   printf("created resources\n");
-  return gameLoop(resources);
 
+  return gameLoop(resources);
 }
 
-int gameLoop(Resources* resources){
+int gameLoop(Resources *resources) {
   mapMemory(0x118);
   changeMode(0x118);
-
 
   int r;
   message msg;
@@ -52,6 +50,7 @@ int gameLoop(Resources* resources){
   uint8_t sp_iqr;
   if (sp_subscribe(&sp_iqr)) return 1;
 
+
   while (resources->state != OVER) {
     STATE state = resources->state;
     /* Get a request message. */
@@ -64,9 +63,9 @@ int gameLoop(Resources* resources){
       switch (_ENDPOINT_P(msg.m_source)) {
         case HARDWARE:
 
-          if (msg.m_notify.interrupts & timer_iqr){
+          if (msg.m_notify.interrupts & timer_iqr) {
             timer_int_handler();
-            switch (state)
+          switch (state)
             {
             case MENU:
               resources->state = menuControllerHandle(resources->menu,resources->playerName, TIMER, NULL, 0, get_elapsed());
@@ -76,13 +75,15 @@ int gameLoop(Resources* resources){
               break;
             default:
               break;
+
             }
           }
-        
+
           if (msg.m_notify.interrupts & mouse_iqr) {
             mouse_ih();
-            if (mouseError()) return 1;
-            if (isPacketComplete()){
+            if (mouseError())
+              return 1;
+            if (isPacketComplete()) {
               struct packet packet = getMousePacket();
               switch (state){
                 case MENU:
@@ -115,6 +116,7 @@ int gameLoop(Resources* resources){
               break;
             default:
               break;
+
             }
           }
           
@@ -138,7 +140,9 @@ int gameLoop(Resources* resources){
             case MENU:
               if(resources->menu->type == ONLINE_MENU){
                 resources->state = handleMultiplayerConnection();
+                printf("The state is %d\n", resources->state);
                 if(resources->state == PLAYING){
+                  printf("Creating new table\n");
                   resources->table = newTable();
                 }
               }
@@ -169,15 +173,16 @@ int gameLoop(Resources* resources){
     return 1;
   if (keyboard_unsubscribe())
     return 1;
-  if (timer_unsubscribe_int()) return 1;
+  if (timer_unsubscribe_int())
+    return 1;
 
   if (rtc_unsubscribe()) return 1;
 
   printf("Exiting video mode\n");
-  if (vg_exit()) return 1;
+  if (vg_exit())
+    return 1;
   printf("Cleaning resources\n");
   destroyResources(resources);
-  printf("Everything finished\n");
+  printf("Everything finished\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
   return 0;
-
 }

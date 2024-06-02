@@ -27,6 +27,7 @@
 #include "../xpms/tableBalls/bola8.xpm"
 #include "../xpms/tableBalls/bola9.xpm"
 #include "../xpms/tableBalls/bolaBranca.xpm"
+#include "../xpms/spinCircle.xpm"
 
 #include "math.h"
 
@@ -79,6 +80,7 @@ Table *newTable() {
   table->ballNumber = 16;
   table->balls = (Ball **) malloc(sizeof(Ball *) * table->ballNumber);
 
+
   vector_t cueBallPosition = {269, 442};
 
   table->balls[0] = newBall(cueBallPosition, whiteBall, WHITE);
@@ -129,12 +131,15 @@ Table *newTable() {
 
   xpm_image_t img;
   xpm_image_t matchUI;
+  xpm_image_t spinCircle;
 
   xpm_load(matchUIXpm, XPM_8_8_8, &matchUI);
   xpm_load(tableBackgroundXpm, XPM_8_8_8, &img);
+  xpm_load(spinCircleXpm, XPM_8_8_8, &spinCircle);
 
   table->img = img;
   table->ui = matchUI;
+  table->spinCircle = spinCircle;
 
   // Set pockets
   vector_t p1, p2;
@@ -337,10 +342,38 @@ void drawBalls(Table *table) {
   }
 }
 
+bool updateSpin(Table* table){
+
+  vector_t click = table->mouse->pos;
+  vector_t centerPoint = {978, 42};
+  vector_t connection = {click.x - centerPoint.x, click.y - centerPoint.y};
+
+  double distance = magnitudeOf(connection);
+  if (distance > 30) return 0;
+
+  table->cue->verticalEnglish = - connection.y / 30;
+  table->cue->sideEnglish = -connection.x / 30;
+  return true;
+}
+
+
+void drawSpinCircle(Table* table){
+
+  vector_t noSpinPos = {978, 42};
+  double radius = 30;
+
+  double up = table->cue->verticalEnglish * radius;
+  double side = table->cue->sideEnglish * radius;
+
+  drawXPMImage(table->spinCircle, noSpinPos.x - side, noSpinPos.y - up, 0);
+
+}
+
 int drawTable(Table *table, int gameTime, int roundTime) {
 
   drawXPMImage(table->img, 512, 442, 0);
   drawXPMImage(table->ui, 512, 62, 0);
+  drawSpinCircle(table);
   drawInGamePlayerName(table->player1, table->font, 145, 47, 16);
   drawInGamePlayerName(table->player2, table->font, 748, 49, 16);
 

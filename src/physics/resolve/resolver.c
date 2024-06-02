@@ -267,8 +267,8 @@ void assertSpinning(Ball *ball) {
 void resolveStickBall(Cue *cue, Ball *ball, double maxSpeed) {
 
   // TODO: CHECK IF SPIN IS NOT TOO MUCH
-  double sideSpin = cue->sideEnglish * ball->radius;
-  double verticalSpin = cue->verticalEnglish * ball->radius;
+  double sideSpin = cue->sideEnglish * ball->radius * 0.4;
+  double verticalSpin = cue->verticalEnglish * ball->radius * 0.4;
 
   double phi = cue->angle;
   double theta = cue->elevationAngle;

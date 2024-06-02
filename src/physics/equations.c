@@ -3,6 +3,7 @@
 #include "equations.h"
 #include "utilities.h"
 #include <math.h>
+#include "QuadRootsRevJ.h"
 
 double DISC(double A, double B, double C) {
 
@@ -150,8 +151,12 @@ int quartic(double a, double b, double c, double d, double e, double *ans) {
   double p = c - 0.375 * b * b;
   double q = 0.125 * b * b * b - 0.5 * b * c + d;
   double X, X1, Y1, X2, Y2;
-
-  QBC(1, p, 0.25 * p * p + 0.01171875 * b * b * b * b - e + 0.25 * b * d - 0.0625 * b * b * c, -0.125 * q * q, &X, &X1, &Y1, &X2, &Y2);
+    double newD = -0.125 * q * q;
+    if (newD < 1e-11){
+        printf("Really small indeed\n");
+        newD = 0;
+    }
+  QBC(1, p, 0.25 * p * p + 0.01171875 * b * b * b * b - e + 0.25 * b * d - 0.0625 * b * b * c, newD, &X, &X1, &Y1, &X2, &Y2);
   printf("Finished QBC\n");
   double m = X;
   m = (Y1 == 0 && X1 > 0) ? MIN(X, X1) : X;
@@ -243,12 +248,15 @@ int solveQuadratic(double a, double b, double c, double *ans) {
 }
 
 double smallerPositiveQuarticRoot(double a, double b, double c, double d, double e) {
-  double results[4];
+  long double realResults[4];
+  long double imgResults[4];
+  long double coef[5] = {a, b, c, d, e};
   double bestResult = INFINITY;
-  int size = quartic(a, b, c, d, e, results);
+
+  int size = QuadCubicRoots(coef, 4, realResults, imgResults);
   for (int i = 0; i < size; i++) {
-    if (results[i] > 0 && results[i] < bestResult) {
-      bestResult = results[i];
+    if (realResults[i] > 0 && realResults[i] < bestResult && imgResults[i] == 0) {
+      bestResult = realResults[i];
     }
   }
   return bestResult;

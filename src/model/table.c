@@ -63,9 +63,9 @@ Table *newTable() {
   // Set linear cushions
   double radius = 20;
   p1.x = 55;
-  p1.y = 249;
+  p1.y = 638;
   p2.x = 55;
-  p2.y = 638;
+  p2.y = 249;
   table->linearCushions[0] = newLinearCushion(p1, p2);
   table->circularCushions[0] = newCircularCushion(p1, radius);
   table->circularCushions[1] = newCircularCushion(p2, radius);

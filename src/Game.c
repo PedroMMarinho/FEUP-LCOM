@@ -18,24 +18,28 @@
 #include "resources.h"
 
 // testing includes
-#include "physics/equations.h"
+#include "physics/QuadRootsRevJ.h"
 #include "physics/utilities.h"
 
 int initGame() {
   Resources *resources = loadResources();
   printf("created resources\n");
 
-  double X, X1, Y1, X2, Y2;
-  QBC(1.000000,8.565835,-2.993093,-0.000000, &X, &X1, &Y1, &X2, &Y2);
 
+  long double realResults[4];
+  long double imgResults[4];
+  long double coef[5] = {-1, 3, 98, 0.123, 324};
 
-  printFloat(X);
-  printFloat(X1);
-  printFloat(Y1);
-  printFloat(X2);
-  printFloat(Y2);
+  int size = QuadCubicRoots(coef, 4, realResults, imgResults);
+  printf("REAL\n");
+  for (int i = 0 ; i < size; i++){
+    printFloat(realResults[i]);
+  }
+  printf("IMG\n");
+  for (int i = 0 ; i < size; i++){
+    printFloat(imgResults[i]);
+  }
 
-  
   return gameLoop(resources);
 }
 

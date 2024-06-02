@@ -8,6 +8,7 @@
 #include "cushion.h"
 #include "pocket.h"
 #include "player.h"
+#include "button.h"
 
 typedef enum GAME_STATE {
   AIMING,
@@ -20,6 +21,8 @@ typedef struct Table{
   xpm_image_t img;
   xpm_image_t ui;
   xpm_image_t spinCircle;
+  Button* exitButton;
+  bool exitSelected;
   LinearCushion* linearCushions[6];
   CircularCushion* circularCushions[12];
   Pocket* pockets[6];
@@ -31,6 +34,7 @@ typedef struct Table{
   double maxSpeedShot;
   Player* player1;
   Player* player2;
+  bool player1Won;
   bool firstCollision;
   // Physics measurments
   double slidingFriction;

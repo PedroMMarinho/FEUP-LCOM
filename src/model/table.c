@@ -28,6 +28,8 @@
 #include "../xpms/tableBalls/bola9.xpm"
 #include "../xpms/tableBalls/bolaBranca.xpm"
 #include "../xpms/spinCircle.xpm"
+#include "../xpms/exitButton.xpm"
+#include "../xpms/exitButtonSelected.xpm"
 
 #include "math.h"
 
@@ -36,6 +38,7 @@ Table *newTable() {
 
   table->player1 = newPlayer("player1", PLAYERBALLNONE, 1);
   table->player2 = newPlayer("player2", PLAYERBALLNONE, 0);
+  table->player1Won = true;
 
   table->font = malloc(sizeof(xpm_image_t) * 36);
   for (int i = 0; i < 36; i++) {
@@ -132,14 +135,22 @@ Table *newTable() {
   xpm_image_t img;
   xpm_image_t matchUI;
   xpm_image_t spinCircle;
+  xpm_image_t exitButton;
+  xpm_image_t exitButtonSelected;
 
   xpm_load(matchUIXpm, XPM_8_8_8, &matchUI);
   xpm_load(tableBackgroundXpm, XPM_8_8_8, &img);
   xpm_load(spinCircleXpm, XPM_8_8_8, &spinCircle);
+  xpm_load(exitButtonXpm, XPM_8_8_8, &exitButton);
+  xpm_load(exitButtonSelectedXpm, XPM_8_8_8, &exitButtonSelected);
 
   table->img = img;
   table->ui = matchUI;
   table->spinCircle = spinCircle;
+  vector_t pos = {18, 9};
+  vector_t size = {51, 51};
+  table->exitButton = newButton(exitButton, exitButtonSelected, pos, size);
+  table->exitSelected = false;
 
   // Set pockets
   vector_t p1, p2;
@@ -236,17 +247,17 @@ Table *newTable() {
   // Set cue
   table->cue = newCue();
   updateCueState(table, false);
-  table->maxSpeedShot = 900;
+  table->maxSpeedShot = 4000;
 
   // Set state
   table->state = AIMING;
 
   // Set physics attributes
   table->gravityAcceleration = 9.81;
-  table->slidingFriction = 12;
-  table->spinningFriction = 0.01;
-  table->rollingFriction = 12;
-  table->cushionRestitution = 0.5;
+  table->slidingFriction = 140;
+  table->spinningFriction = 6;
+  table->rollingFriction = 30;
+  table->cushionRestitution = 0.7;
   table->cushionFriction = 0.5;
 
   return table;
@@ -267,6 +278,7 @@ void destroyTable(Table *table) {
     free(table->pockets[i]);
   }
 
+  destroyButton(table->exitButton);
   free(table->balls);
   free(table->mouse);
   free(table->cue);
@@ -376,6 +388,8 @@ int drawTable(Table *table, int gameTime, int roundTime) {
   drawSpinCircle(table);
   drawInGamePlayerName(table->player1, table->font, 145, 47, 16);
   drawInGamePlayerName(table->player2, table->font, 748, 49, 16);
+
+  drawXPMImage(table->exitSelected ? table->exitButton->imgSelected:table->exitButton->img, table->exitButton->pos.x + 30, table->exitButton->pos.y + 30, 0);
 
   // DRAW BALLS
   drawBalls(table);

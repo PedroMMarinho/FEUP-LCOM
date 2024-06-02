@@ -39,8 +39,21 @@ Menu* newMenu(MenuType type){
   xpm_load(menuMouseHoverXpm, XPM_8_8_8, &menuMouseHover);
   menu->mouseImg = menuMouse;
   menu->mouseImgHover = menuMouseHover;
+  menu->winner = NULL;
   return menu;
 }
+
+
+Menu* newGameOverMenu(char* winnerName){
+
+  Menu* menu = newMenu(GAME_OVER_MENU);
+  menu->winner = winnerName;
+  return menu;
+}
+
+
+
+
 void setMenuType(Menu* menu, MenuType type){
   menu->type = type;
   
@@ -130,6 +143,7 @@ void setMenuType(Menu* menu, MenuType type){
       menu->backgroundImg = menuBackground;
       break;
   case GAME_OVER_MENU:       
+  printf("Constructig MENU\n");
       menu->nOptions = 1;
       menu->buttons = (Button**)malloc(sizeof(Button*)*menu->nOptions);
       xpm_load(backXpm, XPM_8_8_8, &back);

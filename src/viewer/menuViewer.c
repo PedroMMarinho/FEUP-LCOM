@@ -13,6 +13,7 @@ int drawMenuButton(Button* button){
     }
     return 0;
 }
+
 int drawMenuMouse(Mouse* mouse, xpm_image_t mouseImg, xpm_image_t imgMouseHover, bool isHovering){
     if(isHovering){
         if(drawXPMImage(imgMouseHover,mouse->pos.x,mouse->pos.y,0)) return 1;

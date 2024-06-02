@@ -3,6 +3,7 @@
 #include "playingController.h"
 #include "../labs/graphics.h"
 #include "../labs/scancodes.h"
+#include "../model/button.h"
 #include "../model/player.h"
 #include "../physics/simulate.h"
 #include "../viewer/cueViewer.h"
@@ -70,15 +71,21 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
       table->mouse->pos.x += packet->delta_x;
       table->mouse->pos.y -= packet->delta_y;
 
+      table->exitSelected=isMouseOverButton(table->exitButton, table->mouse->pos);
+
       switch (table->state) {
         case AIMING:
           updateCueState(table, false);
           if (packet->lb) {
 
-            if (!updateSpin(table)) {
-              table->mouse->savedPos = table->mouse->pos;
-              table->state = SHOOTING;
+            if (updateSpin(table))
+              break;
+            if (table->exitSelected) {
+              printf("Exiting game\n");
+              return MENU;
             }
+            table->mouse->savedPos = table->mouse->pos;
+            table->state = SHOOTING;
           }
           break;
         case SHOOTING:

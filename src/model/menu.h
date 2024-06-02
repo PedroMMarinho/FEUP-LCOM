@@ -39,6 +39,7 @@ typedef struct Menu {
   MenuType type;  
   int nOptions;
   int selectedOption;
+  char* winner;
   Mouse* mouse;
   xpm_image_t mouseImg;
   xpm_image_t mouseImgHover;
@@ -53,6 +54,8 @@ typedef struct Menu {
  */
 
 Menu* newMenu(MenuType type);
+
+Menu* newGameOverMenu(char* winnerName);
 
 /**
  * @brief Frees the memory allocated for the menu

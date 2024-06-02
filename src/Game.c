@@ -72,6 +72,10 @@ int gameLoop(Resources *resources) {
               break;
             case PLAYING:
               resources->state = playingControllerHandle(resources->table, TIMER, NULL, 0, get_elapsed());
+              if(resources->state == MENU){
+                destroyTable(resources->table);
+                resources->menu = newMenu(GAME_OVER_MENU);
+              }
               break;
             default:
               break;
@@ -125,7 +129,7 @@ int gameLoop(Resources *resources) {
             switch (state)
             {
             case PLAYING:
-            // resources->state = playingControllerHandle(resources->table, RTC, NULL, 0, 0);
+            resources->state = playingControllerHandle(resources->table, RTC, NULL, 0, 0);
               break;
             default:
               break;

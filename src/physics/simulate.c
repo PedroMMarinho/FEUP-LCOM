@@ -5,13 +5,12 @@
 #include "utilities.h"
 
 void processShot(Table *table) {
-  printf("Shot processed\n");
   Event shotEvent = {0, STICK_BALL, table->balls[0], NULL, NULL,NULL,-1};
   table->nextEvent = shotEvent;
 }
 
 bool updatePhysics(Table *table, double dt) {
-
+  table->firstCollision = false;
   Event nextEvent = table->nextEvent;
   double elapsed = 0;
   while (nextEvent.type != INVALID) {
@@ -28,54 +27,14 @@ bool updatePhysics(Table *table, double dt) {
       table->nextEvent = nextEvent;
       return true;
     }
-    printf("GETTING NEXT EVENT IN SAME UPDATE!!!!\n");
     nextEvent = getNextEvent(table);
     table->nextEvent = nextEvent;
 
   }
-  printf("FINAL EVENT - SIMULATION TERMINATED\n");
+
+  
   return false;
 
-  printf("Simulation physcis\n");
-
-  if (nextEvent.time != 0) {
-    evolveBalls(table, nextEvent.time);
-  }
-  resolveEvent(table, nextEvent);
-
-  printf("Ball velocity!");
-  printFloat(table->balls[0]->velocity.x);
-  printFloat(table->balls[0]->velocity.y);
-
-  // double elapsed = nextEvent.time;
-  while (true) {
-
-    printf("Before getNextEvent\n");
-    Event event = getNextEvent(table);
-
-    printf("NEXT EVENT FOUND\n");
-    printEvent(&event);
-
-    if (event.type == INVALID) {
-      return false;
-    }
-
-    if (elapsed + event.time < dt) {
-      printf("NEED TO FIND ANOTHER\n");
-      // Event still happens before dt passed
-      evolveBalls(table, event.time);
-      resolveEvent(table, event);
-      elapsed += event.time;
-    }
-    else {
-      printf("Time to cook\n");
-      evolveBalls(table, dt - elapsed);
-      event.time -= dt - elapsed;
-      table->nextEvent = event;
-      break;
-    }
-  }
-  return true;
 }
 
 void evolveBalls(Table *table, double time) {

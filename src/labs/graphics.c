@@ -242,7 +242,6 @@ int vg_draw_char(char c, xpm_image_t* font,uint16_t x, uint16_t y){
 
 int drawText(char* text, xpm_image_t* font,uint16_t x, uint16_t y,uint8_t spacing){
   while(*text){
-    printf("Drawing %c\n",*text);
     if (vg_draw_char(*text,font, x, y)) return 1;
     x += spacing;
     text++;

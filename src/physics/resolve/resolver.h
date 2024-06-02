@@ -15,7 +15,7 @@ void resolveBallCushion(Ball* ball, vector_t cushionNormal, double restitution);
 
 void resolveBallCushionRealistic(Ball *ball, vector_t cushionNormal, double restitution, double friction);
 
-void resolveBallPocket(Ball* ball, Pocket* pocket);
+void resolveBallPocket(Ball* ball, Table* table, Pocket* pocket);
 
 void resolveStickBall(Cue* cue, Ball* ball, double maxSpeed);
 

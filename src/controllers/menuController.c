@@ -38,6 +38,8 @@ STATE handleGameModeMenu(Menu *menu, int option) {
     case 0:
       resetMenu(menu);
       destroyMenu(menu);
+      set_game_time(0);
+      set_round_time(40);
       return PLAYING;
       break;
     case 1:

@@ -7,6 +7,7 @@
 #include "cue.h"
 #include "cushion.h"
 #include "pocket.h"
+#include "player.h"
 
 typedef enum GAME_STATE {
   AIMING,
@@ -17,6 +18,7 @@ typedef enum GAME_STATE {
 
 typedef struct Table{
   xpm_image_t img;
+  xpm_image_t ui;
   LinearCushion* linearCushions[6];
   CircularCushion* circularCushions[12];
   Pocket* pockets[6];
@@ -26,7 +28,9 @@ typedef struct Table{
   Mouse* mouse;
   Cue* cue;
   double maxSpeedShot;
-
+  Player* player1;
+  Player* player2;
+  bool firstCollision;
   // Physics measurments
   double slidingFriction;
   double spinningFriction;
@@ -35,7 +39,7 @@ typedef struct Table{
   double cushionRestitution;
   double cushionFriction;
   size_t ballRadius;
-
+  xpm_image_t* font;
 
   // Simulation
   Event nextEvent;
@@ -47,7 +51,7 @@ Table * newTable();
 
 void destroyTable(Table* table);
 
-int drawTable(Table* table);
+int drawTable(Table* table,int gameTime, int roundTime);
 
 int updateCueState(Table* table, bool power);
 

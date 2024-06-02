@@ -15,7 +15,6 @@ void evolveBallMotion(Table *table, Ball *ball, double time) {
       return;
       break;
     case SLIDING: {
-      printf("---- SLIDING ----");
       double slideTime = getSlideTime(ball, table->slidingFriction, table->gravityAcceleration);
 
       evolveSlideState(ball, MIN(slideTime, time), table->spinningFriction, table->slidingFriction, table->gravityAcceleration);

@@ -15,6 +15,8 @@
     "*.xpm": "c",
     "stdio.h": "c",
     "multiplayercontroller.h": "c",
-    "serialport.h": "c"
+    "serialport.h": "c",
+    "graphics.h": "c",
+    "vector.h": "c"
   },
 }

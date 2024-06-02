@@ -13,6 +13,13 @@ typedef enum BALL_STATE {
   POCKETED,
 } BALL_STATE;
 
+typedef enum BALL_TYPE {
+  STRIPED,
+  SOLID,
+  BLACK,
+  WHITE,
+} BALL_TYPE;
+
 typedef struct Ball {
   BALL_STATE state;
   vector_t position;
@@ -20,11 +27,11 @@ typedef struct Ball {
   vector3_t ang_velocity;
   xpm_image_t img;
   size_t radius;
-
+  BALL_TYPE type;
   Event* transition;
 } Ball;
 
-Ball *newBall(vector_t position);
+Ball *newBall(vector_t position,xpm_image_t img,BALL_TYPE type);
 
 void destroyBall(Ball *ball);
 

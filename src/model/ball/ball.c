@@ -6,17 +6,14 @@
 
 
 
-Ball *newBall(vector_t position){
+Ball *newBall(vector_t position , xpm_image_t img,BALL_TYPE type){
   Ball* ball = (Ball*)malloc(sizeof(Ball));
   ball->position = position;
-  ball->radius = 20;
+  ball->radius = 15;
   ball->state = STATIONARY;
   // Set image
-
-  xpm_image_t img;
-  xpm_load(ballXpm, XPM_8_8_8, &img);
   ball->img = img;
-
+  ball->type = type;
   Event transition = newInvalidEvent();
   ball->transition = (Event*)malloc(sizeof(Event));
   *ball->transition = transition;

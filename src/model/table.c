@@ -6,112 +6,232 @@
 #include "../xpms/biggerTable.xpm"
 #include "../xpms/table.xpm"
 #include "../xpms/finalTable.xpm"
+#include "../xpms/ball.xpm"
+#include "../xpms/tableBalls/bola1.xpm"
+#include "../xpms/slotBalls/ballSlot6.xpm"
+#include "../xpms/tableBalls/bolaBranca.xpm"
+#include "../xpms/tableBalls/bola2.xpm"
+#include "../xpms/tableBalls/bola3.xpm"
+#include "../xpms/tableBalls/bola4.xpm"
+#include "../xpms/tableBalls/bola5.xpm"
+#include "../xpms/tableBalls/bola6.xpm"
+#include "../xpms/tableBalls/bola7.xpm"
+#include "../xpms/tableBalls/bola8.xpm"
+#include "../xpms/tableBalls/bola9.xpm"
+#include "../xpms/tableBalls/bola10.xpm"
+#include "../xpms/tableBalls/bola11.xpm"
+#include "../xpms/tableBalls/bola12.xpm"
+#include "../xpms/tableBalls/bola13.xpm"
+#include "../xpms/tableBalls/bola14.xpm"
+#include "../xpms/tableBalls/bola15.xpm"
+#include "../xpms/tableBackground.xpm"
+#include "../xpms/matchUI.xpm"
+#include "../xpms/font/font.xpm"
+
 #include "math.h"
 
 Table *newTable() {
   Table *table = (Table *) malloc(sizeof(Table));
 
+  
+
+  table->player1 = newPlayer("player1", PLAYERBALLNONE,1);
+  table->player2 = newPlayer("player2", PLAYERBALLNONE,0);
+
+  table->font = malloc(sizeof(xpm_image_t)*36);
+    for(int i = 0; i < 36; i++){
+    xpm_load(xpm_table[i], XPM_8_8_8, &table->font[i]);
+  }
+
   // Set balls
-  table->ballNumber = 2;
+  xpm_image_t ball8;
+  xpm_image_t whiteBall;
+  xpm_image_t bola1;
+  xpm_image_t bola2;
+  xpm_image_t bola3;
+  xpm_image_t bola4;
+  xpm_image_t bola5;
+  xpm_image_t bola6;
+  xpm_image_t bola7;
+  xpm_image_t bola9;
+  xpm_image_t bola10;
+  xpm_image_t bola11;
+  xpm_image_t bola12;
+  xpm_image_t bola13;
+  xpm_image_t bola14;
+  xpm_image_t bola15;
+
+  xpm_load(bolaBrancaXpm, XPM_8_8_8, &whiteBall);
+  xpm_load(bola8Xpm, XPM_8_8_8, &ball8);
+  xpm_load(bola1Xpm, XPM_8_8_8, &bola1);
+  xpm_load(bola2Xpm, XPM_8_8_8, &bola2);
+  xpm_load(bola3Xpm, XPM_8_8_8, &bola3);
+  xpm_load(bola4Xpm, XPM_8_8_8, &bola4);
+  xpm_load(bola5Xpm, XPM_8_8_8, &bola5);
+  xpm_load(bola6Xpm, XPM_8_8_8, &bola6);
+  xpm_load(bola7Xpm, XPM_8_8_8, &bola7);
+  xpm_load(bola9Xpm, XPM_8_8_8, &bola9);
+  xpm_load(bola10Xpm, XPM_8_8_8, &bola10);
+  xpm_load(bola11Xpm, XPM_8_8_8, &bola11);
+  xpm_load(bola12Xpm, XPM_8_8_8, &bola12);
+  xpm_load(bola13Xpm, XPM_8_8_8, &bola13);
+  xpm_load(bola14Xpm, XPM_8_8_8, &bola14);
+  xpm_load(bola15Xpm, XPM_8_8_8, &bola15);
+
+
+  table->ballNumber = 16;
   table->balls = (Ball **) malloc(sizeof(Ball *) * table->ballNumber);
 
-  vector_t cueBallPosition = {300, 300};
-  table->balls[0] = newBall(cueBallPosition);
-  vector_t otherBallPosition = {400, 400};
-  table->balls[1] = newBall(otherBallPosition);
-  // otherBallPosition.x = 100;
-  // otherBallPosition.y = 500;
-  // table->balls[2] = newBall(otherBallPosition);
-  // otherBallPosition.x = 500;
-  // otherBallPosition.y = 200;
-  // table->balls[3] = newBall(otherBallPosition);
-  // otherBallPosition.x = 300;
-  // otherBallPosition.y = 400;
-  // table->balls[4] = newBall(otherBallPosition);
-  // otherBallPosition.x = 700;
-  // otherBallPosition.y = 400;
-  // table->balls[5] = newBall(otherBallPosition);
-  // otherBallPosition.x = 800;
-  // otherBallPosition.y = 500;
-  // table->balls[6] = newBall(otherBallPosition);
-  // Set image
+
+  vector_t cueBallPosition = {269, 442};
+
+  table->balls[0] = newBall(cueBallPosition, whiteBall, WHITE);
+
+  vector_t otherBallPosition = {782, 442};
+  table->balls[1] = newBall(otherBallPosition, ball8,BLACK);
+  otherBallPosition.x = 722;
+  table->balls[2] = newBall(otherBallPosition, bola1,SOLID);
+  otherBallPosition.x = 752;
+  otherBallPosition.y = 427;
+  table->balls[3] = newBall(otherBallPosition, bola2,SOLID);
+  otherBallPosition.x = 782;
+  otherBallPosition.y = 472;
+  table->balls[4] = newBall(otherBallPosition, bola3,SOLID);
+  otherBallPosition.x = 842;
+  otherBallPosition.y = 502;
+  table->balls[5] = newBall(otherBallPosition, bola4,SOLID);
+  otherBallPosition.x = 812;
+  otherBallPosition.y = 457;
+  table->balls[6] = newBall(otherBallPosition, bola5,SOLID);
+  otherBallPosition.x = 842;
+  otherBallPosition.y = 412;
+  table->balls[7] = newBall(otherBallPosition, bola6,SOLID);
+  otherBallPosition.x = 812;
+  otherBallPosition.y = 397;
+  table->balls[8] = newBall(otherBallPosition, bola7,SOLID);
+  otherBallPosition.x = 842;
+  otherBallPosition.y = 472;
+  table->balls[9] = newBall(otherBallPosition, bola9,STRIPED);
+  otherBallPosition.x = 752;
+  otherBallPosition.y = 457;
+  table->balls[10] = newBall(otherBallPosition, bola10,STRIPED);
+  otherBallPosition.x = 812;
+  otherBallPosition.y = 427;
+  table->balls[11] = newBall(otherBallPosition, bola11,STRIPED);
+  otherBallPosition.x = 782;
+  otherBallPosition.y = 412;
+  table->balls[12] = newBall(otherBallPosition, bola12,STRIPED);
+  otherBallPosition.x = 842;
+  otherBallPosition.y = 382;
+  table->balls[13] = newBall(otherBallPosition, bola13,STRIPED);  
+  otherBallPosition.x = 842;
+  otherBallPosition.y = 442;
+  table->balls[14] = newBall(otherBallPosition, bola14,STRIPED);
+  otherBallPosition.x = 812;
+  otherBallPosition.y = 487;
+  table->balls[15] = newBall(otherBallPosition, bola15,STRIPED);
+
   xpm_image_t img;
-  xpm_load(finalTableXpm, XPM_8_8_8, &img);
+  xpm_image_t matchUI;
+
+  xpm_load(matchUIXpm, XPM_8_8_8, &matchUI);
+  xpm_load(tableBackgroundXpm, XPM_8_8_8, &img);
+
   table->img = img;
+  table->ui = matchUI;
 
   // Set pockets
   vector_t p1, p2;
-  p1.x = 514;
+  p1.x = 40;
+  p1.y = 200;
+  table->pockets[0] = newPocket(p1, 29);
+  p1.x = 512;
   p1.y = 192;
-  table->pockets[0] = newPocket(p1, 24);
-  p1.x = 514;
-  p1.y = 698;
-  table->pockets[1] = newPocket(p1, 24);
-  p1.x = 987;
-  p1.y = 201;
-  table->pockets[2] = newPocket(p1, 30);
-  p1.x = 987;
-  p1.y = 687;
-  table->pockets[3] = newPocket(p1, 30);
-  p1.x = 41;
-  p1.y = 201;
-  table->pockets[4] = newPocket(p1, 30);
-  p1.x = 41;
-  p1.y = 687;
-  table->pockets[5] = newPocket(p1, 30);
+  table->pockets[1] = newPocket(p1, 29);
+  p1.x = 986;
+  p1.y = 200;
+  table->pockets[2] = newPocket(p1, 29);
+  p1.x = 986;
+  p1.y = 686;
+  table->pockets[3] = newPocket(p1, 29);
+  p1.x = 512;
+  p1.y = 697;
+  table->pockets[4] = newPocket(p1, 29);
+  p1.x = 40;
+  p1.y = 686;
+  table->pockets[5] = newPocket(p1, 29);
 
   // Set linear cushions
-  double radius = 20;
+  double radius = 27;
   p1.x = 55;
-  p1.y = 249;
+  p1.y = 257;
   p2.x = 55;
-  p2.y = 638;
+  p2.y = 630;
   table->linearCushions[0] = newLinearCushion(p1, p2);
+  p1.x = 27;
+  p2.x = 27;
   table->circularCushions[0] = newCircularCushion(p1, radius);
   table->circularCushions[1] = newCircularCushion(p2, radius);
 
-  p1.x = 89;
+  p1.x = 95;
   p1.y = 672;
-  p2.x = 487;
+  p2.x = 463;
   p2.y = 672;
   table->linearCushions[1] = newLinearCushion(p1, p2);
+  p1.y = 700;
+  p2.y = 700;
   table->circularCushions[2] = newCircularCushion(p1, radius);
   table->circularCushions[3] = newCircularCushion(p2, radius);
 
-  p1.x = 542;
+
+  p1.x = 564;
   p1.y = 672;
-  p2.x = 936;
+  p2.x = 928;
   p2.y = 672;
   table->linearCushions[2] = newLinearCushion(p1, p2);
+  p1.y = 700;
+  p2.y = 700;
   table->circularCushions[4] = newCircularCushion(p1, radius);
   table->circularCushions[5] = newCircularCushion(p2, radius);
 
-  p1.x = 971;
-  p1.y = 638;
-  p2.x = 971;
-  p2.y = 249;
+
+  p1.x = 972;
+  p1.y = 257;
+  p2.x = 972;
+  p2.y = 630;
   table->linearCushions[3] = newLinearCushion(p1, p2);
+  p1.x = 999;
+  p1.y = 630;
+  p2.x = 999;
+  p2.y = 257;
   table->circularCushions[6] = newCircularCushion(p1, radius);
   table->circularCushions[7] = newCircularCushion(p2, radius);
 
-  p1.x = 936;
+
+  p1.x = 564;
   p1.y = 216;
-  p2.x = 542;
+  p2.x = 928;
   p2.y = 216;
   table->linearCushions[4] = newLinearCushion(p1, p2);
+  p1.x = 928;
+  p1.y = 188;
+  p2.x = 564;
+  p2.y = 188;
   table->circularCushions[8] = newCircularCushion(p1, radius);
   table->circularCushions[9] = newCircularCushion(p2, radius);
 
-  p1.x = 486;
+  p1.x = 95;
   p1.y = 216;
-  p2.x = 89;
+  p2.x = 463;
   p2.y = 216;
   table->linearCushions[5] = newLinearCushion(p1, p2);
+  p1.x = 463;
+  p1.y = 188;
+  p2.x = 95;
+  p2.y = 188;
   table->circularCushions[10] = newCircularCushion(p1, radius);
   table->circularCushions[11] = newCircularCushion(p2, radius);
  
-
-
 
   // Set mouse
   table->mouse = newMouse();
@@ -120,6 +240,8 @@ Table *newTable() {
   table->cue = newCue();
   updateCueState(table, false);
   table->maxSpeedShot = 900;
+
+  
 
   // Set state
   table->state = AIMING;
@@ -158,33 +280,54 @@ void destroyTable(Table *table) {
 //Test
 #include "../viewer/lineViewer.h"
 
-int drawTable(Table *table) {
+int drawTime(char* minText, char* secText,xpm_image_t* font ){
+    if(drawText(minText,font,478,76,16)) return 1;
+    if(vg_draw_rectangle(513,70,5,5,0x000000)) return 1;
+    if(vg_draw_rectangle(513,80,5,5,0x000000)) return 1;
+    if(drawText(secText,font,535,76,16)) return 1;
+    return 0;
+}
 
+int drawCountDown(xpm_image_t* font,int roundTime, int x, int y){
+    char secBuffer[3];
+    snprintf(secBuffer, sizeof(secBuffer), "%02d", roundTime);
+    if(drawText(secBuffer,font,x,y,16)) return 1;
+    return 0;
+}
 
-  drawXPMImage(table->img, 512, 443, 0);
+int drawGameTime(int gameTime, xpm_image_t* font){
+  int minutes = gameTime / 60;
+  int seconds = gameTime % 60;
+  char minBuffer[3]; // "MM" + null terminator
+  char secBuffer[3]; // "SS" + null terminator
+  // Format minutes and seconds as strings
+    snprintf(minBuffer, sizeof(minBuffer), "%02d", minutes);
+    snprintf(secBuffer, sizeof(secBuffer), "%02d", seconds);
+  if((drawTime(minBuffer,secBuffer,font))) return 1;
+  return 0;
+}
 
+int drawTable(Table *table, int gameTime, int roundTime) {
+
+  drawXPMImage(table->img, 512, 442, 0);
+  drawXPMImage(table->ui, 512, 62, 0);
+  drawInGamePlayerName(table->player1, table->font, 145, 47, 16);
+  drawInGamePlayerName(table->player2, table->font, 748, 49, 16);
+  
+  if(drawGameTime(gameTime,table->font)) return 1; // game Time
+  if(table->player1->isPlaying){
+    drawCountDown(table->font,roundTime,372,60);
+  }else{
+    drawCountDown(table->font,roundTime,632,60);
+  }
 
   for (size_t i = 0; i < table->ballNumber; i++) {
     Ball *ball = table->balls[i];
-    if (drawXPMImage(getBallImage(ball), getBallPosition(ball).x, getBallPosition(ball).y, 0))
+    if(ball->state != POCKETED || ball->type == WHITE){
+      if (drawXPMImage(getBallImage(ball), getBallPosition(ball).x, getBallPosition(ball).y, 0))
       return 1;
+    }
   }
-
-  // DEBUG 
-  xpm_image_t ballImg = getBallImage(table->balls[0]);
-
-  for (size_t i = 0; i < 12; i++) {
-    CircularCushion* cushion = table->circularCushions[i];
-    drawXPMImage(ballImg, cushion->position.x, cushion->position.y, 0);
-  }
-
-  for (size_t i = 0; i < 6; i++) {
-    LinearCushion* cushion = table->linearCushions[i];
-    drawThickLine(cushion->p1, cushion->p2, 3, 0xffffff);
-  }
-
-
-
 
   switch (table->state) {
     case AIMING:
@@ -209,11 +352,11 @@ bool getColisionPoint(Table *table, vector_t *colisionPoint) {
 
   for (size_t i = 1; i < table->ballNumber; i++) {
     Ball *ball = table->balls[i];
-
+    if(ball->state == POCKETED) continue;
     vector_t s = {cueBall->position.x - ball->position.x, cueBall->position.y - ball->position.y};
     double b = s.x * cue->directionVector.x + s.y * cue->directionVector.y;
     // TODO Fix ball radius hard code
-    double c = s.x * s.x + s.y * s.y - 40 * 40;
+    double c = s.x * s.x + s.y * s.y - 30 * 30;
     double h = b * b - c;
     if (h < 0) {
       continue;

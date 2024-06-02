@@ -5,7 +5,7 @@
 #include "../viewer/cueViewer.h"
 #include "../viewer/lineViewer.h"
 #include "../xpms/ball.xpm"
-
+#include "../model/player.h"
 #include "../labs/scancodes.h"
 #include "labs/rtc.h"
 #include "../physics/simulate.h"
@@ -17,12 +17,47 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
 
         if (table->state == SIMULATING){
           if (!updatePhysics(table, 1.0/30.0)){
-            printf("PHYSICS TERMINATED\n");
+            if(table->firstCollision == false){
+               table->player1->isPlaying = !table->player1->isPlaying;
+                table->player2->isPlaying = !table->player2->isPlaying;
+                printf("Player 1 is playing: %d\n", table->player1->isPlaying);
+              set_round_time(40);
+            }
+            if(table->balls[0]->state == POCKETED){
+              table->player1->isPlaying = !table->player1->isPlaying;
+              table->player2->isPlaying = !table->player2->isPlaying;
+              vector_t pos = {269, 442};
+              table->balls[0]->position = pos;
+              table->balls[0]->state = STATIONARY;
+              set_round_time(40);
+              if(table->balls[1]->state == POCKETED){
+                return MENU;
+              }
+            }
+            if(table->balls[1]->state == POCKETED){
+              if(table->player1->isPlaying){
+                if(table->player1->ballType == PLAYERBALLNONE){
+                  return MENU; // Player lost
+                }
+              }else{
+                if(table->player2->ballType == PLAYERBALLNONE){
+                  return MENU; // Player lost
+                }
+              }
+              for(int i = 0; i < 16; i++){
+                if(table->balls[i]->type == table->player1->isPlaying ? table->player1->ballType : table->player2->ballType){
+                  if(table->balls[i]->state != POCKETED){
+                    return MENU; // Player lost
+                  }
+                }
+              }
+              return MENU; // Player won
+            }
             table->state = AIMING;
           }
         }       
 
-        if (drawTable(table)){
+        if (drawTable(table,get_game_time(),get_round_time())){
           return OVER;
         }
         if (swap_buffers()) return 1;
@@ -74,9 +109,12 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
       break;
 
     case RTC:
-      printf("ROUND TIME: %d\n", get_round_time());
-      printf("GAME TIME: %d\n", get_game_time());
-      printf("TIME: %s\n", get_current_time());
+      if(get_round_time() == 0){
+        set_round_time(40);
+        table->player1->isPlaying = !table->player1->isPlaying;
+        table->player2->isPlaying = !table->player2->isPlaying;
+      }
+
       break;
 
     case SP:

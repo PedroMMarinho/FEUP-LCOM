@@ -149,7 +149,7 @@ double cubic(double b, double c, double d) {
 
 int quartic(double a, double b, double c, double d, double e, double *ans) {
 
-  printf("start");
+
 
   b = b / a;
   c = c / a;
@@ -197,7 +197,7 @@ int quartic(double a, double b, double c, double d, double e, double *ans) {
     ans[nroots++] = 0.5 * (sqrt_2m + delta) - 0.25 * b;
     ans[nroots++] = 0.5 * (sqrt_2m - delta) - 0.25 * b;
   }
-  printf("nroots: %d\n", nroots);
+
   return nroots;
 }
 
@@ -245,12 +245,7 @@ double getSlideTime(Ball *ball, double u, double g) {
 
 double getBallLinearCushionCollisionTime(Table *table, Ball *ball, LinearCushion* cushion) {
 
-  printf("Colision time check start\n");
-
-  printf("Cushion position: \n");
-  printVector(cushion->p1);
-  printVector(cushion->p2);
-
+ 
   if (ballNotMoving(ball))
     return INFINITY;
 
@@ -285,8 +280,7 @@ double getBallLinearCushionCollisionTime(Table *table, Ball *ball, LinearCushion
 
   double minTime = INFINITY;
   for (int i = 0; i < nSolutions; i++) {
-    printf("A solution: ");
-    printFloat(solutions[i]);
+
     double root = solutions[i];
     if (root < EPS)
       continue;
@@ -299,8 +293,7 @@ double getBallLinearCushionCollisionTime(Table *table, Ball *ball, LinearCushion
     ballCpy.state = ball->state;
     ballCpy.transition = NULL;
     
-    printf("FILHO DA PUTAAAA: ");
-    printf("Estado da bola%d",ballCpy.state);
+   
     evolveBallMotion(table, &ballCpy, root);
     
     // Check if colision happens in the actuall cushion not in the line that defines it
@@ -490,6 +483,6 @@ int findSmallerCoeficient(size_t n, QuarticCoeff *coeficients, double *result) {
   }
 
   *result = smallerResult;
-  printf("Best coeficient=%d\n", index);
+
   return index;
 }

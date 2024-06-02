@@ -4,7 +4,6 @@
 
 Event getNextBallBallCollision(Table *table) {
 
-  printf("BALL - BALL\n");
   
   Event event = newInvalidEvent();
 
@@ -31,9 +30,8 @@ Event getNextBallBallCollision(Table *table) {
 
       vector_t positionDiff = {ball1->position.x - ball2->position.x, ball1->position.y - ball2->position.y};
       if (magnitudeOf(positionDiff) < (ball1->radius + ball2->radius)) {
-        printf("Ball inside each other\n");
-        printf("The distance between is: ");
-        printFloat(magnitudeOf(positionDiff));
+      
+       
         continue;
       }
 
@@ -42,15 +40,14 @@ Event getNextBallBallCollision(Table *table) {
 
       coeficients[collisionNumber] = getBallBallCollisionCoeff(ball1, ball2, table->rollingFriction, table->slidingFriction, table->gravityAcceleration);
 
-      printf("The coef: \n");
-      printCoef(coeficients[collisionNumber]);
+ 
+   
       // printCoef(coeficients[collisionNumber]);
 
       collisionNumber++;
     }
   }
   if (collisionNumber == 0) {
-    printf("No collisions possible\n");
     return event;
   }
   double collisionTime;
@@ -69,14 +66,11 @@ Event getNextBallBallCollision(Table *table) {
   free(balls1);
   free(balls2);
 
-  printf("Final ball ball\n");
-  printEvent(&event);
-  printf("\n\n");
+
   return event;
 }
 
 Event getNextBallLinearCushionCollision(Table *table) {
-  printf("CUSHION BALL\n");
   
   Event event = newInvalidEvent();
 
@@ -87,24 +81,16 @@ Event getNextBallLinearCushionCollision(Table *table) {
     if (ballNotMoving(ball))
       continue;
 
-    printf("Ball position: ");
-    printVector(ball->position);
-    printf("Ball velocity: ");
-    printVector(ball->velocity);
-    printf("Ball angVelocity: ");
-    printFloat(ball->ang_velocity.x);
-    printFloat(ball->ang_velocity.y);
-    printFloat(ball->ang_velocity.z);
+   
     // TODO: is the hard code ok in this case?
     for (size_t j = 0; j < 6; j++) {
 
       LinearCushion* cushion = table->linearCushions[j];
 
       double collisionTime = getBallLinearCushionCollisionTime(table, ball, cushion);
-      printf("%d Cushion ->> ", j);
-      printFloat(collisionTime);
+      
       if (collisionTime < event.time) {
-        printf("inside here\n");
+  
         event.time = collisionTime;
         event.type = BALL_LINEAR_CUSHION;
         event.ball1 = ball;
@@ -112,7 +98,7 @@ Event getNextBallLinearCushionCollision(Table *table) {
       }
     }
   }
-  printf("FInal colision\n");
+  
   printEvent(&event);
   return event;
 }
@@ -120,7 +106,7 @@ Event getNextBallLinearCushionCollision(Table *table) {
 
 Event getNextBallCircularCushionCollision(Table* table){
 
-  printf("CIRCULAR CUSHION\n");
+  
   Event event = newInvalidEvent();
   size_t collisionNumber = 0;
 
@@ -170,7 +156,7 @@ Event getNextBallCircularCushionCollision(Table* table){
 
 Event getNextBallPocketCollision(Table *table) {
 
-  printf("POCKETTT\n");
+
 
   Event event = newInvalidEvent();
   int size = table->ballNumber * 6;
@@ -221,7 +207,6 @@ Event getNextBallPocketCollision(Table *table) {
 
 Event getNextTransition(Table *table) {
 
-  printf("BALL TRANSITION\n");
   Event nextTransition = newInvalidEvent();
 
   for (size_t i = 0; i < table->ballNumber; i++) {
@@ -238,7 +223,6 @@ Event getNextTransition(Table *table) {
 }
 
 Event getNextEvent(Table *table) {
-  printf("------------------------- Begining\n");
 
   Event event = newInvalidEvent();
   Event testEvent;
@@ -258,8 +242,7 @@ Event getNextEvent(Table *table) {
   testEvent = getNextBallPocketCollision(table);
   event = testEvent.time < event.time ? testEvent : event;
 
-  printf("Selected event:\n");
-  printEvent(&event);
+
   return event;
 }
 
@@ -293,7 +276,6 @@ void updateBallNextTransition(Table *table, Ball *ball) {
 
     case SLIDING: {
 
-      printf("Updating transition sliding\n");
       double slideTime = getSlideTime(ball, table->slidingFriction, table->gravityAcceleration);
       Event transition = {slideTime, SLIDING_ROLLING, ball, NULL, NULL,NULL, -1};
       *ball->transition = transition;

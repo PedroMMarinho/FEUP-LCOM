@@ -59,13 +59,21 @@ void resolveEvent(Table *table, Event event) {
 void resolveBallBall(Ball *ball1, Ball *ball2) {
   makeBallsKiss(ball1, ball2);
 
+  printf("Ball velocity:\n");
+  printVector(ball1->velocity);
+  printVector(ball2->velocity);
 
   vector_t posVec = {ball2->position.x - ball1->position.x, ball2->position.y - ball1->position.y};
   vector_t n = normalizeVector(posVec);
-  vector_t t = rotate2d(n, M_PI / 2);
+  
 
+  vector_t t = rotate2d(n, M_PI / 2);
+  printf("t:\n");
+  printVector(t);
   vector_t velVec = {ball1->velocity.x - ball2->velocity.x, ball1->velocity.y - ball2->velocity.y};
   double velMagni = magnitudeOf(velVec);
+  printf("velMagni:\n");
+  printFloat(velMagni);
 
   double ang = angleBetween(velVec, posVec);
   double seno = sin(ang);
@@ -78,6 +86,13 @@ void resolveBallBall(Ball *ball1, Ball *ball2) {
   ball2->velocity.x = n.x * velMagni * cosseno + ball2->velocity.x;
   ball2->velocity.y = n.y * velMagni * cosseno + ball2->velocity.y;
 
+  printf("Ball 1 speed:\n");
+  printVector(ball1->velocity);
+
+  printf("ball 2 speed:\n");
+  printVector(ball2->velocity);
+
+  
   ball1->state = SLIDING;
   ball2->state = SLIDING;
 }
@@ -99,6 +114,8 @@ void makeBallsKiss(Ball *ball1, Ball *ball2) {
     ball2->position.x += correction * n.x;
     ball2->position.y += correction * n.y;
   }
+  
+
 }
 
 void resolveBallCushionRealistic(Ball *ball, vector_t cushionNormal, double restitution, double friction) {
@@ -286,4 +303,6 @@ void resolveStickBall(Cue *cue, Ball *ball, double maxSpeed) {
   ball->ang_velocity.z = angVelocityB.z;
 
   ball->state = SLIDING;
+  printf("Ball state:\n");
+  printVector(ball->velocity);  
 }

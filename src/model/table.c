@@ -66,15 +66,19 @@ Table *newTable() {
   p1.y = 249;
   p2.x = 55;
   p2.y = 638;
-  table->linearCushions[0] = newLinearCushion(p1, p2);
+  vector_t normal = {1, 0};
+  table->linearCushions[0] = newLinearCushion(p1, p2,normal);
   table->circularCushions[0] = newCircularCushion(p1, radius);
   table->circularCushions[1] = newCircularCushion(p2, radius);
 
-  p1.x = 89;
+  p1.x = 487;
   p1.y = 672;
-  p2.x = 487;
+  p2.x = 89;
   p2.y = 672;
-  table->linearCushions[1] = newLinearCushion(p1, p2);
+  
+  normal.x = 0;
+  normal.y = -1;
+  table->linearCushions[1] = newLinearCushion(p1, p2,normal);
   table->circularCushions[2] = newCircularCushion(p1, radius);
   table->circularCushions[3] = newCircularCushion(p2, radius);
 
@@ -82,7 +86,9 @@ Table *newTable() {
   p1.y = 672;
   p2.x = 936;
   p2.y = 672;
-  table->linearCushions[2] = newLinearCushion(p1, p2);
+  normal.x = 0;
+  normal.y = -1;
+  table->linearCushions[2] = newLinearCushion(p1, p2,normal);
   table->circularCushions[4] = newCircularCushion(p1, radius);
   table->circularCushions[5] = newCircularCushion(p2, radius);
 
@@ -90,7 +96,10 @@ Table *newTable() {
   p1.y = 638;
   p2.x = 971;
   p2.y = 249;
-  table->linearCushions[3] = newLinearCushion(p1, p2);
+  
+  normal.x = -1;
+  normal.y = 0;
+  table->linearCushions[3] = newLinearCushion(p1, p2,normal);
   table->circularCushions[6] = newCircularCushion(p1, radius);
   table->circularCushions[7] = newCircularCushion(p2, radius);
 
@@ -98,7 +107,9 @@ Table *newTable() {
   p1.y = 216;
   p2.x = 542;
   p2.y = 216;
-  table->linearCushions[4] = newLinearCushion(p1, p2);
+  normal.x = 0;
+  normal.y = 1;
+  table->linearCushions[4] = newLinearCushion(p1, p2,normal);
   table->circularCushions[8] = newCircularCushion(p1, radius);
   table->circularCushions[9] = newCircularCushion(p2, radius);
 
@@ -106,7 +117,9 @@ Table *newTable() {
   p1.y = 216;
   p2.x = 89;
   p2.y = 216;
-  table->linearCushions[5] = newLinearCushion(p1, p2);
+  normal.x = 0;
+  normal.y = 1;
+  table->linearCushions[5] = newLinearCushion(p1, p2,normal);
   p1.x = 463;
   p1.y = 188;
   p2.x= 564;
@@ -127,9 +140,9 @@ Table *newTable() {
 
   // Set physics attributes
   table->gravityAcceleration = 9.81;
-  table->slidingFriction = 12;
+  table->slidingFriction = 15;
   table->spinningFriction = 0.01;
-  table->rollingFriction = 12;
+  table->rollingFriction = 3;
   table->cushionRestitution = 0.5;
   table->cushionFriction = 0.5;
 

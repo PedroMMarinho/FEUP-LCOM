@@ -17,24 +17,12 @@
 
 #include "resources.h"
 
-// testing includes
-#include "physics/equations.h"
-#include "physics/utilities.h"
 
 int initGame() {
   Resources *resources = loadResources();
   printf("created resources\n");
 
-  double X, X1, Y1, X2, Y2;
-  QBC(1.000000,8.565835,-2.993093,-0.000000, &X, &X1, &Y1, &X2, &Y2);
-
-
-  printFloat(X);
-  printFloat(X1);
-  printFloat(Y1);
-  printFloat(X2);
-  printFloat(Y2);
-
+  
   
   return gameLoop(resources);
 }

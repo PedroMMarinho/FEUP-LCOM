@@ -19,7 +19,7 @@ typedef struct Ball {
   vector_t velocity;
   vector3_t ang_velocity;
   xpm_image_t img;
-  size_t radius;
+  int radius;
 
   Event* transition;
 } Ball;

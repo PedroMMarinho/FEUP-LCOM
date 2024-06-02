@@ -11,6 +11,11 @@ Ball *newBall(vector_t position){
   ball->position = position;
   ball->radius = 20;
   ball->state = STATIONARY;
+  ball->velocity.x = 0;
+  ball->velocity.y = 0;
+  ball->ang_velocity.x = 0;
+  ball->ang_velocity.y = 0;
+  ball->ang_velocity.z = 0;
   // Set image
 
   xpm_image_t img;

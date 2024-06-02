@@ -21,9 +21,12 @@ double DISC(double A, double B, double C) {
         C = temp;
       }
       // now 0 < c <= a
-      int n = (int) round((double) B / (double) C); // |n - b/c| < 1/2
+      double n = round(B/C); // |n - b/c| < 1/2
+      printf("N: %d\n", n);
       if (n != 0) {
         double alpha = A - n * B; // exact if alpha >= -a
+        printf("Alpha: ");
+        printFloat(alpha);
         if (alpha >= -A) {
           B -= n * C; // |b| <= c/2
           A = alpha - n * B;
@@ -61,7 +64,7 @@ void QDRTC(double A, double B, double C, double *X1, double *Y1, double *X2, dou
     *Y1 = 0;
     *Y2 = 0;
     double r = b + copysign(sqrt(q), b); // copysign(b) * sqrt(q)
-    if (r == 0) {
+    if (r == 0 || r == -0.0) {
       *X1 = C / A;
       *X2 = -*X1;
     }
@@ -89,19 +92,28 @@ void QBC(double A, double B, double C, double D, double *X, double *X1, double *
   double b1, c2, q, qprime;
   double t, r, s, x0;
 
-  if (A == 0) {
+  if (A == 0 || A == -0.0) {
     *X = INFINITY;
     A = B;
     b1 = C;
     c2 = D;
+    printf("enteredA\n");
+
     goto fin;
   }
-  if (D == 0) {
+  if (D == 0 || D == -0.0) {
     *X = 0;
     b1 = B;
     c2 = C;
+    printf("enteredD\n");
+
     goto fin;
   }
+  printf("pre eval\n");
+  printFloat(A);
+  printFloat(B);
+  printFloat(C);
+  printFloat(D);
 
   *X = -(B / A) / 3.0;
   EVAL(*X, A, B, C, D, &q, &qprime, &b1, &c2);

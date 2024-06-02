@@ -10,13 +10,15 @@
 STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct packet *packet, uint8_t scanCode, unsigned elapsed) {
   switch (interruptType) {
     case TIMER:
-      if (elapsed % (sys_hz() / 30) == 0) {
-
-        if (table->state == SIMULATING){
-          if (!updatePhysics(table, 1.0/30.0)){
+      if (table->state == SIMULATING){
+          if (!updatePhysics(table, 1.0/60.0)){
             printf("PHYSICS TERMINATED\n");
             table->state = AIMING;
           }
+      }       
+
+      if (elapsed % (sys_hz() / 30) == 0) {
+        if (table->state == SIMULATING){
         }       
 
         if (drawTable(table)){

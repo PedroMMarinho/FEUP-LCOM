@@ -5,73 +5,41 @@
 #include "utilities.h"
 
 void processShot(Table *table) {
-  printf("Shot processed\n");
-  Event shotEvent = {0, STICK_BALL, table->balls[0], NULL, NULL,NULL,-1};
-  table->nextEvent = shotEvent;
+  resolveStickBall(table->cue, table->balls[0], table->maxSpeedShot);
 }
 
 bool updatePhysics(Table *table, double dt) {
 
-  Event nextEvent = table->nextEvent;
-  double elapsed = 0;
-  while (nextEvent.type != INVALID) {
+  int nonMoving = 0;
+  // TODO2 ONLY CONSIDER BALLS ACTIVE
+  for (size_t i = 0 ; i<table->ballNumber; i++){
+    Ball* ball = table->balls[i];
 
-    if (elapsed + nextEvent.time < dt) {
-      // Event still happens before dt passed
-      evolveBalls(table, nextEvent.time);
-      resolveEvent(table, nextEvent);
-      elapsed += nextEvent.time;
+    if (ballNotMoving(ball)) nonMoving++;
+
+    evolveBallMotion(table, ball, dt);
+    // ONLY CONSIDER BALLS ACTIVE
+    for (size_t j = i + 1 ; j < table->ballNumber; j++){
+      Ball* ball2 = table->balls[j];
+      solveBallCollision(ball, ball2);
     }
-    else {
-      evolveBalls(table, dt - elapsed);
-      nextEvent.time -= dt - elapsed;
-      table->nextEvent = nextEvent;
-      return true;
+    for (size_t j = 0; j<6; j++){
+      Pocket* pocket = table->pockets[j];
+      solvePocket(table, ball, pocket);
     }
-    nextEvent = getNextEvent(table);
-    table->nextEvent = nextEvent;
-
-  }
-  return false;
-
-
-  if (nextEvent.time != 0) {
-    evolveBalls(table, nextEvent.time);
-  }
-  resolveEvent(table, nextEvent);
-
-  printf("Ball velocity!");
-  printFloat(table->balls[0]->velocity.x);
-  printFloat(table->balls[0]->velocity.y);
-
-  // double elapsed = nextEvent.time;
-  while (true) {
-
-    printf("Before getNextEvent\n");
-    Event event = getNextEvent(table);
-
-    printf("NEXT EVENT FOUND\n");
-    printEvent(&event);
-
-    if (event.type == INVALID) {
-      return false;
+    for (size_t j = 0; j<6; j++){
+      LinearCushion* cushion = table->linearCushions[j];
+      if(solveLinearCushion(table, ball, cushion)) break;
     }
-
-    if (elapsed + event.time < dt) {
-      printf("NEED TO FIND ANOTHER\n");
-      // Event still happens before dt passed
-      evolveBalls(table, event.time);
-      resolveEvent(table, event);
-      elapsed += event.time;
-    }
-    else {
-      printf("Time to cook\n");
-      evolveBalls(table, dt - elapsed);
-      event.time -= dt - elapsed;
-      table->nextEvent = event;
-      break;
+    for (size_t j = 0; j<12; j++){
+      CircularCushion* cushion = table->circularCushions[j];
+      solveCircularCushion(table, ball, cushion);
     }
   }
+  printf("ball state %d\n", table->balls[0]->state);
+  printf("speed:\n");
+  printVector(table->balls[0]->velocity);
+  if (nonMoving == table->ballNumber) return false;
   return true;
 }
 

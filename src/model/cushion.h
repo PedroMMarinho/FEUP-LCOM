@@ -26,7 +26,7 @@ typedef struct CircularCushion{
 } CircularCushion;
 
 
-LinearCushion* newLinearCushion(vector_t p1, vector_t p2);
+LinearCushion* newLinearCushion(vector_t p1, vector_t p2,vector_t normal);
 
 void fixNormalDirection(LinearCushion* cushion,struct Ball* ball);
 

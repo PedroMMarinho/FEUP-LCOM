@@ -1,10 +1,88 @@
 #include "evolve.h"
 #include "physicsMacros.h"
 #include "utilities.h"
+#include "resolve/resolver.h"
 #include <math.h>
 
+
+void solveBallCollision(Ball* ball1, Ball* ball2){
+
+  if (ballNotMoving(ball1) && ballNotMoving(ball2)) return;
+
+  vector_t connection = {ball1->position.x - ball2->position.x, ball1->position.y - ball2->position.y};
+  double distance = magnitudeOf(connection);
+  connection = normalizeVector(connection);
+
+  if (distance <= ball1->radius + ball2->radius){
+    printf("COLLISION\n");
+    resolveBallBall(ball1, ball2);
+  }
+}
+
+void solvePocket(Table* table, Ball* ball, Pocket* pocket){
+
+  if (ballNotMoving(ball)) return;
+    
+  vector_t connection = {ball->position.x - pocket->position.x, ball->position.y - pocket->position.y};
+  double distance = magnitudeOf(connection);
+  if (distance <= pocket->radius){ // TODO2 UPDATE VALUES IN THE TABLE
+    printf("POCKET\n");
+    ball->state = POCKETED;
+  }
+}
+
+
+bool solveLinearCushion(Table* table, Ball* ball, LinearCushion* cushion){
+
+  if (ballNotMoving(ball)) return false;
+
+
+  vector_t closerPoint = linePointClosestTo(cushion->p1, cushion->p2, ball->position);
+  
+
+  if (closerPoint.x > cushion->p1.x && closerPoint.x > cushion->p2.x) return false;
+  if (closerPoint.x < cushion->p1.x && closerPoint.x < cushion->p2.x) return false;
+  if (closerPoint.y > cushion->p1.y && closerPoint.y > cushion->p2.y) return false;
+  if (closerPoint.y < cushion->p1.y && closerPoint.y < cushion->p2.y) return false;
+
+
+  vector_t normal = cushion->normal;
+
+  vector_t connection = {closerPoint.x-(ball->position.x-ball->radius*normal.x), closerPoint.y-(ball->position.y - ball->radius * normal.y)};
+  if (dotProduct(normal, connection) > 0){
+    ball->position.x = closerPoint.x + (ball->radius + EPS_SPACE) * normal.x;
+    ball->position.y = closerPoint.y + (ball->radius + EPS_SPACE) * normal.y;
+
+    resolveBallCushion(ball, normal, table->cushionRestitution);
+    return true;
+  }
+  return false;
+}
+
+void solveCircularCushion(Table* table, Ball* ball, CircularCushion* cushion){
+
+
+  vector_t connection = {ball->position.x - cushion->position.x, ball->position.y - cushion->position.y};
+  double distance = magnitudeOf(connection);
+  connection = normalizeVector(connection);
+
+
+  // TODO - Fix the use of EPS to make it regular
+  double error = ball->radius + cushion->radius + EPS_SPACE - distance;
+  if (error > 0) {
+    printf("Colling\n");
+    ball->position.x += error * connection.x;
+    ball->position.y += error * connection.y;
+
+    resolveBallCushionRealistic(ball, CircularCushionNormal(cushion, ball), table->cushionRestitution, table->cushionFriction);
+    
+    
+  }
+}
+
+
 void evolveBallMotion(Table *table, Ball *ball, double time) {
-  if (ball->transition != NULL){
+  if (ball->transition != NULL) {
     ball->transition->time -= time;
   }
 
@@ -14,45 +92,39 @@ void evolveBallMotion(Table *table, Ball *ball, double time) {
       return;
       break;
     case SLIDING: {
-
-      double slideTime = getSlideTime(ball, table->slidingFriction, table->gravityAcceleration);
-
-      evolveSlideState(ball, MIN(slideTime, time), table->spinningFriction, table->slidingFriction, table->gravityAcceleration);
-      if (time >= slideTime) {
+      evolveSlideState(ball, time, table->spinningFriction, table->slidingFriction, table->gravityAcceleration);
+      // See if ball no longer rolling
+      vector_t relVelocity = relativeVelocity(ball);
+      if (magnitudeOf(relVelocity) < MINIMAL_SPEED) {
         ball->state = ROLLING;
-        time -= slideTime;
       }
-      else
-        return;
       break;
     }
 
     case ROLLING: {
 
-      double rollTime = getRollTime(ball, table->rollingFriction, table->gravityAcceleration);
+      evolveRollState(ball, time, table->rollingFriction, table->spinningFriction, table->gravityAcceleration);
 
-      evolveRollState(ball, MIN(time, rollTime), table->rollingFriction, table->spinningFriction, table->gravityAcceleration);
-
-      if (time >= rollTime) {
+      if (abs(ball->velocity.x) < MINIMAL_SPEED && abs(ball->velocity.y) < MINIMAL_SPEED) {
+        ball->velocity.x = 0;
+        ball->velocity.y = 0;
         ball->state = SPINNING;
-        time -= rollTime;
       }
-      else
-        return;
+
+      if (abs(ball->ang_velocity.z) < MINIMAL_SPEED) {
+        ball->state = STATIONARY;
+      }
+
+      break;
     }
 
     case SPINNING: {
 
-      double spinTime = getSpinTime(ball, table->spinningFriction, table->gravityAcceleration);
+      evolvePrependicularSpin(ball, time, table->spinningFriction, table->gravityAcceleration);
 
-      evolvePrependicularSpin(ball, MIN(spinTime, time), table->spinningFriction, table->gravityAcceleration);
-
-      if (time >= spinTime) {
+      if (abs(ball->ang_velocity.z) < MINIMAL_SPEED) {
         ball->state = STATIONARY;
-        time -= spinTime;
       }
-      else
-        return;
 
       break;
     }
@@ -80,11 +152,11 @@ void evolveRollState(Ball *ball, double t, double uRolling, double uSpinning, do
   vector_t xyAngVelocity = rotate2d(temp, M_PI / 2);
   ball->ang_velocity.x = xyAngVelocity.x;
   ball->ang_velocity.y = xyAngVelocity.y;
-  evolvePrependicularSpin(ball, t, uSpinning, g);
+  evolvePrependicularSpin(ball, t, uSpinning, g); 
 }
 
 void evolveSlideState(Ball *ball, double t, double uSpinning, double uSliding, double g) {
-
+  vector_t vinit = ball->velocity;
   if (!t)
     return;
 
@@ -124,6 +196,12 @@ void evolveSlideState(Ball *ball, double t, double uSpinning, double uSliding, d
   vector_t xyAngVelocityT = rotate2d(xyAngVelocityB, ang);
   ball->ang_velocity.x = xyAngVelocityT.x;
   ball->ang_velocity.y = xyAngVelocityT.y;
+  vector_t vfin = ball->velocity ;
+  vfin.x -= vinit.x;
+  vfin.y -= vinit.y;
+  printf("Velocity diff:\n");
+  printVector(vfin);
+  
 }
 
 void evolvePrependicularSpin(Ball *ball, double t, double uSpinning, double g) {

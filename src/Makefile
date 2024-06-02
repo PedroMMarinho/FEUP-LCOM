@@ -15,7 +15,7 @@ PROG=proj
 
 # source code files to be compiled
 
-SRCS = main.c graphics.c timer.c utils.c keyboard.c mouse.c kbc.c cueViewer.c lineViewer.c ball.c Game.c resources.c table.c mouseModel.c playingController.c utilities.c cue.c evolve.c events.c resolver.c simulate.c cushion.c pocket.c event.c menu.c menuController.c button.c menuViewer.c multiplayerController.c rtc.c serialPort.c queue.c player.c
+SRCS = main.c graphics.c timer.c utils.c keyboard.c mouse.c kbc.c cueViewer.c lineViewer.c ball.c Game.c resources.c table.c mouseModel.c playingController.c utilities.c cue.c evolve.c events.c resolver.c simulate.c cushion.c pocket.c event.c menu.c menuController.c button.c menuViewer.c multiplayerController.c rtc.c serialPort.c queue.c player.c quartic.c
 
 
 # additional compilation flags

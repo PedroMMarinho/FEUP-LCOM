@@ -42,8 +42,6 @@ vector_t rotate2d(vector_t vec, double ang);
 
 int quartic(double a, double b,double c,double d,double e,double* ans);
 
-double smallerPositiveQuarticRoot(double a, double b, double c, double d, double e);
-
 double cubic(double b,double c,double d);
 
 int findSmallerCoeficient(size_t n, QuarticCoeff* coeficients, double* result);

@@ -3,6 +3,7 @@
 #include "evolve.h"
 #include "math.h"
 #include "physicsMacros.h"
+#include "quartic.h"
 
 
 
@@ -201,17 +202,6 @@ int quartic(double a, double b, double c, double d, double e, double *ans) {
   return nroots;
 }
 
-double smallerPositiveQuarticRoot(double a, double b, double c, double d, double e) {
-  double results[4];
-  double bestResult = INFINITY;
-  int size = quartic(a, b, c, d, e, results);
-  for (int i = 0; i < size; i++) {
-    if (results[i] > 0 && results[i] < bestResult) {
-      bestResult = results[i];
-    }
-  }
-  return bestResult;
-}
 // Actually physics calculations
 
 vector_t relativeVelocity(Ball *ball) {

@@ -21,6 +21,7 @@ typedef enum GAME_STATE {
 typedef struct Table{
   xpm_image_t img;
   xpm_image_t ui;
+  xpm_image_t spinCircle;
   LinearCushion* linearCushions[6];
   CircularCushion* circularCushions[12];
   Pocket* pockets[6];
@@ -60,6 +61,7 @@ int updateCueState(Table* table, bool power);
 
 bool getColisionPoint(Table* table, vector_t*collisionPoint);
 
+<<<<<<< HEAD
 void glueBall(Table* table);
 
 bool canDropBall(Table* table);
@@ -70,4 +72,11 @@ Player* getPlayingPlayer(Table* table);
 
 Player* getNotPlayingPlayer(Table* table);
 
+=======
+bool isPlayerBall(Player* player, Ball* ball);
+
+void drawBalls(Table *table);
+
+bool updateSpin(Table* table);
+>>>>>>> ab323713601656e430a8e4762e3edb10b88a3306
 

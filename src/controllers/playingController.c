@@ -20,6 +20,7 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
 
             if (table->firstBallHit == NULL) { // no ball was hit
               switchTurn(table);
+
               set_round_time(40);
               table->state = ADVANTAGE;
               printf("Player %d didn't hit any ball\n", getPlayingPlayer(table)->isPlaying);
@@ -106,6 +107,7 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
             }
           }
         }
+
         if (drawTable(table, get_game_time(), get_round_time())) {
           return OVER;
         }
@@ -122,8 +124,11 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
         case AIMING:
           updateCueState(table, false);
           if (packet->lb) {
-            table->mouse->savedPos = table->mouse->pos;
-            table->state = SHOOTING;
+
+            if (!updateSpin(table)) {
+              table->mouse->savedPos = table->mouse->pos;
+              table->state = SHOOTING;
+            }
           }
           break;
         case SHOOTING:

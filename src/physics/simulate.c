@@ -10,7 +10,6 @@ void processShot(Table *table) {
 }
 
 bool updatePhysics(Table *table, double dt) {
-  table->firstCollision = false;
   Event nextEvent = table->nextEvent;
   double elapsed = 0;
   while (nextEvent.type != INVALID) {

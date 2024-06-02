@@ -4,10 +4,7 @@
 #include "lineViewer.h"
 
 
-int drawAim(){
 
-  return 0;
-}
 
 void drawLineOverlap(unsigned int aXStart, unsigned int aYStart, unsigned int aXEnd, unsigned int aYEnd, uint8_t aOverlap,
                      uint32_t aColor) {
@@ -86,11 +83,11 @@ void drawLineOverlap(unsigned int aXStart, unsigned int aYStart, unsigned int aX
  * The code is bigger and more complicated than drawThickLineSimple() but it tends to be faster, since drawing a pixel is often a slow operation.
  * aThicknessMode can be one of LINE_THICKNESS_MIDDLE, LINE_THICKNESS_DRAW_CLOCKWISE, LINE_THICKNESS_DRAW_COUNTERCLOCKWISE
  */
-void drawThickLine(vector_t start, vector_t end, unsigned int aThickness, uint32_t aColor) {
-  unsigned int aXStart=start.x;
-  unsigned int aYStart=start.y;
-  unsigned int aXEnd=end.x;
-  unsigned int aYEnd = end.y;
+  void drawThickLine(vector_t start, vector_t end, unsigned int aThickness, uint32_t aColor) {
+    unsigned int aXStart=start.x;
+    unsigned int aYStart=start.y;
+    unsigned int aXEnd=end.x;
+    unsigned int aYEnd = end.y;
 
   // printf("First %d:%d .... Second %d:%d\n",aXStart, aYStart, aXEnd, aYEnd);
   int16_t i, tDeltaX, tDeltaY, tDeltaXTimes2, tDeltaYTimes2, tError, tStepX, tStepY;

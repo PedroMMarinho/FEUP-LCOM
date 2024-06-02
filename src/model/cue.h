@@ -2,7 +2,9 @@
 #include "lcom/lcf.h"
 #include "vector.h"
 
-
+/**
+ * @brief Struct that represents the cue
+*/
 typedef struct Cue{
 
   vector_t position;
@@ -28,10 +30,22 @@ typedef struct Cue{
   bool colides;
 }Cue;
 
-
+/**
+ * @brief Creates a new cue
+ * 
+ * @return Cue* 
+*/
 Cue* newCue();
+
+/**
+ * @brief Destroys a Cue object.
+ *
+ * This function frees the memory allocated for the Cue object.
+ *
+ * @param cue Pointer to the Cue object to be destroyed.
+ */
 
 void destroyCue(Cue* cue);
 
-Cue* updateCueCharge(Cue* cue, vector_t mouseDelta);
+
 

@@ -102,6 +102,17 @@ double magnitudeOf(vector_t vector) {
 }
 
 // Function to solve a cubic equation using the Cardano's formula
+/**
+ * @brief Solves a quadratic equation.
+ *
+ * This function solves a quadratic equation of the form ax^2 + bx + c = 0.
+ *
+ * @param a The coefficient of x^2.
+ * @param b The coefficient of x.
+ * @param c The constant term.
+ * @param ans Pointer to an array to store the solutions.
+ * @return The number of solutions (0, 1, or 2).
+ */
 
 int solveQuadratic(double a, double b, double c, double *ans) {
 

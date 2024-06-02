@@ -18,44 +18,123 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
 
         if (table->state == SIMULATING) {
           if (!updatePhysics(table, 1.0 / 30.0)) {
-            if (table->firstCollision == false) {
-              table->player1->isPlaying = !table->player1->isPlaying;
-              table->player2->isPlaying = !table->player2->isPlaying;
-              printf("Player 1 is playing: %d\n", table->player1->isPlaying);
+            printf("1\n");
+            if (table->firstBallHit == NULL) { // no ball was hit
+              switchTurn(table);
+
               set_round_time(40);
+              table->state = ADVANTAGE;
+              printf("2\n");
+              
             }
-            if (table->balls[0]->state == POCKETED) {
-              table->player1->isPlaying = !table->player1->isPlaying;
-              table->player2->isPlaying = !table->player2->isPlaying;
-              vector_t pos = {269, 442};
-              table->balls[0]->position = pos;
-              table->balls[0]->state = STATIONARY;
-              set_round_time(40);
-              if (table->balls[1]->state == POCKETED) {
-                return MENU;
-              }
-            }
-            if (table->balls[1]->state == POCKETED) {
-              if (table->player1->isPlaying) {
-                if (table->player1->ballType == PLAYERBALLNONE) {
-                  return MENU; // Player lost
+            else {
+              printf("3\n");
+              printf("Ball type: %d\n", getPlayingPlayer(table)->ballType);
+              if (getPlayingPlayer(table)->ballType != PLAYERBALLNONE) {
+                printf("4\n");
+              if (((table->firstBallHit->type != STRIPED) && (getPlayingPlayer(table)->ballType == PLAYERSTRIPED)) || ((table->firstBallHit->type != SOLID) && (getPlayingPlayer(table)->ballType == PLAYERSOLID))) { // player hit the wrong ball
+              printf("5\n");
+                if (table->balls[1]->state == POCKETED) {
+                  printf("6\n");
+                  return MENU; // player lose
+                }
+                else {
+                  printf("7\n");
+                  switchTurn(table);
+                  set_round_time(40);
+                  table->state = ADVANTAGE;
+                  printf("Player %d hit the wrong ball\n", getPlayingPlayer(table)->isPlaying);
                 }
               }
               else {
-                if (table->player2->ballType == PLAYERBALLNONE) {
-                  return MENU; // Player lost
+                printf("8\n");
+                if (table->balls[1]->state == POCKETED) {
+                  printf("9\n");
+                  for (int i = 0; i < table->ballNumber; i++) {
+                    if (table->balls[i]->state != POCKETED) {
+                      if (((table->balls[i]->type == STRIPED) && (getPlayingPlayer(table)->ballType == PLAYERSTRIPED)) || ((table->balls[i]->type == SOLID) && (getPlayingPlayer(table)->ballType == PLAYERSOLID))) {
+                        printf("10\n");
+                        return MENU; // player lose
+                      }
+                    }
+                  }
+                  printf("11\n");
+                  return MENU; // player win
                 }
-              }
-              for (int i = 0; i < 16; i++) {
-                if (table->balls[i]->type == table->player1->isPlaying ? table->player1->ballType : table->player2->ballType) {
-                  if (table->balls[i]->state != POCKETED) {
-                    return MENU; // Player lost
+                else {
+                  printf("12\n");
+                  if (table->balls[0]->state == POCKETED) {
+                    printf("13\n");
+                    switchTurn(table);
+                    set_round_time(40);
+                    table->state = ADVANTAGE;
+                  }
+                  else {
+                    printf("14\n");
+                    printf("Pocketed own ball: %d\n", table->pocketedOwnBall);
+                    if (!table->pocketedOwnBall) {
+                      printf("15\n");
+                      switchTurn(table);
+                    }
+                    set_round_time(40);
                   }
                 }
               }
-              return MENU; // Player won
             }
-            table->state = AIMING;
+            else {
+              printf("16\n");
+              if (table->balls[1]->state == POCKETED) {
+                printf("17\n");
+                return MENU; // player lose
+              }
+              else {
+                printf("18\n");
+                if (table->balls[0]->state == POCKETED) {
+                  printf("19\n");
+                  switchTurn(table);
+                  set_round_time(40);
+                  table->state = ADVANTAGE;
+                }
+                else {
+                  printf("20\n");
+                  int solidBalls = 0;
+                  int stripedBalls = 0;
+                  for (int i = 0; i < table->ballNumber; i++) {
+                    if (table->balls[i]->state == POCKETED) {
+                      if (table->balls[i]->type == SOLID) {
+                        solidBalls++;
+                      }
+                      else if (table->balls[i]->type == STRIPED) {
+                        stripedBalls++;
+                      }
+                    }
+                  }
+                  if (solidBalls > 0 || stripedBalls > 0) {
+                    printf("21\n");
+                    if (solidBalls > stripedBalls) {
+                      printf("22\n");
+                      getPlayingPlayer(table)->ballType = PLAYERSOLID;
+                      getNotPlayingPlayer(table)->ballType = PLAYERSTRIPED;
+                    }
+                    else if (stripedBalls >= solidBalls) {
+                      printf("23\n");
+                      getPlayingPlayer(table)->ballType = PLAYERSTRIPED;
+                      getNotPlayingPlayer(table)->ballType = PLAYERSOLID;
+                    }
+                  }
+                  else{
+                    printf("24\n");
+                    switchTurn(table);
+                    set_round_time(40);                  
+                  }
+                }
+              }
+            }
+            }
+            
+            if(table->state != ADVANTAGE){
+              table->state = AIMING;
+            }
           }
         }
 
@@ -109,6 +188,13 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
             }
           }
           break;
+        case ADVANTAGE:
+
+          glueBall(table);
+          if (packet->lb && canDropBall(table)) {
+
+            table->state = AIMING;
+          }
         default:
           break;
       }
@@ -124,8 +210,7 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
     case RTC:
       if (get_round_time() == 0) {
         set_round_time(40);
-        table->player1->isPlaying = !table->player1->isPlaying;
-        table->player2->isPlaying = !table->player2->isPlaying;
+        switchTurn(table);
       }
 
       break;

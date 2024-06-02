@@ -6,6 +6,7 @@
 // TODO: REMOVE ASSERT, FOR TESTING ONLY
 #include <assert.h>
 
+
 void resolveEvent(Table *table, Event event) {
 
   switch (event.type) {
@@ -29,18 +30,10 @@ void resolveEvent(Table *table, Event event) {
       updateBallNextTransition(table, event.ball1);
       break;
     case BALL_BALL:
-    if(table->player1->isPlaying){
-      if(((event.ball1->type == WHITE) && ((event.ball2->type == STRIPED && table->player1->ballType == PLAYERSTRIPED) || (event.ball2->type == SOLID && table->player1->ballType == PLAYERSOLID))) || ((event.ball2->type == WHITE) && ((event.ball1->type == STRIPED && table->player1->ballType == PLAYERSTRIPED) || (event.ball1->type == SOLID && table->player1->ballType == PLAYERSOLID)))){
-        printf("FAKJFKJKLAFJKLAFJKAJFKLJAFKLJAFKLJAFKLJ\n");
-      table->firstCollision = true;
-    }
-    }else{
-       if(((event.ball1->type == WHITE) && ((event.ball2->type == STRIPED && table->player2->ballType == PLAYERSTRIPED) || (event.ball2->type == SOLID && table->player2->ballType == PLAYERSOLID))) || ((event.ball2->type == WHITE) && ((event.ball1->type == STRIPED && table->player2->ballType == PLAYERSTRIPED) || (event.ball1->type == SOLID && table->player2->ballType == PLAYERSOLID)))){
-        printf("FAKJFKJKLAFJKLAFJKAJFKLJAFKLJAFKLJAFKLJ\n");
-      table->firstCollision = true;
+      if (table->firstBallHit == NULL) {
+
+        table->firstBallHit = event.ball2;
       }
-    }
-    
       resolveBallBall(event.ball1, event.ball2);
       updateBallNextTransition(table, event.ball1);
       updateBallNextTransition(table, event.ball2);
@@ -57,7 +50,27 @@ void resolveEvent(Table *table, Event event) {
       updateBallNextTransition(table, event.ball1);
       break;
     case BALL_POCKET:
-    printf("RESOLVE BALL POCKET\n");
+      printf("RESOLVE BALL POCKET\n");
+      Ball *ball = event.ball1;
+      if (table->player1->isPlaying) {
+        if (table->player1->ballType == PLAYERBALLNONE) {
+          if (ball->type != WHITE) {
+            table->player1->ballType = ball->type == STRIPED ? PLAYERSTRIPED : PLAYERSOLID;
+            table->player2->ballType = ball->type == STRIPED ? PLAYERSOLID : PLAYERSTRIPED;
+          }
+        }
+      }
+      else {
+        if (table->player2->ballType == PLAYERBALLNONE) {
+          if (ball->type != WHITE) {
+            table->player2->ballType = ball->type == STRIPED ? PLAYERSTRIPED : PLAYERSOLID;
+            table->player1->ballType = ball->type == STRIPED ? PLAYERSOLID : PLAYERSTRIPED;
+          }
+        }
+      }
+      if (((event.ball1->type == STRIPED) && (getPlayingPlayer(table)->ballType == PLAYERSTRIPED)) || ((event.ball1->type == SOLID) && (getPlayingPlayer(table)->ballType == PLAYERSOLID))) {
+        table->pocketedOwnBall = true;
+      }
       resolveBallPocket(event.ball1, table, table->pockets[event.pocket]);
       updateBallNextTransition(table, event.ball1);
       break;
@@ -221,20 +234,9 @@ void makeBallCircularCushionKiss(Ball *ball, CircularCushion *cushion) {
 }
 
 void resolveBallPocket(Ball *ball, Table *table, Pocket *pocket) {
-  
-  if(table->player1->isPlaying){
-    if(table->player1->ballType == PLAYERBALLNONE){
-      table->player1->ballType = ball->type == STRIPED ? PLAYERSTRIPED : PLAYERSOLID;
-      table->player2->ballType = ball->type == STRIPED ? PLAYERSOLID : PLAYERSTRIPED;
-    }
-  }else{
-    if(table->player2->ballType == PLAYERBALLNONE){
-      table->player2->ballType = ball->type == STRIPED ? PLAYERSTRIPED : PLAYERSOLID;
-      table->player1->ballType = ball->type == STRIPED ? PLAYERSOLID : PLAYERSTRIPED;
-    }
-  }
-     printf("Player 1 ball type: %d\n", table->player1->ballType);
-      printf("Player 2 ball type: %d\n", table->player2->ballType);
+
+  printf("Player 1 ball type: %d\n", table->player1->ballType);
+  printf("Player 2 ball type: %d\n", table->player2->ballType);
   ball->state = POCKETED;
   ball->position = pocket->position;
 }

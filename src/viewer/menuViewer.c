@@ -1,5 +1,6 @@
 #include "menuViewer.h"
 #include "../labs/graphics.h"
+
 int drawMenuBackground(xpm_image_t img){
   if(drawXPMImage(img,512,384,0)) return 1;
   return 0;

@@ -43,8 +43,8 @@ void evolveBallMotion(Table *table, Ball *ball, double time) {
       break;
     }
 
-    case SPINNING:
-      printf("---- ROLLING ----");
+    case SPINNING:{
+
       double spinTime = getSpinTime(ball, table->spinningFriction, table->gravityAcceleration);
 
       evolvePrependicularSpin(ball, MIN(spinTime, time), table->spinningFriction, table->gravityAcceleration);
@@ -59,6 +59,7 @@ void evolveBallMotion(Table *table, Ball *ball, double time) {
       break;
     default:
       break;
+    }
   }
 }
 

@@ -56,3 +56,7 @@ int drawTable(Table* table,int gameTime, int roundTime);
 int updateCueState(Table* table, bool power);
 
 bool getColisionPoint(Table* table, vector_t*collisionPoint);
+
+bool isPlayerBall(Player* player, Ball* ball);
+
+void drawBalls(Table *table);

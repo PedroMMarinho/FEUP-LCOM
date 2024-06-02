@@ -3,13 +3,21 @@
 #include "../labs/graphics.h"
 #include "../physics/utilities.h"
 #include "../viewer/cueViewer.h"
-#include "../xpms/biggerTable.xpm"
-#include "../xpms/table.xpm"
-#include "../xpms/finalTable.xpm"
 #include "../xpms/ball.xpm"
-#include "../xpms/tableBalls/bola1.xpm"
+#include "../xpms/biggerTable.xpm"
+#include "../xpms/finalTable.xpm"
+#include "../xpms/font/font.xpm"
+#include "../xpms/matchUI.xpm"
 #include "../xpms/slotBalls/ballSlot6.xpm"
-#include "../xpms/tableBalls/bolaBranca.xpm"
+#include "../xpms/table.xpm"
+#include "../xpms/tableBackground.xpm"
+#include "../xpms/tableBalls/bola1.xpm"
+#include "../xpms/tableBalls/bola10.xpm"
+#include "../xpms/tableBalls/bola11.xpm"
+#include "../xpms/tableBalls/bola12.xpm"
+#include "../xpms/tableBalls/bola13.xpm"
+#include "../xpms/tableBalls/bola14.xpm"
+#include "../xpms/tableBalls/bola15.xpm"
 #include "../xpms/tableBalls/bola2.xpm"
 #include "../xpms/tableBalls/bola3.xpm"
 #include "../xpms/tableBalls/bola4.xpm"
@@ -18,28 +26,18 @@
 #include "../xpms/tableBalls/bola7.xpm"
 #include "../xpms/tableBalls/bola8.xpm"
 #include "../xpms/tableBalls/bola9.xpm"
-#include "../xpms/tableBalls/bola10.xpm"
-#include "../xpms/tableBalls/bola11.xpm"
-#include "../xpms/tableBalls/bola12.xpm"
-#include "../xpms/tableBalls/bola13.xpm"
-#include "../xpms/tableBalls/bola14.xpm"
-#include "../xpms/tableBalls/bola15.xpm"
-#include "../xpms/tableBackground.xpm"
-#include "../xpms/matchUI.xpm"
-#include "../xpms/font/font.xpm"
+#include "../xpms/tableBalls/bolaBranca.xpm"
 
 #include "math.h"
 
 Table *newTable() {
   Table *table = (Table *) malloc(sizeof(Table));
 
-  
+  table->player1 = newPlayer("player1", PLAYERBALLNONE, 1);
+  table->player2 = newPlayer("player2", PLAYERBALLNONE, 0);
 
-  table->player1 = newPlayer("player1", PLAYERBALLNONE,1);
-  table->player2 = newPlayer("player2", PLAYERBALLNONE,0);
-
-  table->font = malloc(sizeof(xpm_image_t)*36);
-    for(int i = 0; i < 36; i++){
+  table->font = malloc(sizeof(xpm_image_t) * 36);
+  for (int i = 0; i < 36; i++) {
     xpm_load(xpm_table[i], XPM_8_8_8, &table->font[i]);
   }
 
@@ -78,58 +76,56 @@ Table *newTable() {
   xpm_load(bola14Xpm, XPM_8_8_8, &bola14);
   xpm_load(bola15Xpm, XPM_8_8_8, &bola15);
 
-
   table->ballNumber = 16;
   table->balls = (Ball **) malloc(sizeof(Ball *) * table->ballNumber);
-
 
   vector_t cueBallPosition = {269, 442};
 
   table->balls[0] = newBall(cueBallPosition, whiteBall, WHITE);
 
   vector_t otherBallPosition = {782, 442};
-  table->balls[1] = newBall(otherBallPosition, ball8,BLACK);
+  table->balls[1] = newBall(otherBallPosition, ball8, BLACK);
   otherBallPosition.x = 722;
-  table->balls[2] = newBall(otherBallPosition, bola1,SOLID);
+  table->balls[2] = newBall(otherBallPosition, bola1, SOLID);
   otherBallPosition.x = 752;
   otherBallPosition.y = 427;
-  table->balls[3] = newBall(otherBallPosition, bola2,SOLID);
+  table->balls[3] = newBall(otherBallPosition, bola2, SOLID);
   otherBallPosition.x = 782;
   otherBallPosition.y = 472;
-  table->balls[4] = newBall(otherBallPosition, bola3,SOLID);
+  table->balls[4] = newBall(otherBallPosition, bola3, SOLID);
   otherBallPosition.x = 842;
   otherBallPosition.y = 502;
-  table->balls[5] = newBall(otherBallPosition, bola4,SOLID);
+  table->balls[5] = newBall(otherBallPosition, bola4, SOLID);
   otherBallPosition.x = 812;
   otherBallPosition.y = 457;
-  table->balls[6] = newBall(otherBallPosition, bola5,SOLID);
+  table->balls[6] = newBall(otherBallPosition, bola5, SOLID);
   otherBallPosition.x = 842;
   otherBallPosition.y = 412;
-  table->balls[7] = newBall(otherBallPosition, bola6,SOLID);
+  table->balls[7] = newBall(otherBallPosition, bola6, SOLID);
   otherBallPosition.x = 812;
   otherBallPosition.y = 397;
-  table->balls[8] = newBall(otherBallPosition, bola7,SOLID);
+  table->balls[8] = newBall(otherBallPosition, bola7, SOLID);
   otherBallPosition.x = 842;
   otherBallPosition.y = 472;
-  table->balls[9] = newBall(otherBallPosition, bola9,STRIPED);
+  table->balls[9] = newBall(otherBallPosition, bola9, STRIPED);
   otherBallPosition.x = 752;
   otherBallPosition.y = 457;
-  table->balls[10] = newBall(otherBallPosition, bola10,STRIPED);
+  table->balls[10] = newBall(otherBallPosition, bola10, STRIPED);
   otherBallPosition.x = 812;
   otherBallPosition.y = 427;
-  table->balls[11] = newBall(otherBallPosition, bola11,STRIPED);
+  table->balls[11] = newBall(otherBallPosition, bola11, STRIPED);
   otherBallPosition.x = 782;
   otherBallPosition.y = 412;
-  table->balls[12] = newBall(otherBallPosition, bola12,STRIPED);
+  table->balls[12] = newBall(otherBallPosition, bola12, STRIPED);
   otherBallPosition.x = 842;
   otherBallPosition.y = 382;
-  table->balls[13] = newBall(otherBallPosition, bola13,STRIPED);  
+  table->balls[13] = newBall(otherBallPosition, bola13, STRIPED);
   otherBallPosition.x = 842;
   otherBallPosition.y = 442;
-  table->balls[14] = newBall(otherBallPosition, bola14,STRIPED);
+  table->balls[14] = newBall(otherBallPosition, bola14, STRIPED);
   otherBallPosition.x = 812;
   otherBallPosition.y = 487;
-  table->balls[15] = newBall(otherBallPosition, bola15,STRIPED);
+  table->balls[15] = newBall(otherBallPosition, bola15, STRIPED);
 
   xpm_image_t img;
   xpm_image_t matchUI;
@@ -183,7 +179,6 @@ Table *newTable() {
   table->circularCushions[2] = newCircularCushion(p1, radius);
   table->circularCushions[3] = newCircularCushion(p2, radius);
 
-
   p1.x = 564;
   p1.y = 672;
   p2.x = 928;
@@ -193,7 +188,6 @@ Table *newTable() {
   p2.y = 700;
   table->circularCushions[4] = newCircularCushion(p1, radius);
   table->circularCushions[5] = newCircularCushion(p2, radius);
-
 
   p1.x = 972;
   p1.y = 257;
@@ -206,7 +200,6 @@ Table *newTable() {
   p2.y = 257;
   table->circularCushions[6] = newCircularCushion(p1, radius);
   table->circularCushions[7] = newCircularCushion(p2, radius);
-
 
   p1.x = 564;
   p1.y = 216;
@@ -231,7 +224,6 @@ Table *newTable() {
   p2.y = 188;
   table->circularCushions[10] = newCircularCushion(p1, radius);
   table->circularCushions[11] = newCircularCushion(p2, radius);
- 
 
   // Set mouse
   table->mouse = newMouse();
@@ -240,8 +232,6 @@ Table *newTable() {
   table->cue = newCue();
   updateCueState(table, false);
   table->maxSpeedShot = 900;
-
-  
 
   // Set state
   table->state = AIMING;
@@ -262,13 +252,13 @@ void destroyTable(Table *table) {
     destroyBall(table->balls[i]);
     free(table->balls[i]);
   }
-  for (size_t i = 0; i<6; i++){
+  for (size_t i = 0; i < 6; i++) {
     free(table->linearCushions[i]);
   }
-  for (size_t i = 0; i<12; i++){
+  for (size_t i = 0; i < 12; i++) {
     free(table->circularCushions[i]);
   }
-  for (size_t i = 0; i<6; i++){
+  for (size_t i = 0; i < 6; i++) {
     free(table->pockets[i]);
   }
 
@@ -277,34 +267,74 @@ void destroyTable(Table *table) {
   free(table->cue);
 }
 
-//Test
+// Test
 #include "../viewer/lineViewer.h"
 
-int drawTime(char* minText, char* secText,xpm_image_t* font ){
-    if(drawText(minText,font,478,76,16)) return 1;
-    if(vg_draw_rectangle(513,70,5,5,0x000000)) return 1;
-    if(vg_draw_rectangle(513,80,5,5,0x000000)) return 1;
-    if(drawText(secText,font,535,76,16)) return 1;
-    return 0;
+int drawTime(char *minText, char *secText, xpm_image_t *font) {
+  if (drawText(minText, font, 478, 76, 16))
+    return 1;
+  if (vg_draw_rectangle(513, 70, 5, 5, 0x000000))
+    return 1;
+  if (vg_draw_rectangle(513, 80, 5, 5, 0x000000))
+    return 1;
+  if (drawText(secText, font, 535, 76, 16))
+    return 1;
+  return 0;
 }
 
-int drawCountDown(xpm_image_t* font,int roundTime, int x, int y){
-    char secBuffer[3];
-    snprintf(secBuffer, sizeof(secBuffer), "%02d", roundTime);
-    if(drawText(secBuffer,font,x,y,16)) return 1;
-    return 0;
+int drawCountDown(xpm_image_t *font, int roundTime, int x, int y) {
+  char secBuffer[3];
+  snprintf(secBuffer, sizeof(secBuffer), "%02d", roundTime);
+  if (drawText(secBuffer, font, x, y, 16))
+    return 1;
+  return 0;
 }
 
-int drawGameTime(int gameTime, xpm_image_t* font){
+int drawGameTime(int gameTime, xpm_image_t *font) {
   int minutes = gameTime / 60;
   int seconds = gameTime % 60;
   char minBuffer[3]; // "MM" + null terminator
   char secBuffer[3]; // "SS" + null terminator
-  // Format minutes and seconds as strings
-    snprintf(minBuffer, sizeof(minBuffer), "%02d", minutes);
-    snprintf(secBuffer, sizeof(secBuffer), "%02d", seconds);
-  if((drawTime(minBuffer,secBuffer,font))) return 1;
+                     // Format minutes and seconds as strings
+  snprintf(minBuffer, sizeof(minBuffer), "%02d", minutes);
+  snprintf(secBuffer, sizeof(secBuffer), "%02d", seconds);
+  if ((drawTime(minBuffer, secBuffer, font)))
+    return 1;
   return 0;
+}
+
+bool isPlayerBall(Player *player, Ball *ball) {
+
+  return ((player->ballType == PLAYERSOLID && ball->type == SOLID) || (player->ballType == PLAYERSTRIPED && ball->type == STRIPED));
+}
+void drawBalls(Table *table) {
+
+  bool ballTypesAttributed = table->player1->ballType != PLAYERBALLNONE;
+
+  int jump = 34;
+  int i1 = 0;
+  int i2 = 0;
+
+  for (size_t i = 0; i < table->ballNumber; i++) {
+    Ball *ball = table->balls[i];
+    if (ball->state != POCKETED || ball->type == WHITE) {
+      drawXPMImage(getBallImage(ball), getBallPosition(ball).x, getBallPosition(ball).y, 0);
+    }
+
+    if (ballTypesAttributed) {
+      if (ball->state == POCKETED || ball->type == WHITE || ball->type == BLACK)
+        continue;
+      if (isPlayerBall(table->player1, ball)) {
+        drawXPMImage(getBallImage(ball), 104 + jump * i1, 83, 0);
+        i1++;
+      }
+      else {
+
+        drawXPMImage(getBallImage(ball), 924 - jump * i2, 86, 0);
+        i2++;
+      }
+    }
+  }
 }
 
 int drawTable(Table *table, int gameTime, int roundTime) {
@@ -313,20 +343,17 @@ int drawTable(Table *table, int gameTime, int roundTime) {
   drawXPMImage(table->ui, 512, 62, 0);
   drawInGamePlayerName(table->player1, table->font, 145, 47, 16);
   drawInGamePlayerName(table->player2, table->font, 748, 49, 16);
-  
-  if(drawGameTime(gameTime,table->font)) return 1; // game Time
-  if(table->player1->isPlaying){
-    drawCountDown(table->font,roundTime,372,60);
-  }else{
-    drawCountDown(table->font,roundTime,632,60);
-  }
 
-  for (size_t i = 0; i < table->ballNumber; i++) {
-    Ball *ball = table->balls[i];
-    if(ball->state != POCKETED || ball->type == WHITE){
-      if (drawXPMImage(getBallImage(ball), getBallPosition(ball).x, getBallPosition(ball).y, 0))
-      return 1;
-    }
+  // DRAW BALLS
+  drawBalls(table);
+
+  if (drawGameTime(gameTime, table->font))
+    return 1; // game Time
+  if (table->player1->isPlaying) {
+    drawCountDown(table->font, roundTime, 372, 60);
+  }
+  else {
+    drawCountDown(table->font, roundTime, 632, 60);
   }
 
   switch (table->state) {
@@ -348,11 +375,12 @@ bool getColisionPoint(Table *table, vector_t *colisionPoint) {
   Cue *cue = table->cue;
   Ball *cueBall = table->balls[0];
   Ball *collisionBall = NULL;
-  uint16_t collisionXDistance = UINT16_MAX;
+  double minimalDistance = INFINITY;
 
   for (size_t i = 1; i < table->ballNumber; i++) {
     Ball *ball = table->balls[i];
-    if(ball->state == POCKETED) continue;
+    if (ball->state == POCKETED)
+      continue;
     vector_t s = {cueBall->position.x - ball->position.x, cueBall->position.y - ball->position.y};
     double b = s.x * cue->directionVector.x + s.y * cue->directionVector.y;
     // TODO Fix ball radius hard code
@@ -367,9 +395,10 @@ bool getColisionPoint(Table *table, vector_t *colisionPoint) {
       if (t < 0)
         continue;
       else {
-        uint16_t distance = abs(ball->position.x - cueBall->position.x);
-        if (distance < collisionXDistance) {
-          collisionXDistance = distance;
+        vector_t connection = {ball->position.x - cueBall->position.x, ball->position.y - cueBall->position.y};
+        double distance = magnitudeOf(connection);
+        if (distance < minimalDistance) {
+          minimalDistance = distance;
           collisionBall = ball;
 
           colisionPoint->x = cueBall->position.x + cue->directionVector.x * t;
@@ -446,7 +475,6 @@ int updateCueState(Table *table, bool power) {
   cue->position = rotate2d(cue->position, cue->angle + M_PI);
   cue->position.x += cueBall.x;
   cue->position.y += cueBall.y;
-
 
   return 0;
 }

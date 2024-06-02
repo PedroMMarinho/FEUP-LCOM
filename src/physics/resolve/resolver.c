@@ -29,8 +29,6 @@ void resolveEvent(Table *table, Event event) {
       updateBallNextTransition(table, event.ball1);
       break;
     case BALL_BALL:
-    printf("ball 1 type: %d\n", event.ball1->type);
-    printf("ball 2 type: %d\n", event.ball2->type);
     if(table->player1->isPlaying){
       if(((event.ball1->type == WHITE) && ((event.ball2->type == STRIPED && table->player1->ballType == PLAYERSTRIPED) || (event.ball2->type == SOLID && table->player1->ballType == PLAYERSOLID))) || ((event.ball2->type == WHITE) && ((event.ball1->type == STRIPED && table->player1->ballType == PLAYERSTRIPED) || (event.ball1->type == SOLID && table->player1->ballType == PLAYERSOLID)))){
         printf("FAKJFKJKLAFJKLAFJKAJFKLJAFKLJAFKLJAFKLJ\n");

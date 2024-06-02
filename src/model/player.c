@@ -16,4 +16,3 @@ int drawInGamePlayerName(Player* player, xpm_image_t* font, int x, int y, int sp
   if(drawText(player->name,font,x,y,spacing)) return 1;
   return 0;
 }
-

@@ -1,8 +1,10 @@
 #include "multiplayerController.h"
 #include "../labs/serialPort.h"
 #include "../labs/rtc.h"
+#include "../model/table.h"
 
 bool multiplayer = false;
+
 
 STATE handleMultiplayerConnection() {
   if(establish_connection()){
@@ -19,3 +21,4 @@ STATE handleMultiplayerConnection() {
 bool get_multiplayer(){
   return multiplayer;
 }
+

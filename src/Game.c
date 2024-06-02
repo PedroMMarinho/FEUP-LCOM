@@ -148,6 +148,8 @@ int gameLoop(Resources *resources) {
                 if(resources->state == PLAYING){
                   printf("Creating new table\n");
                   resources->table = newTable();
+                  if(player1()) resources->table->multiplayer = MULTIPLAYING;
+                  else resources->table->multiplayer = MULTIWAITING;
                 }
               }
               else{
@@ -156,6 +158,9 @@ int gameLoop(Resources *resources) {
               }
               break;
             case PLAYING:
+              if(get_multiplayer()){
+                handleMultiplayer();
+              }
               break;
             default:
               sp_clear();

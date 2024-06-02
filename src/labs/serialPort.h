@@ -5,6 +5,7 @@
 
 #include "queue.h"
 #include "utils.h"
+#include "../model/table.h"
 
 
 
@@ -56,6 +57,21 @@
 #define FIRSTSYNC    0x54
 #define SECONDSYNC   0x55
 
+
+typedef enum DATATYPES{
+  MOUSE_DATA,
+  SHOT_DATA,
+  BALL_DATA,
+} DATATYPES;
+
+typedef union {
+
+  float f;
+  uint8_t bytes[4];
+
+} FloatUnion;
+
+
 int send_SP_data(uint8_t byte);
 
 int (sp_subscribe)(uint8_t *bit_no);
@@ -69,6 +85,18 @@ void sp_ih();
 int sp_clear();
 
 void resetMultiplayer();
+
+int handleMultiplayerData(Table* table);
+
+bool player1();
+
+void sendMouseData(Mouse *mouse);
+
+void sendShotData(Cue *cue);
+
+void sendCueBallData(vector_t ballPos);
+
+
 
 
 

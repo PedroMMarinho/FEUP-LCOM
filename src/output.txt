@@ -1,0 +1,25 @@
+Background loaded
+created resources
+RTC subscribed
+The received scaThe received scanCode is: 1
+Closing lab stuff
+RTC unsubscribed
+Exiting video mode
+Cleaning resources
+Everything finished
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

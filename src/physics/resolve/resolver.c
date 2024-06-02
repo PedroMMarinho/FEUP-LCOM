@@ -29,23 +29,8 @@ void resolveEvent(Table *table, Event event) {
       updateBallNextTransition(table, event.ball1);
       break;
     case BALL_BALL:
-<<<<<<< HEAD
-    ;
       if(table->firstBallHit == NULL){
-        
         table->firstBallHit = event.ball2;
-        
-=======
-    if(table->player1->isPlaying){
-      if(((event.ball1->type == WHITE) && ((event.ball2->type == STRIPED && table->player1->ballType == PLAYERSTRIPED) || (event.ball2->type == SOLID && table->player1->ballType == PLAYERSOLID))) || ((event.ball2->type == WHITE) && ((event.ball1->type == STRIPED && table->player1->ballType == PLAYERSTRIPED) || (event.ball1->type == SOLID && table->player1->ballType == PLAYERSOLID)))){
-        printf("FAKJFKJKLAFJKLAFJKAJFKLJAFKLJAFKLJAFKLJ\n");
-      table->firstCollision = true;
-    }
-    }else{
-       if(((event.ball1->type == WHITE) && ((event.ball2->type == STRIPED && table->player2->ballType == PLAYERSTRIPED) || (event.ball2->type == SOLID && table->player2->ballType == PLAYERSOLID))) || ((event.ball2->type == WHITE) && ((event.ball1->type == STRIPED && table->player2->ballType == PLAYERSTRIPED) || (event.ball1->type == SOLID && table->player2->ballType == PLAYERSOLID)))){
-        printf("FAKJFKJKLAFJKLAFJKAJFKLJAFKLJAFKLJAFKLJ\n");
-      table->firstCollision = true;
->>>>>>> ab323713601656e430a8e4762e3edb10b88a3306
       }
       resolveBallBall(event.ball1, event.ball2);
       updateBallNextTransition(table, event.ball1);

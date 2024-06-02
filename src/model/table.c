@@ -515,6 +515,8 @@ int updateCueState(Table *table, bool power) {
   return 0;
 }
 
+
+
 void glueBall(Table* table) {
   table->balls[0]->position.x = table->mouse->pos.x;
   table->balls[0]->position.y = table->mouse->pos.y;
@@ -538,6 +540,9 @@ void switchTurn(Table* table){
   table->player2->isPlaying = !table->player2->isPlaying;
   table->firstBallHit = NULL;
   table->pocketedOwnBall = false;
+  if(table->multiplayer != NOTMULTIPLAYER){
+    table->multiplayer = table->multiplayer == MULTIPLAYING ? MULTIWAITING : MULTIPLAYING;
+  }
 }
 Player* getPlayingPlayer(Table* table){
   return table->player1->isPlaying ? table->player1 : table->player2;
@@ -545,4 +550,3 @@ Player* getPlayingPlayer(Table* table){
 Player* getNotPlayingPlayer(Table* table){
   return table->player1->isPlaying ? table->player2 : table->player1;
 }
-

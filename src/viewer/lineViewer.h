@@ -10,7 +10,6 @@
 #define LINE_OVERLAP_BOTH 0x03
 
 
-int drawAim();
 
 void drawLineOverlap(unsigned int aXStart, unsigned int aYStart, unsigned int aXEnd, unsigned int aYEnd, uint8_t aOverlap,
                      uint32_t aColor);

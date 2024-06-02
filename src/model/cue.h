@@ -13,8 +13,8 @@ typedef struct Cue{
   float powerSensitivity;
   uint8_t maximumDistance;
   uint8_t minimalDistance;
-  double sideEnglish;
-  double verticalEnglish;
+  float sideEnglish;
+  float verticalEnglish;
   double elevationAngle;
 
   // Info about the guide lines

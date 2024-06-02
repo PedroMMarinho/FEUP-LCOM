@@ -159,7 +159,7 @@ int gameLoop(Resources *resources) {
               break;
             case PLAYING:
               if(get_multiplayer()){
-                handleMultiplayer();
+                handleMultiplayerData(resources->table);
               }
               break;
             default:

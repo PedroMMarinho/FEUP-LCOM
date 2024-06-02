@@ -1,6 +1,7 @@
 #include "serialPort.h"
 #include "../model/cue.h"
 #include "../model/mouseModel.h"
+#include "../controllers/playingController.h"
 
 static int sp_hookId = 7;
 
@@ -279,29 +280,33 @@ void sendMouseData(Mouse *mouse) {
 void sendShotData(Cue *cue) {
   uint8_t dataType = SHOT_DATA;
 
-  FloatUnion charge = cue->charge;
+  FloatUnion charge;  
+  charge.f = cue->charge;
 
   send_SP_data(dataType);
-  send_SP_data(charge[0]);
-  send_SP_data(charge[1]);
-  send_SP_data(charge[2]);
-  send_SP_data(charge[3]);
+  send_SP_data(charge.bytes[0]);
+  send_SP_data(charge.bytes[1]);
+  send_SP_data(charge.bytes[2]);
+  send_SP_data(charge.bytes[3]);
 
-  FloatUnion sideSpin = cue->sideEnglish;
-
-  send_SP_data(dataType);
-  send_SP_data(sideSpin[0]);
-  send_SP_data(sideSpin[1]);
-  send_SP_data(sideSpin[2]);
-  send_SP_data(sideSpin[3]);
-
-  FloatUnion verticalSpin = cue->verticalEnglish;
+  FloatUnion sideSpin; 
+  sideSpin.f = cue->sideEnglish;
 
   send_SP_data(dataType);
-  send_SP_data(verticalSpin[0]);
-  send_SP_data(verticalSpin[1]);
-  send_SP_data(verticalSpin[2]);
-  send_SP_data(verticalSpin[3]);
+  send_SP_data(sideSpin.bytes[0]);
+  send_SP_data(sideSpin.bytes[1]);
+  send_SP_data(sideSpin.bytes[2]);
+  send_SP_data(sideSpin.bytes[3]);
+
+  FloatUnion verticalSpin;
+  verticalSpin.f = cue->verticalEnglish;
+
+
+  send_SP_data(dataType);
+  send_SP_data(verticalSpin.bytes[0]);
+  send_SP_data(verticalSpin.bytes[1]);
+  send_SP_data(verticalSpin.bytes[2]);
+  send_SP_data(verticalSpin.bytes[3]);
 }
 
 
@@ -331,43 +336,6 @@ void resetMultiplayer() {
 bool player1() {
   return player;
 }
-
-int handleMultiplayerData(Table *table) { // receive
-  if (queue_isEmpty(receiveQueue))
-    return;
-  while (!queue_isEmpty(receiveQueue)) {
-    uint8_t byte = pop(receiveQueue);
-
-    // CHANGE
-    if (!queue_isEmpty(standByQueue)) {
-      queue_push(standByQueue, byte);
-
-      switch (currentDataType) {
-
-        case MOUSE_DATA:
-          if (standByQueue->size == 4)
-            processMouseData(standByQueue);
-          break;
-        case SHOT_DATA:
-          if (standByQueue->size == 12)
-            processShotData(standByQueue);
-          break;
-        case BALL_DATA:
-          if (standByQueue->size == 4)
-            processBallData(standByQueue);
-          break;
-        default:
-          printf("DataType not found\n");
-          queue_clear(standByQueue);
-          break;
-      }
-    }
-
-    currentDataType = byte;
-    queue_push(standByQueue, byte);
-  }
-}
-
 int processMouseData(Queue *queue, Table *table) {
 
   uint8_t dataType = queue_pop(queue);
@@ -385,6 +353,7 @@ int processMouseData(Queue *queue, Table *table) {
 
   table->mouse->pos = position;
   updateCueState(table, false);
+  return 0;
 }
 
 int processShotData(Queue *queue, Table *table) {
@@ -422,6 +391,7 @@ int processShotData(Queue *queue, Table *table) {
   table->cue->verticalEnglish = verticalSpin.f;
 
   startSimulation(table);
+  return 0;
 }
 
 int processBallData(Queue *queue, Table* table){
@@ -440,5 +410,44 @@ int processBallData(Queue *queue, Table* table){
   vector_t position = {posX, posY};
 
   table->balls[0]->position = position;
+  return 0;
+}
+
+
+int handleMultiplayerData(Table *table) { // receive
+  if (queue_isEmpty(receiveQueue))
+    return 1;
+  while (!queue_isEmpty(receiveQueue)) {
+    uint8_t byte = queue_pop(receiveQueue);
+
+    // CHANGE
+    if (!queue_isEmpty(standByQueue)) {
+      queue_push(standByQueue, byte);
+
+      switch (currentDataType) {
+
+        case MOUSE_DATA:
+          if (standByQueue->size == 4)
+            processMouseData(standByQueue,table);
+          break;
+        case SHOT_DATA:
+          if (standByQueue->size == 12)
+            processShotData(standByQueue,table);
+          break;
+        case BALL_DATA:
+          if (standByQueue->size == 4)
+            processBallData(standByQueue,table);
+          break;
+        default:
+          printf("DataType not found\n");
+          queue_clear(standByQueue);
+          break;
+      }
+    }
+
+    currentDataType = byte;
+    queue_push(standByQueue, byte);
+  }
+  return 0;
 }
 

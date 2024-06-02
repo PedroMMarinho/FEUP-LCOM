@@ -6,7 +6,7 @@
 #include "queue.h"
 #include "utils.h"
 #include "../model/table.h"
-
+#include "../model/cue.h"
 
 
 #define COM1 0x3F8

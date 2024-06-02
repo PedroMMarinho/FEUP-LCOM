@@ -11,6 +11,11 @@
 #include "labs/rtc.h"
 #include "labs/serialPort.h"
 
+void startSimulation(Table *table) {
+  table->state = SIMULATING;
+  processShot(table);
+}
+
 STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct packet *packet, uint8_t scanCode, unsigned elapsed) {
   switch (interruptType) {
     case TIMER:
@@ -148,7 +153,7 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
 
           if (!packet->lb) {
             if (table->cue->charge) { 
-            if(table->multiplayer == MULTIPLAYING) sendShotData(Cue* cue);
+            if(table->multiplayer == MULTIPLAYING) sendShotData(table->cue);
               startSimulation(table);
             }
             else {
@@ -194,7 +199,3 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
   return PLAYING;
 }
 
-void startSimulation(Table *table) {
-  table->state = SIMULATING;
-  processShot(table);
-}

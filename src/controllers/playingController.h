@@ -3,6 +3,7 @@
 #include "lcom/lcf.h"
 #include "../States/states.h"
 #include "../model/table.h"
+#include "../model/cue.h"
 
 /**
  * @brief Handles the playing controller
@@ -15,3 +16,4 @@
  * @return STATE Next state
 */
 STATE playingControllerHandle(Table* table, DEVICE interruptType, const struct packet *packet, uint8_t scanCode, unsigned elapsed);
+void startSimulation(Table *table);

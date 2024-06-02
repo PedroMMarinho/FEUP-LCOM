@@ -11,7 +11,10 @@ typedef struct vector
   double y;
 } vector_t;
 
-
+/**
+ * @brief Struct that represents a 3D vector
+ * 
+ */
 typedef struct vector3_t {
   double x;
   double y;

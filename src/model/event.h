@@ -3,7 +3,9 @@
 #include "cushion.h"
 
 struct Ball;
-
+/**
+ * @brief Enum that represents the type of event
+*/
 typedef enum {
   BALL_BALL,
   BALL_LINEAR_CUSHION,
@@ -16,6 +18,10 @@ typedef enum {
   SLIDING_ROLLING,
   INVALID,
 } EVENT_TYPE;
+
+/**
+ * @brief Struct that represents the event
+*/
 
 typedef struct Event {
 
@@ -32,4 +38,9 @@ typedef struct Event {
 
 } Event;
 
+/**
+ * @brief Creates a new invalid event
+ * 
+ * @return Event 
+*/
 Event newInvalidEvent();

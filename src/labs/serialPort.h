@@ -56,20 +56,70 @@
 #define FIRSTSYNC    0x54
 #define SECONDSYNC   0x55
 
+/**
+ * @brief Sends a byte of data to the serial port.
+ * 
+ * This function sends a byte of data to the serial port by pushing it to the send queue.
+ * 
+ * @param data The byte of data to send.
+ * @return int 0 on success, 1 on failure.
+ */
+
 int send_SP_data(uint8_t byte);
+
+/**
+ * @brief Subscribes to the serial port interrupts.
+ * 
+ * This function initializes the serial port and subscribes to its interrupts.
+ * 
+ * @param bit_no Pointer to store the interrupt bit number.
+ * @return int 0 on success, 1 on failure.
+ */
 
 int (sp_subscribe)(uint8_t *bit_no);
 
+/**
+ * @brief Unsubscribes from the serial port interrupts.
+ * 
+ * This function ends the serial port operation and unsubscribes from its interrupts.
+ * 
+ * @return int 0 on success, 1 on failure.
+ */
+
 int (sp_unsubscribe)();
+
+/**
+ * @brief Establishes a connection.
+ * 
+ * This function establishes a connection by sending and receiving synchronization bytes.
+ * 
+ * @return int 1 if connection established, 0 otherwise.
+ */
 
 int establish_connection();
 
-void sp_ih();
+/**
+ * @brief Interrupt handler for the serial port.
+ * 
+ * This function handles interrupts for the serial port, managing received data and transmission hold empty interrupts.
+ */
 
+void sp_ih();
+/**
+ * @brief Clears the serial port FIFO.
+ * 
+ * This function clears the FIFO of the serial port.
+ * 
+ * @return int 0 on success, 1 on failure.
+ */
 int sp_clear();
 
+/**
+ * @brief Resets the multiplayer state.
+ * 
+ * This function resets the multiplayer state by clearing the send and receive queues and resetting flags.
+ */
 void resetMultiplayer();
-
 
 
 #endif

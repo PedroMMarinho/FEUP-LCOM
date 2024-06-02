@@ -8,16 +8,42 @@ static Queue* receiveQueue;
 static int transmitter_empty = 1;
 bool sendTrySync = false;
 
+/**
+ * @brief Reads a byte from a serial port.
+ * 
+ * This function reads a byte from the specified serial port and stores it in the provided value pointer.
+ * 
+ * @param port The port to read from.
+ * @param value Pointer to a variable to store the read value.
+ * @return int 0 on success, 1 on failure.
+ */
 static int sp_read(int port, uint8_t* value){
     if(util_sys_inb(port + COM1, value)) return 1;
     return 0;
 }
 
+/**
+ * @brief Writes a byte to a serial port.
+ * 
+ * This function writes the specified byte to the given serial port.
+ * 
+ * @param port The port to write to.
+ * @param value The byte value to write.
+ * @return int 0 on success, 1 on failure.
+ */
 static int sp_write(int port, uint8_t value){
     if(sys_outb(COM1 + port,value)) return 1;
     return 0;
 }
 
+/**
+ * @brief Sets the bitrate of the serial port.
+ * 
+ * This function sets the bitrate of the serial port by configuring the divisor latch registers.
+ * 
+ * @param bitrate The desired bitrate.
+ * @return int 0 on success, 1 on failure.
+ */
 static int sp_bitrate(int bitrate) {
     uint16_t rate = 115200 / bitrate;
 
@@ -48,6 +74,13 @@ static int sp_bitrate(int bitrate) {
 
   return 0;
 }
+/**
+ * @brief Initializes the serial port.
+ * 
+ * This function initializes the serial port by enabling interrupts, setting the FIFO, and configuring the bitrate.
+ * 
+ * @return int 0 on success, 1 on failure.
+ */
 
 static int sp_init() {
 
@@ -83,6 +116,13 @@ static int sp_init() {
   return 0;
 }
 
+/**
+ * @brief Ends the serial port operation.
+ * 
+ * This function disables the serial port interrupts and clears the FIFO, also freeing the queues.
+ * 
+ * @return int 0 on success, 1 on failure.
+ */
 
 static int sp_end() {
 
@@ -143,7 +183,13 @@ int sp_clear(){
     return 0;
 }
 
-
+/**
+ * @brief Sends data stored in the queue.
+ * 
+ * This function sends data stored in the send queue to the serial port.
+ * 
+ * @return int 0 on success, 1 on failure.
+ */
 int send_queue_data(){ //send stored info in queue
         
     if(queue_isEmpty(sendQueue)){
@@ -195,6 +241,13 @@ int establish_connection(){
     return connection;
 }
 
+/**
+ * @brief Receives data from the serial port.
+ * 
+ * This function receives data from the serial port and pushes it to the receive queue.
+ * 
+ * @return int 0 on success, 1 on failure.
+ */
 
 int receive_SP_data(){ 
     uint8_t lsr, rbr;

@@ -6,6 +6,7 @@
 // TODO: REMOVE ASSERT, FOR TESTING ONLY
 #include <assert.h>
 
+
 void resolveEvent(Table *table, Event event) {
 
   switch (event.type) {

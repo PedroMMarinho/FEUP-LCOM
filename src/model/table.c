@@ -2,6 +2,7 @@
 #include "table.h"
 #include "../labs/graphics.h"
 #include "../physics/utilities.h"
+#include "../viewer/lineViewer.h"
 #include "../viewer/cueViewer.h"
 #include "../xpms/ball.xpm"
 #include "../xpms/biggerTable.xpm"
@@ -275,9 +276,17 @@ void destroyTable(Table *table) {
   free(table->cue);
 }
 
-// Test
-#include "../viewer/lineViewer.h"
 
+
+
+/**
+ * @brief Draws the game time in minutes and seconds on the screen using the provided font.
+ *
+ * @param minText Text representing the minutes.
+ * @param secText Text representing the seconds.
+ * @param font Font used to render the text.
+ * @return int 0 on success, 1 on failure.
+ */
 int drawTime(char *minText, char *secText, xpm_image_t *font) {
   if (drawText(minText, font, 478, 76, 16))
     return 1;
@@ -289,7 +298,15 @@ int drawTime(char *minText, char *secText, xpm_image_t *font) {
     return 1;
   return 0;
 }
-
+/**
+ * @brief Draws the countdown timer on the screen.
+ *
+ * @param font Font used to render the text.
+ * @param roundTime Time remaining in the round.
+ * @param x X coordinate for the countdown timer.
+ * @param y Y coordinate for the countdown timer.
+ * @return int 0 on success, 1 on failure.
+ */
 int drawCountDown(xpm_image_t *font, int roundTime, int x, int y) {
   char secBuffer[3];
   snprintf(secBuffer, sizeof(secBuffer), "%02d", roundTime);
@@ -297,7 +314,13 @@ int drawCountDown(xpm_image_t *font, int roundTime, int x, int y) {
     return 1;
   return 0;
 }
-
+/**
+ * @brief Draws the total game time on the screen.
+ *
+ * @param gameTime Total game time in seconds.
+ * @param font Font used to render the text.
+ * @return int 0 on success, 1 on failure.
+ */
 int drawGameTime(int gameTime, xpm_image_t *font) {
   int minutes = gameTime / 60;
   int seconds = gameTime % 60;
@@ -315,6 +338,8 @@ bool isPlayerBall(Player *player, Ball *ball) {
 
   return ((player->ballType == PLAYERSOLID && ball->type == SOLID) || (player->ballType == PLAYERSTRIPED && ball->type == STRIPED));
 }
+
+
 void drawBalls(Table *table) {
 
   bool ballTypesAttributed = table->player1->ballType != PLAYERBALLNONE;
@@ -345,6 +370,7 @@ void drawBalls(Table *table) {
   }
 }
 
+
 bool updateSpin(Table* table){
 
   vector_t click = table->mouse->pos;
@@ -359,6 +385,11 @@ bool updateSpin(Table* table){
   return true;
 }
 
+/**
+ * @brief Draws the spin circle on the screen.
+ *
+ * @param table Pointer to the Table structure.
+ */
 
 void drawSpinCircle(Table* table){
 
@@ -371,6 +402,7 @@ void drawSpinCircle(Table* table){
   drawXPMImage(table->spinCircle, noSpinPos.x - side, noSpinPos.y - up, 0);
 
 }
+
 
 int drawTable(Table *table, int gameTime, int roundTime) {
 
@@ -405,6 +437,7 @@ int drawTable(Table *table, int gameTime, int roundTime) {
 
   return 0;
 }
+
 
 bool getColisionPoint(Table *table, vector_t *colisionPoint) {
 
@@ -453,6 +486,7 @@ bool getColisionPoint(Table *table, vector_t *colisionPoint) {
   }
   return true;
 }
+
 
 int updateCueState(Table *table, bool power) {
 
@@ -533,6 +567,15 @@ bool canDropBall(Table* table) {
   }
   return true;
 }
+
+/**
+ * @brief Switches the turn between players.
+ *
+ * This function switches the turn between players after a shot is taken.
+ * It also resets some game state variables for the new turn.
+ *
+ * @param table Pointer to the Table structure.
+ */
 void switchTurn(Table* table){
   table->player1->isPlaying = !table->player1->isPlaying;
   table->player2->isPlaying = !table->player2->isPlaying;

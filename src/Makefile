@@ -20,8 +20,10 @@ SRCS = main.c graphics.c timer.c utils.c keyboard.c mouse.c kbc.c cueViewer.c li
 
 # additional compilation flags
 # "-Wall -Wextra -Werror -I . -std=c11 -Wno-unused-parameter" are already set
-CFLAGS += -pedantic -Wshadow -Winit-self -Wstrict-prototypes -Wold-style-definition -Wmissing-declarations -Wdeclaration-after-statement
+# CFLAGS += -pedantic -Wshadow -Winit-self -Wstrict-prototypes -Wold-style-definition -Wmissing-declarations -Wdeclaration-after-statement
 
+# __LCOM_OPTIMIZED__ disables most of the LCF's overhead (and functionality!)
+CPPFLAGS += -pedantic -D__LCOM_OPTIMIZED__
 
 # list of library dependencies (for Lab 2, only LCF library)
 DPADD += ${LIBLCF}

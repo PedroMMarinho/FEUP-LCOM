@@ -1,6 +1,6 @@
 #include "menu.h"
 #include "viewer/menuViewer.h"
-
+#include "../labs/graphics.h"
 
 #include "xpms/menu/back.xpm"
 #include "xpms/menu/backSelected.xpm"
@@ -27,7 +27,7 @@
 #include "xpms/font/font.xpm"
 #include "xpms/menu/onlineMenuBackground.xpm"
 #include "xpms/menu/ellipsesBall.xpm"
-
+#include "xpms/menu/gameOverMenuBackground.xpm"
 
 Menu* newMenu(MenuType type){
   Menu* menu = (Menu*)malloc(sizeof(Menu));
@@ -45,7 +45,6 @@ Menu* newMenu(MenuType type){
 
 
 Menu* newGameOverMenu(char* winnerName){
-
   Menu* menu = newMenu(GAME_OVER_MENU);
   menu->winner = winnerName;
   return menu;
@@ -142,14 +141,19 @@ void setMenuType(Menu* menu, MenuType type){
       xpm_load(instructionsMenuBackgroundXpm, XPM_8_8_8, &menuBackground);
       menu->backgroundImg = menuBackground;
       break;
-  case GAME_OVER_MENU:       
-  printf("Constructig MENU\n");
+  case GAME_OVER_MENU:
+      pos.x = 500;
+      pos.y = 650;       
       menu->nOptions = 1;
       menu->buttons = (Button**)malloc(sizeof(Button*)*menu->nOptions);
       xpm_load(backXpm, XPM_8_8_8, &back);
       xpm_load(backSelectedXpm, XPM_8_8_8, &backSelected);
       menu->buttons[0] = newButton(back, backSelected,pos,size);
-      xpm_load(mainMenuBackgroundXpm, XPM_8_8_8, &menuBackground);
+      xpm_load(gameOverMenuBackgroundXpm, XPM_8_8_8, &menuBackground);
+      menu->font = malloc(sizeof(xpm_image_t)*36);
+      for(int i = 0; i < 36; i++){
+        xpm_load(xpm_table[i], XPM_8_8_8, &menu->font[i]);
+      }
       menu->backgroundImg = menuBackground;
      break;
   case OPTIONS_MENU:
@@ -204,6 +208,13 @@ int drawMenu(Menu* menu,int time,char* playerName){
   if(menu->type == OPTIONS_MENU){
 
     if(drawPlayerName(playerName,menu->font,452,345,14)) return 1;
+  }
+
+  if(menu->type == GAME_OVER_MENU){
+    if(drawPlayerName(menu->winner,menu->font,452,345,14)) return 1;
+    if(drawText("congratulations",menu->font,452,365,14)) return 1;
+    if(drawText("you",menu->font,452,385,14)) return 1;
+    if(drawText("won",menu->font,542,385,14)) return 1;
   }
   if(menu->type == ONLINE_MENU){
     xpm_image_t ellipsesBall;

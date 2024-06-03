@@ -15,3 +15,5 @@
  * @return STATE Next state
 */
 STATE playingControllerHandle(Table* table, DEVICE interruptType, const struct packet *packet, uint8_t scanCode, unsigned elapsed);
+
+void resetRound(Table * table);

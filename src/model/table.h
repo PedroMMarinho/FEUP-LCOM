@@ -31,6 +31,7 @@ typedef struct Table{
   xpm_image_t img;
   xpm_image_t ui;
   xpm_image_t spinCircle;
+  xpm_image_t cursor;
   Button* exitButton;
   bool exitSelected;
   LinearCushion* linearCushions[6];
@@ -56,7 +57,7 @@ typedef struct Table{
   double cushionFriction;
   size_t ballRadius;
   xpm_image_t* font;
-
+  char* winningPlayerName;
   // Simulation
   Event nextEvent;
 

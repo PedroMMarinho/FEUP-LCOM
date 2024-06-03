@@ -74,7 +74,7 @@ int gameLoop(Resources *resources) {
                 resources->state = playingControllerHandle(resources->table, TIMER, NULL, 0, get_elapsed());
                 if (resources->state == MENU) {
                   printf("MENU REsturns\n");
-                  resources->menu = newGameOverMenu(resources->table->player1Won ? resources->table->player1->name : resources->table->player2->name);
+                  resources->menu = newGameOverMenu(resources->table->winningPlayerName);
                   destroyTable(resources->table);
                 }
                 break;
@@ -99,7 +99,7 @@ int gameLoop(Resources *resources) {
                 case PLAYING:
                   resources->state = playingControllerHandle(resources->table, MOUSE, &packet, 0, 0);
                   if (resources->state == MENU) {
-                    resources->menu = newGameOverMenu(resources->table->player1Won ? resources->table->player1->name : resources->table->player2->name);
+                    resources->menu = newGameOverMenu(resources->table->winningPlayerName);
                     destroyTable(resources->table);
                   }
                   break;

@@ -1,0 +1,7 @@
+<map id="destroyTable" name="destroyTable">
+<area shape="rect" id="node1" title="Destroys a Table object." alt="" coords="632,31,737,57"/>
+<area shape="rect" id="node2" href="$resources_8c.html#a4e02759c74a62cabc104eb7eeddd4b69" title="Destroys the resources of the game." alt="" coords="445,5,584,32"/>
+<area shape="rect" id="node3" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="307,31,397,57"/>
+<area shape="rect" id="node4" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,31,259,57"/>
+<area shape="rect" id="node5" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,31,128,57"/>
+</map>

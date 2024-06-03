@@ -1,0 +1,156 @@
+\hypertarget{cushion_8c}{}\doxysection{model/cushion.c File Reference}
+\label{cushion_8c}\index{model/cushion.c@{model/cushion.c}}
+{\ttfamily \#include \char`\"{}cushion.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../physics/utilities.\+h\char`\"{}}\newline
+Include dependency graph for cushion.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cushion_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structLinearCushion}{Linear\+Cushion}} $\ast$ \mbox{\hyperlink{cushion_8c_a6dd66b3580b900ce0ad0e510bd0c4b30}{new\+Linear\+Cushion}} (\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} p1, \mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} p2)
+\begin{DoxyCompactList}\small\item\em Creates a new \mbox{\hyperlink{structLinearCushion}{Linear\+Cushion}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{cushion_8c_aba3c63e7b827766de066c5a7f2bba62f}{fix\+Normal\+Direction}} (\mbox{\hyperlink{structLinearCushion}{Linear\+Cushion}} $\ast$cushion, struct \mbox{\hyperlink{structBall}{Ball}} $\ast$ball)
+\begin{DoxyCompactList}\small\item\em Fixes the normal direction of the \mbox{\hyperlink{structLinearCushion}{Linear\+Cushion}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structCircularCushion}{Circular\+Cushion}} $\ast$ \mbox{\hyperlink{cushion_8c_a926c46d72c4eb28a179e360e70899416}{new\+Circular\+Cushion}} (\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} pos, double radius)
+\begin{DoxyCompactList}\small\item\em Creates a new \mbox{\hyperlink{structCircularCushion}{Circular\+Cushion}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} \mbox{\hyperlink{cushion_8c_a6545b6fc7ee07257acb8dbaa968c7235}{Circular\+Cushion\+Normal}} (\mbox{\hyperlink{structCircularCushion}{Circular\+Cushion}} $\ast$cushion, \mbox{\hyperlink{structBall}{Ball}} $\ast$ball)
+\begin{DoxyCompactList}\small\item\em Computes the normal vector for a \mbox{\hyperlink{structCircularCushion}{Circular\+Cushion}} at the point of contact with a \mbox{\hyperlink{structBall}{Ball}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{cushion_8c_a6545b6fc7ee07257acb8dbaa968c7235}\label{cushion_8c_a6545b6fc7ee07257acb8dbaa968c7235}} 
+\index{cushion.c@{cushion.c}!CircularCushionNormal@{CircularCushionNormal}}
+\index{CircularCushionNormal@{CircularCushionNormal}!cushion.c@{cushion.c}}
+\doxysubsubsection{\texorpdfstring{CircularCushionNormal()}{CircularCushionNormal()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} Circular\+Cushion\+Normal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCircularCushion}{Circular\+Cushion}} $\ast$}]{cushion,  }\item[{struct \mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball }\end{DoxyParamCaption})}
+
+
+
+Computes the normal vector for a \mbox{\hyperlink{structCircularCushion}{Circular\+Cushion}} at the point of contact with a \mbox{\hyperlink{structBall}{Ball}}. 
+
+This function calculates the normal vector from the ball\textquotesingle{}s position to the circular cushion\textquotesingle{}s position.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cushion} & Pointer to the \mbox{\hyperlink{structCircularCushion}{Circular\+Cushion}} object. \\
+\hline
+{\em ball} & Pointer to the \mbox{\hyperlink{structBall}{Ball}} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector\+\_\+t The normalized vector representing the normal at the point of contact. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cushion_8c_a6545b6fc7ee07257acb8dbaa968c7235_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cushion_8c_a6545b6fc7ee07257acb8dbaa968c7235_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{cushion_8c_aba3c63e7b827766de066c5a7f2bba62f}\label{cushion_8c_aba3c63e7b827766de066c5a7f2bba62f}} 
+\index{cushion.c@{cushion.c}!fixNormalDirection@{fixNormalDirection}}
+\index{fixNormalDirection@{fixNormalDirection}!cushion.c@{cushion.c}}
+\doxysubsubsection{\texorpdfstring{fixNormalDirection()}{fixNormalDirection()}}
+{\footnotesize\ttfamily void fix\+Normal\+Direction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structLinearCushion}{Linear\+Cushion}} $\ast$}]{cushion,  }\item[{struct \mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball }\end{DoxyParamCaption})}
+
+
+
+Fixes the normal direction of the \mbox{\hyperlink{structLinearCushion}{Linear\+Cushion}}. 
+
+This function adjusts the normal vector of the linear cushion to ensure it points in the correct direction relative to the ball\textquotesingle{}s velocity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cushion} & Pointer to the \mbox{\hyperlink{structLinearCushion}{Linear\+Cushion}} object. \\
+\hline
+{\em ball} & Pointer to the \mbox{\hyperlink{structBall}{Ball}} object. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{cushion_8c_aba3c63e7b827766de066c5a7f2bba62f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cushion_8c_aba3c63e7b827766de066c5a7f2bba62f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{cushion_8c_a926c46d72c4eb28a179e360e70899416}\label{cushion_8c_a926c46d72c4eb28a179e360e70899416}} 
+\index{cushion.c@{cushion.c}!newCircularCushion@{newCircularCushion}}
+\index{newCircularCushion@{newCircularCushion}!cushion.c@{cushion.c}}
+\doxysubsubsection{\texorpdfstring{newCircularCushion()}{newCircularCushion()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCircularCushion}{Circular\+Cushion}}$\ast$ new\+Circular\+Cushion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}}}]{pos,  }\item[{double}]{radius }\end{DoxyParamCaption})}
+
+
+
+Creates a new \mbox{\hyperlink{structCircularCushion}{Circular\+Cushion}} object. 
+
+This function allocates memory for a new \mbox{\hyperlink{structCircularCushion}{Circular\+Cushion}} object and initializes it with the given position and radius.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The position of the circular cushion. \\
+\hline
+{\em radius} & The radius of the circular cushion. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Circular\+Cushion$\ast$ Pointer to the newly created \mbox{\hyperlink{structCircularCushion}{Circular\+Cushion}} object. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cushion_8c_a926c46d72c4eb28a179e360e70899416_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{cushion_8c_a6dd66b3580b900ce0ad0e510bd0c4b30}\label{cushion_8c_a6dd66b3580b900ce0ad0e510bd0c4b30}} 
+\index{cushion.c@{cushion.c}!newLinearCushion@{newLinearCushion}}
+\index{newLinearCushion@{newLinearCushion}!cushion.c@{cushion.c}}
+\doxysubsubsection{\texorpdfstring{newLinearCushion()}{newLinearCushion()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structLinearCushion}{Linear\+Cushion}}$\ast$ new\+Linear\+Cushion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}}}]{p1,  }\item[{\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}}}]{p2 }\end{DoxyParamCaption})}
+
+
+
+Creates a new \mbox{\hyperlink{structLinearCushion}{Linear\+Cushion}} object. 
+
+This function allocates memory for a new \mbox{\hyperlink{structLinearCushion}{Linear\+Cushion}} object and initializes it with the given points.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & The first point defining the linear cushion. \\
+\hline
+{\em p2} & The second point defining the linear cushion. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Linear\+Cushion$\ast$ Pointer to the newly created \mbox{\hyperlink{structLinearCushion}{Linear\+Cushion}} object. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cushion_8c_a6dd66b3580b900ce0ad0e510bd0c4b30_icgraph}
+\end{center}
+\end{figure}

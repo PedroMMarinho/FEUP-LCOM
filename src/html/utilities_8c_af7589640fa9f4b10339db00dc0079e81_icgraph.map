@@ -1,0 +1,24 @@
+<map id="relativeVelocity" name="relativeVelocity">
+<area shape="rect" id="node1" title="Calculates the relative velocity of a ball." alt="" coords="1957,195,2081,221"/>
+<area shape="rect" id="node2" href="$evolve_8c.html#af37d495f652f29ed0cd5b52302f0d4da" title="Evolves the sliding state of a ball over a specified time period." alt="" coords="1777,195,1909,221"/>
+<area shape="rect" id="node13" href="$utilities_8c.html#a1c0eb54a750dfe192d89eee1d9684244" title="Calculates the unit vector from the ball&#39;s." alt="" coords="1595,123,1677,149"/>
+<area shape="rect" id="node20" href="$utilities_8c.html#a8366b7edcbc333d94fa05535ab7184af" title="Calculates the time for sliding motion to stop for a ball." alt="" coords="1789,245,1897,272"/>
+<area shape="rect" id="node3" href="$evolve_8c.html#a54918714eb67c6beeac9b4e70dcec32d" title="Updates the motion of a ball over a specified time period." alt="" coords="1568,220,1704,247"/>
+<area shape="rect" id="node4" href="$simulate_8c.html#aed1e5d03d2f59f9308bc97702c93577c" title="Evolves the motion of all balls on the table over a specified time period." alt="" coords="843,240,942,267"/>
+<area shape="rect" id="node10" href="$utilities_8c.html#aa7b60acd35a7d23364aa9fcc1bd7c89e" title="Calculates the time for a linear cushion collision with a ball." alt="" coords="1245,181,1495,208"/>
+<area shape="rect" id="node5" href="$simulate_8c.html#ac23420edf5968c6121679d2a009f0809" title="Updates the physics simulation of the table over a specified time period." alt="" coords="673,240,789,267"/>
+<area shape="rect" id="node6" href="$playingController_8c.html#aa8a29eaaea16d53074ed404fe79294c0" title="Handles the playing controller." alt="" coords="445,240,625,267"/>
+<area shape="rect" id="node7" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="307,240,397,267"/>
+<area shape="rect" id="node8" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,240,259,267"/>
+<area shape="rect" id="node9" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,240,128,267"/>
+<area shape="rect" id="node11" href="$events_8c.html#ae2069e820ed131b38d776121eaa66b51" title="Finds the next collision event between a ball and a linear cushion on the table." alt="" coords="1001,174,1192,215"/>
+<area shape="rect" id="node12" href="$events_8c.html#ab58ba60736e19e4094180b548a0ad565" title="Finds the next event on the table." alt="" coords="837,123,948,149"/>
+<area shape="rect" id="node14" href="$utilities_8c.html#a00262457943146f3d292cd409099937b" title="Calculates the coefficients of a ball&#45;ball collision. This function calculates the coefficients of a ..." alt="" coords="1279,5,1461,32"/>
+<area shape="rect" id="node16" href="$utilities_8c.html#ac223ab756d084d6afe5d62e2198ca349" title="Calculates the coefficients of a ball&#45;circular cushion collision. This function calculates the coeffi..." alt="" coords="1257,57,1483,98"/>
+<area shape="rect" id="node18" href="$utilities_8c.html#a653a4c8f91bafdf128c08fa146197d14" title="Calculates the coefficients of a ball&#45;pocket collision. This function calculates the coefficients of ..." alt="" coords="1269,123,1471,149"/>
+<area shape="rect" id="node15" href="$events_8c.html#a19348c19f57f9b0fd7ba87b68e173ac9" title="Finds the next collision event between two balls on the table." alt="" coords="1007,5,1187,32"/>
+<area shape="rect" id="node17" href="$events_8c.html#a677ef20f45f38639c5d967279708cb15" title="Finds the next collision event between a ball and a circular cushion on the table." alt="" coords="996,57,1197,98"/>
+<area shape="rect" id="node19" href="$events_8c.html#a0eb960b68caca6c994f8684afb8e2450" title="Finds the next collision event between a ball and a pocket on the table." alt="" coords="997,123,1196,149"/>
+<area shape="rect" id="node21" href="$events_8c.html#aa71827be2c5e903049141fcafc7c6048" title="Updates the next transition event for a ball on the table." alt="" coords="1543,271,1729,297"/>
+<area shape="rect" id="node22" href="$resolver_8c.html#aa65d1d36ef508a9c90ee9c0bf11a7033" title="Resolves the given event on the table." alt="" coords="839,291,946,317"/>
+</map>

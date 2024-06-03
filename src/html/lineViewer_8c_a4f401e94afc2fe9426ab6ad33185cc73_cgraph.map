@@ -1,0 +1,5 @@
+<map id="drawThickLine" name="drawThickLine">
+<area shape="rect" id="node1" title="Draws a line with thickness using Bresenham&#39;s algorithm." alt="" coords="5,5,121,32"/>
+<area shape="rect" id="node2" href="$lineViewer_8c.html#a61ede810545788de68b63dba5f62bfed" title="Draws a line between two points with optional overlapping pixels." alt="" coords="169,5,301,32"/>
+<area shape="rect" id="node3" href="$graphics_8c.html#abcd14d829edc3257916bdcc1a9aca216" title="Draws a pixel." alt="" coords="349,5,441,32"/>
+</map>

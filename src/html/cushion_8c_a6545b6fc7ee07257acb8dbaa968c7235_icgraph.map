@@ -1,0 +1,10 @@
+<map id="CircularCushionNormal" name="CircularCushionNormal">
+<area shape="rect" id="node1" title="Computes the normal vector for a CircularCushion at the point of contact with a Ball." alt="" coords="1252,31,1424,57"/>
+<area shape="rect" id="node2" href="$resolver_8c.html#a0bac3c206b578787133c8eff2e74f197" title="Adjusts the position of a ball after a circular cushion collision." alt="" coords="992,5,1204,32"/>
+<area shape="rect" id="node3" href="$resolver_8c.html#aa65d1d36ef508a9c90ee9c0bf11a7033" title="Resolves the given event on the table." alt="" coords="837,31,944,57"/>
+<area shape="rect" id="node4" href="$simulate_8c.html#ac23420edf5968c6121679d2a009f0809" title="Updates the physics simulation of the table over a specified time period." alt="" coords="673,31,789,57"/>
+<area shape="rect" id="node5" href="$playingController_8c.html#aa8a29eaaea16d53074ed404fe79294c0" title="Handles the playing controller." alt="" coords="445,31,625,57"/>
+<area shape="rect" id="node6" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="307,31,397,57"/>
+<area shape="rect" id="node7" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,31,259,57"/>
+<area shape="rect" id="node8" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,31,128,57"/>
+</map>

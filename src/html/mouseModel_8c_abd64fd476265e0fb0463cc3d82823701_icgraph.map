@@ -1,0 +1,10 @@
+<map id="newMouse" name="newMouse">
+<area shape="rect" id="node1" title="Creates a new mouse." alt="" coords="808,81,900,108"/>
+<area shape="rect" id="node2" href="$menu_8c.html#ab948fc250bbf5f4724f5b4da60057ed0" title="Creates a new menu." alt="" coords="675,56,760,83"/>
+<area shape="rect" id="node8" href="$table_8c.html#a9ef30cef961ee374d50fc769b85cecb6" title="Creates and initializes a new Table structure with all necessary components such as players,..." alt="" coords="676,107,759,133"/>
+<area shape="rect" id="node3" href="$resources_8c.html#a2eb64140b7e3905c447f5afd9984b584" title="Loads the resources of the game." alt="" coords="307,5,424,32"/>
+<area shape="rect" id="node6" href="$menu_8c.html#a1334090f76660886ac3281ba3d1adf3b" title=" " alt="" coords="472,56,627,83"/>
+<area shape="rect" id="node4" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,31,259,57"/>
+<area shape="rect" id="node5" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,31,128,57"/>
+<area shape="rect" id="node7" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="320,56,411,83"/>
+</map>

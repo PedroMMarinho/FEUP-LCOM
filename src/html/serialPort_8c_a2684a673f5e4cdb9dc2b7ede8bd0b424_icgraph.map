@@ -1,0 +1,20 @@
+<map id="sp_read" name="sp_read">
+<area shape="rect" id="node1" title="Reads a byte from a serial port." alt="" coords="1700,157,1773,184"/>
+<area shape="rect" id="node2" href="$serialPort_8c.html#a6b314c8fafdfb986fed3e53443c2f21b" title="Receives data from the serial port." alt="" coords="1519,5,1649,32"/>
+<area shape="rect" id="node3" href="$serialPort_8c.html#af6cc263493df7caac7bd7d0be6b50635" title="Interrupt handler for the serial port." alt="" coords="1384,81,1440,108"/>
+<area shape="rect" id="node10" href="$serialPort_8c.html#ab074cb124f761ce458a7a56a1e75a501" title="Sends data stored in the queue." alt="" coords="1516,107,1652,133"/>
+<area shape="rect" id="node14" href="$serialPort_8c.html#ad9324ef1f8b45d2db10c8d4973bf01ad" title="Sets the bitrate of the serial port." alt="" coords="1541,157,1627,184"/>
+<area shape="rect" id="node15" href="$serialPort_8c.html#a8f1a0c52f5822536d1fa2a1358e972af" title="Initializes the serial port." alt="" coords="1379,183,1445,209"/>
+<area shape="rect" id="node16" href="$serialPort_8c.html#a753488e7d0873849b64417d09c6c07ce" title="Clears the serial port FIFO." alt="" coords="957,259,1033,285"/>
+<area shape="rect" id="node17" href="$serialPort_8c.html#a82faf7b16bf6c1fd8f7cc21484e0f9bb" title="Ends the serial port operation." alt="" coords="1550,309,1618,336"/>
+<area shape="rect" id="node4" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="307,157,397,184"/>
+<area shape="rect" id="node7" href="$menuController_8c.html#a5d84b8fe730b1a977edaa0dc6fdeb147" title=" " alt="" coords="663,81,840,108"/>
+<area shape="rect" id="node9" href="$serialPort_8c.html#a19c3e017bd5ab5a4be6b2fbacce9ac6a" title="Subscribes to the serial port interrupts." alt="" coords="1175,183,1282,209"/>
+<area shape="rect" id="node5" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,157,259,184"/>
+<area shape="rect" id="node6" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,157,128,184"/>
+<area shape="rect" id="node8" href="$menuController_8c.html#a7c7a58765cda0a55100ee122aa0d7fd8" title="Handles the menu controller." alt="" coords="445,81,615,108"/>
+<area shape="rect" id="node11" href="$serialPort_8c.html#a04c68f13c6a7d805abb74e7bab08affc" title="Sends a byte of data to the serial port." alt="" coords="1356,132,1468,159"/>
+<area shape="rect" id="node12" href="$serialPort_8c.html#abe861c4f2e91f92ffd0c315ac7b1afd3" title="Establishes a connection." alt="" coords="1149,132,1308,159"/>
+<area shape="rect" id="node13" href="$multiplayerController_8c.html#ac5da60925e615c083c873a2949c5b3bb" title="Handles the multiplayer connection." alt="" coords="888,132,1101,159"/>
+<area shape="rect" id="node18" href="$serialPort_8c.html#a9b9613cb71042e5f189b2b2d7d09e73e" title="Unsubscribes from the serial port interrupts." alt="" coords="690,284,813,311"/>
+</map>

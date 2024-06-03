@@ -1,0 +1,6 @@
+<map id="mouse_ih" name="mouse_ih">
+<area shape="rect" id="node1" title="Subscribes and enables Mouse interrupts." alt="" coords="5,31,91,57"/>
+<area shape="rect" id="node2" href="$kbc_8c.html#a2f6a01db9def32d154d8bbf0707efc32" title="Reads data from the output buffer." alt="" coords="139,5,277,32"/>
+<area shape="rect" id="node4" href="$mouse_8c.html#a88ea06f9a7da7857c3c0243e7633a6a0" title="Updates the packet with the new byte." alt="" coords="153,56,263,83"/>
+<area shape="rect" id="node3" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title="Reads a byte from a port." alt="" coords="325,5,424,32"/>
+</map>

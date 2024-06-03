@@ -1,0 +1,91 @@
+\hypertarget{playingController_8c}{}\doxysection{controllers/playing\+Controller.c File Reference}
+\label{playingController_8c}\index{controllers/playingController.c@{controllers/playingController.c}}
+{\ttfamily \#include \char`\"{}playing\+Controller.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../labs/graphics.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../labs/scancodes.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../model/button.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../model/player.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../physics/simulate.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../viewer/cue\+Viewer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../viewer/line\+Viewer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../xpms/ball.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}labs/rtc.\+h\char`\"{}}\newline
+Include dependency graph for playing\+Controller.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{playingController_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{states_8h_a275a67132f10277ada3a0ee3d616b647}{STATE}} \mbox{\hyperlink{playingController_8c_aa8a29eaaea16d53074ed404fe79294c0}{playing\+Controller\+Handle}} (\mbox{\hyperlink{structTable}{Table}} $\ast$table, \mbox{\hyperlink{states_8h_a833b28f90e109607cd5d9e826474893a}{DEVICE}} interrupt\+Type, const struct \mbox{\hyperlink{mouse_8c_aa93413b717e8f22525818b0f5efdd448}{packet}} $\ast$\mbox{\hyperlink{mouse_8c_aa93413b717e8f22525818b0f5efdd448}{packet}}, uint8\+\_\+t scan\+Code, unsigned \mbox{\hyperlink{timer_8c_a4bd3978f9fa83a0e08225dca54a00eb6}{elapsed}})
+\begin{DoxyCompactList}\small\item\em Handles the playing controller. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{playingController_8c_a277fdb063302367ffbfd19204c88a3cd}{reset\+Round}} (\mbox{\hyperlink{structTable}{Table}} $\ast$table)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{playingController_8c_aa8a29eaaea16d53074ed404fe79294c0}\label{playingController_8c_aa8a29eaaea16d53074ed404fe79294c0}} 
+\index{playingController.c@{playingController.c}!playingControllerHandle@{playingControllerHandle}}
+\index{playingControllerHandle@{playingControllerHandle}!playingController.c@{playingController.c}}
+\doxysubsubsection{\texorpdfstring{playingControllerHandle()}{playingControllerHandle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{states_8h_a275a67132f10277ada3a0ee3d616b647}{STATE}} playing\+Controller\+Handle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table,  }\item[{\mbox{\hyperlink{states_8h_a833b28f90e109607cd5d9e826474893a}{DEVICE}}}]{interrupt\+Type,  }\item[{const struct \mbox{\hyperlink{mouse_8c_aa93413b717e8f22525818b0f5efdd448}{packet}} $\ast$}]{packet,  }\item[{uint8\+\_\+t}]{scan\+Code,  }\item[{unsigned}]{elapsed }\end{DoxyParamCaption})}
+
+
+
+Handles the playing controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & \mbox{\hyperlink{structTable}{Table}} to be handled \\
+\hline
+{\em interrupt\+Type} & Type of interrupt \\
+\hline
+{\em packet} & Packet to be handled \\
+\hline
+{\em scan\+Code} & Scan code to be handled \\
+\hline
+{\em elapsed} & Time elapsed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+STATE Next state 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{playingController_8c_aa8a29eaaea16d53074ed404fe79294c0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{playingController_8c_aa8a29eaaea16d53074ed404fe79294c0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{playingController_8c_a277fdb063302367ffbfd19204c88a3cd}\label{playingController_8c_a277fdb063302367ffbfd19204c88a3cd}} 
+\index{playingController.c@{playingController.c}!resetRound@{resetRound}}
+\index{resetRound@{resetRound}!playingController.c@{playingController.c}}
+\doxysubsubsection{\texorpdfstring{resetRound()}{resetRound()}}
+{\footnotesize\ttfamily void reset\+Round (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{playingController_8c_a277fdb063302367ffbfd19204c88a3cd_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{playingController_8c_a277fdb063302367ffbfd19204c88a3cd_icgraph}
+\end{center}
+\end{figure}

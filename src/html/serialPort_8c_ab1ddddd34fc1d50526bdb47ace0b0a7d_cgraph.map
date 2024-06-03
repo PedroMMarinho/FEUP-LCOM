@@ -1,0 +1,5 @@
+<map id="resetMultiplayer" name="resetMultiplayer">
+<area shape="rect" id="node1" title="Resets the multiplayer state." alt="" coords="5,5,135,32"/>
+<area shape="rect" id="node2" href="$queue_8c.html#a61cadecf97e5deb315c0df2ba4d9a70f" title="pop a value from the queue" alt="" coords="183,5,276,32"/>
+<area shape="rect" id="node3" href="$queue_8c.html#ab24e6cf27bfe70fd3f103d8e97ca0407" title="check if the queue is empty" alt="" coords="324,5,447,32"/>
+</map>

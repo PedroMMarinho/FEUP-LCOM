@@ -1,0 +1,6 @@
+<map id="drawMenuMouse" name="drawMenuMouse">
+<area shape="rect" id="node1" title="Draws the mouse cursor in the menu." alt="" coords="5,31,139,57"/>
+<area shape="rect" id="node2" href="$graphics_8c.html#ad4efe9c8fe8912ecd65c5fc512c15d03" title="Draws an XPM image." alt="" coords="187,31,311,57"/>
+<area shape="rect" id="node3" href="$utilities_8c.html#a70076007e8799fb3b48697e26eda5390" title="Calculates the angle of a vector." alt="" coords="375,5,434,32"/>
+<area shape="rect" id="node4" href="$graphics_8c.html#abcd14d829edc3257916bdcc1a9aca216" title="Draws a pixel." alt="" coords="359,56,451,83"/>
+</map>

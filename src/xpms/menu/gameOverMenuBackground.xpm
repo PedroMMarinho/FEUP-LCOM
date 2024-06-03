@@ -1,5 +1,5 @@
 /* XPM */
-static char *gameOverMenuBackground[] = {
+static xpm_row_t const gameOverMenuBackgroundXpm[] = {
 /* columns rows colors chars-per-pixel */
 "1024 768 256 2 ",
 "   c #010000",

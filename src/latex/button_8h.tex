@@ -1,0 +1,138 @@
+\hypertarget{button_8h}{}\doxysection{model/button.h File Reference}
+\label{button_8h}\index{model/button.h@{model/button.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}vector.\+h\char`\"{}}\newline
+Include dependency graph for button.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{button_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{button_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structButton}{Button}}
+\begin{DoxyCompactList}\small\item\em Struct that represents a button. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structButton}{Button}} \mbox{\hyperlink{button_8h_aabbec029df4131b530b45fc227cfddcc}{Button}}
+\begin{DoxyCompactList}\small\item\em Struct that represents a button. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structButton}{Button}} $\ast$ \mbox{\hyperlink{button_8h_aeff68f874f7eaefce311ff7a714d2444}{new\+Button}} (xpm\+\_\+image\+\_\+t img, xpm\+\_\+image\+\_\+t img\+Selected, \mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} position, \mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} size)
+\begin{DoxyCompactList}\small\item\em Creates a new button. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{button_8h_a35aed4a2d403e0d35ea6f353e9e318f8}{destroy\+Button}} (\mbox{\hyperlink{structButton}{Button}} $\ast$button)
+\begin{DoxyCompactList}\small\item\em Frees the memory allocated for the button. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{button_8h_a4531a1a97d752ad9c83e77897e17f4b5}{is\+Mouse\+Over\+Button}} (\mbox{\hyperlink{structButton}{Button}} $\ast$button, \mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} mouse\+Pos)
+\begin{DoxyCompactList}\small\item\em Checks if the mouse cursor is over a button. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{button_8h_aabbec029df4131b530b45fc227cfddcc}\label{button_8h_aabbec029df4131b530b45fc227cfddcc}} 
+\index{button.h@{button.h}!Button@{Button}}
+\index{Button@{Button}!button.h@{button.h}}
+\doxysubsubsection{\texorpdfstring{Button}{Button}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structButton}{Button}} \mbox{\hyperlink{structButton}{Button}}}
+
+
+
+Struct that represents a button. 
+
+img -\/ xpm image of the button img\+Selected -\/ xpm image of the button when it is selected pos -\/ position of the button size -\/ size of the button selected -\/ true if the button is selected, false otherwise 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{button_8h_a35aed4a2d403e0d35ea6f353e9e318f8}\label{button_8h_a35aed4a2d403e0d35ea6f353e9e318f8}} 
+\index{button.h@{button.h}!destroyButton@{destroyButton}}
+\index{destroyButton@{destroyButton}!button.h@{button.h}}
+\doxysubsubsection{\texorpdfstring{destroyButton()}{destroyButton()}}
+{\footnotesize\ttfamily void destroy\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})}
+
+
+
+Frees the memory allocated for the button. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{structButton}{Button}} to be destroyed \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{button_8h_a35aed4a2d403e0d35ea6f353e9e318f8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{button_8h_a4531a1a97d752ad9c83e77897e17f4b5}\label{button_8h_a4531a1a97d752ad9c83e77897e17f4b5}} 
+\index{button.h@{button.h}!isMouseOverButton@{isMouseOverButton}}
+\index{isMouseOverButton@{isMouseOverButton}!button.h@{button.h}}
+\doxysubsubsection{\texorpdfstring{isMouseOverButton()}{isMouseOverButton()}}
+{\footnotesize\ttfamily bool is\+Mouse\+Over\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structButton}{Button}} $\ast$}]{button,  }\item[{\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}}}]{mouse\+Pos }\end{DoxyParamCaption})}
+
+
+
+Checks if the mouse cursor is over a button. 
+
+This function determines if the mouse cursor, given its position, is currently over a button.
+
+
+\begin{DoxyParams}{Parameters}
+{\em button} & Pointer to the \mbox{\hyperlink{structButton}{Button}} structure representing the button. \\
+\hline
+{\em mouse\+Pos} & The current position of the mouse cursor as a vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the mouse cursor is over the button, false otherwise. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{button_8h_a4531a1a97d752ad9c83e77897e17f4b5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{button_8h_aeff68f874f7eaefce311ff7a714d2444}\label{button_8h_aeff68f874f7eaefce311ff7a714d2444}} 
+\index{button.h@{button.h}!newButton@{newButton}}
+\index{newButton@{newButton}!button.h@{button.h}}
+\doxysubsubsection{\texorpdfstring{newButton()}{newButton()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structButton}{Button}}$\ast$ new\+Button (\begin{DoxyParamCaption}\item[{xpm\+\_\+image\+\_\+t}]{img,  }\item[{xpm\+\_\+image\+\_\+t}]{img\+Selected,  }\item[{\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}}}]{position,  }\item[{\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}}}]{size }\end{DoxyParamCaption})}
+
+
+
+Creates a new button. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & xpm image of the button \\
+\hline
+{\em img\+Selected} & xpm image of the button when it is selected \\
+\hline
+{\em position} & position of the button \\
+\hline
+{\em size} & size of the button \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Button$\ast$ Pointer to the button 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{button_8h_aeff68f874f7eaefce311ff7a714d2444_icgraph}
+\end{center}
+\end{figure}

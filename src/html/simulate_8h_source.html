@@ -69,18 +69,22 @@ $(function() {
 <div class="title">simulate.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<a href="simulate_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;lcom/lcf.h&gt;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;../model/table.h&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;../model/event.h&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordtype">void</span> processShot(Table* table);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordtype">void</span> <a class="code" href="simulate_8h.html#a3e9f071356d822dbe64df6a9c4428b9a">processShot</a>(<a class="code" href="structTable.html">Table</a>* table);</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">bool</span> updatePhysics(Table* table, <span class="keywordtype">double</span> dt);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="simulate_8h.html#ac23420edf5968c6121679d2a009f0809">updatePhysics</a>(<a class="code" href="structTable.html">Table</a>* table, <span class="keywordtype">double</span> dt);</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">void</span> evolveBalls(Table *table, <span class="keywordtype">double</span> time);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">void</span> <a class="code" href="simulate_8h.html#aed1e5d03d2f59f9308bc97702c93577c">evolveBalls</a>(<a class="code" href="structTable.html">Table</a> *table, <span class="keywordtype">double</span> time);</div>
+<div class="ttc" id="asimulate_8h_html_a3e9f071356d822dbe64df6a9c4428b9a"><div class="ttname"><a href="simulate_8h.html#a3e9f071356d822dbe64df6a9c4428b9a">processShot</a></div><div class="ttdeci">void processShot(Table *table)</div><div class="ttdoc">Initializes the shot event, setting the stick ball as the first event in the simulation.</div><div class="ttdef"><b>Definition:</b> simulate.c:7</div></div>
+<div class="ttc" id="asimulate_8h_html_ac23420edf5968c6121679d2a009f0809"><div class="ttname"><a href="simulate_8h.html#ac23420edf5968c6121679d2a009f0809">updatePhysics</a></div><div class="ttdeci">bool updatePhysics(Table *table, double dt)</div><div class="ttdoc">Updates the physics simulation of the table over a specified time period.</div><div class="ttdef"><b>Definition:</b> simulate.c:12</div></div>
+<div class="ttc" id="asimulate_8h_html_aed1e5d03d2f59f9308bc97702c93577c"><div class="ttname"><a href="simulate_8h.html#aed1e5d03d2f59f9308bc97702c93577c">evolveBalls</a></div><div class="ttdeci">void evolveBalls(Table *table, double time)</div><div class="ttdoc">Evolves the motion of all balls on the table over a specified time period.</div><div class="ttdef"><b>Definition:</b> simulate.c:39</div></div>
+<div class="ttc" id="astructTable_html"><div class="ttname"><a href="structTable.html">Table</a></div><div class="ttdoc">Struct that represents the table(when playing)</div><div class="ttdef"><b>Definition:</b> table.h:30</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

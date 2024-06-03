@@ -1,0 +1,4 @@
+<map id="printEvent" name="printEvent">
+<area shape="rect" id="node1" title="Prints the details of an event." alt="" coords="5,5,95,32"/>
+<area shape="rect" id="node2" href="$utilities_8c.html#a4eb7e31dfb51a3c980f601932a804656" title="Prints a floating&#45;point number." alt="" coords="143,5,228,32"/>
+</map>

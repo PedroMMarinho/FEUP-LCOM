@@ -1,0 +1,6 @@
+<map id="getNextTransition" name="getNextTransition">
+<area shape="rect" id="node1" title="Finds the next transition event for a ball on the table." alt="" coords="5,31,143,57"/>
+<area shape="rect" id="node2" href="$event_8c.html#a8e151bee848e27b9e1791521d38b54c5" title="Creates a new invalid event." alt="" coords="191,5,321,32"/>
+<area shape="rect" id="node3" href="$utilities_8c.html#ab713552cfd027e60a8e16368280d144c" title="Prints the details of an event." alt="" coords="211,56,301,83"/>
+<area shape="rect" id="node4" href="$utilities_8c.html#a4eb7e31dfb51a3c980f601932a804656" title="Prints a floating&#45;point number." alt="" coords="369,56,455,83"/>
+</map>

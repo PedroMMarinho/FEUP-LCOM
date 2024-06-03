@@ -1,0 +1,8 @@
+<map id="sp_bitrate" name="sp_bitrate">
+<area shape="rect" id="node1" title="Sets the bitrate of the serial port." alt="" coords="5,81,92,108"/>
+<area shape="rect" id="node2" href="$serialPort_8c.html#a2684a673f5e4cdb9dc2b7ede8bd0b424" title="Reads a byte from a serial port." alt="" coords="157,5,230,32"/>
+<area shape="rect" id="node4" href="$serialPort_8c.html#a098cd912055172cb22fd2049f724a0d6" title="Writes a byte to a serial port." alt="" coords="155,56,232,83"/>
+<area shape="rect" id="node5" href="$utils_8c.html#a81621440b3d65680979425e39aa8c789" title="Gets the least significant byte of a value." alt="" coords="142,107,245,133"/>
+<area shape="rect" id="node6" href="$utils_8c.html#a6a880076cd2ec468834438b6e0c58836" title="Gets the most significant byte of a value." alt="" coords="140,157,247,184"/>
+<area shape="rect" id="node3" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title="Reads a byte from a port." alt="" coords="295,5,393,32"/>
+</map>

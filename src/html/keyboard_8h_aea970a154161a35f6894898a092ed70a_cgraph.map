@@ -1,0 +1,5 @@
+<map id="kbc_ih" name="kbc_ih">
+<area shape="rect" id="node1" title="Subscribes and enables Keyboard interrupts." alt="" coords="5,5,69,32"/>
+<area shape="rect" id="node2" href="$kbc_8c.html#a2f6a01db9def32d154d8bbf0707efc32" title="Reads data from the output buffer." alt="" coords="117,5,256,32"/>
+<area shape="rect" id="node3" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title="Reads a byte from a port." alt="" coords="304,5,403,32"/>
+</map>

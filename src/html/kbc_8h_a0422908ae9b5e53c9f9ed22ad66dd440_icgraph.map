@@ -1,0 +1,8 @@
+<map id="kbc_write_args" name="kbc_write_args">
+<area shape="rect" id="node1" title="Writes arguments to the KBC." alt="" coords="863,5,983,32"/>
+<area shape="rect" id="node2" href="$kbc_8c.html#aeabc46cec65688a9bf3760812ac4ba54" title="Issues a command to the keyboard controller (KBC)." alt="" coords="656,5,815,32"/>
+<area shape="rect" id="node3" href="$mouse_8c.html#a630c5bb9cbfcca20fac7347ff46794dc" title="Disables data reporting." alt="" coords="445,5,608,32"/>
+<area shape="rect" id="node4" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="307,5,397,32"/>
+<area shape="rect" id="node5" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,5,259,32"/>
+<area shape="rect" id="node6" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,5,128,32"/>
+</map>

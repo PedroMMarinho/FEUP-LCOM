@@ -1,0 +1,7 @@
+<map id="newGameOverMenu" name="newGameOverMenu">
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,160,57"/>
+<area shape="rect" id="node2" href="$menu_8c.html#ab948fc250bbf5f4724f5b4da60057ed0" title="Creates a new menu." alt="" coords="208,31,293,57"/>
+<area shape="rect" id="node3" href="$mouseModel_8c.html#abd64fd476265e0fb0463cc3d82823701" title="Creates a new mouse." alt="" coords="349,5,441,32"/>
+<area shape="rect" id="node4" href="$menu_8c.html#a6cd6e09dbb9ccefcb024e29d193f4b5a" title="Sets the type of the menu." alt="" coords="341,56,449,83"/>
+<area shape="rect" id="node5" href="$button_8c.html#afd6037293acc3a96469827641ba451ef" title="Creates a new button." alt="" coords="497,56,589,83"/>
+</map>

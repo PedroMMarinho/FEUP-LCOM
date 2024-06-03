@@ -1,0 +1,274 @@
+\hypertarget{structTable}{}\doxysection{Table Struct Reference}
+\label{structTable}\index{Table@{Table}}
+
+
+Struct that represents the table(when playing)  
+
+
+
+
+{\ttfamily \#include $<$table.\+h$>$}
+
+
+
+Collaboration diagram for Table\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structTable__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+xpm\+\_\+image\+\_\+t \mbox{\hyperlink{structTable_ac7ac20d3f8648f1b062339c1cac9481a}{img}}
+\item 
+xpm\+\_\+image\+\_\+t \mbox{\hyperlink{structTable_a421b7003d92c59232bb6573c8bc0c928}{ui}}
+\item 
+xpm\+\_\+image\+\_\+t \mbox{\hyperlink{structTable_ab209cf6b8070f1ea40db0d489a92c70b}{spin\+Circle}}
+\item 
+xpm\+\_\+image\+\_\+t \mbox{\hyperlink{structTable_a63861e369c0053179b79f806875a77e4}{cursor}}
+\item 
+\mbox{\hyperlink{structButton}{Button}} $\ast$ \mbox{\hyperlink{structTable_a1cbe9fb8808487e9208b60117f37e267}{exit\+Button}}
+\item 
+bool \mbox{\hyperlink{structTable_a7b933a19ebdc05575e9fbad790ae63fe}{exit\+Selected}}
+\item 
+\mbox{\hyperlink{structLinearCushion}{Linear\+Cushion}} $\ast$ \mbox{\hyperlink{structTable_ab0981e34fae3b087e822b7ed75954451}{linear\+Cushions}} \mbox{[}6\mbox{]}
+\item 
+\mbox{\hyperlink{structCircularCushion}{Circular\+Cushion}} $\ast$ \mbox{\hyperlink{structTable_a26998269458ff5e809cc4bc1acab607b}{circular\+Cushions}} \mbox{[}12\mbox{]}
+\item 
+\mbox{\hyperlink{structPocket}{Pocket}} $\ast$ \mbox{\hyperlink{structTable_a86f64896ea7109c923e57f980ef5b27f}{pockets}} \mbox{[}6\mbox{]}
+\item 
+\mbox{\hyperlink{structBall}{Ball}} $\ast$$\ast$ \mbox{\hyperlink{structTable_a728339c40828bdc94ab8d7ac0651e3e6}{balls}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structTable_a5a0fb8706b6e0768e6c903c32d8d7002}{ball\+Number}}
+\item 
+\mbox{\hyperlink{table_8h_a4cc39f049df62b331976f9a4482bd3ea}{GAME\+\_\+\+STATE}} \mbox{\hyperlink{structTable_a93ee9a3db7443eec8e2f15c5ddb40ee9}{state}}
+\item 
+\mbox{\hyperlink{structMouse}{Mouse}} $\ast$ \mbox{\hyperlink{structTable_a6aaebf8e6da8883d84a65ec5a4eb02b4}{mouse}}
+\item 
+\mbox{\hyperlink{structCue}{Cue}} $\ast$ \mbox{\hyperlink{structTable_a145b1dff907feb85179c1d02dc3c8677}{cue}}
+\item 
+double \mbox{\hyperlink{structTable_a27874474c02486928dcd2536949f1567}{max\+Speed\+Shot}}
+\item 
+\mbox{\hyperlink{structPlayer}{Player}} $\ast$ \mbox{\hyperlink{structTable_ab77a808ba15861d27ddf8e6ecd029d96}{player1}}
+\item 
+\mbox{\hyperlink{structPlayer}{Player}} $\ast$ \mbox{\hyperlink{structTable_a1322ec854ecc6ea909be244c51761969}{player2}}
+\item 
+bool \mbox{\hyperlink{structTable_a64faef7ac86dff909c05e8bc80970eb6}{player1\+Won}}
+\item 
+\mbox{\hyperlink{structBall}{Ball}} $\ast$ \mbox{\hyperlink{structTable_aab0bd3cb473ab4dee036a02f553bae39}{first\+Ball\+Hit}}
+\item 
+bool \mbox{\hyperlink{structTable_a576c9e7045f642e3f2e241b9e1eef8f0}{pocketed\+Own\+Ball}}
+\item 
+double \mbox{\hyperlink{structTable_a8a417fab03d989f275b288e9301d494c}{sliding\+Friction}}
+\item 
+double \mbox{\hyperlink{structTable_abd996e7a7bf6145a45b942fd7a85b320}{spinning\+Friction}}
+\item 
+double \mbox{\hyperlink{structTable_aa921acd35636eef175fef650e6592ecd}{rolling\+Friction}}
+\item 
+double \mbox{\hyperlink{structTable_a51126898052fbedc4999d619808718b7}{gravity\+Acceleration}}
+\item 
+double \mbox{\hyperlink{structTable_a46528dbe13e1535cc455cfc763abc54c}{cushion\+Restitution}}
+\item 
+double \mbox{\hyperlink{structTable_a4d15f9e382e0ffcdd971058fb02337ab}{cushion\+Friction}}
+\item 
+size\+\_\+t \mbox{\hyperlink{structTable_a5a7d44e2424dfcbc197e80d7408c3c4a}{ball\+Radius}}
+\item 
+xpm\+\_\+image\+\_\+t $\ast$ \mbox{\hyperlink{structTable_ac56aca987243d588297cf40266f38e24}{font}}
+\item 
+char $\ast$ \mbox{\hyperlink{structTable_a6aa25a6d087a83d9d4b443b2e0c26b37}{winning\+Player\+Name}}
+\item 
+\mbox{\hyperlink{structEvent}{Event}} \mbox{\hyperlink{structTable_aa0207c69bb366795986e4870b47db3e9}{next\+Event}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Struct that represents the table(when playing) 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structTable_a5a0fb8706b6e0768e6c903c32d8d7002}\label{structTable_a5a0fb8706b6e0768e6c903c32d8d7002}} 
+\index{Table@{Table}!ballNumber@{ballNumber}}
+\index{ballNumber@{ballNumber}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{ballNumber}{ballNumber}}
+{\footnotesize\ttfamily uint8\+\_\+t Table\+::ball\+Number}
+
+\mbox{\Hypertarget{structTable_a5a7d44e2424dfcbc197e80d7408c3c4a}\label{structTable_a5a7d44e2424dfcbc197e80d7408c3c4a}} 
+\index{Table@{Table}!ballRadius@{ballRadius}}
+\index{ballRadius@{ballRadius}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{ballRadius}{ballRadius}}
+{\footnotesize\ttfamily size\+\_\+t Table\+::ball\+Radius}
+
+\mbox{\Hypertarget{structTable_a728339c40828bdc94ab8d7ac0651e3e6}\label{structTable_a728339c40828bdc94ab8d7ac0651e3e6}} 
+\index{Table@{Table}!balls@{balls}}
+\index{balls@{balls}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{balls}{balls}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structBall}{Ball}}$\ast$$\ast$ Table\+::balls}
+
+\mbox{\Hypertarget{structTable_a26998269458ff5e809cc4bc1acab607b}\label{structTable_a26998269458ff5e809cc4bc1acab607b}} 
+\index{Table@{Table}!circularCushions@{circularCushions}}
+\index{circularCushions@{circularCushions}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{circularCushions}{circularCushions}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCircularCushion}{Circular\+Cushion}}$\ast$ Table\+::circular\+Cushions\mbox{[}12\mbox{]}}
+
+\mbox{\Hypertarget{structTable_a145b1dff907feb85179c1d02dc3c8677}\label{structTable_a145b1dff907feb85179c1d02dc3c8677}} 
+\index{Table@{Table}!cue@{cue}}
+\index{cue@{cue}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{cue}{cue}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCue}{Cue}}$\ast$ Table\+::cue}
+
+\mbox{\Hypertarget{structTable_a63861e369c0053179b79f806875a77e4}\label{structTable_a63861e369c0053179b79f806875a77e4}} 
+\index{Table@{Table}!cursor@{cursor}}
+\index{cursor@{cursor}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{cursor}{cursor}}
+{\footnotesize\ttfamily xpm\+\_\+image\+\_\+t Table\+::cursor}
+
+\mbox{\Hypertarget{structTable_a4d15f9e382e0ffcdd971058fb02337ab}\label{structTable_a4d15f9e382e0ffcdd971058fb02337ab}} 
+\index{Table@{Table}!cushionFriction@{cushionFriction}}
+\index{cushionFriction@{cushionFriction}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{cushionFriction}{cushionFriction}}
+{\footnotesize\ttfamily double Table\+::cushion\+Friction}
+
+\mbox{\Hypertarget{structTable_a46528dbe13e1535cc455cfc763abc54c}\label{structTable_a46528dbe13e1535cc455cfc763abc54c}} 
+\index{Table@{Table}!cushionRestitution@{cushionRestitution}}
+\index{cushionRestitution@{cushionRestitution}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{cushionRestitution}{cushionRestitution}}
+{\footnotesize\ttfamily double Table\+::cushion\+Restitution}
+
+\mbox{\Hypertarget{structTable_a1cbe9fb8808487e9208b60117f37e267}\label{structTable_a1cbe9fb8808487e9208b60117f37e267}} 
+\index{Table@{Table}!exitButton@{exitButton}}
+\index{exitButton@{exitButton}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{exitButton}{exitButton}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structButton}{Button}}$\ast$ Table\+::exit\+Button}
+
+\mbox{\Hypertarget{structTable_a7b933a19ebdc05575e9fbad790ae63fe}\label{structTable_a7b933a19ebdc05575e9fbad790ae63fe}} 
+\index{Table@{Table}!exitSelected@{exitSelected}}
+\index{exitSelected@{exitSelected}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{exitSelected}{exitSelected}}
+{\footnotesize\ttfamily bool Table\+::exit\+Selected}
+
+\mbox{\Hypertarget{structTable_aab0bd3cb473ab4dee036a02f553bae39}\label{structTable_aab0bd3cb473ab4dee036a02f553bae39}} 
+\index{Table@{Table}!firstBallHit@{firstBallHit}}
+\index{firstBallHit@{firstBallHit}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{firstBallHit}{firstBallHit}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structBall}{Ball}}$\ast$ Table\+::first\+Ball\+Hit}
+
+\mbox{\Hypertarget{structTable_ac56aca987243d588297cf40266f38e24}\label{structTable_ac56aca987243d588297cf40266f38e24}} 
+\index{Table@{Table}!font@{font}}
+\index{font@{font}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{font}{font}}
+{\footnotesize\ttfamily xpm\+\_\+image\+\_\+t$\ast$ Table\+::font}
+
+\mbox{\Hypertarget{structTable_a51126898052fbedc4999d619808718b7}\label{structTable_a51126898052fbedc4999d619808718b7}} 
+\index{Table@{Table}!gravityAcceleration@{gravityAcceleration}}
+\index{gravityAcceleration@{gravityAcceleration}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{gravityAcceleration}{gravityAcceleration}}
+{\footnotesize\ttfamily double Table\+::gravity\+Acceleration}
+
+\mbox{\Hypertarget{structTable_ac7ac20d3f8648f1b062339c1cac9481a}\label{structTable_ac7ac20d3f8648f1b062339c1cac9481a}} 
+\index{Table@{Table}!img@{img}}
+\index{img@{img}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{img}{img}}
+{\footnotesize\ttfamily xpm\+\_\+image\+\_\+t Table\+::img}
+
+\mbox{\Hypertarget{structTable_ab0981e34fae3b087e822b7ed75954451}\label{structTable_ab0981e34fae3b087e822b7ed75954451}} 
+\index{Table@{Table}!linearCushions@{linearCushions}}
+\index{linearCushions@{linearCushions}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{linearCushions}{linearCushions}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structLinearCushion}{Linear\+Cushion}}$\ast$ Table\+::linear\+Cushions\mbox{[}6\mbox{]}}
+
+\mbox{\Hypertarget{structTable_a27874474c02486928dcd2536949f1567}\label{structTable_a27874474c02486928dcd2536949f1567}} 
+\index{Table@{Table}!maxSpeedShot@{maxSpeedShot}}
+\index{maxSpeedShot@{maxSpeedShot}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{maxSpeedShot}{maxSpeedShot}}
+{\footnotesize\ttfamily double Table\+::max\+Speed\+Shot}
+
+\mbox{\Hypertarget{structTable_a6aaebf8e6da8883d84a65ec5a4eb02b4}\label{structTable_a6aaebf8e6da8883d84a65ec5a4eb02b4}} 
+\index{Table@{Table}!mouse@{mouse}}
+\index{mouse@{mouse}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{mouse}{mouse}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structMouse}{Mouse}}$\ast$ Table\+::mouse}
+
+\mbox{\Hypertarget{structTable_aa0207c69bb366795986e4870b47db3e9}\label{structTable_aa0207c69bb366795986e4870b47db3e9}} 
+\index{Table@{Table}!nextEvent@{nextEvent}}
+\index{nextEvent@{nextEvent}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{nextEvent}{nextEvent}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structEvent}{Event}} Table\+::next\+Event}
+
+\mbox{\Hypertarget{structTable_ab77a808ba15861d27ddf8e6ecd029d96}\label{structTable_ab77a808ba15861d27ddf8e6ecd029d96}} 
+\index{Table@{Table}!player1@{player1}}
+\index{player1@{player1}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{player1}{player1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPlayer}{Player}}$\ast$ Table\+::player1}
+
+\mbox{\Hypertarget{structTable_a64faef7ac86dff909c05e8bc80970eb6}\label{structTable_a64faef7ac86dff909c05e8bc80970eb6}} 
+\index{Table@{Table}!player1Won@{player1Won}}
+\index{player1Won@{player1Won}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{player1Won}{player1Won}}
+{\footnotesize\ttfamily bool Table\+::player1\+Won}
+
+\mbox{\Hypertarget{structTable_a1322ec854ecc6ea909be244c51761969}\label{structTable_a1322ec854ecc6ea909be244c51761969}} 
+\index{Table@{Table}!player2@{player2}}
+\index{player2@{player2}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{player2}{player2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPlayer}{Player}}$\ast$ Table\+::player2}
+
+\mbox{\Hypertarget{structTable_a576c9e7045f642e3f2e241b9e1eef8f0}\label{structTable_a576c9e7045f642e3f2e241b9e1eef8f0}} 
+\index{Table@{Table}!pocketedOwnBall@{pocketedOwnBall}}
+\index{pocketedOwnBall@{pocketedOwnBall}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{pocketedOwnBall}{pocketedOwnBall}}
+{\footnotesize\ttfamily bool Table\+::pocketed\+Own\+Ball}
+
+\mbox{\Hypertarget{structTable_a86f64896ea7109c923e57f980ef5b27f}\label{structTable_a86f64896ea7109c923e57f980ef5b27f}} 
+\index{Table@{Table}!pockets@{pockets}}
+\index{pockets@{pockets}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{pockets}{pockets}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPocket}{Pocket}}$\ast$ Table\+::pockets\mbox{[}6\mbox{]}}
+
+\mbox{\Hypertarget{structTable_aa921acd35636eef175fef650e6592ecd}\label{structTable_aa921acd35636eef175fef650e6592ecd}} 
+\index{Table@{Table}!rollingFriction@{rollingFriction}}
+\index{rollingFriction@{rollingFriction}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{rollingFriction}{rollingFriction}}
+{\footnotesize\ttfamily double Table\+::rolling\+Friction}
+
+\mbox{\Hypertarget{structTable_a8a417fab03d989f275b288e9301d494c}\label{structTable_a8a417fab03d989f275b288e9301d494c}} 
+\index{Table@{Table}!slidingFriction@{slidingFriction}}
+\index{slidingFriction@{slidingFriction}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{slidingFriction}{slidingFriction}}
+{\footnotesize\ttfamily double Table\+::sliding\+Friction}
+
+\mbox{\Hypertarget{structTable_ab209cf6b8070f1ea40db0d489a92c70b}\label{structTable_ab209cf6b8070f1ea40db0d489a92c70b}} 
+\index{Table@{Table}!spinCircle@{spinCircle}}
+\index{spinCircle@{spinCircle}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{spinCircle}{spinCircle}}
+{\footnotesize\ttfamily xpm\+\_\+image\+\_\+t Table\+::spin\+Circle}
+
+\mbox{\Hypertarget{structTable_abd996e7a7bf6145a45b942fd7a85b320}\label{structTable_abd996e7a7bf6145a45b942fd7a85b320}} 
+\index{Table@{Table}!spinningFriction@{spinningFriction}}
+\index{spinningFriction@{spinningFriction}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{spinningFriction}{spinningFriction}}
+{\footnotesize\ttfamily double Table\+::spinning\+Friction}
+
+\mbox{\Hypertarget{structTable_a93ee9a3db7443eec8e2f15c5ddb40ee9}\label{structTable_a93ee9a3db7443eec8e2f15c5ddb40ee9}} 
+\index{Table@{Table}!state@{state}}
+\index{state@{state}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily \mbox{\hyperlink{table_8h_a4cc39f049df62b331976f9a4482bd3ea}{GAME\+\_\+\+STATE}} Table\+::state}
+
+\mbox{\Hypertarget{structTable_a421b7003d92c59232bb6573c8bc0c928}\label{structTable_a421b7003d92c59232bb6573c8bc0c928}} 
+\index{Table@{Table}!ui@{ui}}
+\index{ui@{ui}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{ui}{ui}}
+{\footnotesize\ttfamily xpm\+\_\+image\+\_\+t Table\+::ui}
+
+\mbox{\Hypertarget{structTable_a6aa25a6d087a83d9d4b443b2e0c26b37}\label{structTable_a6aa25a6d087a83d9d4b443b2e0c26b37}} 
+\index{Table@{Table}!winningPlayerName@{winningPlayerName}}
+\index{winningPlayerName@{winningPlayerName}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{winningPlayerName}{winningPlayerName}}
+{\footnotesize\ttfamily char$\ast$ Table\+::winning\+Player\+Name}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+model/\mbox{\hyperlink{table_8h}{table.\+h}}\end{DoxyCompactItemize}

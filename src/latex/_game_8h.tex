@@ -1,0 +1,51 @@
+\doxysection{Game.\+h File Reference}
+\hypertarget{_game_8h}{}\label{_game_8h}\index{Game.h@{Game.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include "{}resources.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_game_8h_a9466a53aca2dcb5a4d1e94b8d28f4911}{game\+Loop}} (\mbox{\hyperlink{struct_resources}{Resources}} \texorpdfstring{$\ast$}{*}resources)
+\begin{DoxyCompactList}\small\item\em Main game loop. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_game_8h_af914d9c0c56eba0cd037f32d5af60cf1}{init\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_game_8h_a9466a53aca2dcb5a4d1e94b8d28f4911}\index{Game.h@{Game.h}!gameLoop@{gameLoop}}
+\index{gameLoop@{gameLoop}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{gameLoop()}{gameLoop()}}
+{\footnotesize\ttfamily \label{_game_8h_a9466a53aca2dcb5a4d1e94b8d28f4911} 
+int game\+Loop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_resources}{Resources}} \texorpdfstring{$\ast$}{*}}]{resources}{}\end{DoxyParamCaption})}
+
+
+
+Main game loop. 
+
+This function represents the main game loop which handles the different states of the game, such as MENU and PLAYING, and processes input from the I/O devices.
+
+
+\begin{DoxyParams}{Parameters}
+{\em resources} & Pointer to the resources structure containing the current game state and other game data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 0
+\Hypertarget{_game_8h_af914d9c0c56eba0cd037f32d5af60cf1}\index{Game.h@{Game.h}!initGame@{initGame}}
+\index{initGame@{initGame}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{initGame()}{initGame()}}
+{\footnotesize\ttfamily \label{_game_8h_af914d9c0c56eba0cd037f32d5af60cf1} 
+int init\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the game. 
+
+\begin{DoxyReturn}{Returns}
+int 0 if running, 1 otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 1

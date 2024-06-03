@@ -1,0 +1,7 @@
+<map id="handleInstructionsMenu" name="handleInstructionsMenu">
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,184,57"/>
+<area shape="rect" id="node2" href="$menu_8c.html#aceaa3d76e97718b10dcddd65545310e3" title="Resets the menu to its initial state." alt="" coords="241,5,331,32"/>
+<area shape="rect" id="node4" href="$menu_8c.html#a6cd6e09dbb9ccefcb024e29d193f4b5a" title="Sets the type of the menu." alt="" coords="232,56,340,83"/>
+<area shape="rect" id="node3" href="$button_8c.html#a35aed4a2d403e0d35ea6f353e9e318f8" title="Frees the memory allocated for the button." alt="" coords="388,5,503,32"/>
+<area shape="rect" id="node5" href="$button_8c.html#afd6037293acc3a96469827641ba451ef" title="Creates a new button." alt="" coords="399,56,491,83"/>
+</map>

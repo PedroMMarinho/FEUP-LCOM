@@ -1,0 +1,383 @@
+\hypertarget{ball_8h}{}\doxysection{model/ball/ball.h File Reference}
+\label{ball_8h}\index{model/ball/ball.h@{model/ball/ball.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../vector.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../event.\+h\char`\"{}}\newline
+Include dependency graph for ball.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{ball_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ball_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structBall}{Ball}}
+\begin{DoxyCompactList}\small\item\em Struct that represents the ball. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{ball_8h_a5f9731e24bb0c3914b5dc27550bc997f}{BALL\+\_\+\+STATE}} \mbox{\hyperlink{ball_8h_a1569ebf82bfe32da2459e984e2882fb1}{BALL\+\_\+\+STATE}}
+\begin{DoxyCompactList}\small\item\em Struct that represents the ball states. \end{DoxyCompactList}\item 
+typedef enum \mbox{\hyperlink{ball_8h_a78e92234b08dda608a7b0e67442835d0}{BALL\+\_\+\+TYPE}} \mbox{\hyperlink{ball_8h_a68d17b48eef5c4a8b122058b3ff6764a}{BALL\+\_\+\+TYPE}}
+\begin{DoxyCompactList}\small\item\em Enum that represents the type of ball. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structBall}{Ball}} \mbox{\hyperlink{ball_8h_af0cce33331cd6a83a38bc5cf07702394}{Ball}}
+\begin{DoxyCompactList}\small\item\em Struct that represents the ball. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{ball_8h_a5f9731e24bb0c3914b5dc27550bc997f}{BALL\+\_\+\+STATE}} \{ \newline
+\mbox{\hyperlink{ball_8h_a5f9731e24bb0c3914b5dc27550bc997fac84bd0ee013c388bd7cc8139be7206a2}{STATIONARY}}
+, \mbox{\hyperlink{ball_8h_a5f9731e24bb0c3914b5dc27550bc997fab05f0cc921c79560d0aec88747d59e0e}{SLIDING}}
+, \mbox{\hyperlink{ball_8h_a5f9731e24bb0c3914b5dc27550bc997fa1ac38e422ca210acba2919e5fcb5438f}{SPINNING}}
+, \mbox{\hyperlink{ball_8h_a5f9731e24bb0c3914b5dc27550bc997fa6ef35dc46162ecc9a020584148ddff88}{ROLLING}}
+, \newline
+\mbox{\hyperlink{ball_8h_a5f9731e24bb0c3914b5dc27550bc997fa678fa67e8b01dfc015542b5fcce31e7d}{POCKETED}}
+ \}
+\begin{DoxyCompactList}\small\item\em Struct that represents the ball states. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{ball_8h_a78e92234b08dda608a7b0e67442835d0}{BALL\+\_\+\+TYPE}} \{ \mbox{\hyperlink{ball_8h_a78e92234b08dda608a7b0e67442835d0a41e022ca5414595c876e3a6adbd8481b}{STRIPED}}
+, \mbox{\hyperlink{ball_8h_a78e92234b08dda608a7b0e67442835d0a1b45f84e1f6603b52e5ef442836df9af}{SOLID}}
+, \mbox{\hyperlink{ball_8h_a78e92234b08dda608a7b0e67442835d0af77fb67151d0c18d397069ad8c271ba3}{BLACK}}
+, \mbox{\hyperlink{ball_8h_a78e92234b08dda608a7b0e67442835d0a283fc479650da98250635b9c3c0e7e50}{WHITE}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enum that represents the type of ball. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structBall}{Ball}} $\ast$ \mbox{\hyperlink{ball_8h_a271805fc2d53ac02c90bdb5e0656fd50}{new\+Ball}} (\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} position, xpm\+\_\+image\+\_\+t img, \mbox{\hyperlink{ball_8h_a78e92234b08dda608a7b0e67442835d0}{BALL\+\_\+\+TYPE}} type)
+\begin{DoxyCompactList}\small\item\em Creates a new ball. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ball_8h_af00b389637859d07ef5f97152989aa6b}{destroy\+Ball}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball)
+\begin{DoxyCompactList}\small\item\em Destroys a \mbox{\hyperlink{structBall}{Ball}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} \mbox{\hyperlink{ball_8h_a6245e677d89c5b87045d82c03209f93b}{get\+Ball\+Position}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball)
+\begin{DoxyCompactList}\small\item\em Gets the position of the \mbox{\hyperlink{structBall}{Ball}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} \mbox{\hyperlink{ball_8h_af482c769b12ad680a23817eccac91d60}{get\+Ball\+Velocity}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball)
+\begin{DoxyCompactList}\small\item\em Gets the velocity of the \mbox{\hyperlink{structBall}{Ball}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structvector3__t}{vector3\+\_\+t}} \mbox{\hyperlink{ball_8h_a82d59b08173ac355686446c945ddaf1f}{get\+Ball\+Ang\+Velocity}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball)
+\begin{DoxyCompactList}\small\item\em Gets the angular velocity of the \mbox{\hyperlink{structBall}{Ball}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{ball_8h_a5f9731e24bb0c3914b5dc27550bc997f}{BALL\+\_\+\+STATE}} \mbox{\hyperlink{ball_8h_a4b33f035df87741a10f5d7aefacafb43}{get\+Ball\+State}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball)
+\begin{DoxyCompactList}\small\item\em Gets the state of the \mbox{\hyperlink{structBall}{Ball}}. \end{DoxyCompactList}\item 
+xpm\+\_\+image\+\_\+t \mbox{\hyperlink{ball_8h_a5562e5ec8e94dc559e7c2897aef911a4}{get\+Ball\+Image}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball)
+\begin{DoxyCompactList}\small\item\em Gets the image of the \mbox{\hyperlink{structBall}{Ball}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{ball_8h_a2ac73f5d578d7c5970ab34cfc719b931}{ball\+Not\+Moving}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball)
+\begin{DoxyCompactList}\small\item\em Checks if the \mbox{\hyperlink{structBall}{Ball}} is not moving. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{ball_8h_af0cce33331cd6a83a38bc5cf07702394}\label{ball_8h_af0cce33331cd6a83a38bc5cf07702394}} 
+\index{ball.h@{ball.h}!Ball@{Ball}}
+\index{Ball@{Ball}!ball.h@{ball.h}}
+\doxysubsubsection{\texorpdfstring{Ball}{Ball}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structBall}{Ball}} \mbox{\hyperlink{structBall}{Ball}}}
+
+
+
+Struct that represents the ball. 
+
+\mbox{\Hypertarget{ball_8h_a1569ebf82bfe32da2459e984e2882fb1}\label{ball_8h_a1569ebf82bfe32da2459e984e2882fb1}} 
+\index{ball.h@{ball.h}!BALL\_STATE@{BALL\_STATE}}
+\index{BALL\_STATE@{BALL\_STATE}!ball.h@{ball.h}}
+\doxysubsubsection{\texorpdfstring{BALL\_STATE}{BALL\_STATE}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{ball_8h_a5f9731e24bb0c3914b5dc27550bc997f}{BALL\+\_\+\+STATE}} \mbox{\hyperlink{ball_8h_a5f9731e24bb0c3914b5dc27550bc997f}{BALL\+\_\+\+STATE}}}
+
+
+
+Struct that represents the ball states. 
+
+\mbox{\Hypertarget{ball_8h_a68d17b48eef5c4a8b122058b3ff6764a}\label{ball_8h_a68d17b48eef5c4a8b122058b3ff6764a}} 
+\index{ball.h@{ball.h}!BALL\_TYPE@{BALL\_TYPE}}
+\index{BALL\_TYPE@{BALL\_TYPE}!ball.h@{ball.h}}
+\doxysubsubsection{\texorpdfstring{BALL\_TYPE}{BALL\_TYPE}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{ball_8h_a78e92234b08dda608a7b0e67442835d0}{BALL\+\_\+\+TYPE}} \mbox{\hyperlink{ball_8h_a78e92234b08dda608a7b0e67442835d0}{BALL\+\_\+\+TYPE}}}
+
+
+
+Enum that represents the type of ball. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{ball_8h_a5f9731e24bb0c3914b5dc27550bc997f}\label{ball_8h_a5f9731e24bb0c3914b5dc27550bc997f}} 
+\index{ball.h@{ball.h}!BALL\_STATE@{BALL\_STATE}}
+\index{BALL\_STATE@{BALL\_STATE}!ball.h@{ball.h}}
+\doxysubsubsection{\texorpdfstring{BALL\_STATE}{BALL\_STATE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ball_8h_a5f9731e24bb0c3914b5dc27550bc997f}{BALL\+\_\+\+STATE}}}
+
+
+
+Struct that represents the ball states. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATIONARY@{STATIONARY}!ball.h@{ball.h}}\index{ball.h@{ball.h}!STATIONARY@{STATIONARY}}}\mbox{\Hypertarget{ball_8h_a5f9731e24bb0c3914b5dc27550bc997fac84bd0ee013c388bd7cc8139be7206a2}\label{ball_8h_a5f9731e24bb0c3914b5dc27550bc997fac84bd0ee013c388bd7cc8139be7206a2}} 
+STATIONARY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SLIDING@{SLIDING}!ball.h@{ball.h}}\index{ball.h@{ball.h}!SLIDING@{SLIDING}}}\mbox{\Hypertarget{ball_8h_a5f9731e24bb0c3914b5dc27550bc997fab05f0cc921c79560d0aec88747d59e0e}\label{ball_8h_a5f9731e24bb0c3914b5dc27550bc997fab05f0cc921c79560d0aec88747d59e0e}} 
+SLIDING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPINNING@{SPINNING}!ball.h@{ball.h}}\index{ball.h@{ball.h}!SPINNING@{SPINNING}}}\mbox{\Hypertarget{ball_8h_a5f9731e24bb0c3914b5dc27550bc997fa1ac38e422ca210acba2919e5fcb5438f}\label{ball_8h_a5f9731e24bb0c3914b5dc27550bc997fa1ac38e422ca210acba2919e5fcb5438f}} 
+SPINNING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROLLING@{ROLLING}!ball.h@{ball.h}}\index{ball.h@{ball.h}!ROLLING@{ROLLING}}}\mbox{\Hypertarget{ball_8h_a5f9731e24bb0c3914b5dc27550bc997fa6ef35dc46162ecc9a020584148ddff88}\label{ball_8h_a5f9731e24bb0c3914b5dc27550bc997fa6ef35dc46162ecc9a020584148ddff88}} 
+ROLLING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{POCKETED@{POCKETED}!ball.h@{ball.h}}\index{ball.h@{ball.h}!POCKETED@{POCKETED}}}\mbox{\Hypertarget{ball_8h_a5f9731e24bb0c3914b5dc27550bc997fa678fa67e8b01dfc015542b5fcce31e7d}\label{ball_8h_a5f9731e24bb0c3914b5dc27550bc997fa678fa67e8b01dfc015542b5fcce31e7d}} 
+POCKETED&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{ball_8h_a78e92234b08dda608a7b0e67442835d0}\label{ball_8h_a78e92234b08dda608a7b0e67442835d0}} 
+\index{ball.h@{ball.h}!BALL\_TYPE@{BALL\_TYPE}}
+\index{BALL\_TYPE@{BALL\_TYPE}!ball.h@{ball.h}}
+\doxysubsubsection{\texorpdfstring{BALL\_TYPE}{BALL\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ball_8h_a78e92234b08dda608a7b0e67442835d0}{BALL\+\_\+\+TYPE}}}
+
+
+
+Enum that represents the type of ball. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STRIPED@{STRIPED}!ball.h@{ball.h}}\index{ball.h@{ball.h}!STRIPED@{STRIPED}}}\mbox{\Hypertarget{ball_8h_a78e92234b08dda608a7b0e67442835d0a41e022ca5414595c876e3a6adbd8481b}\label{ball_8h_a78e92234b08dda608a7b0e67442835d0a41e022ca5414595c876e3a6adbd8481b}} 
+STRIPED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SOLID@{SOLID}!ball.h@{ball.h}}\index{ball.h@{ball.h}!SOLID@{SOLID}}}\mbox{\Hypertarget{ball_8h_a78e92234b08dda608a7b0e67442835d0a1b45f84e1f6603b52e5ef442836df9af}\label{ball_8h_a78e92234b08dda608a7b0e67442835d0a1b45f84e1f6603b52e5ef442836df9af}} 
+SOLID&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLACK@{BLACK}!ball.h@{ball.h}}\index{ball.h@{ball.h}!BLACK@{BLACK}}}\mbox{\Hypertarget{ball_8h_a78e92234b08dda608a7b0e67442835d0af77fb67151d0c18d397069ad8c271ba3}\label{ball_8h_a78e92234b08dda608a7b0e67442835d0af77fb67151d0c18d397069ad8c271ba3}} 
+BLACK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WHITE@{WHITE}!ball.h@{ball.h}}\index{ball.h@{ball.h}!WHITE@{WHITE}}}\mbox{\Hypertarget{ball_8h_a78e92234b08dda608a7b0e67442835d0a283fc479650da98250635b9c3c0e7e50}\label{ball_8h_a78e92234b08dda608a7b0e67442835d0a283fc479650da98250635b9c3c0e7e50}} 
+WHITE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ball_8h_a2ac73f5d578d7c5970ab34cfc719b931}\label{ball_8h_a2ac73f5d578d7c5970ab34cfc719b931}} 
+\index{ball.h@{ball.h}!ballNotMoving@{ballNotMoving}}
+\index{ballNotMoving@{ballNotMoving}!ball.h@{ball.h}}
+\doxysubsubsection{\texorpdfstring{ballNotMoving()}{ballNotMoving()}}
+{\footnotesize\ttfamily bool ball\+Not\+Moving (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball }\end{DoxyParamCaption})}
+
+
+
+Checks if the \mbox{\hyperlink{structBall}{Ball}} is not moving. 
+
+This function checks if the \mbox{\hyperlink{structBall}{Ball}} is in a state where it is not moving, which includes being pocketed, stationary, or spinning.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball} & Pointer to the \mbox{\hyperlink{structBall}{Ball}} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True if the \mbox{\hyperlink{structBall}{Ball}} is not moving, false otherwise. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ball_8h_a2ac73f5d578d7c5970ab34cfc719b931_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ball_8h_af00b389637859d07ef5f97152989aa6b}\label{ball_8h_af00b389637859d07ef5f97152989aa6b}} 
+\index{ball.h@{ball.h}!destroyBall@{destroyBall}}
+\index{destroyBall@{destroyBall}!ball.h@{ball.h}}
+\doxysubsubsection{\texorpdfstring{destroyBall()}{destroyBall()}}
+{\footnotesize\ttfamily void destroy\+Ball (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball }\end{DoxyParamCaption})}
+
+
+
+Destroys a \mbox{\hyperlink{structBall}{Ball}} object. 
+
+This function frees the memory allocated for the transition attribute of the \mbox{\hyperlink{structBall}{Ball}} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball} & Pointer to the \mbox{\hyperlink{structBall}{Ball}} object to be destroyed. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ball_8h_af00b389637859d07ef5f97152989aa6b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ball_8h_a82d59b08173ac355686446c945ddaf1f}\label{ball_8h_a82d59b08173ac355686446c945ddaf1f}} 
+\index{ball.h@{ball.h}!getBallAngVelocity@{getBallAngVelocity}}
+\index{getBallAngVelocity@{getBallAngVelocity}!ball.h@{ball.h}}
+\doxysubsubsection{\texorpdfstring{getBallAngVelocity()}{getBallAngVelocity()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structvector3__t}{vector3\+\_\+t}} get\+Ball\+Ang\+Velocity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball }\end{DoxyParamCaption})}
+
+
+
+Gets the angular velocity of the \mbox{\hyperlink{structBall}{Ball}}. 
+
+This function returns the angular velocity vector of the specified \mbox{\hyperlink{structBall}{Ball}} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball} & Pointer to the \mbox{\hyperlink{structBall}{Ball}} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structvector3__t}{vector3\+\_\+t}} The angular velocity of the \mbox{\hyperlink{structBall}{Ball}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ball_8h_a5562e5ec8e94dc559e7c2897aef911a4}\label{ball_8h_a5562e5ec8e94dc559e7c2897aef911a4}} 
+\index{ball.h@{ball.h}!getBallImage@{getBallImage}}
+\index{getBallImage@{getBallImage}!ball.h@{ball.h}}
+\doxysubsubsection{\texorpdfstring{getBallImage()}{getBallImage()}}
+{\footnotesize\ttfamily xpm\+\_\+image\+\_\+t get\+Ball\+Image (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball }\end{DoxyParamCaption})}
+
+
+
+Gets the image of the \mbox{\hyperlink{structBall}{Ball}}. 
+
+This function returns the image of the specified \mbox{\hyperlink{structBall}{Ball}} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball} & Pointer to the \mbox{\hyperlink{structBall}{Ball}} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+xpm\+\_\+image\+\_\+t The image of the \mbox{\hyperlink{structBall}{Ball}}. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ball_8h_a5562e5ec8e94dc559e7c2897aef911a4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ball_8h_a6245e677d89c5b87045d82c03209f93b}\label{ball_8h_a6245e677d89c5b87045d82c03209f93b}} 
+\index{ball.h@{ball.h}!getBallPosition@{getBallPosition}}
+\index{getBallPosition@{getBallPosition}!ball.h@{ball.h}}
+\doxysubsubsection{\texorpdfstring{getBallPosition()}{getBallPosition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} get\+Ball\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball }\end{DoxyParamCaption})}
+
+
+
+Gets the position of the \mbox{\hyperlink{structBall}{Ball}}. 
+
+This function returns the position vector of the specified \mbox{\hyperlink{structBall}{Ball}} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball} & Pointer to the \mbox{\hyperlink{structBall}{Ball}} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector\+\_\+t The position of the \mbox{\hyperlink{structBall}{Ball}}. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ball_8h_a6245e677d89c5b87045d82c03209f93b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ball_8h_a4b33f035df87741a10f5d7aefacafb43}\label{ball_8h_a4b33f035df87741a10f5d7aefacafb43}} 
+\index{ball.h@{ball.h}!getBallState@{getBallState}}
+\index{getBallState@{getBallState}!ball.h@{ball.h}}
+\doxysubsubsection{\texorpdfstring{getBallState()}{getBallState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ball_8h_a5f9731e24bb0c3914b5dc27550bc997f}{BALL\+\_\+\+STATE}} get\+Ball\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball }\end{DoxyParamCaption})}
+
+
+
+Gets the state of the \mbox{\hyperlink{structBall}{Ball}}. 
+
+This function returns the state of the specified \mbox{\hyperlink{structBall}{Ball}} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball} & Pointer to the \mbox{\hyperlink{structBall}{Ball}} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BALL\+\_\+\+STATE The state of the \mbox{\hyperlink{structBall}{Ball}}. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ball_8h_a4b33f035df87741a10f5d7aefacafb43_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ball_8h_af482c769b12ad680a23817eccac91d60}\label{ball_8h_af482c769b12ad680a23817eccac91d60}} 
+\index{ball.h@{ball.h}!getBallVelocity@{getBallVelocity}}
+\index{getBallVelocity@{getBallVelocity}!ball.h@{ball.h}}
+\doxysubsubsection{\texorpdfstring{getBallVelocity()}{getBallVelocity()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} get\+Ball\+Velocity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball }\end{DoxyParamCaption})}
+
+
+
+Gets the velocity of the \mbox{\hyperlink{structBall}{Ball}}. 
+
+This function returns the velocity vector of the specified \mbox{\hyperlink{structBall}{Ball}} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball} & Pointer to the \mbox{\hyperlink{structBall}{Ball}} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector\+\_\+t The velocity of the \mbox{\hyperlink{structBall}{Ball}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ball_8h_a271805fc2d53ac02c90bdb5e0656fd50}\label{ball_8h_a271805fc2d53ac02c90bdb5e0656fd50}} 
+\index{ball.h@{ball.h}!newBall@{newBall}}
+\index{newBall@{newBall}!ball.h@{ball.h}}
+\doxysubsubsection{\texorpdfstring{newBall()}{newBall()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structBall}{Ball}}$\ast$ new\+Ball (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}}}]{position,  }\item[{xpm\+\_\+image\+\_\+t}]{img,  }\item[{\mbox{\hyperlink{ball_8h_a78e92234b08dda608a7b0e67442835d0}{BALL\+\_\+\+TYPE}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Creates a new ball. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+{\em img} & \\
+\hline
+{\em type} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ball$\ast$ 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{ball_8h_a271805fc2d53ac02c90bdb5e0656fd50_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ball_8h_a271805fc2d53ac02c90bdb5e0656fd50_icgraph}
+\end{center}
+\end{figure}

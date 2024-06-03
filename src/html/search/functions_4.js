@@ -1,0 +1,9 @@
+var searchData=
+[
+  ['establish_5fconnection_832',['establish_connection',['../serialPort_8c.html#abe861c4f2e91f92ffd0c315ac7b1afd3',1,'establish_connection():&#160;serialPort.c'],['../serialPort_8h.html#abe861c4f2e91f92ffd0c315ac7b1afd3',1,'establish_connection():&#160;serialPort.c']]],
+  ['evolveballmotion_833',['evolveBallMotion',['../evolve_8c.html#a54918714eb67c6beeac9b4e70dcec32d',1,'evolveBallMotion(Table *table, Ball *ball, double time):&#160;evolve.c'],['../evolve_8h.html#a54918714eb67c6beeac9b4e70dcec32d',1,'evolveBallMotion(Table *table, Ball *ball, double time):&#160;evolve.c']]],
+  ['evolveballs_834',['evolveBalls',['../simulate_8c.html#aed1e5d03d2f59f9308bc97702c93577c',1,'evolveBalls(Table *table, double time):&#160;simulate.c'],['../simulate_8h.html#aed1e5d03d2f59f9308bc97702c93577c',1,'evolveBalls(Table *table, double time):&#160;simulate.c']]],
+  ['evolveprependicularspin_835',['evolvePrependicularSpin',['../evolve_8c.html#a16f5cd5c4147761656c85ef7fbb16831',1,'evolvePrependicularSpin(Ball *ball, double t, double uSpinning, double g):&#160;evolve.c'],['../evolve_8h.html#a16f5cd5c4147761656c85ef7fbb16831',1,'evolvePrependicularSpin(Ball *ball, double t, double uSpinning, double g):&#160;evolve.c']]],
+  ['evolverollstate_836',['evolveRollState',['../evolve_8c.html#a1074b8ff2090924fe7788481d5317a29',1,'evolveRollState(Ball *ball, double t, double uRolling, double uSpinning, double g):&#160;evolve.c'],['../evolve_8h.html#a27869ba8fedeb91fe7d40f53b8cae7c1',1,'evolveRollState(Ball *ball, double t, double uRolling, double uSliding, double g):&#160;evolve.c']]],
+  ['evolveslidestate_837',['evolveSlideState',['../evolve_8c.html#af37d495f652f29ed0cd5b52302f0d4da',1,'evolveSlideState(Ball *ball, double t, double uSpinning, double uSliding, double g):&#160;evolve.c'],['../evolve_8h.html#af37d495f652f29ed0cd5b52302f0d4da',1,'evolveSlideState(Ball *ball, double t, double uSpinning, double uSliding, double g):&#160;evolve.c']]]
+];

@@ -1,0 +1,18 @@
+<map id="newButton" name="newButton">
+<area shape="rect" id="node1" title="Creates a new button." alt="" coords="1072,134,1164,160"/>
+<area shape="rect" id="node2" href="$table_8c.html#a9ef30cef961ee374d50fc769b85cecb6" title="Creates and initializes a new Table structure with all necessary components such as players,..." alt="" coords="929,46,1011,72"/>
+<area shape="rect" id="node6" href="$menu_8c.html#a6cd6e09dbb9ccefcb024e29d193f4b5a" title="Sets the type of the menu." alt="" coords="916,159,1024,186"/>
+<area shape="rect" id="node3" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="320,232,411,259"/>
+<area shape="rect" id="node4" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,270,259,296"/>
+<area shape="rect" id="node5" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,270,128,296"/>
+<area shape="rect" id="node7" href="$menuController_8c.html#a5d84b8fe730b1a977edaa0dc6fdeb147" title=" " alt="" coords="690,32,867,59"/>
+<area shape="rect" id="node9" href="$menuController_8c.html#a2ee1dc14c5830a7c8081ee00313cb468" title=" " alt="" coords="693,83,865,110"/>
+<area shape="rect" id="node10" href="$menuController_8c.html#a9a91a913a1d9f18d093dc1eda43676a2" title=" " alt="" coords="689,134,868,160"/>
+<area shape="rect" id="node11" href="$menuController_8c.html#a9e9d5fb2d892ba2e87c7216c099014c4" title=" " alt="" coords="711,184,846,211"/>
+<area shape="rect" id="node12" href="$menuController_8c.html#a0d2383ce535bdbbde673cbafe384b18c" title=" " alt="" coords="707,235,851,262"/>
+<area shape="rect" id="node13" href="$menuController_8c.html#a2b7371201f56ebde15556e80f78b37b6" title=" " alt="" coords="703,286,855,312"/>
+<area shape="rect" id="node14" href="$menu_8c.html#ab948fc250bbf5f4724f5b4da60057ed0" title="Creates a new menu." alt="" coords="736,336,821,363"/>
+<area shape="rect" id="node8" href="$menuController_8c.html#a7c7a58765cda0a55100ee122aa0d7fd8" title="Handles the menu controller." alt="" coords="472,184,641,211"/>
+<area shape="rect" id="node15" href="$resources_8c.html#a2eb64140b7e3905c447f5afd9984b584" title="Loads the resources of the game." alt="" coords="307,295,424,322"/>
+<area shape="rect" id="node16" href="$menu_8c.html#a1334090f76660886ac3281ba3d1adf3b" title=" " alt="" coords="479,251,634,278"/>
+</map>

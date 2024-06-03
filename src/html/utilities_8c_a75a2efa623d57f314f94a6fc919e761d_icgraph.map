@@ -1,0 +1,29 @@
+<map id="rotate2d" name="rotate2d">
+<area shape="rect" id="node1" title="Rotates a 2D vector by a given angle." alt="" coords="1988,190,2065,216"/>
+<area shape="rect" id="node2" href="$evolve_8c.html#a1074b8ff2090924fe7788481d5317a29" title="Evolves the rolling state of a ball over a specified time period." alt="" coords="1776,12,1901,39"/>
+<area shape="rect" id="node13" href="$evolve_8c.html#af37d495f652f29ed0cd5b52302f0d4da" title="Evolves the sliding state of a ball over a specified time period." alt="" coords="1773,63,1905,90"/>
+<area shape="rect" id="node14" href="$utilities_8c.html#a1c0eb54a750dfe192d89eee1d9684244" title="Calculates the unit vector from the ball&#39;s." alt="" coords="1581,114,1662,140"/>
+<area shape="rect" id="node21" href="$resolver_8c.html#a985c4af47184c17561153a1e9195fe51" title="Resolves the collision between two balls." alt="" coords="1779,164,1899,191"/>
+<area shape="rect" id="node23" href="$resolver_8c.html#a1ad81eaf2026638e1041cde4a4cca6a5" title="Resolves the collision between a ball and a cushion." alt="" coords="1765,215,1912,242"/>
+<area shape="rect" id="node24" href="$resolver_8c.html#afabfb497e054c9f95cb0291131cda180" title="Resolves the collision between a ball and a cushion in a realistic manner." alt="" coords="1737,266,1940,292"/>
+<area shape="rect" id="node25" href="$resolver_8c.html#a4ad2ed8f03da80356f34f91ceb946ba2" title="Resolves the collision between the cue stick and a ball." alt="" coords="1775,316,1902,343"/>
+<area shape="rect" id="node26" href="$table_8c.html#a86556342c6a9726a30e62dc73899cebc" title="Updates the state of the cue stick, including charge level and direction vector." alt="" coords="673,311,800,338"/>
+<area shape="rect" id="node3" href="$evolve_8c.html#a54918714eb67c6beeac9b4e70dcec32d" title="Updates the motion of a ball over a specified time period." alt="" coords="1553,23,1689,50"/>
+<area shape="rect" id="node4" href="$simulate_8c.html#aed1e5d03d2f59f9308bc97702c93577c" title="Evolves the motion of all balls on the table over a specified time period." alt="" coords="854,48,953,75"/>
+<area shape="rect" id="node10" href="$utilities_8c.html#aa7b60acd35a7d23364aa9fcc1bd7c89e" title="Calculates the time for a linear cushion collision with a ball." alt="" coords="1256,44,1505,71"/>
+<area shape="rect" id="node5" href="$simulate_8c.html#ac23420edf5968c6121679d2a009f0809" title="Updates the physics simulation of the table over a specified time period." alt="" coords="679,216,795,243"/>
+<area shape="rect" id="node6" href="$playingController_8c.html#aa8a29eaaea16d53074ed404fe79294c0" title="Handles the playing controller." alt="" coords="445,260,625,287"/>
+<area shape="rect" id="node7" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="307,286,397,312"/>
+<area shape="rect" id="node8" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,286,259,312"/>
+<area shape="rect" id="node9" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,286,128,312"/>
+<area shape="rect" id="node11" href="$events_8c.html#ae2069e820ed131b38d776121eaa66b51" title="Finds the next collision event between a ball and a linear cushion on the table." alt="" coords="1012,37,1203,78"/>
+<area shape="rect" id="node12" href="$events_8c.html#ab58ba60736e19e4094180b548a0ad565" title="Finds the next event on the table." alt="" coords="848,162,959,188"/>
+<area shape="rect" id="node15" href="$utilities_8c.html#a00262457943146f3d292cd409099937b" title="Calculates the coefficients of a ball&#45;ball collision. This function calculates the coefficients of a ..." alt="" coords="1289,103,1472,130"/>
+<area shape="rect" id="node17" href="$utilities_8c.html#ac223ab756d084d6afe5d62e2198ca349" title="Calculates the coefficients of a ball&#45;circular cushion collision. This function calculates the coeffi..." alt="" coords="1267,154,1494,196"/>
+<area shape="rect" id="node19" href="$utilities_8c.html#a653a4c8f91bafdf128c08fa146197d14" title="Calculates the coefficients of a ball&#45;pocket collision. This function calculates the coefficients of ..." alt="" coords="1280,220,1481,247"/>
+<area shape="rect" id="node16" href="$events_8c.html#a19348c19f57f9b0fd7ba87b68e173ac9" title="Finds the next collision event between two balls on the table." alt="" coords="1017,103,1197,130"/>
+<area shape="rect" id="node18" href="$events_8c.html#a677ef20f45f38639c5d967279708cb15" title="Finds the next collision event between a ball and a circular cushion on the table." alt="" coords="1007,154,1208,196"/>
+<area shape="rect" id="node20" href="$events_8c.html#a0eb960b68caca6c994f8684afb8e2450" title="Finds the next collision event between a ball and a pocket on the table." alt="" coords="1008,220,1207,247"/>
+<area shape="rect" id="node22" href="$resolver_8c.html#aa65d1d36ef508a9c90ee9c0bf11a7033" title="Resolves the given event on the table." alt="" coords="1568,243,1675,270"/>
+<area shape="rect" id="node27" href="$table_8c.html#a9ef30cef961ee374d50fc769b85cecb6" title="Creates and initializes a new Table structure with all necessary components such as players,..." alt="" coords="494,311,577,338"/>
+</map>

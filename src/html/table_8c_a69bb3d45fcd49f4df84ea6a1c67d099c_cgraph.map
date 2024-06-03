@@ -1,0 +1,10 @@
+<map id="drawTime" name="drawTime">
+<area shape="rect" id="node1" title="Draws the game time in minutes and seconds on the screen using the provided font." alt="" coords="5,31,92,57"/>
+<area shape="rect" id="node2" href="$graphics_8c.html#a83df4b7f8579d6d479b72a3f18b3620f" title=" " alt="" coords="172,5,253,32"/>
+<area shape="rect" id="node7" href="$graphics_8c.html#a99d2da2559e11200c6b40c469e9977ec" title="Draws a rectangle." alt="" coords="140,56,285,83"/>
+<area shape="rect" id="node3" href="$graphics_8c.html#aac207dc6a32a657c9eb5eb3156b6b04a" title=" " alt="" coords="333,5,445,32"/>
+<area shape="rect" id="node4" href="$graphics_8c.html#ad4efe9c8fe8912ecd65c5fc512c15d03" title="Draws an XPM image." alt="" coords="493,5,617,32"/>
+<area shape="rect" id="node5" href="$utilities_8c.html#a70076007e8799fb3b48697e26eda5390" title="Calculates the angle of a vector." alt="" coords="682,5,741,32"/>
+<area shape="rect" id="node6" href="$graphics_8c.html#abcd14d829edc3257916bdcc1a9aca216" title="Draws a pixel." alt="" coords="665,56,757,83"/>
+<area shape="rect" id="node8" href="$graphics_8c.html#a5e5b25bd525250f61f40b9e9f212d5e6" title="Draws a horizontal line." alt="" coords="497,56,613,83"/>
+</map>

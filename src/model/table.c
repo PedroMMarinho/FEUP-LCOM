@@ -31,6 +31,7 @@
 #include "../xpms/spinCircle.xpm"
 #include "../xpms/exitButton.xpm"
 #include "../xpms/exitButtonSelected.xpm"
+#include "../xpms/cueCursor.xpm"
 
 #include "math.h"
 
@@ -138,7 +139,9 @@ Table *newTable() {
   xpm_image_t spinCircle;
   xpm_image_t exitButton;
   xpm_image_t exitButtonSelected;
-
+  xpm_image_t cursor;
+  
+  xpm_load(cueCursorXpm, XPM_8_8_8, &cursor);
   xpm_load(matchUIXpm, XPM_8_8_8, &matchUI);
   xpm_load(tableBackgroundXpm, XPM_8_8_8, &img);
   xpm_load(spinCircleXpm, XPM_8_8_8, &spinCircle);
@@ -148,6 +151,7 @@ Table *newTable() {
   table->img = img;
   table->ui = matchUI;
   table->spinCircle = spinCircle;
+  table->cursor = cursor;
   vector_t pos = {18, 9};
   vector_t size = {51, 51};
   table->exitButton = newButton(exitButton, exitButtonSelected, pos, size);
@@ -255,7 +259,7 @@ Table *newTable() {
 
   // Set physics attributes
   table->gravityAcceleration = 9.81;
-  table->slidingFriction = 140;
+  table->slidingFriction = 90;
   table->spinningFriction = 6;
   table->rollingFriction = 30;
   table->cushionRestitution = 0.7;
@@ -446,7 +450,7 @@ int drawTable(Table *table, int gameTime, int roundTime) {
     default:
       break;
   }
-  if (vg_draw_rectangle(table->mouse->pos.x, table->mouse->pos.y, 9, 9, 0xff0000))
+  if (drawXPMImage(table->cursor,table->mouse->pos.x, table->mouse->pos.y,0))
     return 1;
 
   return 0;

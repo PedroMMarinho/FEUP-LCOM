@@ -1,0 +1,4 @@
+<map id="seeIfMouseIsOverOption" name="seeIfMouseIsOverOption">
+<area shape="rect" id="node1" title="Checks if the mouse is over any menu option." alt="" coords="5,5,188,32"/>
+<area shape="rect" id="node2" href="$button_8c.html#a4531a1a97d752ad9c83e77897e17f4b5" title="Checks if the mouse cursor is over a button." alt="" coords="236,5,387,32"/>
+</map>

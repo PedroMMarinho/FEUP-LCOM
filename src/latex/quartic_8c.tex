@@ -1,0 +1,172 @@
+\hypertarget{quartic_8c}{}\doxysection{physics/quartic.c File Reference}
+\label{quartic_8c}\index{physics/quartic.c@{physics/quartic.c}}
+{\ttfamily \#include \char`\"{}quartic.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for quartic.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=291pt]{quartic_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{quartic_8c_acb139798eaff6b11e334384af8dd3644}{LDBL\+\_\+\+EPSILON}}~1.\+084202172485504434E-\/19L
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{quartic_8c_a4b79a7501afa280c011e84475ca29c63}{smaller\+Positive\+Quartic\+Root}} (double a, double b, double c, double d, double e)
+\item 
+int \mbox{\hyperlink{quartic_8c_abfc2ee668179f81481769da4b92237f2}{Quad\+Cubic\+Roots}} (long double $\ast$Coeff, int N, long double $\ast$Real\+Root, long double $\ast$Imag\+Root)
+\item 
+void \mbox{\hyperlink{quartic_8c_af736f6a2a62a91281a33ac35b7b10771}{Quad\+Roots}} (long double $\ast$P, long double $\ast$Real\+Root, long double $\ast$Imag\+Root)
+\item 
+void \mbox{\hyperlink{quartic_8c_a7fd8632b31a77c94589de988552e0cb8}{Cubic\+Roots}} (long double $\ast$P, long double $\ast$Real\+Root, long double $\ast$Imag\+Root)
+\item 
+void \mbox{\hyperlink{quartic_8c_aa44c54081982b7c730192a3a8b131772}{Bi\+Quad\+Roots}} (long double $\ast$P, long double $\ast$Real\+Root, long double $\ast$Imag\+Root)
+\item 
+void \mbox{\hyperlink{quartic_8c_a8d1cbdf39f741d172cba6efe2c074816}{Reverse\+Poly}} (long double $\ast$P, int N)
+\item 
+void \mbox{\hyperlink{quartic_8c_a1f8937ddef2602eb960b97551f5cb313}{Invert\+Roots}} (int N, long double $\ast$Real\+Root, long double $\ast$Imag\+Root)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{quartic_8c_acb139798eaff6b11e334384af8dd3644}\label{quartic_8c_acb139798eaff6b11e334384af8dd3644}} 
+\index{quartic.c@{quartic.c}!LDBL\_EPSILON@{LDBL\_EPSILON}}
+\index{LDBL\_EPSILON@{LDBL\_EPSILON}!quartic.c@{quartic.c}}
+\doxysubsubsection{\texorpdfstring{LDBL\_EPSILON}{LDBL\_EPSILON}}
+{\footnotesize\ttfamily \#define LDBL\+\_\+\+EPSILON~1.\+084202172485504434E-\/19L}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{quartic_8c_aa44c54081982b7c730192a3a8b131772}\label{quartic_8c_aa44c54081982b7c730192a3a8b131772}} 
+\index{quartic.c@{quartic.c}!BiQuadRoots@{BiQuadRoots}}
+\index{BiQuadRoots@{BiQuadRoots}!quartic.c@{quartic.c}}
+\doxysubsubsection{\texorpdfstring{BiQuadRoots()}{BiQuadRoots()}}
+{\footnotesize\ttfamily void Bi\+Quad\+Roots (\begin{DoxyParamCaption}\item[{long double $\ast$}]{P,  }\item[{long double $\ast$}]{Real\+Root,  }\item[{long double $\ast$}]{Imag\+Root }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{quartic_8c_aa44c54081982b7c730192a3a8b131772_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{quartic_8c_aa44c54081982b7c730192a3a8b131772_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{quartic_8c_a7fd8632b31a77c94589de988552e0cb8}\label{quartic_8c_a7fd8632b31a77c94589de988552e0cb8}} 
+\index{quartic.c@{quartic.c}!CubicRoots@{CubicRoots}}
+\index{CubicRoots@{CubicRoots}!quartic.c@{quartic.c}}
+\doxysubsubsection{\texorpdfstring{CubicRoots()}{CubicRoots()}}
+{\footnotesize\ttfamily void Cubic\+Roots (\begin{DoxyParamCaption}\item[{long double $\ast$}]{P,  }\item[{long double $\ast$}]{Real\+Root,  }\item[{long double $\ast$}]{Imag\+Root }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{quartic_8c_a7fd8632b31a77c94589de988552e0cb8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{quartic_8c_a7fd8632b31a77c94589de988552e0cb8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{quartic_8c_a1f8937ddef2602eb960b97551f5cb313}\label{quartic_8c_a1f8937ddef2602eb960b97551f5cb313}} 
+\index{quartic.c@{quartic.c}!InvertRoots@{InvertRoots}}
+\index{InvertRoots@{InvertRoots}!quartic.c@{quartic.c}}
+\doxysubsubsection{\texorpdfstring{InvertRoots()}{InvertRoots()}}
+{\footnotesize\ttfamily void Invert\+Roots (\begin{DoxyParamCaption}\item[{int}]{N,  }\item[{long double $\ast$}]{Real\+Root,  }\item[{long double $\ast$}]{Imag\+Root }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{quartic_8c_a1f8937ddef2602eb960b97551f5cb313_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{quartic_8c_abfc2ee668179f81481769da4b92237f2}\label{quartic_8c_abfc2ee668179f81481769da4b92237f2}} 
+\index{quartic.c@{quartic.c}!QuadCubicRoots@{QuadCubicRoots}}
+\index{QuadCubicRoots@{QuadCubicRoots}!quartic.c@{quartic.c}}
+\doxysubsubsection{\texorpdfstring{QuadCubicRoots()}{QuadCubicRoots()}}
+{\footnotesize\ttfamily int Quad\+Cubic\+Roots (\begin{DoxyParamCaption}\item[{long double $\ast$}]{Coeff,  }\item[{int}]{N,  }\item[{long double $\ast$}]{Real\+Root,  }\item[{long double $\ast$}]{Imag\+Root }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{quartic_8c_abfc2ee668179f81481769da4b92237f2_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{quartic_8c_abfc2ee668179f81481769da4b92237f2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{quartic_8c_af736f6a2a62a91281a33ac35b7b10771}\label{quartic_8c_af736f6a2a62a91281a33ac35b7b10771}} 
+\index{quartic.c@{quartic.c}!QuadRoots@{QuadRoots}}
+\index{QuadRoots@{QuadRoots}!quartic.c@{quartic.c}}
+\doxysubsubsection{\texorpdfstring{QuadRoots()}{QuadRoots()}}
+{\footnotesize\ttfamily void Quad\+Roots (\begin{DoxyParamCaption}\item[{long double $\ast$}]{P,  }\item[{long double $\ast$}]{Real\+Root,  }\item[{long double $\ast$}]{Imag\+Root }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{quartic_8c_af736f6a2a62a91281a33ac35b7b10771_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{quartic_8c_a8d1cbdf39f741d172cba6efe2c074816}\label{quartic_8c_a8d1cbdf39f741d172cba6efe2c074816}} 
+\index{quartic.c@{quartic.c}!ReversePoly@{ReversePoly}}
+\index{ReversePoly@{ReversePoly}!quartic.c@{quartic.c}}
+\doxysubsubsection{\texorpdfstring{ReversePoly()}{ReversePoly()}}
+{\footnotesize\ttfamily void Reverse\+Poly (\begin{DoxyParamCaption}\item[{long double $\ast$}]{P,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{quartic_8c_a8d1cbdf39f741d172cba6efe2c074816_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{quartic_8c_a4b79a7501afa280c011e84475ca29c63}\label{quartic_8c_a4b79a7501afa280c011e84475ca29c63}} 
+\index{quartic.c@{quartic.c}!smallerPositiveQuarticRoot@{smallerPositiveQuarticRoot}}
+\index{smallerPositiveQuarticRoot@{smallerPositiveQuarticRoot}!quartic.c@{quartic.c}}
+\doxysubsubsection{\texorpdfstring{smallerPositiveQuarticRoot()}{smallerPositiveQuarticRoot()}}
+{\footnotesize\ttfamily double smaller\+Positive\+Quartic\+Root (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b,  }\item[{double}]{c,  }\item[{double}]{d,  }\item[{double}]{e }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{quartic_8c_a4b79a7501afa280c011e84475ca29c63_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{quartic_8c_a4b79a7501afa280c011e84475ca29c63_icgraph}
+\end{center}
+\end{figure}

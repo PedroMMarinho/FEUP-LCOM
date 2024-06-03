@@ -1,0 +1,11 @@
+<map id="vg_draw_rectangle" name="vg_draw_rectangle">
+<area shape="rect" id="node1" title="Draws a rectangle." alt="" coords="1163,31,1308,57"/>
+<area shape="rect" id="node2" href="$table_8c.html#a69bb3d45fcd49f4df84ea6a1c67d099c" title="Draws the game time in minutes and seconds on the screen using the provided font." alt="" coords="1006,5,1093,32"/>
+<area shape="rect" id="node9" href="$graphics_8c.html#aeec97399adfeeef505ee4f130381da93" title="Draws a pattern." alt="" coords="984,56,1115,83"/>
+<area shape="rect" id="node3" href="$table_8c.html#aeec6e20bf41117d5e5d7864e9f77058d" title="Draws the total game time on the screen." alt="" coords="809,5,936,32"/>
+<area shape="rect" id="node4" href="$table_8c.html#a0e36c18757f2fd43e008ee4ad165baaf" title="Draws the table on the screen." alt="" coords="673,5,761,32"/>
+<area shape="rect" id="node5" href="$playingController_8c.html#aa8a29eaaea16d53074ed404fe79294c0" title="Handles the playing controller." alt="" coords="445,5,625,32"/>
+<area shape="rect" id="node6" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="307,5,397,32"/>
+<area shape="rect" id="node7" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,5,259,32"/>
+<area shape="rect" id="node8" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,5,128,32"/>
+</map>

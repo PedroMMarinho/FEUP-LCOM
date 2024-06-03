@@ -1,0 +1,9 @@
+<map id="getColisionPoint" name="getColisionPoint">
+<area shape="rect" id="node1" title="Determines the collision point between the cue ball and another ball on the table." alt="" coords="848,31,976,57"/>
+<area shape="rect" id="node2" href="$table_8c.html#a86556342c6a9726a30e62dc73899cebc" title="Updates the state of the cue stick, including charge level and direction vector." alt="" coords="673,31,800,57"/>
+<area shape="rect" id="node3" href="$table_8c.html#a9ef30cef961ee374d50fc769b85cecb6" title="Creates and initializes a new Table structure with all necessary components such as players,..." alt="" coords="494,5,577,32"/>
+<area shape="rect" id="node7" href="$playingController_8c.html#aa8a29eaaea16d53074ed404fe79294c0" title="Handles the playing controller." alt="" coords="445,56,625,83"/>
+<area shape="rect" id="node4" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="307,31,397,57"/>
+<area shape="rect" id="node5" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,31,259,57"/>
+<area shape="rect" id="node6" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,31,128,57"/>
+</map>

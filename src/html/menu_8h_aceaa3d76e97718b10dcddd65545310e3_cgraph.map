@@ -1,0 +1,4 @@
+<map id="resetMenu" name="resetMenu">
+<area shape="rect" id="node1" title="Resets the menu to its initial state." alt="" coords="5,5,96,32"/>
+<area shape="rect" id="node2" href="$button_8c.html#a35aed4a2d403e0d35ea6f353e9e318f8" title="Frees the memory allocated for the button." alt="" coords="144,5,259,32"/>
+</map>

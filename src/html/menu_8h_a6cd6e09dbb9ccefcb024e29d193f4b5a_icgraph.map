@@ -1,0 +1,16 @@
+<map id="setMenuType" name="setMenuType">
+<area shape="rect" id="node1" title="Sets the type of the menu." alt="" coords="916,157,1024,184"/>
+<area shape="rect" id="node2" href="$menuController_8c.html#a5d84b8fe730b1a977edaa0dc6fdeb147" title=" " alt="" coords="690,5,867,32"/>
+<area shape="rect" id="node7" href="$menuController_8c.html#a2ee1dc14c5830a7c8081ee00313cb468" title=" " alt="" coords="693,56,865,83"/>
+<area shape="rect" id="node8" href="$menuController_8c.html#a9a91a913a1d9f18d093dc1eda43676a2" title=" " alt="" coords="689,107,868,133"/>
+<area shape="rect" id="node9" href="$menuController_8c.html#a9e9d5fb2d892ba2e87c7216c099014c4" title=" " alt="" coords="711,157,846,184"/>
+<area shape="rect" id="node10" href="$menuController_8c.html#a0d2383ce535bdbbde673cbafe384b18c" title=" " alt="" coords="707,208,851,235"/>
+<area shape="rect" id="node11" href="$menuController_8c.html#a2b7371201f56ebde15556e80f78b37b6" title=" " alt="" coords="703,259,855,285"/>
+<area shape="rect" id="node12" href="$menu_8c.html#ab948fc250bbf5f4724f5b4da60057ed0" title="Creates a new menu." alt="" coords="736,309,821,336"/>
+<area shape="rect" id="node3" href="$menuController_8c.html#a7c7a58765cda0a55100ee122aa0d7fd8" title="Handles the menu controller." alt="" coords="472,157,641,184"/>
+<area shape="rect" id="node4" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="320,259,411,285"/>
+<area shape="rect" id="node5" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,284,259,311"/>
+<area shape="rect" id="node6" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,284,128,311"/>
+<area shape="rect" id="node13" href="$resources_8c.html#a2eb64140b7e3905c447f5afd9984b584" title="Loads the resources of the game." alt="" coords="307,309,424,336"/>
+<area shape="rect" id="node14" href="$menu_8c.html#a1334090f76660886ac3281ba3d1adf3b" title=" " alt="" coords="479,259,634,285"/>
+</map>

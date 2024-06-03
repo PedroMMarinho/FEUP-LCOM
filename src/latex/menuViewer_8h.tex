@@ -1,0 +1,272 @@
+\hypertarget{menuViewer_8h}{}\doxysection{viewer/menu\+Viewer.h File Reference}
+\label{menuViewer_8h}\index{viewer/menuViewer.h@{viewer/menuViewer.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../model/button.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../model/mouse\+Model.\+h\char`\"{}}\newline
+Include dependency graph for menu\+Viewer.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuViewer_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{menuViewer_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{menuViewer_8h_aa86939388b927ac407b9ead376a8c6e9}{draw\+Menu\+Background}} (xpm\+\_\+image\+\_\+t img)
+\begin{DoxyCompactList}\small\item\em Draws the background image of the menu. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menuViewer_8h_aab6377019f9869dba57c0f1551e14ec8}{draw\+Menu\+Button}} (\mbox{\hyperlink{structButton}{Button}} $\ast$button)
+\begin{DoxyCompactList}\small\item\em Draws a menu button. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menuViewer_8h_a72272c3cab899763e7c404ba60d5a6fb}{draw\+Menu\+Mouse}} (\mbox{\hyperlink{structMouse}{Mouse}} $\ast$mouse, xpm\+\_\+image\+\_\+t mouse\+Img, xpm\+\_\+image\+\_\+t img\+Mouse\+Hover, bool is\+Hovering)
+\begin{DoxyCompactList}\small\item\em Draws the mouse cursor in the menu. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menuViewer_8h_a9f1751acda762e91c2ff76c1bda9bc23}{draw\+Menu\+Logo}} (xpm\+\_\+image\+\_\+t img, int time)
+\begin{DoxyCompactList}\small\item\em Draws the menu logo with animation. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menuViewer_8h_a04b6c969b9f8b1da511a64440ab595d4}{draw\+Player\+Name}} (char $\ast$player\+Name, xpm\+\_\+image\+\_\+t $\ast$player\+Name\+Font, uint16\+\_\+t x, uint16\+\_\+t y, uint8\+\_\+t spacing)
+\begin{DoxyCompactList}\small\item\em Draws the player\textquotesingle{}s name on the menu. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menuViewer_8h_aff8e3151d79bb6cfe5ab83f3274c19a6}{draw\+Ellipses}} (xpm\+\_\+image\+\_\+t img\+Ball, int time)
+\begin{DoxyCompactList}\small\item\em Draws animated ellipses on the menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{menuViewer_8h_aff8e3151d79bb6cfe5ab83f3274c19a6}\label{menuViewer_8h_aff8e3151d79bb6cfe5ab83f3274c19a6}} 
+\index{menuViewer.h@{menuViewer.h}!drawEllipses@{drawEllipses}}
+\index{drawEllipses@{drawEllipses}!menuViewer.h@{menuViewer.h}}
+\doxysubsubsection{\texorpdfstring{drawEllipses()}{drawEllipses()}}
+{\footnotesize\ttfamily int draw\+Ellipses (\begin{DoxyParamCaption}\item[{xpm\+\_\+image\+\_\+t}]{img\+Ball,  }\item[{int}]{time }\end{DoxyParamCaption})}
+
+
+
+Draws animated ellipses on the menu. 
+
+This function draws a sequence of ellipses, with their number and position based on the current time, to create an animation effect.
+
+
+\begin{DoxyParams}{Parameters}
+{\em img\+Ball} & The xpm\+\_\+image\+\_\+t structure representing the ellipse image. \\
+\hline
+{\em time} & The current time, used for determining the number of ellipses to draw. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuViewer_8h_aff8e3151d79bb6cfe5ab83f3274c19a6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuViewer_8h_aff8e3151d79bb6cfe5ab83f3274c19a6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menuViewer_8h_aa86939388b927ac407b9ead376a8c6e9}\label{menuViewer_8h_aa86939388b927ac407b9ead376a8c6e9}} 
+\index{menuViewer.h@{menuViewer.h}!drawMenuBackground@{drawMenuBackground}}
+\index{drawMenuBackground@{drawMenuBackground}!menuViewer.h@{menuViewer.h}}
+\doxysubsubsection{\texorpdfstring{drawMenuBackground()}{drawMenuBackground()}}
+{\footnotesize\ttfamily int draw\+Menu\+Background (\begin{DoxyParamCaption}\item[{xpm\+\_\+image\+\_\+t}]{img }\end{DoxyParamCaption})}
+
+
+
+Draws the background image of the menu. 
+
+This function draws the specified background image at a fixed position on the screen.
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & The xpm\+\_\+image\+\_\+t structure representing the background image. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuViewer_8h_aa86939388b927ac407b9ead376a8c6e9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuViewer_8h_aa86939388b927ac407b9ead376a8c6e9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menuViewer_8h_aab6377019f9869dba57c0f1551e14ec8}\label{menuViewer_8h_aab6377019f9869dba57c0f1551e14ec8}} 
+\index{menuViewer.h@{menuViewer.h}!drawMenuButton@{drawMenuButton}}
+\index{drawMenuButton@{drawMenuButton}!menuViewer.h@{menuViewer.h}}
+\doxysubsubsection{\texorpdfstring{drawMenuButton()}{drawMenuButton()}}
+{\footnotesize\ttfamily int draw\+Menu\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})}
+
+
+
+Draws a menu button. 
+
+This function draws the specified button, either in its selected or unselected state, at a position offset from the button\textquotesingle{}s position.
+
+
+\begin{DoxyParams}{Parameters}
+{\em button} & Pointer to the \mbox{\hyperlink{structButton}{Button}} structure representing the button to draw. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuViewer_8h_aab6377019f9869dba57c0f1551e14ec8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuViewer_8h_aab6377019f9869dba57c0f1551e14ec8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menuViewer_8h_a9f1751acda762e91c2ff76c1bda9bc23}\label{menuViewer_8h_a9f1751acda762e91c2ff76c1bda9bc23}} 
+\index{menuViewer.h@{menuViewer.h}!drawMenuLogo@{drawMenuLogo}}
+\index{drawMenuLogo@{drawMenuLogo}!menuViewer.h@{menuViewer.h}}
+\doxysubsubsection{\texorpdfstring{drawMenuLogo()}{drawMenuLogo()}}
+{\footnotesize\ttfamily int draw\+Menu\+Logo (\begin{DoxyParamCaption}\item[{xpm\+\_\+image\+\_\+t}]{img,  }\item[{int}]{time }\end{DoxyParamCaption})}
+
+
+
+Draws the menu logo with animation. 
+
+This function draws the specified logo image at a position that oscillates vertically based on the time parameter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & The xpm\+\_\+image\+\_\+t structure representing the logo image. \\
+\hline
+{\em time} & The current time, used for animating the logo\textquotesingle{}s vertical position. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuViewer_8h_a9f1751acda762e91c2ff76c1bda9bc23_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuViewer_8h_a9f1751acda762e91c2ff76c1bda9bc23_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menuViewer_8h_a72272c3cab899763e7c404ba60d5a6fb}\label{menuViewer_8h_a72272c3cab899763e7c404ba60d5a6fb}} 
+\index{menuViewer.h@{menuViewer.h}!drawMenuMouse@{drawMenuMouse}}
+\index{drawMenuMouse@{drawMenuMouse}!menuViewer.h@{menuViewer.h}}
+\doxysubsubsection{\texorpdfstring{drawMenuMouse()}{drawMenuMouse()}}
+{\footnotesize\ttfamily int draw\+Menu\+Mouse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMouse}{Mouse}} $\ast$}]{mouse,  }\item[{xpm\+\_\+image\+\_\+t}]{mouse\+Img,  }\item[{xpm\+\_\+image\+\_\+t}]{img\+Mouse\+Hover,  }\item[{bool}]{is\+Hovering }\end{DoxyParamCaption})}
+
+
+
+Draws the mouse cursor in the menu. 
+
+This function draws the mouse cursor image, either in its default or hover state, at the current mouse position.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse} & Pointer to the \mbox{\hyperlink{structMouse}{Mouse}} structure representing the mouse. \\
+\hline
+{\em mouse\+Img} & The xpm\+\_\+image\+\_\+t structure representing the default mouse image. \\
+\hline
+{\em img\+Mouse\+Hover} & The xpm\+\_\+image\+\_\+t structure representing the mouse hover image. \\
+\hline
+{\em is\+Hovering} & Boolean indicating whether the mouse is hovering over an interactable element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuViewer_8h_a72272c3cab899763e7c404ba60d5a6fb_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuViewer_8h_a72272c3cab899763e7c404ba60d5a6fb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menuViewer_8h_a04b6c969b9f8b1da511a64440ab595d4}\label{menuViewer_8h_a04b6c969b9f8b1da511a64440ab595d4}} 
+\index{menuViewer.h@{menuViewer.h}!drawPlayerName@{drawPlayerName}}
+\index{drawPlayerName@{drawPlayerName}!menuViewer.h@{menuViewer.h}}
+\doxysubsubsection{\texorpdfstring{drawPlayerName()}{drawPlayerName()}}
+{\footnotesize\ttfamily int draw\+Player\+Name (\begin{DoxyParamCaption}\item[{char $\ast$}]{player\+Name,  }\item[{xpm\+\_\+image\+\_\+t $\ast$}]{player\+Name\+Font,  }\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint8\+\_\+t}]{spacing }\end{DoxyParamCaption})}
+
+
+
+Draws the player\textquotesingle{}s name on the menu. 
+
+This function draws the player\textquotesingle{}s name using the specified font at a given position with specified spacing between characters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Name} & Pointer to the string representing the player\textquotesingle{}s name. \\
+\hline
+{\em player\+Name\+Font} & Pointer to the array of xpm\+\_\+image\+\_\+t structures representing the font. \\
+\hline
+{\em x} & The x-\/coordinate where the name should be drawn. \\
+\hline
+{\em y} & The y-\/coordinate where the name should be drawn. \\
+\hline
+{\em spacing} & The spacing between characters. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuViewer_8h_a04b6c969b9f8b1da511a64440ab595d4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuViewer_8h_a04b6c969b9f8b1da511a64440ab595d4_icgraph}
+\end{center}
+\end{figure}

@@ -14,7 +14,7 @@ Cue* newCue(){
   cue->guideLineMaximumSize = 100;
 
   cue->sideEnglish = 0;
-  cue->verticalEnglish = 1;
+  cue->verticalEnglish = 0;
 
   // Set image
   xpm_image_t img;

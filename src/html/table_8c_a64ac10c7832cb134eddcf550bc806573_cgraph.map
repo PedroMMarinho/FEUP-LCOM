@@ -1,0 +1,5 @@
+<map id="destroyTable" name="destroyTable">
+<area shape="rect" id="node1" title="Destroys a Table object." alt="" coords="5,31,111,57"/>
+<area shape="rect" id="node2" href="$ball_8c.html#af00b389637859d07ef5f97152989aa6b" title="Destroys a Ball object." alt="" coords="168,5,264,32"/>
+<area shape="rect" id="node3" href="$button_8c.html#a35aed4a2d403e0d35ea6f353e9e318f8" title="Frees the memory allocated for the button." alt="" coords="159,56,273,83"/>
+</map>

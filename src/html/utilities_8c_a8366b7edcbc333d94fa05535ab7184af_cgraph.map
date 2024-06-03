@@ -1,0 +1,5 @@
+<map id="getSlideTime" name="getSlideTime">
+<area shape="rect" id="node1" title="Calculates the time for sliding motion to stop for a ball." alt="" coords="5,31,113,57"/>
+<area shape="rect" id="node2" href="$utilities_8c.html#a42ada5d449eb0a5545123710cc8bf647" title="Calculates the magnitude of a vector." alt="" coords="170,5,277,32"/>
+<area shape="rect" id="node3" href="$utilities_8c.html#af7589640fa9f4b10339db00dc0079e81" title="Calculates the relative velocity of a ball." alt="" coords="161,56,285,83"/>
+</map>

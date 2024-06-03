@@ -21,8 +21,7 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
             printf("1\n");
             if (table->firstBallHit == NULL) { // no ball was hit
               switchTurn(table);
-
-              set_round_time(40);
+              resetRound(table);
               table->state = ADVANTAGE;
               printf("2\n");
               
@@ -36,12 +35,14 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
               printf("5\n");
                 if (table->balls[1]->state == POCKETED) {
                   printf("6\n");
+                  Player* notPlaying = getNotPlayingPlayer(table);
+                  table->winningPlayerName = notPlaying->name;
                   return MENU; // player lose
                 }
                 else {
                   printf("7\n");
                   switchTurn(table);
-                  set_round_time(40);
+                  resetRound(table);
                   table->state = ADVANTAGE;
                   printf("Player %d hit the wrong ball\n", getPlayingPlayer(table)->isPlaying);
                 }
@@ -54,11 +55,15 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
                     if (table->balls[i]->state != POCKETED) {
                       if (((table->balls[i]->type == STRIPED) && (getPlayingPlayer(table)->ballType == PLAYERSTRIPED)) || ((table->balls[i]->type == SOLID) && (getPlayingPlayer(table)->ballType == PLAYERSOLID))) {
                         printf("10\n");
+                        Player* oppenent = getNotPlayingPlayer(table);
+                        table->winningPlayerName = oppenent->name;
                         return MENU; // player lose
                       }
                     }
                   }
                   printf("11\n");
+                  Player* player = getPlayingPlayer(table);
+                  table->winningPlayerName = player->name;
                   return MENU; // player win
                 }
                 else {
@@ -66,8 +71,8 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
                   if (table->balls[0]->state == POCKETED) {
                     printf("13\n");
                     switchTurn(table);
-                    set_round_time(40);
-                    table->state = ADVANTAGE;
+                    resetRound(table);                    
+                  table->state = ADVANTAGE;
                   }
                   else {
                     printf("14\n");
@@ -76,7 +81,7 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
                       printf("15\n");
                       switchTurn(table);
                     }
-                    set_round_time(40);
+                    resetRound(table);                    
                   }
                 }
               }
@@ -85,6 +90,9 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
               printf("16\n");
               if (table->balls[1]->state == POCKETED) {
                 printf("17\n");
+                Player* notPlaying = getNotPlayingPlayer(table);
+                table->winningPlayerName = notPlaying->name;
+
                 return MENU; // player lose
               }
               else {
@@ -92,7 +100,7 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
                 if (table->balls[0]->state == POCKETED) {
                   printf("19\n");
                   switchTurn(table);
-                  set_round_time(40);
+                    resetRound(table);                    
                   table->state = ADVANTAGE;
                 }
                 else {
@@ -125,7 +133,7 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
                   else{
                     printf("24\n");
                     switchTurn(table);
-                    set_round_time(40);                  
+                    resetRound(table);                    
                   }
                 }
               }
@@ -161,6 +169,8 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
               break;
             if (table->exitSelected) {
               printf("Exiting game\n");
+              Player* opponent = getNotPlayingPlayer(table);
+              table->winningPlayerName = opponent->name;
               return MENU;
             }
             table->mouse->savedPos = table->mouse->pos;
@@ -209,7 +219,7 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
 
     case RTC:
       if (get_round_time() == 0) {
-        set_round_time(40);
+        resetRound(table);                    
         switchTurn(table);
       }
 
@@ -223,3 +233,13 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
   }
   return PLAYING;
 }
+
+
+void resetRound(Table * table){
+  set_round_time(40);
+  table->cue->charge = 0;
+  table->cue->sideEnglish = 0;
+  table->cue->verticalEnglish = 0;
+}
+
+

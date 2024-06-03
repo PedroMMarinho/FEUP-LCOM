@@ -1,0 +1,9 @@
+<map id="vg_draw_pattern" name="vg_draw_pattern">
+<area shape="rect" id="node1" title="Draws a pattern." alt="" coords="5,81,136,108"/>
+<area shape="rect" id="node2" href="$graphics_8c.html#af4090a22121cf0039e5c5df5a019d3ce" title="Extracts the blue component from a color." alt="" coords="237,5,276,32"/>
+<area shape="rect" id="node3" href="$graphics_8c.html#a5392c6c7a5c4cf34a80334729119a19a" title="Extracts the green component from a color." alt="" coords="237,56,276,83"/>
+<area shape="rect" id="node4" href="$graphics_8c.html#a377a4d00a4b958b9d41e3289c0f10abc" title="Extracts the red component from a color." alt="" coords="237,107,276,133"/>
+<area shape="rect" id="node5" href="$graphics_8c.html#a99d2da2559e11200c6b40c469e9977ec" title="Draws a rectangle." alt="" coords="184,157,329,184"/>
+<area shape="rect" id="node6" href="$graphics_8c.html#a5e5b25bd525250f61f40b9e9f212d5e6" title="Draws a horizontal line." alt="" coords="377,157,493,184"/>
+<area shape="rect" id="node7" href="$graphics_8c.html#abcd14d829edc3257916bdcc1a9aca216" title="Draws a pixel." alt="" coords="541,157,633,184"/>
+</map>

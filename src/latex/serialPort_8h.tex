@@ -1,0 +1,549 @@
+\hypertarget{serialPort_8h}{}\doxysection{labs/serial\+Port.h File Reference}
+\label{serialPort_8h}\index{labs/serialPort.h@{labs/serialPort.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}queue.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utils.\+h\char`\"{}}\newline
+Include dependency graph for serial\+Port.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{serialPort_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{serialPort_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a00dbb3ab1c59e14699be9393693e2248}{COM1}}~0x3\+F8
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a3685c78b9bd6dd0fa3861807e24a4e1b}{COM1\+\_\+\+IRQ}}~4
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_aa6f7e7a9f4551d6151f9d45362118a50}{RBR}}~0x00
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a5e9787adf3c9afcc4b781e85bb545b35}{THR}}~0x00
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a3e27fa35f9febccdc4a0c28a5c8cffbb}{IER}}~0x01
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a67004975983f9c99226d63db17ba74c4}{IIR}}~0x02
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a264b36b13386e3f62fe69e04711bc006}{FCR}}~0x02
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a851cb396b6eaa97346364a772b439f37}{LCR}}~0x03
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_ad51d51aee21f6cc77d4955221aee3dcb}{LSR}}~0x05
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_ab801e055044a209a9870650479be14c1}{DIVISOR\+\_\+\+LATCH\+\_\+\+LSB}}~0x00
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a11d25bb245c875432c59dfad58587483}{DIVISOR\+\_\+\+LATCH\+\_\+\+MSB}}~0x01
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a6fade4648325be2bebd8375871923ae0}{LCR\+\_\+8\+\_\+\+BITS}}~(BIT(0) $\vert$ BIT(1))
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a57ff35c0ff45d7e875c769aa86d4f6ab}{LCR\+\_\+\+ODD\+\_\+\+PARITY}}~BIT(3)
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a1cf80a668c79b3081803063178f40920}{LCR\+\_\+\+DLAB}}~BIT(7)
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a9833b4149a089d0717dcf83da68e3e62}{LSR\+\_\+\+RECEIVER\+\_\+\+DATA}}~BIT(0)
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a1a2e230078e0423a6f7681d30d8e3798}{LSR\+\_\+\+OVERRUN\+\_\+\+ERROR}}~BIT(1)
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a33db06ef4a01ba3df88ea1ff7255032d}{LSR\+\_\+\+PARITY\+\_\+\+ERROR}}~BIT(2)
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a3b8c453276843a913d454684a4069a58}{LSR\+\_\+\+FRAMING\+\_\+\+ERROR}}~BIT(3)
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a7627097cd345712b52b14a51fbb9356a}{LSR\+\_\+\+BREAK\+\_\+\+INTERRUPT}}~BIT(4)
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a7f6cc560061b76ebfa4faac6aa8895fa}{LSR\+\_\+\+TRANSMITTER\+\_\+\+HOLD\+\_\+\+EMPTY}}~BIT(5)
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a03ef32f938be678109b93e7b2b364d62}{LSR\+\_\+\+TRANSMITTER\+\_\+\+EMPTY\+\_\+\+REG}}~BIT(6)
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a6b748eb460e40c2a551437646e7bb1e4}{LSR\+\_\+\+FIFO\+\_\+\+ERROR}}~BIT(7)
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a545fc428565722240fcdaeaf77f8e231}{IER\+\_\+\+RDAI}}~BIT(0)
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a8e542e9251e12fa386677d33690b88c4}{IER\+\_\+\+THREI}}~BIT(1)
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_ab3008b6733836948a3a636deb4540c0e}{IER\+\_\+\+RLSI}}~BIT(2)
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a2548c60c72878ef0ead2e83c65ecd3be}{IIR\+\_\+\+PENDING}}~BIT(0)
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_af42cc32f7004f125ceeca29f0b5fc261}{IIR\+\_\+\+LINE\+\_\+\+STATUS}}~(BIT(2) $\vert$ BIT(1))
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a422b12d240e1fda2db0bae3511ca3e51}{IIR\+\_\+\+DATA\+\_\+\+AVAILABLE}}~(BIT(2))
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a8684e776048d2043d35d4224cfccabee}{IIR\+\_\+\+CHARACTER\+\_\+\+TIMEOUT}}~(BIT(2) $\vert$ BIT(3))
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a2666dc76b52dbbe9d016e78ebace818b}{IIR\+\_\+\+TRANSMIT\+\_\+\+HOLD\+\_\+\+EMPTY}}~(BIT(1))
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a13f6ea4f0e07fb12e8163349d4a95a87}{FCR\+\_\+\+ENABLE\+\_\+\+FIFO}}~BIT(0)
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a9a7cf7a7e7ecd02ee6ff499274890ef1}{FCR\+\_\+\+CLEAR\+\_\+\+RCVR\+\_\+\+FIFO}}~BIT(1)
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_a051a82f34f9fa29b948fc04c55ccdfd8}{FCR\+\_\+\+CLEAR\+\_\+\+XMIT\+\_\+\+FIFO}}~BIT(2)
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_ae702c83ec574a6dc7aa346d99aec2b80}{TRYSYNC}}~0x53
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_abf4460e7ed4330e702412421c80a8d1a}{FIRSTSYNC}}~0x54
+\item 
+\#define \mbox{\hyperlink{serialPort_8h_afcac49da7a45330506c8b92d0414a945}{SECONDSYNC}}~0x55
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{serialPort_8h_af1e63fffde2d49241a6daf2442084099}{send\+\_\+\+SP\+\_\+data}} (uint8\+\_\+t byte)
+\begin{DoxyCompactList}\small\item\em Sends a byte of data to the serial port. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{serialPort_8h_a19c3e017bd5ab5a4be6b2fbacce9ac6a}{sp\+\_\+subscribe}} (uint8\+\_\+t $\ast$bit\+\_\+no)
+\begin{DoxyCompactList}\small\item\em Subscribes to the serial port interrupts. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{serialPort_8h_a9b9613cb71042e5f189b2b2d7d09e73e}{sp\+\_\+unsubscribe}} ()
+\begin{DoxyCompactList}\small\item\em Unsubscribes from the serial port interrupts. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{serialPort_8h_abe861c4f2e91f92ffd0c315ac7b1afd3}{establish\+\_\+connection}} ()
+\begin{DoxyCompactList}\small\item\em Establishes a connection. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{serialPort_8h_af6cc263493df7caac7bd7d0be6b50635}{sp\+\_\+ih}} ()
+\begin{DoxyCompactList}\small\item\em Interrupt handler for the serial port. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{serialPort_8h_a753488e7d0873849b64417d09c6c07ce}{sp\+\_\+clear}} ()
+\begin{DoxyCompactList}\small\item\em Clears the serial port FIFO. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{serialPort_8h_ab1ddddd34fc1d50526bdb47ace0b0a7d}{reset\+Multiplayer}} ()
+\begin{DoxyCompactList}\small\item\em Resets the multiplayer state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{serialPort_8h_a00dbb3ab1c59e14699be9393693e2248}\label{serialPort_8h_a00dbb3ab1c59e14699be9393693e2248}} 
+\index{serialPort.h@{serialPort.h}!COM1@{COM1}}
+\index{COM1@{COM1}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{COM1}{COM1}}
+{\footnotesize\ttfamily \#define COM1~0x3\+F8}
+
+\mbox{\Hypertarget{serialPort_8h_a3685c78b9bd6dd0fa3861807e24a4e1b}\label{serialPort_8h_a3685c78b9bd6dd0fa3861807e24a4e1b}} 
+\index{serialPort.h@{serialPort.h}!COM1\_IRQ@{COM1\_IRQ}}
+\index{COM1\_IRQ@{COM1\_IRQ}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{COM1\_IRQ}{COM1\_IRQ}}
+{\footnotesize\ttfamily \#define COM1\+\_\+\+IRQ~4}
+
+\mbox{\Hypertarget{serialPort_8h_ab801e055044a209a9870650479be14c1}\label{serialPort_8h_ab801e055044a209a9870650479be14c1}} 
+\index{serialPort.h@{serialPort.h}!DIVISOR\_LATCH\_LSB@{DIVISOR\_LATCH\_LSB}}
+\index{DIVISOR\_LATCH\_LSB@{DIVISOR\_LATCH\_LSB}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{DIVISOR\_LATCH\_LSB}{DIVISOR\_LATCH\_LSB}}
+{\footnotesize\ttfamily \#define DIVISOR\+\_\+\+LATCH\+\_\+\+LSB~0x00}
+
+\mbox{\Hypertarget{serialPort_8h_a11d25bb245c875432c59dfad58587483}\label{serialPort_8h_a11d25bb245c875432c59dfad58587483}} 
+\index{serialPort.h@{serialPort.h}!DIVISOR\_LATCH\_MSB@{DIVISOR\_LATCH\_MSB}}
+\index{DIVISOR\_LATCH\_MSB@{DIVISOR\_LATCH\_MSB}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{DIVISOR\_LATCH\_MSB}{DIVISOR\_LATCH\_MSB}}
+{\footnotesize\ttfamily \#define DIVISOR\+\_\+\+LATCH\+\_\+\+MSB~0x01}
+
+\mbox{\Hypertarget{serialPort_8h_a264b36b13386e3f62fe69e04711bc006}\label{serialPort_8h_a264b36b13386e3f62fe69e04711bc006}} 
+\index{serialPort.h@{serialPort.h}!FCR@{FCR}}
+\index{FCR@{FCR}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{FCR}{FCR}}
+{\footnotesize\ttfamily \#define FCR~0x02}
+
+\mbox{\Hypertarget{serialPort_8h_a9a7cf7a7e7ecd02ee6ff499274890ef1}\label{serialPort_8h_a9a7cf7a7e7ecd02ee6ff499274890ef1}} 
+\index{serialPort.h@{serialPort.h}!FCR\_CLEAR\_RCVR\_FIFO@{FCR\_CLEAR\_RCVR\_FIFO}}
+\index{FCR\_CLEAR\_RCVR\_FIFO@{FCR\_CLEAR\_RCVR\_FIFO}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{FCR\_CLEAR\_RCVR\_FIFO}{FCR\_CLEAR\_RCVR\_FIFO}}
+{\footnotesize\ttfamily \#define FCR\+\_\+\+CLEAR\+\_\+\+RCVR\+\_\+\+FIFO~BIT(1)}
+
+\mbox{\Hypertarget{serialPort_8h_a051a82f34f9fa29b948fc04c55ccdfd8}\label{serialPort_8h_a051a82f34f9fa29b948fc04c55ccdfd8}} 
+\index{serialPort.h@{serialPort.h}!FCR\_CLEAR\_XMIT\_FIFO@{FCR\_CLEAR\_XMIT\_FIFO}}
+\index{FCR\_CLEAR\_XMIT\_FIFO@{FCR\_CLEAR\_XMIT\_FIFO}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{FCR\_CLEAR\_XMIT\_FIFO}{FCR\_CLEAR\_XMIT\_FIFO}}
+{\footnotesize\ttfamily \#define FCR\+\_\+\+CLEAR\+\_\+\+XMIT\+\_\+\+FIFO~BIT(2)}
+
+\mbox{\Hypertarget{serialPort_8h_a13f6ea4f0e07fb12e8163349d4a95a87}\label{serialPort_8h_a13f6ea4f0e07fb12e8163349d4a95a87}} 
+\index{serialPort.h@{serialPort.h}!FCR\_ENABLE\_FIFO@{FCR\_ENABLE\_FIFO}}
+\index{FCR\_ENABLE\_FIFO@{FCR\_ENABLE\_FIFO}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{FCR\_ENABLE\_FIFO}{FCR\_ENABLE\_FIFO}}
+{\footnotesize\ttfamily \#define FCR\+\_\+\+ENABLE\+\_\+\+FIFO~BIT(0)}
+
+\mbox{\Hypertarget{serialPort_8h_abf4460e7ed4330e702412421c80a8d1a}\label{serialPort_8h_abf4460e7ed4330e702412421c80a8d1a}} 
+\index{serialPort.h@{serialPort.h}!FIRSTSYNC@{FIRSTSYNC}}
+\index{FIRSTSYNC@{FIRSTSYNC}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{FIRSTSYNC}{FIRSTSYNC}}
+{\footnotesize\ttfamily \#define FIRSTSYNC~0x54}
+
+\mbox{\Hypertarget{serialPort_8h_a3e27fa35f9febccdc4a0c28a5c8cffbb}\label{serialPort_8h_a3e27fa35f9febccdc4a0c28a5c8cffbb}} 
+\index{serialPort.h@{serialPort.h}!IER@{IER}}
+\index{IER@{IER}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{IER}{IER}}
+{\footnotesize\ttfamily \#define IER~0x01}
+
+\mbox{\Hypertarget{serialPort_8h_a545fc428565722240fcdaeaf77f8e231}\label{serialPort_8h_a545fc428565722240fcdaeaf77f8e231}} 
+\index{serialPort.h@{serialPort.h}!IER\_RDAI@{IER\_RDAI}}
+\index{IER\_RDAI@{IER\_RDAI}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{IER\_RDAI}{IER\_RDAI}}
+{\footnotesize\ttfamily \#define IER\+\_\+\+RDAI~BIT(0)}
+
+\mbox{\Hypertarget{serialPort_8h_ab3008b6733836948a3a636deb4540c0e}\label{serialPort_8h_ab3008b6733836948a3a636deb4540c0e}} 
+\index{serialPort.h@{serialPort.h}!IER\_RLSI@{IER\_RLSI}}
+\index{IER\_RLSI@{IER\_RLSI}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{IER\_RLSI}{IER\_RLSI}}
+{\footnotesize\ttfamily \#define IER\+\_\+\+RLSI~BIT(2)}
+
+\mbox{\Hypertarget{serialPort_8h_a8e542e9251e12fa386677d33690b88c4}\label{serialPort_8h_a8e542e9251e12fa386677d33690b88c4}} 
+\index{serialPort.h@{serialPort.h}!IER\_THREI@{IER\_THREI}}
+\index{IER\_THREI@{IER\_THREI}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{IER\_THREI}{IER\_THREI}}
+{\footnotesize\ttfamily \#define IER\+\_\+\+THREI~BIT(1)}
+
+\mbox{\Hypertarget{serialPort_8h_a67004975983f9c99226d63db17ba74c4}\label{serialPort_8h_a67004975983f9c99226d63db17ba74c4}} 
+\index{serialPort.h@{serialPort.h}!IIR@{IIR}}
+\index{IIR@{IIR}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{IIR}{IIR}}
+{\footnotesize\ttfamily \#define IIR~0x02}
+
+\mbox{\Hypertarget{serialPort_8h_a8684e776048d2043d35d4224cfccabee}\label{serialPort_8h_a8684e776048d2043d35d4224cfccabee}} 
+\index{serialPort.h@{serialPort.h}!IIR\_CHARACTER\_TIMEOUT@{IIR\_CHARACTER\_TIMEOUT}}
+\index{IIR\_CHARACTER\_TIMEOUT@{IIR\_CHARACTER\_TIMEOUT}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{IIR\_CHARACTER\_TIMEOUT}{IIR\_CHARACTER\_TIMEOUT}}
+{\footnotesize\ttfamily \#define IIR\+\_\+\+CHARACTER\+\_\+\+TIMEOUT~(BIT(2) $\vert$ BIT(3))}
+
+\mbox{\Hypertarget{serialPort_8h_a422b12d240e1fda2db0bae3511ca3e51}\label{serialPort_8h_a422b12d240e1fda2db0bae3511ca3e51}} 
+\index{serialPort.h@{serialPort.h}!IIR\_DATA\_AVAILABLE@{IIR\_DATA\_AVAILABLE}}
+\index{IIR\_DATA\_AVAILABLE@{IIR\_DATA\_AVAILABLE}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{IIR\_DATA\_AVAILABLE}{IIR\_DATA\_AVAILABLE}}
+{\footnotesize\ttfamily \#define IIR\+\_\+\+DATA\+\_\+\+AVAILABLE~(BIT(2))}
+
+\mbox{\Hypertarget{serialPort_8h_af42cc32f7004f125ceeca29f0b5fc261}\label{serialPort_8h_af42cc32f7004f125ceeca29f0b5fc261}} 
+\index{serialPort.h@{serialPort.h}!IIR\_LINE\_STATUS@{IIR\_LINE\_STATUS}}
+\index{IIR\_LINE\_STATUS@{IIR\_LINE\_STATUS}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{IIR\_LINE\_STATUS}{IIR\_LINE\_STATUS}}
+{\footnotesize\ttfamily \#define IIR\+\_\+\+LINE\+\_\+\+STATUS~(BIT(2) $\vert$ BIT(1))}
+
+\mbox{\Hypertarget{serialPort_8h_a2548c60c72878ef0ead2e83c65ecd3be}\label{serialPort_8h_a2548c60c72878ef0ead2e83c65ecd3be}} 
+\index{serialPort.h@{serialPort.h}!IIR\_PENDING@{IIR\_PENDING}}
+\index{IIR\_PENDING@{IIR\_PENDING}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{IIR\_PENDING}{IIR\_PENDING}}
+{\footnotesize\ttfamily \#define IIR\+\_\+\+PENDING~BIT(0)}
+
+\mbox{\Hypertarget{serialPort_8h_a2666dc76b52dbbe9d016e78ebace818b}\label{serialPort_8h_a2666dc76b52dbbe9d016e78ebace818b}} 
+\index{serialPort.h@{serialPort.h}!IIR\_TRANSMIT\_HOLD\_EMPTY@{IIR\_TRANSMIT\_HOLD\_EMPTY}}
+\index{IIR\_TRANSMIT\_HOLD\_EMPTY@{IIR\_TRANSMIT\_HOLD\_EMPTY}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{IIR\_TRANSMIT\_HOLD\_EMPTY}{IIR\_TRANSMIT\_HOLD\_EMPTY}}
+{\footnotesize\ttfamily \#define IIR\+\_\+\+TRANSMIT\+\_\+\+HOLD\+\_\+\+EMPTY~(BIT(1))}
+
+\mbox{\Hypertarget{serialPort_8h_a851cb396b6eaa97346364a772b439f37}\label{serialPort_8h_a851cb396b6eaa97346364a772b439f37}} 
+\index{serialPort.h@{serialPort.h}!LCR@{LCR}}
+\index{LCR@{LCR}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{LCR}{LCR}}
+{\footnotesize\ttfamily \#define LCR~0x03}
+
+\mbox{\Hypertarget{serialPort_8h_a6fade4648325be2bebd8375871923ae0}\label{serialPort_8h_a6fade4648325be2bebd8375871923ae0}} 
+\index{serialPort.h@{serialPort.h}!LCR\_8\_BITS@{LCR\_8\_BITS}}
+\index{LCR\_8\_BITS@{LCR\_8\_BITS}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{LCR\_8\_BITS}{LCR\_8\_BITS}}
+{\footnotesize\ttfamily \#define LCR\+\_\+8\+\_\+\+BITS~(BIT(0) $\vert$ BIT(1))}
+
+\mbox{\Hypertarget{serialPort_8h_a1cf80a668c79b3081803063178f40920}\label{serialPort_8h_a1cf80a668c79b3081803063178f40920}} 
+\index{serialPort.h@{serialPort.h}!LCR\_DLAB@{LCR\_DLAB}}
+\index{LCR\_DLAB@{LCR\_DLAB}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{LCR\_DLAB}{LCR\_DLAB}}
+{\footnotesize\ttfamily \#define LCR\+\_\+\+DLAB~BIT(7)}
+
+\mbox{\Hypertarget{serialPort_8h_a57ff35c0ff45d7e875c769aa86d4f6ab}\label{serialPort_8h_a57ff35c0ff45d7e875c769aa86d4f6ab}} 
+\index{serialPort.h@{serialPort.h}!LCR\_ODD\_PARITY@{LCR\_ODD\_PARITY}}
+\index{LCR\_ODD\_PARITY@{LCR\_ODD\_PARITY}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{LCR\_ODD\_PARITY}{LCR\_ODD\_PARITY}}
+{\footnotesize\ttfamily \#define LCR\+\_\+\+ODD\+\_\+\+PARITY~BIT(3)}
+
+\mbox{\Hypertarget{serialPort_8h_ad51d51aee21f6cc77d4955221aee3dcb}\label{serialPort_8h_ad51d51aee21f6cc77d4955221aee3dcb}} 
+\index{serialPort.h@{serialPort.h}!LSR@{LSR}}
+\index{LSR@{LSR}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{LSR}{LSR}}
+{\footnotesize\ttfamily \#define LSR~0x05}
+
+\mbox{\Hypertarget{serialPort_8h_a7627097cd345712b52b14a51fbb9356a}\label{serialPort_8h_a7627097cd345712b52b14a51fbb9356a}} 
+\index{serialPort.h@{serialPort.h}!LSR\_BREAK\_INTERRUPT@{LSR\_BREAK\_INTERRUPT}}
+\index{LSR\_BREAK\_INTERRUPT@{LSR\_BREAK\_INTERRUPT}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{LSR\_BREAK\_INTERRUPT}{LSR\_BREAK\_INTERRUPT}}
+{\footnotesize\ttfamily \#define LSR\+\_\+\+BREAK\+\_\+\+INTERRUPT~BIT(4)}
+
+\mbox{\Hypertarget{serialPort_8h_a6b748eb460e40c2a551437646e7bb1e4}\label{serialPort_8h_a6b748eb460e40c2a551437646e7bb1e4}} 
+\index{serialPort.h@{serialPort.h}!LSR\_FIFO\_ERROR@{LSR\_FIFO\_ERROR}}
+\index{LSR\_FIFO\_ERROR@{LSR\_FIFO\_ERROR}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{LSR\_FIFO\_ERROR}{LSR\_FIFO\_ERROR}}
+{\footnotesize\ttfamily \#define LSR\+\_\+\+FIFO\+\_\+\+ERROR~BIT(7)}
+
+\mbox{\Hypertarget{serialPort_8h_a3b8c453276843a913d454684a4069a58}\label{serialPort_8h_a3b8c453276843a913d454684a4069a58}} 
+\index{serialPort.h@{serialPort.h}!LSR\_FRAMING\_ERROR@{LSR\_FRAMING\_ERROR}}
+\index{LSR\_FRAMING\_ERROR@{LSR\_FRAMING\_ERROR}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{LSR\_FRAMING\_ERROR}{LSR\_FRAMING\_ERROR}}
+{\footnotesize\ttfamily \#define LSR\+\_\+\+FRAMING\+\_\+\+ERROR~BIT(3)}
+
+\mbox{\Hypertarget{serialPort_8h_a1a2e230078e0423a6f7681d30d8e3798}\label{serialPort_8h_a1a2e230078e0423a6f7681d30d8e3798}} 
+\index{serialPort.h@{serialPort.h}!LSR\_OVERRUN\_ERROR@{LSR\_OVERRUN\_ERROR}}
+\index{LSR\_OVERRUN\_ERROR@{LSR\_OVERRUN\_ERROR}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{LSR\_OVERRUN\_ERROR}{LSR\_OVERRUN\_ERROR}}
+{\footnotesize\ttfamily \#define LSR\+\_\+\+OVERRUN\+\_\+\+ERROR~BIT(1)}
+
+\mbox{\Hypertarget{serialPort_8h_a33db06ef4a01ba3df88ea1ff7255032d}\label{serialPort_8h_a33db06ef4a01ba3df88ea1ff7255032d}} 
+\index{serialPort.h@{serialPort.h}!LSR\_PARITY\_ERROR@{LSR\_PARITY\_ERROR}}
+\index{LSR\_PARITY\_ERROR@{LSR\_PARITY\_ERROR}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{LSR\_PARITY\_ERROR}{LSR\_PARITY\_ERROR}}
+{\footnotesize\ttfamily \#define LSR\+\_\+\+PARITY\+\_\+\+ERROR~BIT(2)}
+
+\mbox{\Hypertarget{serialPort_8h_a9833b4149a089d0717dcf83da68e3e62}\label{serialPort_8h_a9833b4149a089d0717dcf83da68e3e62}} 
+\index{serialPort.h@{serialPort.h}!LSR\_RECEIVER\_DATA@{LSR\_RECEIVER\_DATA}}
+\index{LSR\_RECEIVER\_DATA@{LSR\_RECEIVER\_DATA}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{LSR\_RECEIVER\_DATA}{LSR\_RECEIVER\_DATA}}
+{\footnotesize\ttfamily \#define LSR\+\_\+\+RECEIVER\+\_\+\+DATA~BIT(0)}
+
+\mbox{\Hypertarget{serialPort_8h_a03ef32f938be678109b93e7b2b364d62}\label{serialPort_8h_a03ef32f938be678109b93e7b2b364d62}} 
+\index{serialPort.h@{serialPort.h}!LSR\_TRANSMITTER\_EMPTY\_REG@{LSR\_TRANSMITTER\_EMPTY\_REG}}
+\index{LSR\_TRANSMITTER\_EMPTY\_REG@{LSR\_TRANSMITTER\_EMPTY\_REG}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{LSR\_TRANSMITTER\_EMPTY\_REG}{LSR\_TRANSMITTER\_EMPTY\_REG}}
+{\footnotesize\ttfamily \#define LSR\+\_\+\+TRANSMITTER\+\_\+\+EMPTY\+\_\+\+REG~BIT(6)}
+
+\mbox{\Hypertarget{serialPort_8h_a7f6cc560061b76ebfa4faac6aa8895fa}\label{serialPort_8h_a7f6cc560061b76ebfa4faac6aa8895fa}} 
+\index{serialPort.h@{serialPort.h}!LSR\_TRANSMITTER\_HOLD\_EMPTY@{LSR\_TRANSMITTER\_HOLD\_EMPTY}}
+\index{LSR\_TRANSMITTER\_HOLD\_EMPTY@{LSR\_TRANSMITTER\_HOLD\_EMPTY}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{LSR\_TRANSMITTER\_HOLD\_EMPTY}{LSR\_TRANSMITTER\_HOLD\_EMPTY}}
+{\footnotesize\ttfamily \#define LSR\+\_\+\+TRANSMITTER\+\_\+\+HOLD\+\_\+\+EMPTY~BIT(5)}
+
+\mbox{\Hypertarget{serialPort_8h_aa6f7e7a9f4551d6151f9d45362118a50}\label{serialPort_8h_aa6f7e7a9f4551d6151f9d45362118a50}} 
+\index{serialPort.h@{serialPort.h}!RBR@{RBR}}
+\index{RBR@{RBR}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{RBR}{RBR}}
+{\footnotesize\ttfamily \#define RBR~0x00}
+
+\mbox{\Hypertarget{serialPort_8h_afcac49da7a45330506c8b92d0414a945}\label{serialPort_8h_afcac49da7a45330506c8b92d0414a945}} 
+\index{serialPort.h@{serialPort.h}!SECONDSYNC@{SECONDSYNC}}
+\index{SECONDSYNC@{SECONDSYNC}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{SECONDSYNC}{SECONDSYNC}}
+{\footnotesize\ttfamily \#define SECONDSYNC~0x55}
+
+\mbox{\Hypertarget{serialPort_8h_a5e9787adf3c9afcc4b781e85bb545b35}\label{serialPort_8h_a5e9787adf3c9afcc4b781e85bb545b35}} 
+\index{serialPort.h@{serialPort.h}!THR@{THR}}
+\index{THR@{THR}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{THR}{THR}}
+{\footnotesize\ttfamily \#define THR~0x00}
+
+\mbox{\Hypertarget{serialPort_8h_ae702c83ec574a6dc7aa346d99aec2b80}\label{serialPort_8h_ae702c83ec574a6dc7aa346d99aec2b80}} 
+\index{serialPort.h@{serialPort.h}!TRYSYNC@{TRYSYNC}}
+\index{TRYSYNC@{TRYSYNC}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{TRYSYNC}{TRYSYNC}}
+{\footnotesize\ttfamily \#define TRYSYNC~0x53}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{serialPort_8h_abe861c4f2e91f92ffd0c315ac7b1afd3}\label{serialPort_8h_abe861c4f2e91f92ffd0c315ac7b1afd3}} 
+\index{serialPort.h@{serialPort.h}!establish\_connection@{establish\_connection}}
+\index{establish\_connection@{establish\_connection}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{establish\_connection()}{establish\_connection()}}
+{\footnotesize\ttfamily int establish\+\_\+connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Establishes a connection. 
+
+This function establishes a connection by sending and receiving synchronization bytes.
+
+\begin{DoxyReturn}{Returns}
+int 1 if connection established, 0 otherwise. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{serialPort_8h_abe861c4f2e91f92ffd0c315ac7b1afd3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{serialPort_8h_abe861c4f2e91f92ffd0c315ac7b1afd3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{serialPort_8h_ab1ddddd34fc1d50526bdb47ace0b0a7d}\label{serialPort_8h_ab1ddddd34fc1d50526bdb47ace0b0a7d}} 
+\index{serialPort.h@{serialPort.h}!resetMultiplayer@{resetMultiplayer}}
+\index{resetMultiplayer@{resetMultiplayer}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{resetMultiplayer()}{resetMultiplayer()}}
+{\footnotesize\ttfamily void reset\+Multiplayer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Resets the multiplayer state. 
+
+This function resets the multiplayer state by clearing the send and receive queues and resetting flags. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{serialPort_8h_ab1ddddd34fc1d50526bdb47ace0b0a7d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{serialPort_8h_ab1ddddd34fc1d50526bdb47ace0b0a7d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{serialPort_8h_af1e63fffde2d49241a6daf2442084099}\label{serialPort_8h_af1e63fffde2d49241a6daf2442084099}} 
+\index{serialPort.h@{serialPort.h}!send\_SP\_data@{send\_SP\_data}}
+\index{send\_SP\_data@{send\_SP\_data}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{send\_SP\_data()}{send\_SP\_data()}}
+{\footnotesize\ttfamily int send\+\_\+\+SP\+\_\+data (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{byte }\end{DoxyParamCaption})}
+
+
+
+Sends a byte of data to the serial port. 
+
+This function sends a byte of data to the serial port by pushing it to the send queue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The byte of data to send. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 0 on success, 1 on failure. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{serialPort_8h_af1e63fffde2d49241a6daf2442084099_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{serialPort_8h_af1e63fffde2d49241a6daf2442084099_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{serialPort_8h_a753488e7d0873849b64417d09c6c07ce}\label{serialPort_8h_a753488e7d0873849b64417d09c6c07ce}} 
+\index{serialPort.h@{serialPort.h}!sp\_clear@{sp\_clear}}
+\index{sp\_clear@{sp\_clear}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{sp\_clear()}{sp\_clear()}}
+{\footnotesize\ttfamily int sp\+\_\+clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clears the serial port FIFO. 
+
+This function clears the FIFO of the serial port.
+
+\begin{DoxyReturn}{Returns}
+int 0 on success, 1 on failure. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{serialPort_8h_a753488e7d0873849b64417d09c6c07ce_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{serialPort_8h_a753488e7d0873849b64417d09c6c07ce_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{serialPort_8h_af6cc263493df7caac7bd7d0be6b50635}\label{serialPort_8h_af6cc263493df7caac7bd7d0be6b50635}} 
+\index{serialPort.h@{serialPort.h}!sp\_ih@{sp\_ih}}
+\index{sp\_ih@{sp\_ih}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{sp\_ih()}{sp\_ih()}}
+{\footnotesize\ttfamily void sp\+\_\+ih (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Interrupt handler for the serial port. 
+
+This function handles interrupts for the serial port, managing received data and transmission hold empty interrupts. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{serialPort_8h_af6cc263493df7caac7bd7d0be6b50635_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{serialPort_8h_af6cc263493df7caac7bd7d0be6b50635_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{serialPort_8h_a19c3e017bd5ab5a4be6b2fbacce9ac6a}\label{serialPort_8h_a19c3e017bd5ab5a4be6b2fbacce9ac6a}} 
+\index{serialPort.h@{serialPort.h}!sp\_subscribe@{sp\_subscribe}}
+\index{sp\_subscribe@{sp\_subscribe}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{sp\_subscribe()}{sp\_subscribe()}}
+{\footnotesize\ttfamily int() sp\+\_\+subscribe (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{bit\+\_\+no }\end{DoxyParamCaption})}
+
+
+
+Subscribes to the serial port interrupts. 
+
+This function initializes the serial port and subscribes to its interrupts.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bit\+\_\+no} & Pointer to store the interrupt bit number. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 0 on success, 1 on failure. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{serialPort_8h_a19c3e017bd5ab5a4be6b2fbacce9ac6a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{serialPort_8h_a19c3e017bd5ab5a4be6b2fbacce9ac6a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{serialPort_8h_a9b9613cb71042e5f189b2b2d7d09e73e}\label{serialPort_8h_a9b9613cb71042e5f189b2b2d7d09e73e}} 
+\index{serialPort.h@{serialPort.h}!sp\_unsubscribe@{sp\_unsubscribe}}
+\index{sp\_unsubscribe@{sp\_unsubscribe}!serialPort.h@{serialPort.h}}
+\doxysubsubsection{\texorpdfstring{sp\_unsubscribe()}{sp\_unsubscribe()}}
+{\footnotesize\ttfamily int() sp\+\_\+unsubscribe (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Unsubscribes from the serial port interrupts. 
+
+This function ends the serial port operation and unsubscribes from its interrupts.
+
+\begin{DoxyReturn}{Returns}
+int 0 on success, 1 on failure. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{serialPort_8h_a9b9613cb71042e5f189b2b2d7d09e73e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{serialPort_8h_a9b9613cb71042e5f189b2b2d7d09e73e_icgraph}
+\end{center}
+\end{figure}

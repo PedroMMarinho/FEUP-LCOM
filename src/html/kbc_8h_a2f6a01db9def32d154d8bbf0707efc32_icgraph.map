@@ -1,0 +1,10 @@
+<map id="read_outputBuffer" name="read_outputBuffer">
+<area shape="rect" id="node1" title="Reads data from the output buffer." alt="" coords="863,56,1001,83"/>
+<area shape="rect" id="node2" href="$keyboard_8c.html#aea970a154161a35f6894898a092ed70a" title="Subscribes and enables Keyboard interrupts." alt="" coords="495,5,559,32"/>
+<area shape="rect" id="node6" href="$kbc_8c.html#aeabc46cec65688a9bf3760812ac4ba54" title="Issues a command to the keyboard controller (KBC)." alt="" coords="656,56,815,83"/>
+<area shape="rect" id="node8" href="$mouse_8c.html#a210374b50462acdedab00df64d5cea3c" title="Subscribes and enables Mouse interrupts." alt="" coords="693,107,778,133"/>
+<area shape="rect" id="node3" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="307,56,397,83"/>
+<area shape="rect" id="node4" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,56,259,83"/>
+<area shape="rect" id="node5" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,56,128,83"/>
+<area shape="rect" id="node7" href="$mouse_8c.html#a630c5bb9cbfcca20fac7347ff46794dc" title="Disables data reporting." alt="" coords="445,56,608,83"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="isMouseOverButton" name="isMouseOverButton">
+<area shape="rect" id="node1" title="Checks if the mouse cursor is over a button." alt="" coords="904,31,1055,57"/>
+<area shape="rect" id="node2" href="$playingController_8c.html#aa8a29eaaea16d53074ed404fe79294c0" title="Handles the playing controller." alt="" coords="445,5,625,32"/>
+<area shape="rect" id="node6" href="$menu_8c.html#af0896330963301ac081c88a5fc9e0e49" title="Checks if the mouse is over any menu option." alt="" coords="673,56,856,83"/>
+<area shape="rect" id="node3" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="307,31,397,57"/>
+<area shape="rect" id="node4" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,31,259,57"/>
+<area shape="rect" id="node5" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,31,128,57"/>
+<area shape="rect" id="node7" href="$menuController_8c.html#a7c7a58765cda0a55100ee122aa0d7fd8" title="Handles the menu controller." alt="" coords="451,56,620,83"/>
+</map>

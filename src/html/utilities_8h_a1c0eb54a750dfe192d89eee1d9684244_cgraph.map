@@ -1,0 +1,7 @@
+<map id="get_uVec" name="get_uVec">
+<area shape="rect" id="node1" title="Calculates the unit vector from the ball&#39;s." alt="" coords="5,56,87,83"/>
+<area shape="rect" id="node2" href="$utilities_8c.html#ae78350457bd27abcfe7ff6d7e055d160" title="Normalizes a vector." alt="" coords="135,5,263,32"/>
+<area shape="rect" id="node4" href="$utilities_8c.html#af7589640fa9f4b10339db00dc0079e81" title="Calculates the relative velocity of a ball." alt="" coords="137,56,261,83"/>
+<area shape="rect" id="node5" href="$utilities_8c.html#a75a2efa623d57f314f94a6fc919e761d" title="Rotates a 2D vector by a given angle." alt="" coords="160,107,237,133"/>
+<area shape="rect" id="node3" href="$utilities_8c.html#a42ada5d449eb0a5545123710cc8bf647" title="Calculates the magnitude of a vector." alt="" coords="311,5,417,32"/>
+</map>

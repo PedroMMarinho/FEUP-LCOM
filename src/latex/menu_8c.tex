@@ -1,0 +1,330 @@
+\hypertarget{menu_8c}{}\doxysection{model/menu.c File Reference}
+\label{menu_8c}\index{model/menu.c@{model/menu.c}}
+{\ttfamily \#include \char`\"{}menu.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}viewer/menu\+Viewer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../labs/graphics.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/menu/back.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/menu/back\+Selected.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/menu/game\+Mode\+Menu\+Local.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/menu/game\+Mode\+Menu\+Local\+Selected.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/menu/game\+Mode\+Menu\+Online.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/menu/game\+Mode\+Menu\+Online\+Selected.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/menu/main\+Menu\+Exit.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/menu/main\+Menu\+Exit\+Selected.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/menu/main\+Menu\+Play.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/menu/main\+Menu\+Play\+Selected.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/menu/main\+Menu\+Background.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/menu/main\+Menu\+Info.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/menu/main\+Menu\+Info\+Selected.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/menu/menu\+Mouse.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/menu/menu\+Mouse\+Hover.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/menu/instructions\+Menu\+Background.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/menu/logo.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/menu/main\+Menu\+Options\+Button.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/menu/options\+Menu\+Background.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/menu/options\+Menu\+Save\+Button.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/menu/options\+Menu\+Save\+Button\+Selected.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/menu/main\+Menu\+Options\+Button\+Selected.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/font/font.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/menu/online\+Menu\+Background.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/menu/ellipses\+Ball.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/menu/game\+Over\+Menu\+Background.\+xpm\char`\"{}}\newline
+Include dependency graph for menu.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structMenu}{Menu}} $\ast$ \mbox{\hyperlink{menu_8c_ab948fc250bbf5f4724f5b4da60057ed0}{new\+Menu}} (\mbox{\hyperlink{menu_8h_ae5c7b6b4f6e696391cd7faaea6571bb4}{Menu\+Type}} type)
+\begin{DoxyCompactList}\small\item\em Creates a new menu. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structMenu}{Menu}} $\ast$ \mbox{\hyperlink{menu_8c_a1334090f76660886ac3281ba3d1adf3b}{new\+Game\+Over\+Menu}} (char $\ast$winner\+Name)
+\item 
+void \mbox{\hyperlink{menu_8c_a6cd6e09dbb9ccefcb024e29d193f4b5a}{set\+Menu\+Type}} (\mbox{\hyperlink{structMenu}{Menu}} $\ast$menu, \mbox{\hyperlink{menu_8h_ae5c7b6b4f6e696391cd7faaea6571bb4}{Menu\+Type}} type)
+\begin{DoxyCompactList}\small\item\em Sets the type of the menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu_8c_a9ef80fb2fccc51693e42cd53782bdcbe}{destroy\+Menu}} (\mbox{\hyperlink{structMenu}{Menu}} $\ast$menu)
+\begin{DoxyCompactList}\small\item\em Frees the memory allocated for the menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu_8c_aceaa3d76e97718b10dcddd65545310e3}{reset\+Menu}} (\mbox{\hyperlink{structMenu}{Menu}} $\ast$menu)
+\begin{DoxyCompactList}\small\item\em Resets the menu to its initial state. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menu_8c_a10b8e5f40d0e4da357e3685752066da3}{draw\+Menu}} (\mbox{\hyperlink{structMenu}{Menu}} $\ast$menu, int time, char $\ast$player\+Name)
+\begin{DoxyCompactList}\small\item\em Draws the menu on the screen. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menu_8c_af0896330963301ac081c88a5fc9e0e49}{see\+If\+Mouse\+Is\+Over\+Option}} (\mbox{\hyperlink{structMenu}{Menu}} $\ast$menu, int $\ast$option)
+\begin{DoxyCompactList}\small\item\em Checks if the mouse is over any menu option. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu_8c_a307894e02f9350b2e0ee36d18c1b9db0}{update\+Selected\+Option}} (\mbox{\hyperlink{structMenu}{Menu}} $\ast$menu, int option)
+\begin{DoxyCompactList}\small\item\em Updates the selected option in the menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu_8c_a474daa6efa961b451b5f1fb64bcf5093}{destroy\+Font}} (xpm\+\_\+image\+\_\+t $\ast$font)
+\begin{DoxyCompactList}\small\item\em Destroys a font. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{menu_8c_a474daa6efa961b451b5f1fb64bcf5093}\label{menu_8c_a474daa6efa961b451b5f1fb64bcf5093}} 
+\index{menu.c@{menu.c}!destroyFont@{destroyFont}}
+\index{destroyFont@{destroyFont}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{destroyFont()}{destroyFont()}}
+{\footnotesize\ttfamily void destroy\+Font (\begin{DoxyParamCaption}\item[{xpm\+\_\+image\+\_\+t $\ast$}]{font }\end{DoxyParamCaption})}
+
+
+
+Destroys a font. 
+
+This function frees the memory allocated for a font. It iterates over each character image in the font, frees its bytes, and then frees the font array itself.
+
+
+\begin{DoxyParams}{Parameters}
+{\em font} & Pointer to the array of xpm\+\_\+image\+\_\+t structures representing the font. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8c_a474daa6efa961b451b5f1fb64bcf5093_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menu_8c_a9ef80fb2fccc51693e42cd53782bdcbe}\label{menu_8c_a9ef80fb2fccc51693e42cd53782bdcbe}} 
+\index{menu.c@{menu.c}!destroyMenu@{destroyMenu}}
+\index{destroyMenu@{destroyMenu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{destroyMenu()}{destroyMenu()}}
+{\footnotesize\ttfamily void destroy\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMenu}{Menu}} $\ast$}]{menu }\end{DoxyParamCaption})}
+
+
+
+Frees the memory allocated for the menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em menu} & \mbox{\hyperlink{structMenu}{Menu}} to be destroyed \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8c_a9ef80fb2fccc51693e42cd53782bdcbe_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menu_8c_a10b8e5f40d0e4da357e3685752066da3}\label{menu_8c_a10b8e5f40d0e4da357e3685752066da3}} 
+\index{menu.c@{menu.c}!drawMenu@{drawMenu}}
+\index{drawMenu@{drawMenu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{drawMenu()}{drawMenu()}}
+{\footnotesize\ttfamily int draw\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMenu}{Menu}} $\ast$}]{menu,  }\item[{int}]{time,  }\item[{char $\ast$}]{player\+Name }\end{DoxyParamCaption})}
+
+
+
+Draws the menu on the screen. 
+
+This function draws the menu background, logo (if it\textquotesingle{}s the main menu), player name (if it\textquotesingle{}s the options menu), ellipses (if it\textquotesingle{}s the online menu), all buttons, and the mouse cursor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em menu} & Pointer to the \mbox{\hyperlink{structMenu}{Menu}} structure representing the menu to draw. \\
+\hline
+{\em time} & The current time, used for animating certain menu elements. \\
+\hline
+{\em player\+Name} & The name of the player to be displayed in the menu. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8c_a10b8e5f40d0e4da357e3685752066da3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8c_a10b8e5f40d0e4da357e3685752066da3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menu_8c_a1334090f76660886ac3281ba3d1adf3b}\label{menu_8c_a1334090f76660886ac3281ba3d1adf3b}} 
+\index{menu.c@{menu.c}!newGameOverMenu@{newGameOverMenu}}
+\index{newGameOverMenu@{newGameOverMenu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{newGameOverMenu()}{newGameOverMenu()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structMenu}{Menu}}$\ast$ new\+Game\+Over\+Menu (\begin{DoxyParamCaption}\item[{char $\ast$}]{winner\+Name }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8c_a1334090f76660886ac3281ba3d1adf3b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8c_a1334090f76660886ac3281ba3d1adf3b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menu_8c_ab948fc250bbf5f4724f5b4da60057ed0}\label{menu_8c_ab948fc250bbf5f4724f5b4da60057ed0}} 
+\index{menu.c@{menu.c}!newMenu@{newMenu}}
+\index{newMenu@{newMenu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{newMenu()}{newMenu()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structMenu}{Menu}}$\ast$ new\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{menu_8h_ae5c7b6b4f6e696391cd7faaea6571bb4}{Menu\+Type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Creates a new menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & type of the menu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Menu$\ast$ Pointer to the menu 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8c_ab948fc250bbf5f4724f5b4da60057ed0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8c_ab948fc250bbf5f4724f5b4da60057ed0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menu_8c_aceaa3d76e97718b10dcddd65545310e3}\label{menu_8c_aceaa3d76e97718b10dcddd65545310e3}} 
+\index{menu.c@{menu.c}!resetMenu@{resetMenu}}
+\index{resetMenu@{resetMenu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{resetMenu()}{resetMenu()}}
+{\footnotesize\ttfamily void reset\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMenu}{Menu}} $\ast$}]{menu }\end{DoxyParamCaption})}
+
+
+
+Resets the menu to its initial state. 
+
+This function resets the menu by deselecting any selected option and destroying all buttons in the menu.
+
+
+\begin{DoxyParams}{Parameters}
+{\em menu} & Pointer to the \mbox{\hyperlink{structMenu}{Menu}} structure to reset. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{menu_8c_aceaa3d76e97718b10dcddd65545310e3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8c_aceaa3d76e97718b10dcddd65545310e3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menu_8c_af0896330963301ac081c88a5fc9e0e49}\label{menu_8c_af0896330963301ac081c88a5fc9e0e49}} 
+\index{menu.c@{menu.c}!seeIfMouseIsOverOption@{seeIfMouseIsOverOption}}
+\index{seeIfMouseIsOverOption@{seeIfMouseIsOverOption}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{seeIfMouseIsOverOption()}{seeIfMouseIsOverOption()}}
+{\footnotesize\ttfamily int see\+If\+Mouse\+Is\+Over\+Option (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMenu}{Menu}} $\ast$}]{menu,  }\item[{int $\ast$}]{option }\end{DoxyParamCaption})}
+
+
+
+Checks if the mouse is over any menu option. 
+
+This function iterates through all the options in the menu and checks if the mouse is over any of them. If the mouse is over an option, it sets the option index else sets index to -\/1.
+
+
+\begin{DoxyParams}{Parameters}
+{\em menu} & Pointer to the \mbox{\hyperlink{structMenu}{Menu}} structure representing the menu. \\
+\hline
+{\em option} & Pointer to an integer where the index of the option under the mouse will be stored. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8c_af0896330963301ac081c88a5fc9e0e49_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8c_af0896330963301ac081c88a5fc9e0e49_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menu_8c_a6cd6e09dbb9ccefcb024e29d193f4b5a}\label{menu_8c_a6cd6e09dbb9ccefcb024e29d193f4b5a}} 
+\index{menu.c@{menu.c}!setMenuType@{setMenuType}}
+\index{setMenuType@{setMenuType}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{setMenuType()}{setMenuType()}}
+{\footnotesize\ttfamily void set\+Menu\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMenu}{Menu}} $\ast$}]{menu,  }\item[{\mbox{\hyperlink{menu_8h_ae5c7b6b4f6e696391cd7faaea6571bb4}{Menu\+Type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Sets the type of the menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em menu} & \mbox{\hyperlink{structMenu}{Menu}} to be modified \\
+\hline
+{\em type} & type of the menu \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{menu_8c_a6cd6e09dbb9ccefcb024e29d193f4b5a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8c_a6cd6e09dbb9ccefcb024e29d193f4b5a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menu_8c_a307894e02f9350b2e0ee36d18c1b9db0}\label{menu_8c_a307894e02f9350b2e0ee36d18c1b9db0}} 
+\index{menu.c@{menu.c}!updateSelectedOption@{updateSelectedOption}}
+\index{updateSelectedOption@{updateSelectedOption}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{updateSelectedOption()}{updateSelectedOption()}}
+{\footnotesize\ttfamily void update\+Selected\+Option (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMenu}{Menu}} $\ast$}]{menu,  }\item[{int}]{option }\end{DoxyParamCaption})}
+
+
+
+Updates the selected option in the menu. 
+
+This function updates the menu to reflect which option is currently selected. It sets the selected state of each button in the menu based on the given option index.
+
+
+\begin{DoxyParams}{Parameters}
+{\em menu} & Pointer to the \mbox{\hyperlink{structMenu}{Menu}} structure representing the menu. \\
+\hline
+{\em option} & The index of the option to be selected. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8c_a307894e02f9350b2e0ee36d18c1b9db0_icgraph}
+\end{center}
+\end{figure}

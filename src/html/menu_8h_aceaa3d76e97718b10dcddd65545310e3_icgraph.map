@@ -1,0 +1,13 @@
+<map id="resetMenu" name="resetMenu">
+<area shape="rect" id="node1" title="Resets the menu to its initial state." alt="" coords="889,132,980,159"/>
+<area shape="rect" id="node2" href="$menuController_8c.html#a5d84b8fe730b1a977edaa0dc6fdeb147" title=" " alt="" coords="663,5,841,32"/>
+<area shape="rect" id="node7" href="$menuController_8c.html#a2ee1dc14c5830a7c8081ee00313cb468" title=" " alt="" coords="666,56,838,83"/>
+<area shape="rect" id="node8" href="$menuController_8c.html#a9a91a913a1d9f18d093dc1eda43676a2" title=" " alt="" coords="663,107,841,133"/>
+<area shape="rect" id="node9" href="$menuController_8c.html#a9e9d5fb2d892ba2e87c7216c099014c4" title=" " alt="" coords="685,157,819,184"/>
+<area shape="rect" id="node10" href="$menuController_8c.html#a0d2383ce535bdbbde673cbafe384b18c" title=" " alt="" coords="680,208,824,235"/>
+<area shape="rect" id="node11" href="$menuController_8c.html#a2b7371201f56ebde15556e80f78b37b6" title=" " alt="" coords="676,259,828,285"/>
+<area shape="rect" id="node3" href="$menuController_8c.html#a7c7a58765cda0a55100ee122aa0d7fd8" title="Handles the menu controller." alt="" coords="445,132,615,159"/>
+<area shape="rect" id="node4" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="307,132,397,159"/>
+<area shape="rect" id="node5" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,132,259,159"/>
+<area shape="rect" id="node6" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,132,128,159"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="getBallPosition" name="getBallPosition">
+<area shape="rect" id="node1" title="Gets the position of the Ball." alt="" coords="944,5,1064,32"/>
+<area shape="rect" id="node2" href="$table_8c.html#ac4b03beb252a35b16f8872a1eb05e30b" title="Draws all balls on the table, including their current positions and states." alt="" coords="809,5,896,32"/>
+<area shape="rect" id="node3" href="$table_8c.html#a0e36c18757f2fd43e008ee4ad165baaf" title="Draws the table on the screen." alt="" coords="673,5,761,32"/>
+<area shape="rect" id="node4" href="$playingController_8c.html#aa8a29eaaea16d53074ed404fe79294c0" title="Handles the playing controller." alt="" coords="445,5,625,32"/>
+<area shape="rect" id="node5" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="307,5,397,32"/>
+<area shape="rect" id="node6" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,5,259,32"/>
+<area shape="rect" id="node7" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,5,128,32"/>
+</map>

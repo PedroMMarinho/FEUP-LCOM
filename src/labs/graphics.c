@@ -7,16 +7,17 @@
 
 static uint8_t* video_mem_first;
 static uint8_t* video_mem_secondary;
-static vbe_mode_info_t modeInfo;
-static u32_t vram_base;
+static bool isSecondBuffer = false;
+static u32_t vram_base;  
 static u32_t vram_base_secondary;
+static vbe_mode_info_t modeInfo;
+
 static u32_t vram_size;
 static unsigned h_res;	        /* Horizontal resolution in pixels */
 static unsigned v_res;	        /* Vertical resolution in pixels */
 static unsigned bits_per_pixel; /* Number of VRAM bits per pixel */
 static unsigned bytes_per_pixel;
 
-static bool isSecondBuffer = false;
 
 int changeMode(uint16_t mode){
   reg86_t r86;
@@ -37,6 +38,11 @@ int changeMode(uint16_t mode){
     return 1;
   }
   return 0;
+}
+
+
+void* getVideoMem(){
+  return video_mem_first;
 }
 
 int mapMemory(uint16_t mode){
@@ -105,6 +111,7 @@ int (swap_buffers)(){
 
   cleanCanvas();
   return 0;
+
 }
 
 int draw_pixel(uint16_t x, uint16_t y, uint32_t color){
@@ -213,10 +220,32 @@ int drawXPMImage(xpm_image_t img, double x, double y, double angle){
 
 
       uint16_t posX = x + changedX;
-      uint16_t posY = y + changedY * -1;
+      uint16_t posY = y + changedY;
       if (draw_pixel(posX , posY, color)) return 1;
       }
     }
   }
+  
   return 0;
 }
+
+// string must contain only numbers(0-9) and lowercase letters(a-z), font must have numbers (0-9) occupying the first 10 positions and lowercase letters (a-z) occupying the next 26 positions, spacing is the space between characters
+int vg_draw_char(char c, xpm_image_t* font,uint16_t x, uint16_t y){
+  if (c < 32 || c > 126) return 1;
+  int offset = 0;
+  if(c >= 48 && c <= 57) offset = 48;
+  else if(c >= 97 && c <= 122) offset = 87;
+  if (drawXPMImage(font[c-offset], x, y, 0)) return 1;
+  return 0;
+}
+
+
+int drawText(char* text, xpm_image_t* font,uint16_t x, uint16_t y,uint8_t spacing){
+  while(*text){
+    if (vg_draw_char(*text,font, x, y)) return 1;
+    x += spacing;
+    text++;
+  }
+  return 0;
+}
+

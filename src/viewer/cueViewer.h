@@ -3,11 +3,12 @@
 #include "../model/vector.h"
 #include "../model/table.h"
 
+/**
+ * @brief Draws the cue on the table.
+ *
+ * This function draws the cue on the table.
+ *
+ * @param table Pointer to the Table structure.
+ * @return int 0 if successful, non-zero otherwise.
+ */
 int drawCue(Table* table);
-
-int drawCueCharged(vector_t ball, vector_t origin, int16_t deltaX, int16_t deltaY);
-
-int drawLine(vector_t start, vector_t end);
-
-
-void plotLineWidth(int x0, int y0, int x1, int y1, float wd);

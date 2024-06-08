@@ -1,0 +1,4 @@
+<map id="updateSpin" name="updateSpin">
+<area shape="rect" id="node1" title="Updates the spin of the cue ball based on the mouse position." alt="" coords="5,5,100,32"/>
+<area shape="rect" id="node2" href="$utilities_8c.html#a42ada5d449eb0a5545123710cc8bf647" title="Calculates the magnitude of a vector." alt="" coords="148,5,255,32"/>
+</map>

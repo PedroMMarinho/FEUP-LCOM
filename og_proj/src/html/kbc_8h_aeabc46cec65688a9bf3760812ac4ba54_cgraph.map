@@ -1,0 +1,7 @@
+<map id="kbc_issue_command" name="kbc_issue_command">
+<area shape="rect" id="node1" title="Issues a command to the keyboard controller (KBC)." alt="" coords="5,81,164,108"/>
+<area shape="rect" id="node2" href="$kbc_8c.html#af64f046027966a3fd2eda1cab995e2a4" title="Inserts a command into the keyboard controller (KBC)." alt="" coords="212,5,373,32"/>
+<area shape="rect" id="node3" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title="Reads a byte from a port." alt="" coords="421,81,520,108"/>
+<area shape="rect" id="node4" href="$kbc_8c.html#a0422908ae9b5e53c9f9ed22ad66dd440" title="Writes arguments to the KBC." alt="" coords="233,107,353,133"/>
+<area shape="rect" id="node5" href="$kbc_8c.html#a2f6a01db9def32d154d8bbf0707efc32" title="Reads data from the output buffer." alt="" coords="223,157,362,184"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="sp_ih" name="sp_ih">
+<area shape="rect" id="node1" title="Interrupt handler for the serial port." alt="" coords="888,37,944,64"/>
+<area shape="rect" id="node2" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="307,37,397,64"/>
+<area shape="rect" id="node5" href="$menuController_8c.html#a5d84b8fe730b1a977edaa0dc6fdeb147" title=" " alt="" coords="663,37,840,64"/>
+<area shape="rect" id="node7" href="$serialPort_8c.html#a19c3e017bd5ab5a4be6b2fbacce9ac6a" title="Subscribes to the serial port interrupts." alt="" coords="477,88,583,115"/>
+<area shape="rect" id="node3" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,37,259,64"/>
+<area shape="rect" id="node4" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,37,128,64"/>
+<area shape="rect" id="node6" href="$menuController_8c.html#a7c7a58765cda0a55100ee122aa0d7fd8" title="Handles the menu controller." alt="" coords="445,37,615,64"/>
+</map>

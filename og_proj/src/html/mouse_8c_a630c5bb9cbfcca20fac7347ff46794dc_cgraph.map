@@ -1,0 +1,8 @@
+<map id="disableDataReporting" name="disableDataReporting">
+<area shape="rect" id="node1" title="Disables data reporting." alt="" coords="5,81,168,108"/>
+<area shape="rect" id="node2" href="$kbc_8c.html#aeabc46cec65688a9bf3760812ac4ba54" title="Issues a command to the keyboard controller (KBC)." alt="" coords="216,81,375,108"/>
+<area shape="rect" id="node3" href="$kbc_8c.html#af64f046027966a3fd2eda1cab995e2a4" title="Inserts a command into the keyboard controller (KBC)." alt="" coords="423,5,584,32"/>
+<area shape="rect" id="node4" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title="Reads a byte from a port." alt="" coords="632,81,731,108"/>
+<area shape="rect" id="node5" href="$kbc_8c.html#a0422908ae9b5e53c9f9ed22ad66dd440" title="Writes arguments to the KBC." alt="" coords="443,107,563,133"/>
+<area shape="rect" id="node6" href="$kbc_8c.html#a2f6a01db9def32d154d8bbf0707efc32" title="Reads data from the output buffer." alt="" coords="434,157,573,184"/>
+</map>

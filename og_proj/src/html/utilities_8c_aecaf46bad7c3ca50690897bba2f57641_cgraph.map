@@ -1,0 +1,4 @@
+<map id="linePointClosestTo" name="linePointClosestTo">
+<area shape="rect" id="node1" title="Finds the point on a line closest to a given point." alt="" coords="5,5,147,32"/>
+<area shape="rect" id="node2" href="$utilities_8c.html#a98dbd882f9682266f2d87337dc709bdc" title="Calculates the dot product of two vectors." alt="" coords="195,5,287,32"/>
+</map>

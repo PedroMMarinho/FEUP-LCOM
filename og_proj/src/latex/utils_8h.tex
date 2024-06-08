@@ -1,0 +1,206 @@
+\hypertarget{utils_8h}{}\doxysection{labs/utils.h File Reference}
+\label{utils_8h}\index{labs/utils.h@{labs/utils.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for utils.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=150pt]{utils_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utils_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{utils_8h_a0570843d9d45fa9b49fb17b9f248fb56}{is\+\_\+make\+\_\+scancode}} (uint8\+\_\+t \mbox{\hyperlink{keyboard_8c_aa1de7a5557e9d96b83cf03f73c92163f}{scancode}})
+\begin{DoxyCompactList}\small\item\em Checks if a scancode is a make code. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{utils_8h_a9339e996b2ac9c1c67a4cabcfa49cc67}{create\+\_\+scancode\+\_\+array}} (uint8\+\_\+t size, uint8\+\_\+t \mbox{\hyperlink{keyboard_8c_aa1de7a5557e9d96b83cf03f73c92163f}{scancode}}, uint8\+\_\+t bytes\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Creates an array with the scancode. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{utils_8h_a79a031a8611f5b2d6afa4158e92b0fb4}{util\+\_\+sys\+\_\+inb}} (int port, uint8\+\_\+t $\ast$value)
+\begin{DoxyCompactList}\small\item\em Reads a byte from a port. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{utils_8h_af17d6455b2e81b948d701b3ca4173962}{get\+\_\+no\+\_\+sysinb}} ()
+\begin{DoxyCompactList}\small\item\em Gets the number of sys\+\_\+inb calls. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{utils_8h_a6a880076cd2ec468834438b6e0c58836}{util\+\_\+get\+\_\+\+MSB}} (uint16\+\_\+t val, uint8\+\_\+t $\ast$msb)
+\begin{DoxyCompactList}\small\item\em Gets the most significant byte of a value. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{utils_8h_a81621440b3d65680979425e39aa8c789}{util\+\_\+get\+\_\+\+LSB}} (uint16\+\_\+t val, uint8\+\_\+t $\ast$lsb)
+\begin{DoxyCompactList}\small\item\em Gets the least significant byte of a value. \end{DoxyCompactList}\item 
+void() \mbox{\hyperlink{utils_8h_a836d35c89424c8eaf2e2d404dde2e60d}{delay\+\_\+milli\+\_\+seconds}} (unsigned milli\+\_\+seconds)
+\item 
+uint8\+\_\+t() \mbox{\hyperlink{utils_8h_ace9f569aa33a0398613413c312ea4a82}{bcd\+\_\+binary}} (uint8\+\_\+t value)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{utils_8h_ace9f569aa33a0398613413c312ea4a82}\label{utils_8h_ace9f569aa33a0398613413c312ea4a82}} 
+\index{utils.h@{utils.h}!bcd\_binary@{bcd\_binary}}
+\index{bcd\_binary@{bcd\_binary}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{bcd\_binary()}{bcd\_binary()}}
+{\footnotesize\ttfamily uint8\+\_\+t() bcd\+\_\+binary (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utils_8h_ace9f569aa33a0398613413c312ea4a82_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utils_8h_a9339e996b2ac9c1c67a4cabcfa49cc67}\label{utils_8h_a9339e996b2ac9c1c67a4cabcfa49cc67}} 
+\index{utils.h@{utils.h}!create\_scancode\_array@{create\_scancode\_array}}
+\index{create\_scancode\_array@{create\_scancode\_array}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{create\_scancode\_array()}{create\_scancode\_array()}}
+{\footnotesize\ttfamily int create\+\_\+scancode\+\_\+array (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{size,  }\item[{uint8\+\_\+t}]{scancode,  }\item[{uint8\+\_\+t}]{bytes\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Creates an array with the scancode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & Size of the array. \\
+\hline
+{\em scancode} & Scancode to add to the array. \\
+\hline
+{\em bytes} & Array to add the scancode to.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 upon success, one otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utils_8h_a836d35c89424c8eaf2e2d404dde2e60d}\label{utils_8h_a836d35c89424c8eaf2e2d404dde2e60d}} 
+\index{utils.h@{utils.h}!delay\_milli\_seconds@{delay\_milli\_seconds}}
+\index{delay\_milli\_seconds@{delay\_milli\_seconds}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{delay\_milli\_seconds()}{delay\_milli\_seconds()}}
+{\footnotesize\ttfamily void() delay\+\_\+milli\+\_\+seconds (\begin{DoxyParamCaption}\item[{unsigned}]{milli\+\_\+seconds }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utils_8h_a836d35c89424c8eaf2e2d404dde2e60d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utils_8h_af17d6455b2e81b948d701b3ca4173962}\label{utils_8h_af17d6455b2e81b948d701b3ca4173962}} 
+\index{utils.h@{utils.h}!get\_no\_sysinb@{get\_no\_sysinb}}
+\index{get\_no\_sysinb@{get\_no\_sysinb}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{get\_no\_sysinb()}{get\_no\_sysinb()}}
+{\footnotesize\ttfamily int get\+\_\+no\+\_\+sysinb (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the number of sys\+\_\+inb calls. 
+
+\begin{DoxyReturn}{Returns}
+The number of sys\+\_\+inb calls. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utils_8h_a0570843d9d45fa9b49fb17b9f248fb56}\label{utils_8h_a0570843d9d45fa9b49fb17b9f248fb56}} 
+\index{utils.h@{utils.h}!is\_make\_scancode@{is\_make\_scancode}}
+\index{is\_make\_scancode@{is\_make\_scancode}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{is\_make\_scancode()}{is\_make\_scancode()}}
+{\footnotesize\ttfamily bool is\+\_\+make\+\_\+scancode (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{scancode }\end{DoxyParamCaption})}
+
+
+
+Checks if a scancode is a make code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scancode} & Scancode to check.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the scancode is a make code, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utils_8h_a81621440b3d65680979425e39aa8c789}\label{utils_8h_a81621440b3d65680979425e39aa8c789}} 
+\index{utils.h@{utils.h}!util\_get\_LSB@{util\_get\_LSB}}
+\index{util\_get\_LSB@{util\_get\_LSB}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{util\_get\_LSB()}{util\_get\_LSB()}}
+{\footnotesize\ttfamily int() util\+\_\+get\+\_\+\+LSB (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{val,  }\item[{uint8\+\_\+t $\ast$}]{lsb }\end{DoxyParamCaption})}
+
+
+
+Gets the least significant byte of a value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & Value to get the least significant byte of. \\
+\hline
+{\em lsb} & Address of memory to be initialized with the least significant byte.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 upon success, one otherwise. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utils_8h_a81621440b3d65680979425e39aa8c789_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utils_8h_a6a880076cd2ec468834438b6e0c58836}\label{utils_8h_a6a880076cd2ec468834438b6e0c58836}} 
+\index{utils.h@{utils.h}!util\_get\_MSB@{util\_get\_MSB}}
+\index{util\_get\_MSB@{util\_get\_MSB}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{util\_get\_MSB()}{util\_get\_MSB()}}
+{\footnotesize\ttfamily int() util\+\_\+get\+\_\+\+MSB (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{val,  }\item[{uint8\+\_\+t $\ast$}]{msb }\end{DoxyParamCaption})}
+
+
+
+Gets the most significant byte of a value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & Value to get the most significant byte of. \\
+\hline
+{\em msb} & Address of memory to be initialized with the most significant byte.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 upon success, one otherwise. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utils_8h_a6a880076cd2ec468834438b6e0c58836_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utils_8h_a79a031a8611f5b2d6afa4158e92b0fb4}\label{utils_8h_a79a031a8611f5b2d6afa4158e92b0fb4}} 
+\index{utils.h@{utils.h}!util\_sys\_inb@{util\_sys\_inb}}
+\index{util\_sys\_inb@{util\_sys\_inb}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{util\_sys\_inb()}{util\_sys\_inb()}}
+{\footnotesize\ttfamily int() util\+\_\+sys\+\_\+inb (\begin{DoxyParamCaption}\item[{int}]{port,  }\item[{uint8\+\_\+t $\ast$}]{value }\end{DoxyParamCaption})}
+
+
+
+Reads a byte from a port. 
+
+Reads the value in the port and stores it in the value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & Port to read from. \\
+\hline
+{\em value} & Address of memory to be initialized with the value read.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 upon success, one otherwise. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utils_8h_a79a031a8611f5b2d6afa4158e92b0fb4_icgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,13 @@
+<map id="send_queue_data" name="send_queue_data">
+<area shape="rect" id="node1" title="Sends data stored in the queue." alt="" coords="1516,66,1652,92"/>
+<area shape="rect" id="node2" href="$serialPort_8c.html#a04c68f13c6a7d805abb74e7bab08affc" title="Sends a byte of data to the serial port." alt="" coords="1356,40,1468,67"/>
+<area shape="rect" id="node10" href="$serialPort_8c.html#af6cc263493df7caac7bd7d0be6b50635" title="Interrupt handler for the serial port." alt="" coords="967,91,1023,118"/>
+<area shape="rect" id="node3" href="$serialPort_8c.html#abe861c4f2e91f92ffd0c315ac7b1afd3" title="Establishes a connection." alt="" coords="1149,40,1308,67"/>
+<area shape="rect" id="node4" href="$multiplayerController_8c.html#ac5da60925e615c083c873a2949c5b3bb" title="Handles the multiplayer connection." alt="" coords="888,40,1101,67"/>
+<area shape="rect" id="node5" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="307,66,397,92"/>
+<area shape="rect" id="node8" href="$menuController_8c.html#a5d84b8fe730b1a977edaa0dc6fdeb147" title=" " alt="" coords="663,40,840,67"/>
+<area shape="rect" id="node6" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,66,259,92"/>
+<area shape="rect" id="node7" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,66,128,92"/>
+<area shape="rect" id="node9" href="$menuController_8c.html#a7c7a58765cda0a55100ee122aa0d7fd8" title="Handles the menu controller." alt="" coords="445,40,615,67"/>
+<area shape="rect" id="node11" href="$serialPort_8c.html#a19c3e017bd5ab5a4be6b2fbacce9ac6a" title="Subscribes to the serial port interrupts." alt="" coords="477,142,583,168"/>
+</map>

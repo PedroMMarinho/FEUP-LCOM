@@ -1,0 +1,244 @@
+\hypertarget{menuController_8c}{}\doxysection{controllers/menu\+Controller.c File Reference}
+\label{menuController_8c}\index{controllers/menuController.c@{controllers/menuController.c}}
+{\ttfamily \#include \char`\"{}menu\+Controller.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../labs/graphics.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../model/table.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../labs/scancodes.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../labs/serial\+Port.\+h\char`\"{}}\newline
+Include dependency graph for menu\+Controller.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuController_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{states_8h_a275a67132f10277ada3a0ee3d616b647}{STATE}} \mbox{\hyperlink{menuController_8c_a9e9d5fb2d892ba2e87c7216c099014c4}{handle\+Main\+Menu}} (\mbox{\hyperlink{structMenu}{Menu}} $\ast$menu, int option)
+\item 
+\mbox{\hyperlink{states_8h_a275a67132f10277ada3a0ee3d616b647}{STATE}} \mbox{\hyperlink{menuController_8c_a5d84b8fe730b1a977edaa0dc6fdeb147}{handle\+Game\+Mode\+Menu}} (\mbox{\hyperlink{structMenu}{Menu}} $\ast$menu, int option)
+\item 
+\mbox{\hyperlink{states_8h_a275a67132f10277ada3a0ee3d616b647}{STATE}} \mbox{\hyperlink{menuController_8c_a9a91a913a1d9f18d093dc1eda43676a2}{handle\+Instructions\+Menu}} (\mbox{\hyperlink{structMenu}{Menu}} $\ast$menu, int option)
+\item 
+\mbox{\hyperlink{states_8h_a275a67132f10277ada3a0ee3d616b647}{STATE}} \mbox{\hyperlink{menuController_8c_a2b7371201f56ebde15556e80f78b37b6}{handle\+Options\+Menu}} (\mbox{\hyperlink{structMenu}{Menu}} $\ast$menu, int option)
+\item 
+\mbox{\hyperlink{states_8h_a275a67132f10277ada3a0ee3d616b647}{STATE}} \mbox{\hyperlink{menuController_8c_a2ee1dc14c5830a7c8081ee00313cb468}{handle\+Game\+Over\+Menu}} (\mbox{\hyperlink{structMenu}{Menu}} $\ast$menu, int option)
+\item 
+\mbox{\hyperlink{states_8h_a275a67132f10277ada3a0ee3d616b647}{STATE}} \mbox{\hyperlink{menuController_8c_a0d2383ce535bdbbde673cbafe384b18c}{handle\+Online\+Menu}} (\mbox{\hyperlink{structMenu}{Menu}} $\ast$menu, int option)
+\item 
+void \mbox{\hyperlink{menuController_8c_aec9aa3c2283707a5d9e8fa62dbea84c0}{convert\+Scan\+Code\+To\+Char}} (char $\ast$player\+Name, uint8\+\_\+t scan\+Code)
+\item 
+void \mbox{\hyperlink{menuController_8c_a3277ad50adf185afac0225a5c45afc1f}{handle\+Keyboard\+Options\+Menu}} (char $\ast$player\+Name, uint8\+\_\+t scan\+Code)
+\item 
+\mbox{\hyperlink{states_8h_a275a67132f10277ada3a0ee3d616b647}{STATE}} \mbox{\hyperlink{menuController_8c_a7c7a58765cda0a55100ee122aa0d7fd8}{menu\+Controller\+Handle}} (\mbox{\hyperlink{structMenu}{Menu}} $\ast$menu, char $\ast$player\+Name, \mbox{\hyperlink{states_8h_a833b28f90e109607cd5d9e826474893a}{DEVICE}} interrupt\+Type, const struct \mbox{\hyperlink{mouse_8c_aa93413b717e8f22525818b0f5efdd448}{packet}} $\ast$\mbox{\hyperlink{mouse_8c_aa93413b717e8f22525818b0f5efdd448}{packet}}, uint8\+\_\+t scan\+Code, unsigned \mbox{\hyperlink{timer_8c_a4bd3978f9fa83a0e08225dca54a00eb6}{elapsed}})
+\begin{DoxyCompactList}\small\item\em Handles the menu controller. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{menuController_8c_aec9aa3c2283707a5d9e8fa62dbea84c0}\label{menuController_8c_aec9aa3c2283707a5d9e8fa62dbea84c0}} 
+\index{menuController.c@{menuController.c}!convertScanCodeToChar@{convertScanCodeToChar}}
+\index{convertScanCodeToChar@{convertScanCodeToChar}!menuController.c@{menuController.c}}
+\doxysubsubsection{\texorpdfstring{convertScanCodeToChar()}{convertScanCodeToChar()}}
+{\footnotesize\ttfamily void convert\+Scan\+Code\+To\+Char (\begin{DoxyParamCaption}\item[{char $\ast$}]{player\+Name,  }\item[{uint8\+\_\+t}]{scan\+Code }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuController_8c_aec9aa3c2283707a5d9e8fa62dbea84c0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menuController_8c_a5d84b8fe730b1a977edaa0dc6fdeb147}\label{menuController_8c_a5d84b8fe730b1a977edaa0dc6fdeb147}} 
+\index{menuController.c@{menuController.c}!handleGameModeMenu@{handleGameModeMenu}}
+\index{handleGameModeMenu@{handleGameModeMenu}!menuController.c@{menuController.c}}
+\doxysubsubsection{\texorpdfstring{handleGameModeMenu()}{handleGameModeMenu()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{states_8h_a275a67132f10277ada3a0ee3d616b647}{STATE}} handle\+Game\+Mode\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMenu}{Menu}} $\ast$}]{menu,  }\item[{int}]{option }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuController_8c_a5d84b8fe730b1a977edaa0dc6fdeb147_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuController_8c_a5d84b8fe730b1a977edaa0dc6fdeb147_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menuController_8c_a2ee1dc14c5830a7c8081ee00313cb468}\label{menuController_8c_a2ee1dc14c5830a7c8081ee00313cb468}} 
+\index{menuController.c@{menuController.c}!handleGameOverMenu@{handleGameOverMenu}}
+\index{handleGameOverMenu@{handleGameOverMenu}!menuController.c@{menuController.c}}
+\doxysubsubsection{\texorpdfstring{handleGameOverMenu()}{handleGameOverMenu()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{states_8h_a275a67132f10277ada3a0ee3d616b647}{STATE}} handle\+Game\+Over\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMenu}{Menu}} $\ast$}]{menu,  }\item[{int}]{option }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuController_8c_a2ee1dc14c5830a7c8081ee00313cb468_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuController_8c_a2ee1dc14c5830a7c8081ee00313cb468_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menuController_8c_a9a91a913a1d9f18d093dc1eda43676a2}\label{menuController_8c_a9a91a913a1d9f18d093dc1eda43676a2}} 
+\index{menuController.c@{menuController.c}!handleInstructionsMenu@{handleInstructionsMenu}}
+\index{handleInstructionsMenu@{handleInstructionsMenu}!menuController.c@{menuController.c}}
+\doxysubsubsection{\texorpdfstring{handleInstructionsMenu()}{handleInstructionsMenu()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{states_8h_a275a67132f10277ada3a0ee3d616b647}{STATE}} handle\+Instructions\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMenu}{Menu}} $\ast$}]{menu,  }\item[{int}]{option }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuController_8c_a9a91a913a1d9f18d093dc1eda43676a2_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuController_8c_a9a91a913a1d9f18d093dc1eda43676a2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menuController_8c_a3277ad50adf185afac0225a5c45afc1f}\label{menuController_8c_a3277ad50adf185afac0225a5c45afc1f}} 
+\index{menuController.c@{menuController.c}!handleKeyboardOptionsMenu@{handleKeyboardOptionsMenu}}
+\index{handleKeyboardOptionsMenu@{handleKeyboardOptionsMenu}!menuController.c@{menuController.c}}
+\doxysubsubsection{\texorpdfstring{handleKeyboardOptionsMenu()}{handleKeyboardOptionsMenu()}}
+{\footnotesize\ttfamily void handle\+Keyboard\+Options\+Menu (\begin{DoxyParamCaption}\item[{char $\ast$}]{player\+Name,  }\item[{uint8\+\_\+t}]{scan\+Code }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuController_8c_a3277ad50adf185afac0225a5c45afc1f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuController_8c_a3277ad50adf185afac0225a5c45afc1f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menuController_8c_a9e9d5fb2d892ba2e87c7216c099014c4}\label{menuController_8c_a9e9d5fb2d892ba2e87c7216c099014c4}} 
+\index{menuController.c@{menuController.c}!handleMainMenu@{handleMainMenu}}
+\index{handleMainMenu@{handleMainMenu}!menuController.c@{menuController.c}}
+\doxysubsubsection{\texorpdfstring{handleMainMenu()}{handleMainMenu()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{states_8h_a275a67132f10277ada3a0ee3d616b647}{STATE}} handle\+Main\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMenu}{Menu}} $\ast$}]{menu,  }\item[{int}]{option }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuController_8c_a9e9d5fb2d892ba2e87c7216c099014c4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuController_8c_a9e9d5fb2d892ba2e87c7216c099014c4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menuController_8c_a0d2383ce535bdbbde673cbafe384b18c}\label{menuController_8c_a0d2383ce535bdbbde673cbafe384b18c}} 
+\index{menuController.c@{menuController.c}!handleOnlineMenu@{handleOnlineMenu}}
+\index{handleOnlineMenu@{handleOnlineMenu}!menuController.c@{menuController.c}}
+\doxysubsubsection{\texorpdfstring{handleOnlineMenu()}{handleOnlineMenu()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{states_8h_a275a67132f10277ada3a0ee3d616b647}{STATE}} handle\+Online\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMenu}{Menu}} $\ast$}]{menu,  }\item[{int}]{option }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuController_8c_a0d2383ce535bdbbde673cbafe384b18c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuController_8c_a0d2383ce535bdbbde673cbafe384b18c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menuController_8c_a2b7371201f56ebde15556e80f78b37b6}\label{menuController_8c_a2b7371201f56ebde15556e80f78b37b6}} 
+\index{menuController.c@{menuController.c}!handleOptionsMenu@{handleOptionsMenu}}
+\index{handleOptionsMenu@{handleOptionsMenu}!menuController.c@{menuController.c}}
+\doxysubsubsection{\texorpdfstring{handleOptionsMenu()}{handleOptionsMenu()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{states_8h_a275a67132f10277ada3a0ee3d616b647}{STATE}} handle\+Options\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMenu}{Menu}} $\ast$}]{menu,  }\item[{int}]{option }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuController_8c_a2b7371201f56ebde15556e80f78b37b6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuController_8c_a2b7371201f56ebde15556e80f78b37b6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menuController_8c_a7c7a58765cda0a55100ee122aa0d7fd8}\label{menuController_8c_a7c7a58765cda0a55100ee122aa0d7fd8}} 
+\index{menuController.c@{menuController.c}!menuControllerHandle@{menuControllerHandle}}
+\index{menuControllerHandle@{menuControllerHandle}!menuController.c@{menuController.c}}
+\doxysubsubsection{\texorpdfstring{menuControllerHandle()}{menuControllerHandle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{states_8h_a275a67132f10277ada3a0ee3d616b647}{STATE}} menu\+Controller\+Handle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMenu}{Menu}} $\ast$}]{menu,  }\item[{char $\ast$}]{player\+Name,  }\item[{\mbox{\hyperlink{states_8h_a833b28f90e109607cd5d9e826474893a}{DEVICE}}}]{interrupt\+Type,  }\item[{const struct \mbox{\hyperlink{mouse_8c_aa93413b717e8f22525818b0f5efdd448}{packet}} $\ast$}]{packet,  }\item[{uint8\+\_\+t}]{scan\+Code,  }\item[{unsigned}]{elapsed }\end{DoxyParamCaption})}
+
+
+
+Handles the menu controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em menu} & \mbox{\hyperlink{structMenu}{Menu}} to be handled \\
+\hline
+{\em player\+Name} & Name of the player \\
+\hline
+{\em interrupt\+Type} & Type of interrupt \\
+\hline
+{\em packet} & Packet to be handled \\
+\hline
+{\em scan\+Code} & Scan code to be handled \\
+\hline
+{\em elapsed} & Time elapsed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+STATE Next state 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuController_8c_a7c7a58765cda0a55100ee122aa0d7fd8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuController_8c_a7c7a58765cda0a55100ee122aa0d7fd8_icgraph}
+\end{center}
+\end{figure}

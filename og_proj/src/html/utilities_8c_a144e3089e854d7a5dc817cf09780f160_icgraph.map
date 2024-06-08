@@ -1,0 +1,15 @@
+<map id="getSpinTime" name="getSpinTime">
+<area shape="rect" id="node1" title="Calculates the time for spinning motion to stop for a ball." alt="" coords="1767,93,1871,120"/>
+<area shape="rect" id="node2" href="$evolve_8c.html#a54918714eb67c6beeac9b4e70dcec32d" title="Updates the motion of a ball over a specified time period." alt="" coords="1557,64,1693,91"/>
+<area shape="rect" id="node12" href="$events_8c.html#aa71827be2c5e903049141fcafc7c6048" title="Updates the next transition event for a ball on the table." alt="" coords="1532,119,1719,145"/>
+<area shape="rect" id="node3" href="$simulate_8c.html#aed1e5d03d2f59f9308bc97702c93577c" title="Evolves the motion of all balls on the table over a specified time period." alt="" coords="1042,5,1141,32"/>
+<area shape="rect" id="node9" href="$utilities_8c.html#aa7b60acd35a7d23364aa9fcc1bd7c89e" title="Calculates the time for a linear cushion collision with a ball." alt="" coords="1235,64,1484,91"/>
+<area shape="rect" id="node4" href="$simulate_8c.html#ac23420edf5968c6121679d2a009f0809" title="Updates the physics simulation of the table over a specified time period." alt="" coords="673,64,789,91"/>
+<area shape="rect" id="node5" href="$playingController_8c.html#aa8a29eaaea16d53074ed404fe79294c0" title="Handles the playing controller." alt="" coords="445,64,625,91"/>
+<area shape="rect" id="node6" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="307,64,397,91"/>
+<area shape="rect" id="node7" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,64,259,91"/>
+<area shape="rect" id="node8" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,64,128,91"/>
+<area shape="rect" id="node10" href="$events_8c.html#ae2069e820ed131b38d776121eaa66b51" title="Finds the next collision event between a ball and a linear cushion on the table." alt="" coords="996,57,1187,98"/>
+<area shape="rect" id="node11" href="$events_8c.html#ab58ba60736e19e4094180b548a0ad565" title="Finds the next event on the table." alt="" coords="837,64,948,91"/>
+<area shape="rect" id="node13" href="$resolver_8c.html#aa65d1d36ef508a9c90ee9c0bf11a7033" title="Resolves the given event on the table." alt="" coords="839,119,946,145"/>
+</map>

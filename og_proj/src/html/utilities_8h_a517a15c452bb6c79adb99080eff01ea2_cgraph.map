@@ -1,0 +1,4 @@
+<map id="getRollTime" name="getRollTime">
+<area shape="rect" id="node1" title="Calculates the time for rolling motion to stop for a ball." alt="" coords="5,5,107,32"/>
+<area shape="rect" id="node2" href="$utilities_8c.html#a42ada5d449eb0a5545123710cc8bf647" title="Calculates the magnitude of a vector." alt="" coords="155,5,261,32"/>
+</map>

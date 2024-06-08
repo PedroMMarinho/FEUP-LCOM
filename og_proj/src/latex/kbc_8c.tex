@@ -1,0 +1,183 @@
+\hypertarget{kbc_8c}{}\doxysection{labs/kbc.c File Reference}
+\label{kbc_8c}\index{labs/kbc.c@{labs/kbc.c}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}i8042.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}kbc.\+h\char`\"{}}\newline
+Include dependency graph for kbc.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{kbc_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int() \mbox{\hyperlink{kbc_8c_aeabc46cec65688a9bf3760812ac4ba54}{kbc\+\_\+issue\+\_\+command}} (uint8\+\_\+t command, uint8\+\_\+t $\ast$ret\+\_\+arg)
+\begin{DoxyCompactList}\small\item\em Issues a command to the keyboard controller (KBC). \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{kbc_8c_af64f046027966a3fd2eda1cab995e2a4}{kbc\+\_\+insert\+\_\+command}} (uint8\+\_\+t command)
+\begin{DoxyCompactList}\small\item\em Inserts a command into the keyboard controller (KBC). \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{kbc_8c_a0422908ae9b5e53c9f9ed22ad66dd440}{kbc\+\_\+write\+\_\+args}} (uint8\+\_\+t $\ast$args)
+\begin{DoxyCompactList}\small\item\em Writes arguments to the KBC. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{kbc_8c_a2f6a01db9def32d154d8bbf0707efc32}{read\+\_\+output\+Buffer}} (uint8\+\_\+t $\ast$data)
+\begin{DoxyCompactList}\small\item\em Reads data from the output buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{kbc_8c_a5522305c1de4f07a6c6feb7275863f8f}{tries}} = 3
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{kbc_8c_af64f046027966a3fd2eda1cab995e2a4}\label{kbc_8c_af64f046027966a3fd2eda1cab995e2a4}} 
+\index{kbc.c@{kbc.c}!kbc\_insert\_command@{kbc\_insert\_command}}
+\index{kbc\_insert\_command@{kbc\_insert\_command}!kbc.c@{kbc.c}}
+\doxysubsubsection{\texorpdfstring{kbc\_insert\_command()}{kbc\_insert\_command()}}
+{\footnotesize\ttfamily int() kbc\+\_\+insert\+\_\+command (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{command }\end{DoxyParamCaption})}
+
+
+
+Inserts a command into the keyboard controller (KBC). 
+
+This function sends a command to the KBC without expecting any return argument.
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command byte to be sent to the KBC. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, one otherwise. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=311pt]{kbc_8c_af64f046027966a3fd2eda1cab995e2a4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{kbc_8c_af64f046027966a3fd2eda1cab995e2a4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{kbc_8c_aeabc46cec65688a9bf3760812ac4ba54}\label{kbc_8c_aeabc46cec65688a9bf3760812ac4ba54}} 
+\index{kbc.c@{kbc.c}!kbc\_issue\_command@{kbc\_issue\_command}}
+\index{kbc\_issue\_command@{kbc\_issue\_command}!kbc.c@{kbc.c}}
+\doxysubsubsection{\texorpdfstring{kbc\_issue\_command()}{kbc\_issue\_command()}}
+{\footnotesize\ttfamily int() kbc\+\_\+issue\+\_\+command (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{command,  }\item[{uint8\+\_\+t $\ast$}]{ret\+\_\+arg }\end{DoxyParamCaption})}
+
+
+
+Issues a command to the keyboard controller (KBC). 
+
+This function sends a command to the KBC and retrieves an optional return argument.
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command byte to be sent to the KBC. \\
+\hline
+{\em ret\+\_\+arg} & Pointer to a variable where the returned argument will be stored (if any). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, one otherwise. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{kbc_8c_aeabc46cec65688a9bf3760812ac4ba54_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{kbc_8c_aeabc46cec65688a9bf3760812ac4ba54_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{kbc_8c_a0422908ae9b5e53c9f9ed22ad66dd440}\label{kbc_8c_a0422908ae9b5e53c9f9ed22ad66dd440}} 
+\index{kbc.c@{kbc.c}!kbc\_write\_args@{kbc\_write\_args}}
+\index{kbc\_write\_args@{kbc\_write\_args}!kbc.c@{kbc.c}}
+\doxysubsubsection{\texorpdfstring{kbc\_write\_args()}{kbc\_write\_args()}}
+{\footnotesize\ttfamily int() kbc\+\_\+write\+\_\+args (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{args }\end{DoxyParamCaption})}
+
+
+
+Writes arguments to the KBC. 
+
+This function sends a series of arguments to the KBC.
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & Pointer to an array of arguments to be sent. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, one otherwise. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{kbc_8c_a0422908ae9b5e53c9f9ed22ad66dd440_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{kbc_8c_a0422908ae9b5e53c9f9ed22ad66dd440_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{kbc_8c_a2f6a01db9def32d154d8bbf0707efc32}\label{kbc_8c_a2f6a01db9def32d154d8bbf0707efc32}} 
+\index{kbc.c@{kbc.c}!read\_outputBuffer@{read\_outputBuffer}}
+\index{read\_outputBuffer@{read\_outputBuffer}!kbc.c@{kbc.c}}
+\doxysubsubsection{\texorpdfstring{read\_outputBuffer()}{read\_outputBuffer()}}
+{\footnotesize\ttfamily int read\+\_\+output\+Buffer (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+Reads data from the output buffer. 
+
+This function retrieves data from the KBC\textquotesingle{}s output buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer to a variable where the retrieved data will be stored. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, one otherwise. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{kbc_8c_a2f6a01db9def32d154d8bbf0707efc32_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{kbc_8c_a2f6a01db9def32d154d8bbf0707efc32_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{kbc_8c_a5522305c1de4f07a6c6feb7275863f8f}\label{kbc_8c_a5522305c1de4f07a6c6feb7275863f8f}} 
+\index{kbc.c@{kbc.c}!tries@{tries}}
+\index{tries@{tries}!kbc.c@{kbc.c}}
+\doxysubsubsection{\texorpdfstring{tries}{tries}}
+{\footnotesize\ttfamily uint8\+\_\+t tries = 3}
+

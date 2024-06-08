@@ -1,0 +1,115 @@
+\hypertarget{player_8c}{}\doxysection{model/player.c File Reference}
+\label{player_8c}\index{model/player.c@{model/player.c}}
+{\ttfamily \#include \char`\"{}player.\+h\char`\"{}}\newline
+Include dependency graph for player.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{player_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structPlayer}{Player}} $\ast$ \mbox{\hyperlink{player_8c_a34fe23d165dfa7bba1f5f1a53d394ad4}{new\+Player}} (char $\ast$name, \mbox{\hyperlink{player_8h_a348c0b521c22ab6e71c2ec25e915acaa}{player\+Ball}} ball\+Type, bool is\+Playing)
+\begin{DoxyCompactList}\small\item\em Creates a new \mbox{\hyperlink{structPlayer}{Player}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{player_8c_aeaca5c627e5599b60cc71af248c0f98e}{destroy\+Player}} (\mbox{\hyperlink{structPlayer}{Player}} $\ast$player)
+\begin{DoxyCompactList}\small\item\em Destroys a \mbox{\hyperlink{structPlayer}{Player}} object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{player_8c_ada930b2e10791a6c1cd4db4db4a527dc}{draw\+In\+Game\+Player\+Name}} (\mbox{\hyperlink{structPlayer}{Player}} $\ast$player, xpm\+\_\+image\+\_\+t $\ast$font, int x, int y, int spacing)
+\begin{DoxyCompactList}\small\item\em Draws the in-\/game player\textquotesingle{}s name on the screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{player_8c_aeaca5c627e5599b60cc71af248c0f98e}\label{player_8c_aeaca5c627e5599b60cc71af248c0f98e}} 
+\index{player.c@{player.c}!destroyPlayer@{destroyPlayer}}
+\index{destroyPlayer@{destroyPlayer}!player.c@{player.c}}
+\doxysubsubsection{\texorpdfstring{destroyPlayer()}{destroyPlayer()}}
+{\footnotesize\ttfamily void destroy\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPlayer}{Player}} $\ast$}]{player }\end{DoxyParamCaption})}
+
+
+
+Destroys a \mbox{\hyperlink{structPlayer}{Player}} object. 
+
+This function frees the memory allocated for the \mbox{\hyperlink{structPlayer}{Player}} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Pointer to the \mbox{\hyperlink{structPlayer}{Player}} object to be destroyed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{player_8c_ada930b2e10791a6c1cd4db4db4a527dc}\label{player_8c_ada930b2e10791a6c1cd4db4db4a527dc}} 
+\index{player.c@{player.c}!drawInGamePlayerName@{drawInGamePlayerName}}
+\index{drawInGamePlayerName@{drawInGamePlayerName}!player.c@{player.c}}
+\doxysubsubsection{\texorpdfstring{drawInGamePlayerName()}{drawInGamePlayerName()}}
+{\footnotesize\ttfamily int draw\+In\+Game\+Player\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPlayer}{Player}} $\ast$}]{player,  }\item[{xpm\+\_\+image\+\_\+t $\ast$}]{font,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{spacing }\end{DoxyParamCaption})}
+
+
+
+Draws the in-\/game player\textquotesingle{}s name on the screen. 
+
+This function draws the player\textquotesingle{}s name on the screen using the specified font and coordinates.
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Pointer to the \mbox{\hyperlink{structPlayer}{Player}} object. \\
+\hline
+{\em font} & Pointer to the xpm\+\_\+image\+\_\+t object representing the font. \\
+\hline
+{\em x} & The x-\/coordinate where the name should be drawn. \\
+\hline
+{\em y} & The y-\/coordinate where the name should be drawn. \\
+\hline
+{\em spacing} & The spacing between characters. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 on failure. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{player_8c_ada930b2e10791a6c1cd4db4db4a527dc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{player_8c_ada930b2e10791a6c1cd4db4db4a527dc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{player_8c_a34fe23d165dfa7bba1f5f1a53d394ad4}\label{player_8c_a34fe23d165dfa7bba1f5f1a53d394ad4}} 
+\index{player.c@{player.c}!newPlayer@{newPlayer}}
+\index{newPlayer@{newPlayer}!player.c@{player.c}}
+\doxysubsubsection{\texorpdfstring{newPlayer()}{newPlayer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPlayer}{Player}}$\ast$ new\+Player (\begin{DoxyParamCaption}\item[{char $\ast$}]{name,  }\item[{\mbox{\hyperlink{player_8h_a348c0b521c22ab6e71c2ec25e915acaa}{player\+Ball}}}]{ball\+Type,  }\item[{bool}]{is\+Playing }\end{DoxyParamCaption})}
+
+
+
+Creates a new \mbox{\hyperlink{structPlayer}{Player}} object. 
+
+This function allocates memory for a new \mbox{\hyperlink{structPlayer}{Player}} object and initializes it with the given name, ball type, and playing status.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the player. \\
+\hline
+{\em ball\+Type} & The type of ball assigned to the player. \\
+\hline
+{\em is\+Playing} & Boolean indicating if the player is currently playing. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Player$\ast$ Pointer to the newly created \mbox{\hyperlink{structPlayer}{Player}} object. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{player_8c_a34fe23d165dfa7bba1f5f1a53d394ad4_icgraph}
+\end{center}
+\end{figure}

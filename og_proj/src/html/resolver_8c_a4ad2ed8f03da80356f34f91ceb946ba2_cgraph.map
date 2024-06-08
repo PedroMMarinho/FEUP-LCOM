@@ -1,0 +1,4 @@
+<map id="resolveStickBall" name="resolveStickBall">
+<area shape="rect" id="node1" title="Resolves the collision between the cue stick and a ball." alt="" coords="5,5,132,32"/>
+<area shape="rect" id="node2" href="$utilities_8c.html#a75a2efa623d57f314f94a6fc919e761d" title="Rotates a 2D vector by a given angle." alt="" coords="180,5,257,32"/>
+</map>

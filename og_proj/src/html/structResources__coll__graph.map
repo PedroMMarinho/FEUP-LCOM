@@ -1,0 +1,16 @@
+<map id="Resources" name="Resources">
+<area shape="rect" id="node1" title="Struct that contains the resources of the game." alt="" coords="605,584,695,611"/>
+<area shape="rect" id="node2" href="$structTable.html" title="Struct that represents the table(when playing)" alt="" coords="507,495,563,521"/>
+<area shape="rect" id="node3" href="$structCue.html" title="Struct that represents the cue." alt="" coords="5,227,52,254"/>
+<area shape="rect" id="node4" href="$structvector.html" title="Struct that represents a vector." alt="" coords="432,5,495,32"/>
+<area shape="rect" id="node5" href="$structMouse.html" title="Struct that represents the mouse." alt="" coords="865,391,931,417"/>
+<area shape="rect" id="node6" href="$structCircularCushion.html" title="Struct that represents the circular cushion." alt="" coords="124,168,248,195"/>
+<area shape="rect" id="node7" href="$structPocket.html" title="Struct that represents the pocket." alt="" coords="199,339,264,365"/>
+<area shape="rect" id="node8" href="$structLinearCushion.html" title="Struct that represents the linear cushion." alt="" coords="406,168,521,195"/>
+<area shape="rect" id="node10" href="$structBall.html" title="Struct that represents the ball." alt="" coords="467,391,513,417"/>
+<area shape="rect" id="node13" href="$structButton.html" title="Struct that represents a button." alt="" coords="776,391,841,417"/>
+<area shape="rect" id="node14" href="$structMenu.html" title="Struct that represents a menu." alt="" coords="782,495,841,521"/>
+<area shape="rect" id="node9" href="$structEvent.html" title="Struct that represents the event." alt="" coords="349,287,407,313"/>
+<area shape="rect" id="node11" href="$structvector3__t.html" title="Struct that represents a 3D vector." alt="" coords="453,287,535,313"/>
+<area shape="rect" id="node12" href="$structPlayer.html" title="Struct that represents the player." alt="" coords="617,391,680,417"/>
+</map>

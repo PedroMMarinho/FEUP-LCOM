@@ -1,0 +1,9 @@
+<map id="disable_interrupts" name="disable_interrupts">
+<area shape="rect" id="node1" title=" " alt="" coords="5,56,144,83"/>
+<area shape="rect" id="node2" href="$rtc_8c.html#a1e4949a2620e3ecd7289816e2916096a" title=" " alt="" coords="199,5,329,32"/>
+<area shape="rect" id="node6" href="$rtc_8c.html#a3e593342351ac9bdb4c306658936bf4a" title=" " alt="" coords="192,56,336,83"/>
+<area shape="rect" id="node7" href="$rtc_8c.html#ad4fe1fda254f80f3efacdc436b54ad27" title=" " alt="" coords="195,107,333,133"/>
+<area shape="rect" id="node3" href="$rtc_8c.html#acac7fba459dd622ec85096f0f59f20ea" title=" " alt="" coords="386,31,461,57"/>
+<area shape="rect" id="node5" href="$rtc_8c.html#a51ef284d11c6cb4e3be63a86d78763bc" title=" " alt="" coords="384,81,463,108"/>
+<area shape="rect" id="node4" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title="Reads a byte from a port." alt="" coords="511,31,609,57"/>
+</map>

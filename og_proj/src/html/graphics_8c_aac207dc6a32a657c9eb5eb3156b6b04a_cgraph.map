@@ -1,0 +1,6 @@
+<map id="vg_draw_char" name="vg_draw_char">
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,117,57"/>
+<area shape="rect" id="node2" href="$graphics_8c.html#ad4efe9c8fe8912ecd65c5fc512c15d03" title="Draws an XPM image." alt="" coords="165,31,289,57"/>
+<area shape="rect" id="node3" href="$utilities_8c.html#a70076007e8799fb3b48697e26eda5390" title="Calculates the angle of a vector." alt="" coords="354,5,413,32"/>
+<area shape="rect" id="node4" href="$graphics_8c.html#abcd14d829edc3257916bdcc1a9aca216" title="Draws a pixel." alt="" coords="337,56,429,83"/>
+</map>

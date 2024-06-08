@@ -1,0 +1,9 @@
+<map id="getNextBallCircularCushionCollision" name="getNextBallCircularCushionCollision">
+<area shape="rect" id="node1" title="Finds the next collision event between a ball and a circular cushion on the table." alt="" coords="996,5,1197,47"/>
+<area shape="rect" id="node2" href="$events_8c.html#ab58ba60736e19e4094180b548a0ad565" title="Finds the next event on the table." alt="" coords="837,13,948,39"/>
+<area shape="rect" id="node3" href="$simulate_8c.html#ac23420edf5968c6121679d2a009f0809" title="Updates the physics simulation of the table over a specified time period." alt="" coords="673,13,789,39"/>
+<area shape="rect" id="node4" href="$playingController_8c.html#aa8a29eaaea16d53074ed404fe79294c0" title="Handles the playing controller." alt="" coords="445,13,625,39"/>
+<area shape="rect" id="node5" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="307,13,397,39"/>
+<area shape="rect" id="node6" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,13,259,39"/>
+<area shape="rect" id="node7" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,13,128,39"/>
+</map>

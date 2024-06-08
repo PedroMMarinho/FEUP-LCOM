@@ -1,0 +1,123 @@
+\hypertarget{simulate_8c}{}\doxysection{physics/simulate.c File Reference}
+\label{simulate_8c}\index{physics/simulate.c@{physics/simulate.c}}
+{\ttfamily \#include \char`\"{}simulate.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}events.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}evolve.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}resolve/resolver.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utilities.\+h\char`\"{}}\newline
+Include dependency graph for simulate.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{simulate_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{simulate_8c_a3e9f071356d822dbe64df6a9c4428b9a}{process\+Shot}} (\mbox{\hyperlink{structTable}{Table}} $\ast$table)
+\begin{DoxyCompactList}\small\item\em Initializes the shot event, setting the stick ball as the first event in the simulation. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{simulate_8c_ac23420edf5968c6121679d2a009f0809}{update\+Physics}} (\mbox{\hyperlink{structTable}{Table}} $\ast$table, double dt)
+\begin{DoxyCompactList}\small\item\em Updates the physics simulation of the table over a specified time period. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{simulate_8c_aed1e5d03d2f59f9308bc97702c93577c}{evolve\+Balls}} (\mbox{\hyperlink{structTable}{Table}} $\ast$table, double time)
+\begin{DoxyCompactList}\small\item\em Evolves the motion of all balls on the table over a specified time period. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{simulate_8c_aed1e5d03d2f59f9308bc97702c93577c}\label{simulate_8c_aed1e5d03d2f59f9308bc97702c93577c}} 
+\index{simulate.c@{simulate.c}!evolveBalls@{evolveBalls}}
+\index{evolveBalls@{evolveBalls}!simulate.c@{simulate.c}}
+\doxysubsubsection{\texorpdfstring{evolveBalls()}{evolveBalls()}}
+{\footnotesize\ttfamily void evolve\+Balls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table,  }\item[{double}]{time }\end{DoxyParamCaption})}
+
+
+
+Evolves the motion of all balls on the table over a specified time period. 
+
+This function evolves the motion of all balls on the table over a specified time period (time), updating their positions and velocities based on their current states and physical laws.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Pointer to the \mbox{\hyperlink{structTable}{Table}} structure. \\
+\hline
+{\em time} & The time period over which the motion is evolved. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{simulate_8c_aed1e5d03d2f59f9308bc97702c93577c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{simulate_8c_aed1e5d03d2f59f9308bc97702c93577c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{simulate_8c_a3e9f071356d822dbe64df6a9c4428b9a}\label{simulate_8c_a3e9f071356d822dbe64df6a9c4428b9a}} 
+\index{simulate.c@{simulate.c}!processShot@{processShot}}
+\index{processShot@{processShot}!simulate.c@{simulate.c}}
+\doxysubsubsection{\texorpdfstring{processShot()}{processShot()}}
+{\footnotesize\ttfamily void process\+Shot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table }\end{DoxyParamCaption})}
+
+
+
+Initializes the shot event, setting the stick ball as the first event in the simulation. 
+
+This function initializes the shot event with a time of 0, representing the initial state where the stick is in contact with the cue ball. It sets the next event for the table.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Pointer to the \mbox{\hyperlink{structTable}{Table}} structure. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{simulate_8c_a3e9f071356d822dbe64df6a9c4428b9a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{simulate_8c_ac23420edf5968c6121679d2a009f0809}\label{simulate_8c_ac23420edf5968c6121679d2a009f0809}} 
+\index{simulate.c@{simulate.c}!updatePhysics@{updatePhysics}}
+\index{updatePhysics@{updatePhysics}!simulate.c@{simulate.c}}
+\doxysubsubsection{\texorpdfstring{updatePhysics()}{updatePhysics()}}
+{\footnotesize\ttfamily bool update\+Physics (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table,  }\item[{double}]{dt }\end{DoxyParamCaption})}
+
+
+
+Updates the physics simulation of the table over a specified time period. 
+
+This function updates the physics simulation of the table over a specified time period (dt), processing events and evolving the state of the balls accordingly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Pointer to the \mbox{\hyperlink{structTable}{Table}} structure. \\
+\hline
+{\em dt} & The time step for the physics simulation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the simulation is still ongoing after the update, false otherwise. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{simulate_8c_ac23420edf5968c6121679d2a009f0809_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{simulate_8c_ac23420edf5968c6121679d2a009f0809_icgraph}
+\end{center}
+\end{figure}

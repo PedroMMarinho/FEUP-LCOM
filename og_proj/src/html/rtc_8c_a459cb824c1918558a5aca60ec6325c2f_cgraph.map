@@ -1,0 +1,9 @@
+<map id="set_alarm" name="set_alarm">
+<area shape="rect" id="node1" title=" " alt="" coords="5,56,92,83"/>
+<area shape="rect" id="node2" href="$rtc_8c.html#ad32a6c1884536c52cdb9876a9ccb6d01" title=" " alt="" coords="144,56,267,83"/>
+<area shape="rect" id="node5" href="$rtc_8c.html#a51ef284d11c6cb4e3be63a86d78763bc" title=" " alt="" coords="357,5,435,32"/>
+<area shape="rect" id="node6" href="$rtc_8c.html#a4d4955d5d77aadb1feb6b78d3e463e6b" title=" " alt="" coords="140,107,271,133"/>
+<area shape="rect" id="node3" href="$rtc_8c.html#acac7fba459dd622ec85096f0f59f20ea" title=" " alt="" coords="359,56,433,83"/>
+<area shape="rect" id="node4" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title="Reads a byte from a port." alt="" coords="521,56,620,83"/>
+<area shape="rect" id="node7" href="$utils_8c.html#a836d35c89424c8eaf2e2d404dde2e60d" title=" " alt="" coords="319,107,473,133"/>
+</map>

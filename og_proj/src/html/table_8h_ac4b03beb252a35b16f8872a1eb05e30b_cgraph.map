@@ -1,0 +1,9 @@
+<map id="drawBalls" name="drawBalls">
+<area shape="rect" id="node1" title="Draws all balls on the table, including their current positions and states." alt="" coords="5,107,92,133"/>
+<area shape="rect" id="node2" href="$graphics_8c.html#ad4efe9c8fe8912ecd65c5fc512c15d03" title="Draws an XPM image." alt="" coords="140,31,264,57"/>
+<area shape="rect" id="node5" href="$ball_8c.html#a5562e5ec8e94dc559e7c2897aef911a4" title="Gets the image of the Ball." alt="" coords="147,81,257,108"/>
+<area shape="rect" id="node6" href="$ball_8c.html#a6245e677d89c5b87045d82c03209f93b" title="Gets the position of the Ball." alt="" coords="142,132,262,159"/>
+<area shape="rect" id="node7" href="$table_8c.html#a26853fae764068b7bd2f06a108769f59" title="Determines if the given ball belongs to the given player." alt="" coords="153,183,251,209"/>
+<area shape="rect" id="node3" href="$utilities_8c.html#a70076007e8799fb3b48697e26eda5390" title="Calculates the angle of a vector." alt="" coords="329,5,387,32"/>
+<area shape="rect" id="node4" href="$graphics_8c.html#abcd14d829edc3257916bdcc1a9aca216" title="Draws a pixel." alt="" coords="312,56,404,83"/>
+</map>

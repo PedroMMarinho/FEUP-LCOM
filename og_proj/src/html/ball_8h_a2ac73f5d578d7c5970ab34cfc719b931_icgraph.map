@@ -1,0 +1,19 @@
+<map id="ballNotMoving" name="ballNotMoving">
+<area shape="rect" id="node1" title="Checks if the Ball is not moving." alt="" coords="1543,224,1660,251"/>
+<area shape="rect" id="node2" href="$utilities_8c.html#a00262457943146f3d292cd409099937b" title="Calculates the coefficients of a ball&#45;ball collision. This function calculates the coefficients of a ..." alt="" coords="1279,5,1461,32"/>
+<area shape="rect" id="node3" href="$events_8c.html#a19348c19f57f9b0fd7ba87b68e173ac9" title="Finds the next collision event between two balls on the table." alt="" coords="1007,56,1187,83"/>
+<area shape="rect" id="node10" href="$utilities_8c.html#ac223ab756d084d6afe5d62e2198ca349" title="Calculates the coefficients of a ball&#45;circular cushion collision. This function calculates the coeffi..." alt="" coords="1257,107,1483,149"/>
+<area shape="rect" id="node11" href="$events_8c.html#a677ef20f45f38639c5d967279708cb15" title="Finds the next collision event between a ball and a circular cushion on the table." alt="" coords="996,166,1197,207"/>
+<area shape="rect" id="node12" href="$utilities_8c.html#aa7b60acd35a7d23364aa9fcc1bd7c89e" title="Calculates the time for a linear cushion collision with a ball." alt="" coords="1245,224,1495,251"/>
+<area shape="rect" id="node13" href="$events_8c.html#ae2069e820ed131b38d776121eaa66b51" title="Finds the next collision event between a ball and a linear cushion on the table." alt="" coords="1001,246,1192,287"/>
+<area shape="rect" id="node14" href="$utilities_8c.html#a653a4c8f91bafdf128c08fa146197d14" title="Calculates the coefficients of a ball&#45;pocket collision. This function calculates the coefficients of ..." alt="" coords="1269,325,1471,352"/>
+<area shape="rect" id="node15" href="$events_8c.html#a0eb960b68caca6c994f8684afb8e2450" title="Finds the next collision event between a ball and a pocket on the table." alt="" coords="997,325,1196,352"/>
+<area shape="rect" id="node16" href="$events_8c.html#aa71827be2c5e903049141fcafc7c6048" title="Updates the next transition event for a ball on the table." alt="" coords="1277,427,1463,453"/>
+<area shape="rect" id="node4" href="$events_8c.html#ab58ba60736e19e4094180b548a0ad565" title="Finds the next event on the table." alt="" coords="837,253,948,280"/>
+<area shape="rect" id="node5" href="$simulate_8c.html#ac23420edf5968c6121679d2a009f0809" title="Updates the physics simulation of the table over a specified time period." alt="" coords="673,308,789,335"/>
+<area shape="rect" id="node6" href="$playingController_8c.html#aa8a29eaaea16d53074ed404fe79294c0" title="Handles the playing controller." alt="" coords="445,308,625,335"/>
+<area shape="rect" id="node7" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="307,308,397,335"/>
+<area shape="rect" id="node8" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,308,259,335"/>
+<area shape="rect" id="node9" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,308,128,335"/>
+<area shape="rect" id="node17" href="$resolver_8c.html#aa65d1d36ef508a9c90ee9c0bf11a7033" title="Resolves the given event on the table." alt="" coords="839,333,946,360"/>
+</map>

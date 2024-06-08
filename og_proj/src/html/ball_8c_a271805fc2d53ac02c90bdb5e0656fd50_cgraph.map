@@ -1,0 +1,4 @@
+<map id="newBall" name="newBall">
+<area shape="rect" id="node1" title="Creates a new ball." alt="" coords="5,5,80,32"/>
+<area shape="rect" id="node2" href="$event_8c.html#a8e151bee848e27b9e1791521d38b54c5" title="Creates a new invalid event." alt="" coords="128,5,259,32"/>
+</map>

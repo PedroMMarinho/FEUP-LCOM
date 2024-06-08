@@ -1,0 +1,276 @@
+\hypertarget{events_8c}{}\doxysection{physics/events.c File Reference}
+\label{events_8c}\index{physics/events.c@{physics/events.c}}
+{\ttfamily \#include \char`\"{}events.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}math.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utilities.\+h\char`\"{}}\newline
+Include dependency graph for events.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{events_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structEvent}{Event}} \mbox{\hyperlink{events_8c_a19348c19f57f9b0fd7ba87b68e173ac9}{get\+Next\+Ball\+Ball\+Collision}} (\mbox{\hyperlink{structTable}{Table}} $\ast$table)
+\begin{DoxyCompactList}\small\item\em Finds the next collision event between two balls on the table. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structEvent}{Event}} \mbox{\hyperlink{events_8c_ae2069e820ed131b38d776121eaa66b51}{get\+Next\+Ball\+Linear\+Cushion\+Collision}} (\mbox{\hyperlink{structTable}{Table}} $\ast$table)
+\begin{DoxyCompactList}\small\item\em Finds the next collision event between a ball and a linear cushion on the table. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structEvent}{Event}} \mbox{\hyperlink{events_8c_a677ef20f45f38639c5d967279708cb15}{get\+Next\+Ball\+Circular\+Cushion\+Collision}} (\mbox{\hyperlink{structTable}{Table}} $\ast$table)
+\begin{DoxyCompactList}\small\item\em Finds the next collision event between a ball and a circular cushion on the table. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structEvent}{Event}} \mbox{\hyperlink{events_8c_a0eb960b68caca6c994f8684afb8e2450}{get\+Next\+Ball\+Pocket\+Collision}} (\mbox{\hyperlink{structTable}{Table}} $\ast$table)
+\begin{DoxyCompactList}\small\item\em Finds the next collision event between a ball and a pocket on the table. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structEvent}{Event}} \mbox{\hyperlink{events_8c_a184be682caa89210def5198629f615be}{get\+Next\+Transition}} (\mbox{\hyperlink{structTable}{Table}} $\ast$table)
+\begin{DoxyCompactList}\small\item\em Finds the next transition event for a ball on the table. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structEvent}{Event}} \mbox{\hyperlink{events_8c_ab58ba60736e19e4094180b548a0ad565}{get\+Next\+Event}} (\mbox{\hyperlink{structTable}{Table}} $\ast$table)
+\begin{DoxyCompactList}\small\item\em Finds the next event on the table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{events_8c_aa71827be2c5e903049141fcafc7c6048}{update\+Ball\+Next\+Transition}} (\mbox{\hyperlink{structTable}{Table}} $\ast$table, \mbox{\hyperlink{structBall}{Ball}} $\ast$ball)
+\begin{DoxyCompactList}\small\item\em Updates the next transition event for a ball on the table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{events_8c_a19348c19f57f9b0fd7ba87b68e173ac9}\label{events_8c_a19348c19f57f9b0fd7ba87b68e173ac9}} 
+\index{events.c@{events.c}!getNextBallBallCollision@{getNextBallBallCollision}}
+\index{getNextBallBallCollision@{getNextBallBallCollision}!events.c@{events.c}}
+\doxysubsubsection{\texorpdfstring{getNextBallBallCollision()}{getNextBallBallCollision()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structEvent}{Event}} get\+Next\+Ball\+Ball\+Collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table }\end{DoxyParamCaption})}
+
+
+
+Finds the next collision event between two balls on the table. 
+
+This function calculates the time until the next collision event between two balls on the table and returns an \mbox{\hyperlink{structEvent}{Event}} structure representing the collision event.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Pointer to the \mbox{\hyperlink{structTable}{Table}} structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An \mbox{\hyperlink{structEvent}{Event}} structure representing the next ball-\/ball collision event. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{events_8c_a19348c19f57f9b0fd7ba87b68e173ac9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{events_8c_a19348c19f57f9b0fd7ba87b68e173ac9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{events_8c_a677ef20f45f38639c5d967279708cb15}\label{events_8c_a677ef20f45f38639c5d967279708cb15}} 
+\index{events.c@{events.c}!getNextBallCircularCushionCollision@{getNextBallCircularCushionCollision}}
+\index{getNextBallCircularCushionCollision@{getNextBallCircularCushionCollision}!events.c@{events.c}}
+\doxysubsubsection{\texorpdfstring{getNextBallCircularCushionCollision()}{getNextBallCircularCushionCollision()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structEvent}{Event}} get\+Next\+Ball\+Circular\+Cushion\+Collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table }\end{DoxyParamCaption})}
+
+
+
+Finds the next collision event between a ball and a circular cushion on the table. 
+
+This function calculates the time until the next collision event between a ball and a circular cushion on the table and returns an \mbox{\hyperlink{structEvent}{Event}} structure representing the collision event.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Pointer to the \mbox{\hyperlink{structTable}{Table}} structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An \mbox{\hyperlink{structEvent}{Event}} structure representing the next ball-\/circular cushion collision event. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{events_8c_a677ef20f45f38639c5d967279708cb15_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{events_8c_a677ef20f45f38639c5d967279708cb15_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{events_8c_ae2069e820ed131b38d776121eaa66b51}\label{events_8c_ae2069e820ed131b38d776121eaa66b51}} 
+\index{events.c@{events.c}!getNextBallLinearCushionCollision@{getNextBallLinearCushionCollision}}
+\index{getNextBallLinearCushionCollision@{getNextBallLinearCushionCollision}!events.c@{events.c}}
+\doxysubsubsection{\texorpdfstring{getNextBallLinearCushionCollision()}{getNextBallLinearCushionCollision()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structEvent}{Event}} get\+Next\+Ball\+Linear\+Cushion\+Collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table }\end{DoxyParamCaption})}
+
+
+
+Finds the next collision event between a ball and a linear cushion on the table. 
+
+This function calculates the time until the next collision event between a ball and a linear cushion on the table and returns an \mbox{\hyperlink{structEvent}{Event}} structure representing the collision event.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Pointer to the \mbox{\hyperlink{structTable}{Table}} structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An \mbox{\hyperlink{structEvent}{Event}} structure representing the next ball-\/linear cushion collision event. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{events_8c_ae2069e820ed131b38d776121eaa66b51_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{events_8c_ae2069e820ed131b38d776121eaa66b51_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{events_8c_a0eb960b68caca6c994f8684afb8e2450}\label{events_8c_a0eb960b68caca6c994f8684afb8e2450}} 
+\index{events.c@{events.c}!getNextBallPocketCollision@{getNextBallPocketCollision}}
+\index{getNextBallPocketCollision@{getNextBallPocketCollision}!events.c@{events.c}}
+\doxysubsubsection{\texorpdfstring{getNextBallPocketCollision()}{getNextBallPocketCollision()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structEvent}{Event}} get\+Next\+Ball\+Pocket\+Collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table }\end{DoxyParamCaption})}
+
+
+
+Finds the next collision event between a ball and a pocket on the table. 
+
+This function calculates the time until the next collision event between a ball and a pocket on the table and returns an \mbox{\hyperlink{structEvent}{Event}} structure representing the collision event.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Pointer to the \mbox{\hyperlink{structTable}{Table}} structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An \mbox{\hyperlink{structEvent}{Event}} structure representing the next ball-\/pocket collision event. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{events_8c_a0eb960b68caca6c994f8684afb8e2450_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{events_8c_a0eb960b68caca6c994f8684afb8e2450_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{events_8c_ab58ba60736e19e4094180b548a0ad565}\label{events_8c_ab58ba60736e19e4094180b548a0ad565}} 
+\index{events.c@{events.c}!getNextEvent@{getNextEvent}}
+\index{getNextEvent@{getNextEvent}!events.c@{events.c}}
+\doxysubsubsection{\texorpdfstring{getNextEvent()}{getNextEvent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structEvent}{Event}} get\+Next\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table }\end{DoxyParamCaption})}
+
+
+
+Finds the next event on the table. 
+
+This function calculates the time until the next event (collision or transition) on the table and returns an \mbox{\hyperlink{structEvent}{Event}} structure representing the next event.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Pointer to the \mbox{\hyperlink{structTable}{Table}} structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An \mbox{\hyperlink{structEvent}{Event}} structure representing the next event on the table. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{events_8c_ab58ba60736e19e4094180b548a0ad565_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{events_8c_ab58ba60736e19e4094180b548a0ad565_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{events_8c_a184be682caa89210def5198629f615be}\label{events_8c_a184be682caa89210def5198629f615be}} 
+\index{events.c@{events.c}!getNextTransition@{getNextTransition}}
+\index{getNextTransition@{getNextTransition}!events.c@{events.c}}
+\doxysubsubsection{\texorpdfstring{getNextTransition()}{getNextTransition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structEvent}{Event}} get\+Next\+Transition (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table }\end{DoxyParamCaption})}
+
+
+
+Finds the next transition event for a ball on the table. 
+
+This function calculates the time until the next transition event (e.\+g., from rolling to stationary) for a ball on the table and returns an \mbox{\hyperlink{structEvent}{Event}} structure representing the transition event.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Pointer to the \mbox{\hyperlink{structTable}{Table}} structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An \mbox{\hyperlink{structEvent}{Event}} structure representing the next ball transition event. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{events_8c_a184be682caa89210def5198629f615be_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{events_8c_a184be682caa89210def5198629f615be_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{events_8c_aa71827be2c5e903049141fcafc7c6048}\label{events_8c_aa71827be2c5e903049141fcafc7c6048}} 
+\index{events.c@{events.c}!updateBallNextTransition@{updateBallNextTransition}}
+\index{updateBallNextTransition@{updateBallNextTransition}!events.c@{events.c}}
+\doxysubsubsection{\texorpdfstring{updateBallNextTransition()}{updateBallNextTransition()}}
+{\footnotesize\ttfamily void update\+Ball\+Next\+Transition (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table,  }\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball }\end{DoxyParamCaption})}
+
+
+
+Updates the next transition event for a ball on the table. 
+
+This function updates the next transition event (e.\+g., from rolling to stationary) for a ball on the table based on its current state and other parameters such as friction and gravity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Pointer to the \mbox{\hyperlink{structTable}{Table}} structure. \\
+\hline
+{\em ball} & Pointer to the \mbox{\hyperlink{structBall}{Ball}} structure representing the ball. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{events_8c_aa71827be2c5e903049141fcafc7c6048_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{events_8c_aa71827be2c5e903049141fcafc7c6048_icgraph}
+\end{center}
+\end{figure}

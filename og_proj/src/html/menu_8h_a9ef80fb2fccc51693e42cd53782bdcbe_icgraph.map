@@ -1,0 +1,10 @@
+<map id="destroyMenu" name="destroyMenu">
+<area shape="rect" id="node1" title="Frees the memory allocated for the menu." alt="" coords="888,56,995,83"/>
+<area shape="rect" id="node2" href="$resources_8c.html#a4e02759c74a62cabc104eb7eeddd4b69" title="Destroys the resources of the game." alt="" coords="461,5,599,32"/>
+<area shape="rect" id="node6" href="$menuController_8c.html#a5d84b8fe730b1a977edaa0dc6fdeb147" title=" " alt="" coords="663,56,840,83"/>
+<area shape="rect" id="node8" href="$menuController_8c.html#a9e9d5fb2d892ba2e87c7216c099014c4" title=" " alt="" coords="684,107,819,133"/>
+<area shape="rect" id="node3" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="307,31,397,57"/>
+<area shape="rect" id="node4" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,31,259,57"/>
+<area shape="rect" id="node5" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,31,128,57"/>
+<area shape="rect" id="node7" href="$menuController_8c.html#a7c7a58765cda0a55100ee122aa0d7fd8" title="Handles the menu controller." alt="" coords="445,56,615,83"/>
+</map>

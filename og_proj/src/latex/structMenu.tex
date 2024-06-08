@@ -1,0 +1,124 @@
+\hypertarget{structMenu}{}\doxysection{Menu Struct Reference}
+\label{structMenu}\index{Menu@{Menu}}
+
+
+Struct that represents a menu.  
+
+
+
+
+{\ttfamily \#include $<$menu.\+h$>$}
+
+
+
+Collaboration diagram for Menu\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{structMenu__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+xpm\+\_\+image\+\_\+t \mbox{\hyperlink{structMenu_a2a9ebfd106ded44763248cbaa0aa2909}{background\+Img}}
+\item 
+xpm\+\_\+image\+\_\+t \mbox{\hyperlink{structMenu_a985399c0d334818715272b4633692d6d}{main\+Menu\+Logo}}
+\item 
+xpm\+\_\+image\+\_\+t $\ast$ \mbox{\hyperlink{structMenu_a059c66639bc37742b324558e50da9e6e}{font}}
+\item 
+\mbox{\hyperlink{menu_8h_ae5c7b6b4f6e696391cd7faaea6571bb4}{Menu\+Type}} \mbox{\hyperlink{structMenu_a1c7ea264cfd01ee61b4c915f612dbd86}{type}}
+\item 
+int \mbox{\hyperlink{structMenu_a1adbd6e3b8a9f81f1ee0820e8e1212ef}{n\+Options}}
+\item 
+int \mbox{\hyperlink{structMenu_a8d5e28f1dcd432751d489a9d98ea60c4}{selected\+Option}}
+\item 
+char $\ast$ \mbox{\hyperlink{structMenu_a2f0910b789f11cbe836bb1c552b4a595}{winner}}
+\item 
+\mbox{\hyperlink{structMouse}{Mouse}} $\ast$ \mbox{\hyperlink{structMenu_a297aca0913c4ffadaf3848b5914e78ee}{mouse}}
+\item 
+xpm\+\_\+image\+\_\+t \mbox{\hyperlink{structMenu_a87ee0d52cb1250997117900f3fb72049}{mouse\+Img}}
+\item 
+xpm\+\_\+image\+\_\+t \mbox{\hyperlink{structMenu_ac9c4dae2de089d753a8756c506ec9905}{mouse\+Img\+Hover}}
+\item 
+\mbox{\hyperlink{structButton}{Button}} $\ast$$\ast$ \mbox{\hyperlink{structMenu_a1822aac81fb80777c8e30a579b5a3f48}{buttons}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Struct that represents a menu. 
+
+background\+Img -\/ xpm image of the background main\+Menu\+Logo -\/ xpm image of the logo font -\/ xpm image of the font type -\/ type of the menu n\+Options -\/ number of options(buttons) selected\+Option -\/ index of the selected option mouse -\/ pointer to the mouse mouse\+Img -\/ xpm image of the mouse mouse\+Img\+Hover -\/ xpm image of the mouse when it is hovering buttons -\/ array of pointers to the buttons 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structMenu_a2a9ebfd106ded44763248cbaa0aa2909}\label{structMenu_a2a9ebfd106ded44763248cbaa0aa2909}} 
+\index{Menu@{Menu}!backgroundImg@{backgroundImg}}
+\index{backgroundImg@{backgroundImg}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{backgroundImg}{backgroundImg}}
+{\footnotesize\ttfamily xpm\+\_\+image\+\_\+t Menu\+::background\+Img}
+
+\mbox{\Hypertarget{structMenu_a1822aac81fb80777c8e30a579b5a3f48}\label{structMenu_a1822aac81fb80777c8e30a579b5a3f48}} 
+\index{Menu@{Menu}!buttons@{buttons}}
+\index{buttons@{buttons}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{buttons}{buttons}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structButton}{Button}}$\ast$$\ast$ Menu\+::buttons}
+
+\mbox{\Hypertarget{structMenu_a059c66639bc37742b324558e50da9e6e}\label{structMenu_a059c66639bc37742b324558e50da9e6e}} 
+\index{Menu@{Menu}!font@{font}}
+\index{font@{font}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{font}{font}}
+{\footnotesize\ttfamily xpm\+\_\+image\+\_\+t$\ast$ Menu\+::font}
+
+\mbox{\Hypertarget{structMenu_a985399c0d334818715272b4633692d6d}\label{structMenu_a985399c0d334818715272b4633692d6d}} 
+\index{Menu@{Menu}!mainMenuLogo@{mainMenuLogo}}
+\index{mainMenuLogo@{mainMenuLogo}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{mainMenuLogo}{mainMenuLogo}}
+{\footnotesize\ttfamily xpm\+\_\+image\+\_\+t Menu\+::main\+Menu\+Logo}
+
+\mbox{\Hypertarget{structMenu_a297aca0913c4ffadaf3848b5914e78ee}\label{structMenu_a297aca0913c4ffadaf3848b5914e78ee}} 
+\index{Menu@{Menu}!mouse@{mouse}}
+\index{mouse@{mouse}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{mouse}{mouse}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structMouse}{Mouse}}$\ast$ Menu\+::mouse}
+
+\mbox{\Hypertarget{structMenu_a87ee0d52cb1250997117900f3fb72049}\label{structMenu_a87ee0d52cb1250997117900f3fb72049}} 
+\index{Menu@{Menu}!mouseImg@{mouseImg}}
+\index{mouseImg@{mouseImg}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{mouseImg}{mouseImg}}
+{\footnotesize\ttfamily xpm\+\_\+image\+\_\+t Menu\+::mouse\+Img}
+
+\mbox{\Hypertarget{structMenu_ac9c4dae2de089d753a8756c506ec9905}\label{structMenu_ac9c4dae2de089d753a8756c506ec9905}} 
+\index{Menu@{Menu}!mouseImgHover@{mouseImgHover}}
+\index{mouseImgHover@{mouseImgHover}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{mouseImgHover}{mouseImgHover}}
+{\footnotesize\ttfamily xpm\+\_\+image\+\_\+t Menu\+::mouse\+Img\+Hover}
+
+\mbox{\Hypertarget{structMenu_a1adbd6e3b8a9f81f1ee0820e8e1212ef}\label{structMenu_a1adbd6e3b8a9f81f1ee0820e8e1212ef}} 
+\index{Menu@{Menu}!nOptions@{nOptions}}
+\index{nOptions@{nOptions}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{nOptions}{nOptions}}
+{\footnotesize\ttfamily int Menu\+::n\+Options}
+
+\mbox{\Hypertarget{structMenu_a8d5e28f1dcd432751d489a9d98ea60c4}\label{structMenu_a8d5e28f1dcd432751d489a9d98ea60c4}} 
+\index{Menu@{Menu}!selectedOption@{selectedOption}}
+\index{selectedOption@{selectedOption}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{selectedOption}{selectedOption}}
+{\footnotesize\ttfamily int Menu\+::selected\+Option}
+
+\mbox{\Hypertarget{structMenu_a1c7ea264cfd01ee61b4c915f612dbd86}\label{structMenu_a1c7ea264cfd01ee61b4c915f612dbd86}} 
+\index{Menu@{Menu}!type@{type}}
+\index{type@{type}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{menu_8h_ae5c7b6b4f6e696391cd7faaea6571bb4}{Menu\+Type}} Menu\+::type}
+
+\mbox{\Hypertarget{structMenu_a2f0910b789f11cbe836bb1c552b4a595}\label{structMenu_a2f0910b789f11cbe836bb1c552b4a595}} 
+\index{Menu@{Menu}!winner@{winner}}
+\index{winner@{winner}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{winner}{winner}}
+{\footnotesize\ttfamily char$\ast$ Menu\+::winner}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+model/\mbox{\hyperlink{menu_8h}{menu.\+h}}\end{DoxyCompactItemize}

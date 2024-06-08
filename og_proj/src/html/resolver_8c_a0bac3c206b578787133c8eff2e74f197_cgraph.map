@@ -1,0 +1,6 @@
+<map id="makeBallCircularCushionKiss" name="makeBallCircularCushionKiss">
+<area shape="rect" id="node1" title="Adjusts the position of a ball after a circular cushion collision." alt="" coords="5,31,217,57"/>
+<area shape="rect" id="node2" href="$cushion_8c.html#a6545b6fc7ee07257acb8dbaa968c7235" title="Computes the normal vector for a CircularCushion at the point of contact with a Ball." alt="" coords="265,5,437,32"/>
+<area shape="rect" id="node4" href="$utilities_8c.html#a42ada5d449eb0a5545123710cc8bf647" title="Calculates the magnitude of a vector." alt="" coords="661,31,768,57"/>
+<area shape="rect" id="node3" href="$utilities_8c.html#ae78350457bd27abcfe7ff6d7e055d160" title="Normalizes a vector." alt="" coords="485,5,613,32"/>
+</map>

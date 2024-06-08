@@ -1,0 +1,29 @@
+<map id="resolveEvent" name="resolveEvent">
+<area shape="rect" id="node1" title="Resolves the given event on the table." alt="" coords="5,284,112,311"/>
+<area shape="rect" id="node2" href="$resolver_8c.html#a1812040d9a3cde1a15daa74c8d093eb1" title="Asserts that a ball is in a spinning state." alt="" coords="207,5,325,32"/>
+<area shape="rect" id="node3" href="$resolver_8c.html#a6c811ab6d9e938abf6e82b27f4e92ebb" title="Asserts that a ball is in a stationary state." alt="" coords="201,56,331,83"/>
+<area shape="rect" id="node4" href="$cushion_8c.html#a6545b6fc7ee07257acb8dbaa968c7235" title="Computes the normal vector for a CircularCushion at the point of contact with a Ball." alt="" coords="427,259,599,285"/>
+<area shape="rect" id="node7" href="$cushion_8c.html#aba3c63e7b827766de066c5a7f2bba62f" title="Fixes the normal direction of the LinearCushion." alt="" coords="441,157,586,184"/>
+<area shape="rect" id="node9" href="$table_8c.html#a195ea837ae7cb36ad1fc88830892685f" title="Retrieves the player who is currently playing." alt="" coords="200,208,332,235"/>
+<area shape="rect" id="node10" href="$resolver_8c.html#a0bac3c206b578787133c8eff2e74f197" title="Adjusts the position of a ball after a circular cushion collision." alt="" coords="160,259,372,285"/>
+<area shape="rect" id="node11" href="$resolver_8c.html#af13870ae091b8733e03d8e09349a4126" title="Adjusts the position of a ball after a linear cushion collision." alt="" coords="165,107,367,133"/>
+<area shape="rect" id="node13" href="$resolver_8c.html#a985c4af47184c17561153a1e9195fe51" title="Resolves the collision between two balls." alt="" coords="206,360,326,387"/>
+<area shape="rect" id="node17" href="$resolver_8c.html#a1ad81eaf2026638e1041cde4a4cca6a5" title="Resolves the collision between a ball and a cushion." alt="" coords="193,563,339,589"/>
+<area shape="rect" id="node19" href="$resolver_8c.html#a007ae7c13c89276935982ac28776a29b" title="Resolves the collision between a ball and a pocket." alt="" coords="197,461,335,488"/>
+<area shape="rect" id="node20" href="$resolver_8c.html#a4ad2ed8f03da80356f34f91ceb946ba2" title="Resolves the collision between the cue stick and a ball." alt="" coords="203,512,329,539"/>
+<area shape="rect" id="node21" href="$events_8c.html#aa71827be2c5e903049141fcafc7c6048" title="Updates the next transition event for a ball on the table." alt="" coords="420,512,607,539"/>
+<area shape="rect" id="node5" href="$utilities_8c.html#ae78350457bd27abcfe7ff6d7e055d160" title="Normalizes a vector." alt="" coords="656,309,784,336"/>
+<area shape="rect" id="node6" href="$utilities_8c.html#a42ada5d449eb0a5545123710cc8bf647" title="Calculates the magnitude of a vector." alt="" coords="842,360,949,387"/>
+<area shape="rect" id="node8" href="$utilities_8c.html#a98dbd882f9682266f2d87337dc709bdc" title="Calculates the dot product of two vectors." alt="" coords="674,132,766,159"/>
+<area shape="rect" id="node12" href="$utilities_8c.html#aecaf46bad7c3ca50690897bba2f57641" title="Finds the point on a line closest to a given point." alt="" coords="443,107,584,133"/>
+<area shape="rect" id="node14" href="$utilities_8c.html#a3dc747873a3c7e312efcf0fb5a622e75" title="Calculates the angle between two vectors." alt="" coords="456,461,571,488"/>
+<area shape="rect" id="node15" href="$resolver_8c.html#a8bb53a42f8cbdb39874e2887c96094b6" title="Adjusts the positions of two balls to prevent overlap." alt="" coords="455,360,572,387"/>
+<area shape="rect" id="node16" href="$utilities_8c.html#a75a2efa623d57f314f94a6fc919e761d" title="Rotates a 2D vector by a given angle." alt="" coords="475,563,552,589"/>
+<area shape="rect" id="node18" href="$utilities_8c.html#a70076007e8799fb3b48697e26eda5390" title="Calculates the angle of a vector." alt="" coords="484,613,543,640"/>
+<area shape="rect" id="node22" href="$ball_8c.html#a2ac73f5d578d7c5970ab34cfc719b931" title="Checks if the Ball is not moving." alt="" coords="661,664,779,691"/>
+<area shape="rect" id="node23" href="$utilities_8c.html#a517a15c452bb6c79adb99080eff01ea2" title="Calculates the time for rolling motion to stop for a ball." alt="" coords="669,461,771,488"/>
+<area shape="rect" id="node24" href="$utilities_8c.html#a8366b7edcbc333d94fa05535ab7184af" title="Calculates the time for sliding motion to stop for a ball." alt="" coords="666,512,774,539"/>
+<area shape="rect" id="node26" href="$utilities_8c.html#a144e3089e854d7a5dc817cf09780f160" title="Calculates the time for spinning motion to stop for a ball." alt="" coords="668,563,772,589"/>
+<area shape="rect" id="node27" href="$event_8c.html#a8e151bee848e27b9e1791521d38b54c5" title="Creates a new invalid event." alt="" coords="655,613,785,640"/>
+<area shape="rect" id="node25" href="$utilities_8c.html#af7589640fa9f4b10339db00dc0079e81" title="Calculates the relative velocity of a ball." alt="" coords="833,512,957,539"/>
+</map>

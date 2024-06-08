@@ -1,0 +1,14 @@
+<map id="rtc_current_time_ih" name="rtc_current_time_ih">
+<area shape="rect" id="node1" title=" " alt="" coords="5,183,153,209"/>
+<area shape="rect" id="node2" href="$utils_8c.html#ace9f569aa33a0398613413c312ea4a82" title=" " alt="" coords="220,5,313,32"/>
+<area shape="rect" id="node3" href="$rtc_8c.html#aa5fb0910690dc040f5ff4f5372afafb7" title=" " alt="" coords="231,56,302,83"/>
+<area shape="rect" id="node6" href="$rtc_8c.html#a67d389ec211cad0e660ff2d9e60f184c" title=" " alt="" coords="229,107,304,133"/>
+<area shape="rect" id="node7" href="$rtc_8c.html#a0c6c30806e69d9c1aac6655c89f791b8" title=" " alt="" coords="221,157,313,184"/>
+<area shape="rect" id="node8" href="$rtc_8c.html#af4ab6b9c6e15d557e0f1dcfd2d535a13" title=" " alt="" coords="223,208,311,235"/>
+<area shape="rect" id="node9" href="$rtc_8c.html#abc5725b348a9d71d52341a20cb917ed3" title=" " alt="" coords="221,259,313,285"/>
+<area shape="rect" id="node10" href="$rtc_8c.html#a4cdf41748919d21a90c8444cf22affe2" title=" " alt="" coords="229,309,304,336"/>
+<area shape="rect" id="node11" href="$rtc_8c.html#a4d4955d5d77aadb1feb6b78d3e463e6b" title=" " alt="" coords="201,360,332,387"/>
+<area shape="rect" id="node4" href="$rtc_8c.html#acac7fba459dd622ec85096f0f59f20ea" title=" " alt="" coords="420,208,495,235"/>
+<area shape="rect" id="node5" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title="Reads a byte from a port." alt="" coords="583,208,681,235"/>
+<area shape="rect" id="node12" href="$utils_8c.html#a836d35c89424c8eaf2e2d404dde2e60d" title=" " alt="" coords="380,360,535,387"/>
+</map>

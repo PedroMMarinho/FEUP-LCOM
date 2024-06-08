@@ -1,0 +1,52 @@
+<map id="proj_main_loop" name="proj_main_loop">
+<area shape="rect" id="node1" title=" " alt="" coords="5,591,128,618"/>
+<area shape="rect" id="node2" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,591,259,618"/>
+<area shape="rect" id="node3" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="320,806,411,833"/>
+<area shape="rect" id="node50" href="$resources_8c.html#a2eb64140b7e3905c447f5afd9984b584" title="Loads the resources of the game." alt="" coords="307,375,424,402"/>
+<area shape="rect" id="node4" href="$graphics_8c.html#af8014bbc85282cb9c32cbd0ad822f02a" title="Changes the video mode." alt="" coords="509,198,615,225"/>
+<area shape="rect" id="node5" href="$resources_8c.html#a4e02759c74a62cabc104eb7eeddd4b69" title="Destroys the resources of the game." alt="" coords="493,299,631,326"/>
+<area shape="rect" id="node7" href="$table_8c.html#a64ac10c7832cb134eddcf550bc806573" title="Destroys a Table object." alt="" coords="754,161,859,187"/>
+<area shape="rect" id="node10" href="$mouse_8c.html#a630c5bb9cbfcca20fac7347ff46794dc" title="Disables data reporting." alt="" coords="481,553,643,579"/>
+<area shape="rect" id="node13" href="$timer_8c.html#a3c47e1401da970a6634a212f160c1606" title="Gets the elapsed time." alt="" coords="511,654,613,681"/>
+<area shape="rect" id="node14" href="$keyboard_8c.html#a7b6c03f96cd7972408349f290c7040ff" title="Gets the scancode read from the output buffer." alt="" coords="479,705,645,731"/>
+<area shape="rect" id="node15" href="$mouse_8c.html#a1889c5e28857070e4f202baf4ff61c3a" title="Gets the packet read from the output buffer." alt="" coords="498,755,626,782"/>
+<area shape="rect" id="node16" href="$multiplayerController_8c.html#ac5da60925e615c083c873a2949c5b3bb" title="Handles the multiplayer connection." alt="" coords="961,389,1175,415"/>
+<area shape="rect" id="node20" href="$mouse_8c.html#a6f7675b17bacd7bb2aeb6be1aaff6cc1" title="Checks if the packet is complete." alt="" coords="493,806,631,833"/>
+<area shape="rect" id="node21" href="$keyboard_8c.html#aea970a154161a35f6894898a092ed70a" title="Subscribes and enables Keyboard interrupts." alt="" coords="775,718,839,745"/>
+<area shape="rect" id="node22" href="$keyboard_8c.html#adb9aab7f0c3161133854c952a0eb979d" title="Reads the scancode from the output buffer." alt="" coords="487,857,637,883"/>
+<area shape="rect" id="node23" href="$keyboard_8c.html#aa8dbaf115a31f57b46d05cee57447157" title="Unsubscribes Keyboard interrupts." alt="" coords="479,907,645,934"/>
+<area shape="rect" id="node24" href="$keyboard_8c.html#a8314e76edc7c92ce354ae1919ba11f02" title="Checks if there was an error in the interrupt handler." alt="" coords="499,958,625,985"/>
+<area shape="rect" id="node25" href="$graphics_8c.html#a5a481f6814a0c089c0abe17d3b7c6595" title="Maps memory for the given video mode." alt="" coords="509,1009,615,1035"/>
+<area shape="rect" id="node26" href="$menuController_8c.html#a7c7a58765cda0a55100ee122aa0d7fd8" title="Handles the menu controller." alt="" coords="477,401,647,427"/>
+<area shape="rect" id="node29" href="$serialPort_8c.html#af6cc263493df7caac7bd7d0be6b50635" title="Interrupt handler for the serial port." alt="" coords="1040,566,1096,593"/>
+<area shape="rect" id="node33" href="$mouse_8c.html#a210374b50462acdedab00df64d5cea3c" title="Subscribes and enables Mouse interrupts." alt="" coords="764,1199,849,1226"/>
+<area shape="rect" id="node34" href="$mouse_8c.html#a56719b09e2356fcd9d79e6fcf59f15fd" title="Subscribes and enables Mouse interrupts." alt="" coords="495,1059,629,1086"/>
+<area shape="rect" id="node35" href="$mouse_8c.html#aab5e1dc43daf2cc458f26d87211b994f" title="Unsubscribes Mouse interrupts." alt="" coords="487,1110,637,1137"/>
+<area shape="rect" id="node36" href="$mouse_8c.html#a78d6ab1939ee921e46ca8f388ec988d2" title="Checks if there was an error in the interrupt handler." alt="" coords="513,1161,611,1187"/>
+<area shape="rect" id="node37" href="$menu_8c.html#a1334090f76660886ac3281ba3d1adf3b" title=" " alt="" coords="485,97,639,123"/>
+<area shape="rect" id="node39" href="$table_8c.html#a9ef30cef961ee374d50fc769b85cecb6" title="Creates and initializes a new Table structure with all necessary components such as players,..." alt="" coords="521,1211,603,1238"/>
+<area shape="rect" id="node40" href="$playingController_8c.html#aa8a29eaaea16d53074ed404fe79294c0" title="Handles the playing controller." alt="" coords="472,1262,652,1289"/>
+<area shape="rect" id="node41" href="$rtc_8c.html#a0b9ae809cf571f61e54712a23c65348e" title="RTC interrupt handler." alt="" coords="533,1313,591,1339"/>
+<area shape="rect" id="node42" href="$rtc_8c.html#a88a31da998dedaa26c3e2e4d69b31743" title="Subscribes and enables RTC interrupts." alt="" coords="508,1363,616,1390"/>
+<area shape="rect" id="node43" href="$rtc_8c.html#a2a6094aed95b8610afb0493578ecb855" title="Unsubscribes RTC interrupts." alt="" coords="500,1414,624,1441"/>
+<area shape="rect" id="node44" href="$serialPort_8c.html#a753488e7d0873849b64417d09c6c07ce" title="Clears the serial port FIFO." alt="" coords="524,1465,600,1491"/>
+<area shape="rect" id="node45" href="$serialPort_8c.html#a19c3e017bd5ab5a4be6b2fbacce9ac6a" title="Subscribes to the serial port interrupts." alt="" coords="753,566,860,593"/>
+<area shape="rect" id="node46" href="$serialPort_8c.html#a9b9613cb71042e5f189b2b2d7d09e73e" title="Unsubscribes from the serial port interrupts." alt="" coords="501,1515,623,1542"/>
+<area shape="rect" id="node47" href="$timer_8c.html#a91a2072306c68353712a6b771287dc2c" title="Timer 0 interrupt handler." alt="" coords="493,1566,631,1593"/>
+<area shape="rect" id="node48" href="$timer_8c.html#ac57a7e1140a7e00ad95ac5488d2a671b" title="Subscribes and enables Timer 0 interrupts." alt="" coords="487,46,637,73"/>
+<area shape="rect" id="node49" href="$timer_8c.html#afabd21de449be154dd65d5fdb2d8045d" title="Unsubscribes Timer 0 interrupts." alt="" coords="479,147,645,174"/>
+<area shape="rect" id="node6" href="$menu_8c.html#a9ef80fb2fccc51693e42cd53782bdcbe" title="Frees the memory allocated for the menu." alt="" coords="1015,274,1121,301"/>
+<area shape="rect" id="node8" href="$ball_8c.html#af00b389637859d07ef5f97152989aa6b" title="Destroys a Ball object." alt="" coords="1020,135,1116,162"/>
+<area shape="rect" id="node9" href="$button_8c.html#a35aed4a2d403e0d35ea6f353e9e318f8" title="Frees the memory allocated for the button." alt="" coords="1011,186,1125,213"/>
+<area shape="rect" id="node11" href="$kbc_8c.html#aeabc46cec65688a9bf3760812ac4ba54" title="Issues a command to the keyboard controller (KBC)." alt="" coords="727,667,886,694"/>
+<area shape="rect" id="node12" href="$kbc_8c.html#a2f6a01db9def32d154d8bbf0707efc32" title="Reads data from the output buffer." alt="" coords="999,718,1137,745"/>
+<area shape="rect" id="node17" href="$serialPort_8c.html#abe861c4f2e91f92ffd0c315ac7b1afd3" title="Establishes a connection." alt="" coords="1223,389,1381,415"/>
+<area shape="rect" id="node18" href="$rtc_8c.html#a108e5ecff72bcddbb99cac2438dac92c" title="Sets the current ongoing game time." alt="" coords="1241,439,1363,466"/>
+<area shape="rect" id="node19" href="$rtc_8c.html#ae9293a4142b32202d8c41036881dda74" title="Sets the current round time." alt="" coords="1241,490,1363,517"/>
+<area shape="rect" id="node27" href="$menu_8c.html#a10b8e5f40d0e4da357e3685752066da3" title="Draws the menu on the screen." alt="" coords="761,414,852,441"/>
+<area shape="rect" id="node28" href="$menuController_8c.html#a5d84b8fe730b1a977edaa0dc6fdeb147" title=" " alt="" coords="718,465,895,491"/>
+<area shape="rect" id="node30" href="$menuController_8c.html#a2ee1dc14c5830a7c8081ee00313cb468" title=" " alt="" coords="721,515,893,542"/>
+<area shape="rect" id="node31" href="$menuController_8c.html#a9a91a913a1d9f18d093dc1eda43676a2" title=" " alt="" coords="717,313,896,339"/>
+<area shape="rect" id="node32" href="$menuController_8c.html#a3277ad50adf185afac0225a5c45afc1f" title=" " alt="" coords="700,363,913,390"/>
+<area shape="rect" id="node38" href="$menu_8c.html#ab948fc250bbf5f4724f5b4da60057ed0" title="Creates a new menu." alt="" coords="764,85,849,111"/>
+</map>

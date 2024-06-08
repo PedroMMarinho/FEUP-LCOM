@@ -1,0 +1,50 @@
+\doxysection{Game.\+c File Reference}
+\hypertarget{_game_8c}{}\label{_game_8c}\index{Game.c@{Game.c}}
+{\ttfamily \#include "{}Game.\+h"{}}\newline
+{\ttfamily \#include "{}labs/graphics.\+h"{}}\newline
+{\ttfamily \#include "{}labs/kbc.\+h"{}}\newline
+{\ttfamily \#include "{}labs/keyboard.\+h"{}}\newline
+{\ttfamily \#include "{}labs/mouse.\+h"{}}\newline
+{\ttfamily \#include "{}labs/rtc.\+h"{}}\newline
+{\ttfamily \#include "{}labs/serial\+Port.\+h"{}}\newline
+{\ttfamily \#include "{}labs/timer.\+h"{}}\newline
+{\ttfamily \#include "{}model/vector.\+h"{}}\newline
+{\ttfamily \#include "{}xpms/ball.\+xpm"{}}\newline
+{\ttfamily \#include "{}viewer/cue\+Viewer.\+h"{}}\newline
+{\ttfamily \#include "{}viewer/line\+Viewer.\+h"{}}\newline
+{\ttfamily \#include "{}States/states.\+h"{}}\newline
+{\ttfamily \#include "{}controllers/menu\+Controller.\+h"{}}\newline
+{\ttfamily \#include "{}controllers/multiplayer\+Controller.\+h"{}}\newline
+{\ttfamily \#include "{}controllers/playing\+Controller.\+h"{}}\newline
+{\ttfamily \#include "{}resources.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_game_8c_af914d9c0c56eba0cd037f32d5af60cf1}{init\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the game. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_game_8c_a9466a53aca2dcb5a4d1e94b8d28f4911}{game\+Loop}} (\mbox{\hyperlink{struct_resources}{Resources}} \texorpdfstring{$\ast$}{*}resources)
+\begin{DoxyCompactList}\small\item\em Main game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_game_8c_a9466a53aca2dcb5a4d1e94b8d28f4911}\index{Game.c@{Game.c}!gameLoop@{gameLoop}}
+\index{gameLoop@{gameLoop}!Game.c@{Game.c}}
+\doxysubsubsection{\texorpdfstring{gameLoop()}{gameLoop()}}
+{\footnotesize\ttfamily \label{_game_8c_a9466a53aca2dcb5a4d1e94b8d28f4911} 
+int game\+Loop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_resources}{Resources}} \texorpdfstring{$\ast$}{*}}]{resources}{}\end{DoxyParamCaption})}
+
+
+
+Main game loop. 
+
+This function represents the main game loop which handles the different states of the game, such as MENU and PLAYING, and processes input from the I/O devices.
+
+
+\begin{DoxyParams}{Parameters}
+{\em resources} & Pointer to the resources structure containing the current game state and other game data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:

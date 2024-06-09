@@ -4,7 +4,6 @@
 
 Event getNextBallBallCollision(Table *table) {
 
-  
   Event event = newInvalidEvent();
 
   size_t collisionNumber = 0;
@@ -30,8 +29,7 @@ Event getNextBallBallCollision(Table *table) {
 
       vector_t positionDiff = {ball1->position.x - ball2->position.x, ball1->position.y - ball2->position.y};
       if (magnitudeOf(positionDiff) < (ball1->radius + ball2->radius)) {
-      
-       
+
         continue;
       }
 
@@ -40,8 +38,6 @@ Event getNextBallBallCollision(Table *table) {
 
       coeficients[collisionNumber] = getBallBallCollisionCoeff(ball1, ball2, table->rollingFriction, table->slidingFriction, table->gravityAcceleration);
 
- 
-   
       // printCoef(coeficients[collisionNumber]);
 
       collisionNumber++;
@@ -53,7 +49,6 @@ Event getNextBallBallCollision(Table *table) {
   double collisionTime;
   int i = findSmallerCoeficient(collisionNumber, coeficients, &collisionTime);
   if (i < 0) {
-    printEvent(&event);
     return event;
   }
 
@@ -66,12 +61,11 @@ Event getNextBallBallCollision(Table *table) {
   free(balls1);
   free(balls2);
 
-
   return event;
 }
 
 Event getNextBallLinearCushionCollision(Table *table) {
-  
+
   Event event = newInvalidEvent();
 
   for (size_t i = 0; i < table->ballNumber; i++) {
@@ -81,16 +75,15 @@ Event getNextBallLinearCushionCollision(Table *table) {
     if (ballNotMoving(ball))
       continue;
 
-   
     // TODO: is the hard code ok in this case?
     for (size_t j = 0; j < 6; j++) {
 
-      LinearCushion* cushion = table->linearCushions[j];
+      LinearCushion *cushion = table->linearCushions[j];
 
       double collisionTime = getBallLinearCushionCollisionTime(table, ball, cushion);
-      
+
       if (collisionTime < event.time) {
-  
+
         event.time = collisionTime;
         event.type = BALL_LINEAR_CUSHION;
         event.ball1 = ball;
@@ -98,32 +91,30 @@ Event getNextBallLinearCushionCollision(Table *table) {
       }
     }
   }
-  
-  printEvent(&event);
+
   return event;
 }
 
+Event getNextBallCircularCushionCollision(Table *table) {
 
-Event getNextBallCircularCushionCollision(Table* table){
-
-  
   Event event = newInvalidEvent();
   size_t collisionNumber = 0;
 
   size_t size = table->ballNumber * 12;
-  size_t* balls = (size_t*)malloc(sizeof(size_t) * size);
-  size_t* cushions = (size_t*)malloc(sizeof(size_t) * size);
-  QuarticCoeff* coeficients = (QuarticCoeff*)malloc(sizeof(QuarticCoeff) * size);
+  size_t *balls = (size_t *) malloc(sizeof(size_t) * size);
+  size_t *cushions = (size_t *) malloc(sizeof(size_t) * size);
+  QuarticCoeff *coeficients = (QuarticCoeff *) malloc(sizeof(QuarticCoeff) * size);
 
-  for (size_t i = 0;  i < table->ballNumber; i++){
+  for (size_t i = 0; i < table->ballNumber; i++) {
 
-    Ball* ball = table->balls[i];
+    Ball *ball = table->balls[i];
 
-    if (ballNotMoving(ball)) continue;
+    if (ballNotMoving(ball))
+      continue;
 
-    for (size_t j = 0; j<12; j++){
+    for (size_t j = 0; j < 12; j++) {
 
-      CircularCushion* cushion = table->circularCushions[j];
+      CircularCushion *cushion = table->circularCushions[j];
 
       balls[collisionNumber] = i;
       cushions[collisionNumber] = j;
@@ -132,12 +123,12 @@ Event getNextBallCircularCushionCollision(Table* table){
       collisionNumber++;
     }
   }
-  if (collisionNumber == 0){
+  if (collisionNumber == 0) {
     return event;
   }
   double collisionTime;
   int i = findSmallerCoeficient(collisionNumber, coeficients, &collisionTime);
-  if (i == -1){
+  if (i == -1) {
     return event;
   }
 
@@ -152,11 +143,7 @@ Event getNextBallCircularCushionCollision(Table* table){
   return event;
 }
 
-
-
 Event getNextBallPocketCollision(Table *table) {
-
-
 
   Event event = newInvalidEvent();
   int size = table->ballNumber * 6;
@@ -218,7 +205,6 @@ Event getNextTransition(Table *table) {
     }
   }
 
-  printEvent(&nextTransition);
   return nextTransition;
 }
 
@@ -242,7 +228,15 @@ Event getNextEvent(Table *table) {
   testEvent = getNextBallPocketCollision(table);
   event = testEvent.time < event.time ? testEvent : event;
 
+  printEvent(&event);
+  Ball *ball = event.ball1;
+  if (ball != NULL) {
 
+    printVector(ball->velocity);
+    printFloat(ball->ang_velocity.x);
+    printFloat(ball->ang_velocity.y);
+    printFloat(ball->ang_velocity.z);
+  }
   return event;
 }
 
@@ -258,7 +252,7 @@ void updateBallNextTransition(Table *table, Ball *ball) {
 
     case SPINNING: {
       double time = getSpinTime(ball, table->spinningFriction, table->gravityAcceleration);
-      Event transition = {time, SPINNING_STATIONARY, ball, NULL, NULL,NULL, -1};
+      Event transition = {time, SPINNING_STATIONARY, ball, NULL, NULL, NULL, -1};
       *ball->transition = transition;
       break;
     }
@@ -277,7 +271,7 @@ void updateBallNextTransition(Table *table, Ball *ball) {
     case SLIDING: {
 
       double slideTime = getSlideTime(ball, table->slidingFriction, table->gravityAcceleration);
-      Event transition = {slideTime, SLIDING_ROLLING, ball, NULL, NULL,NULL, -1};
+      Event transition = {slideTime, SLIDING_ROLLING, ball, NULL, NULL, NULL, -1};
       *ball->transition = transition;
       break;
     }

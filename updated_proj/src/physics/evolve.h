@@ -58,3 +58,5 @@ void evolveRollState(Ball* ball, double t, double uRolling, double uSliding, dou
  * @param g Acceleration due to gravity.
  */
 void evolvePrependicularSpin(Ball* ball, double t , double uSpinning, double g);
+
+void evolveXYRotationAmount(Ball* ball, vector_t displacement);

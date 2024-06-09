@@ -121,7 +121,7 @@ void makeBallsKiss(Ball *ball1, Ball *ball2) {
   double distance = magnitudeOf(ballBallVec);
   double error = 2.0 * ball1->radius - distance;
   if (error > 0) {
-    double correction = (error + 1e-5) / 2;
+    double correction = (error + EPS_SPACE) / 2;
     ball1->position.x -= correction * n.x;
     ball1->position.y -= correction * n.y;
 
@@ -214,7 +214,7 @@ void makeBallLinearCushionKiss(Ball *ball, LinearCushion *cushion) {
   double distance = magnitudeOf(connection);
   double error = ball->radius - distance;
   if (error > 0) {
-    double correction = (error + 1e-6) / 2;
+    double correction = (error + EPS_SPACE) / 2;
     ball->position.x -= correction * cushion->normal.x;
     ball->position.y -= correction * cushion->normal.y;
   }

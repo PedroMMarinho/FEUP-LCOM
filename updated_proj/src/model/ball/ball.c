@@ -4,11 +4,18 @@
 #include "../../xpms/ball.xpm"
 #include <math.h>
 
+#include "../../labs/graphics.h"
 
 
 Ball *newBall(vector_t position , xpm_image_t img,BALL_TYPE type){
   Ball* ball = (Ball*)malloc(sizeof(Ball));
   ball->position = position;
+  ball->rotation.x = 0;
+  ball->rotation.y = 0;
+  ball->rotation.z = 0;
+  ball->ang_velocity.x = 0;
+  ball->ang_velocity.y = 0;
+  ball->ang_velocity.z = 0;
   ball->radius = 15;
   ball->state = STATIONARY;
   // Set image
@@ -49,3 +56,4 @@ xpm_image_t getBallImage(Ball* ball){
 bool ballNotMoving(Ball* ball){
   return (ball->state == POCKETED || ball->state == STATIONARY || ball->state == SPINNING);
 }
+

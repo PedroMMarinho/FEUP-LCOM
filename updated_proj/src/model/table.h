@@ -32,6 +32,8 @@ typedef struct Table{
   xpm_image_t ui;
   xpm_image_t spinCircle;
   xpm_image_t cursor;
+  xpm_image_t ballsXpm;
+
   Button* exitButton;
   bool exitSelected;
   LinearCushion* linearCushions[6];

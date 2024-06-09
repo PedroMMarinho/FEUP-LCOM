@@ -40,7 +40,7 @@ void printCoef(QuarticCoeff q){
 
 void printVector(vector_t vec){
 
-  char a[30];
+  char a[90];
 
   sprintf(a, "%f", vec.x);
   printf("x: %s\n", a);
@@ -232,9 +232,10 @@ double getSpinTime(Ball *ball, double u, double g) {
 
 double getRollTime(Ball *ball, double u, double g) {
 
-  if (u == 0)
+  double speed = magnitudeOf(ball->velocity);
+  if (u == 0 || speed < EPS)
     return INFINITY;
-  return magnitudeOf(ball->velocity) / (u * g);
+  return speed / (u * g);
 }
 
 double getSlideTime(Ball *ball, double u, double g) {
@@ -283,7 +284,8 @@ double getBallLinearCushionCollisionTime(Table *table, Ball *ball, LinearCushion
   for (int i = 0; i < nSolutions; i++) {
 
     double root = solutions[i];
-    if (root < EPS)
+
+    if (root <= 0)
       continue;
 
     // TODO: IMPROVE THIS PART COPY LIKE THIS IS LAME. CREATE FUNCTION FOR THAT ??
@@ -292,6 +294,7 @@ double getBallLinearCushionCollisionTime(Table *table, Ball *ball, LinearCushion
     ballCpy.velocity = ball->velocity;
     ballCpy.ang_velocity = ball->ang_velocity;
     ballCpy.state = ball->state;
+    ballCpy.rotation = ball->rotation;
     ballCpy.transition = NULL;
     
    

@@ -11,19 +11,26 @@
 #include "../xpms/ball.xpm"
 #include "labs/rtc.h"
 
+
+#include "../physics/utilities.h"
+
 STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct packet *packet, uint8_t scanCode, unsigned elapsed) {
   switch (interruptType) {
     case TIMER:
       if (elapsed % (sys_hz() / 30) == 0) {
 
         if (table->state == SIMULATING) {
+          Ball* ball = table->balls[0];
+          printFloat(ball->rotation.x);
+          printFloat(ball->rotation.y);
+          printFloat(ball->rotation.z);
+          printf(".......\n");
+          
           if (!updatePhysics(table, 1.0 / 30.0)) {
-            printf("1\n");
             if (table->firstBallHit == NULL) { // no ball was hit
               switchTurn(table);
               resetRound(table);
               table->state = ADVANTAGE;
-              printf("2\n");
               
             }
             else {
@@ -149,6 +156,7 @@ STATE playingControllerHandle(Table *table, DEVICE interruptType, const struct p
         if (drawTable(table, get_game_time(), get_round_time())) {
           return OVER;
         }
+
         if (swap_buffers())
           return 1;
       }

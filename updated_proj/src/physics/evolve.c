@@ -4,12 +4,12 @@
 #include <math.h>
 
 void evolveBallMotion(Table *table, Ball *ball, double time) {
-  if(ball->transition != NULL){
+  if (ball->transition != NULL) {
     ball->transition->time -= time;
   }
 
   switch (getBallState(ball)) {
-  
+
     case STATIONARY:
     case POCKETED:
       return;
@@ -43,7 +43,7 @@ void evolveBallMotion(Table *table, Ball *ball, double time) {
       break;
     }
 
-    case SPINNING:{
+    case SPINNING: {
 
       double spinTime = getSpinTime(ball, table->spinningFriction, table->gravityAcceleration);
 
@@ -57,23 +57,25 @@ void evolveBallMotion(Table *table, Ball *ball, double time) {
         return;
 
       break;
-    default:
-      break;
+      default:
+        break;
     }
   }
 }
 
 void evolveRollState(Ball *ball, double t, double uRolling, double uSpinning, double g) {
 
-  // For printing floats
 
-  if (!t)
+  if (t == 0)
     return;
 
   vector_t v0 = normalizeVector(ball->velocity);
 
-  ball->position.x = ball->position.x + ball->velocity.x * t - 0.5 * uRolling * g * t * t * v0.x;
-  ball->position.y = ball->position.y + ball->velocity.y * t - 0.5 * uRolling * g * t * t * v0.y;
+  vector_t displacement = { ball->velocity.x * t - 0.5 * uRolling * g * t * t * v0.x,  ball->velocity.y * t - 0.5 * uRolling * g * t * t * v0.y};
+  ball->position.x += displacement.x;
+  ball->position.y += displacement.y;
+
+  evolveXYRotationAmount(ball, displacement);
 
   ball->velocity.x = ball->velocity.x - uRolling * g * t * v0.x;
   ball->velocity.y = ball->velocity.y - uRolling * g * t * v0.y;
@@ -87,7 +89,7 @@ void evolveRollState(Ball *ball, double t, double uRolling, double uSpinning, do
 
 void evolveSlideState(Ball *ball, double t, double uSpinning, double uSliding, double g) {
 
-  if (!t)
+  if (t == 0)
     return;
 
   // Calculate the angle for coordinate transformation
@@ -110,6 +112,10 @@ void evolveSlideState(Ball *ball, double t, double uSpinning, double uSliding, d
   velocityB.y = velocityB.y - uSliding * g * t * relVelocityB.y;
 
   double denominator = 1.0 / (2.0 * ball->radius);
+
+  vector_t displacement = {xyAngVelocityB.x * t - 5.0 / 2.0 * denominator * uSliding * g * t * t * relVelocityB.y, xyAngVelocityB.y * t - 5.0 / 2.0 * denominator * uSliding * g * t * t * -relVelocityB.x};
+  evolveXYRotationAmount(ball, displacement);
+
   xyAngVelocityB.x = xyAngVelocityB.x - 5 * denominator * uSliding * g * t * relVelocityB.y;
   xyAngVelocityB.y = xyAngVelocityB.y - 5 * denominator * uSliding * g * t * -relVelocityB.x;
 
@@ -131,7 +137,7 @@ void evolveSlideState(Ball *ball, double t, double uSpinning, double uSliding, d
 void evolvePrependicularSpin(Ball *ball, double t, double uSpinning, double g) {
 
   // If angVelocity is really small or time is 0
-  if (abs(ball->ang_velocity.z) < EPS || !t) {
+  if (abs(ball->ang_velocity.z) < EPS || t==0) {
     return;
   }
 
@@ -139,5 +145,27 @@ void evolvePrependicularSpin(Ball *ball, double t, double uSpinning, double g) {
   // Limit t so that decay stops at 0
   t = MIN(t, ball->ang_velocity.z / alpha);
   int sign = ball->ang_velocity.z > 0 ? 1 : -1;
+  ball->rotation.z += ball->ang_velocity.z * t - (sign*alpha*t*t)/2;
+  ball->rotation.z = fmod(ball->rotation.z, 2.0*M_PI);
+  if (ball->rotation.z < 0 ) ball->rotation.z += 2.0*M_PI;
+
   ball->ang_velocity.z = ball->ang_velocity.z - sign * alpha * t;
+
+}
+
+void evolveXYRotationAmount(Ball *ball, vector_t displacement) {
+ 
+ double fullRotation = 2.0*M_PI;
+
+  rotate2d(displacement, ball->rotation.z);
+
+  ball->rotation.x += displacement.x / (ball->radius * 2 * M_PI) * fullRotation + M_PI;
+  ball->rotation.x = fmod(ball->rotation.x, fullRotation);
+  if (ball->rotation.x < 0) ball->rotation.x += fullRotation;
+  ball->rotation.x -= M_PI;
+
+  ball->rotation.y += displacement.y / (ball->radius * 2 * M_PI) * fullRotation + M_PI;
+  ball->rotation.y = fmod(ball->rotation.y, fullRotation);
+  if (ball->rotation.y < 0) ball->rotation.y += fullRotation;
+  ball->rotation.y -= M_PI;
 }

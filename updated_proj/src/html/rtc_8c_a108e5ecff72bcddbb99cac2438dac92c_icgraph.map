@@ -1,0 +1,9 @@
+<map id="set_game_time" name="set_game_time">
+<area shape="rect" id="node1" title="Sets the current ongoing game time." alt="" coords="1149,31,1272,57"/>
+<area shape="rect" id="node2" href="$menuController_8c.html#a5d84b8fe730b1a977edaa0dc6fdeb147" title=" " alt="" coords="663,5,840,32"/>
+<area shape="rect" id="node7" href="$multiplayerController_8c.html#ac5da60925e615c083c873a2949c5b3bb" title="Handles the multiplayer connection." alt="" coords="888,56,1101,83"/>
+<area shape="rect" id="node3" href="$menuController_8c.html#a7c7a58765cda0a55100ee122aa0d7fd8" title="Handles the menu controller." alt="" coords="445,5,615,32"/>
+<area shape="rect" id="node4" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="307,31,397,57"/>
+<area shape="rect" id="node5" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,31,259,57"/>
+<area shape="rect" id="node6" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,31,128,57"/>
+</map>

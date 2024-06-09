@@ -1,0 +1,155 @@
+\hypertarget{lineViewer_8h}{}\doxysection{viewer/line\+Viewer.h File Reference}
+\label{lineViewer_8h}\index{viewer/lineViewer.h@{viewer/lineViewer.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../model/vector.\+h\char`\"{}}\newline
+Include dependency graph for line\+Viewer.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{lineViewer_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lineViewer_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{lineViewer_8h_ace289946a45106434610d8c0430085ef}{LINE\+\_\+\+OVERLAP\+\_\+\+NONE}}~0
+\item 
+\#define \mbox{\hyperlink{lineViewer_8h_a50df651d62bcdf736edc1508e949b0e7}{LINE\+\_\+\+OVERLAP\+\_\+\+MAJOR}}~0x01
+\item 
+\#define \mbox{\hyperlink{lineViewer_8h_a77da6816cb55b3b324976eab4a1001f3}{LINE\+\_\+\+OVERLAP\+\_\+\+MINOR}}~0x02
+\item 
+\#define \mbox{\hyperlink{lineViewer_8h_a4d7a609c80af6ddf5427a3188749ec70}{LINE\+\_\+\+OVERLAP\+\_\+\+BOTH}}~0x03
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lineViewer_8h_a61ede810545788de68b63dba5f62bfed}{draw\+Line\+Overlap}} (unsigned int a\+XStart, unsigned int a\+YStart, unsigned int a\+XEnd, unsigned int a\+YEnd, uint8\+\_\+t a\+Overlap, uint32\+\_\+t a\+Color)
+\begin{DoxyCompactList}\small\item\em Draws a line between two points with optional overlapping pixels. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lineViewer_8h_a4f401e94afc2fe9426ab6ad33185cc73}{draw\+Thick\+Line}} (\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} start, \mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} end, unsigned int a\+Thickness, uint32\+\_\+t a\+Color)
+\begin{DoxyCompactList}\small\item\em Draws a line with thickness using Bresenham\textquotesingle{}s algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{lineViewer_8h_a4d7a609c80af6ddf5427a3188749ec70}\label{lineViewer_8h_a4d7a609c80af6ddf5427a3188749ec70}} 
+\index{lineViewer.h@{lineViewer.h}!LINE\_OVERLAP\_BOTH@{LINE\_OVERLAP\_BOTH}}
+\index{LINE\_OVERLAP\_BOTH@{LINE\_OVERLAP\_BOTH}!lineViewer.h@{lineViewer.h}}
+\doxysubsubsection{\texorpdfstring{LINE\_OVERLAP\_BOTH}{LINE\_OVERLAP\_BOTH}}
+{\footnotesize\ttfamily \#define LINE\+\_\+\+OVERLAP\+\_\+\+BOTH~0x03}
+
+\mbox{\Hypertarget{lineViewer_8h_a50df651d62bcdf736edc1508e949b0e7}\label{lineViewer_8h_a50df651d62bcdf736edc1508e949b0e7}} 
+\index{lineViewer.h@{lineViewer.h}!LINE\_OVERLAP\_MAJOR@{LINE\_OVERLAP\_MAJOR}}
+\index{LINE\_OVERLAP\_MAJOR@{LINE\_OVERLAP\_MAJOR}!lineViewer.h@{lineViewer.h}}
+\doxysubsubsection{\texorpdfstring{LINE\_OVERLAP\_MAJOR}{LINE\_OVERLAP\_MAJOR}}
+{\footnotesize\ttfamily \#define LINE\+\_\+\+OVERLAP\+\_\+\+MAJOR~0x01}
+
+\mbox{\Hypertarget{lineViewer_8h_a77da6816cb55b3b324976eab4a1001f3}\label{lineViewer_8h_a77da6816cb55b3b324976eab4a1001f3}} 
+\index{lineViewer.h@{lineViewer.h}!LINE\_OVERLAP\_MINOR@{LINE\_OVERLAP\_MINOR}}
+\index{LINE\_OVERLAP\_MINOR@{LINE\_OVERLAP\_MINOR}!lineViewer.h@{lineViewer.h}}
+\doxysubsubsection{\texorpdfstring{LINE\_OVERLAP\_MINOR}{LINE\_OVERLAP\_MINOR}}
+{\footnotesize\ttfamily \#define LINE\+\_\+\+OVERLAP\+\_\+\+MINOR~0x02}
+
+\mbox{\Hypertarget{lineViewer_8h_ace289946a45106434610d8c0430085ef}\label{lineViewer_8h_ace289946a45106434610d8c0430085ef}} 
+\index{lineViewer.h@{lineViewer.h}!LINE\_OVERLAP\_NONE@{LINE\_OVERLAP\_NONE}}
+\index{LINE\_OVERLAP\_NONE@{LINE\_OVERLAP\_NONE}!lineViewer.h@{lineViewer.h}}
+\doxysubsubsection{\texorpdfstring{LINE\_OVERLAP\_NONE}{LINE\_OVERLAP\_NONE}}
+{\footnotesize\ttfamily \#define LINE\+\_\+\+OVERLAP\+\_\+\+NONE~0}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{lineViewer_8h_a61ede810545788de68b63dba5f62bfed}\label{lineViewer_8h_a61ede810545788de68b63dba5f62bfed}} 
+\index{lineViewer.h@{lineViewer.h}!drawLineOverlap@{drawLineOverlap}}
+\index{drawLineOverlap@{drawLineOverlap}!lineViewer.h@{lineViewer.h}}
+\doxysubsubsection{\texorpdfstring{drawLineOverlap()}{drawLineOverlap()}}
+{\footnotesize\ttfamily void draw\+Line\+Overlap (\begin{DoxyParamCaption}\item[{unsigned int}]{a\+XStart,  }\item[{unsigned int}]{a\+YStart,  }\item[{unsigned int}]{a\+XEnd,  }\item[{unsigned int}]{a\+YEnd,  }\item[{uint8\+\_\+t}]{a\+Overlap,  }\item[{uint32\+\_\+t}]{a\+Color }\end{DoxyParamCaption})}
+
+
+
+Draws a line between two points with optional overlapping pixels. 
+
+This function draws a line between the specified starting and ending points on the screen. It provides the option to draw overlapping pixels at the endpoints to improve visual continuity when drawing thick lines.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+XStart} & The x-\/coordinate of the starting point. \\
+\hline
+{\em a\+YStart} & The y-\/coordinate of the starting point. \\
+\hline
+{\em a\+XEnd} & The x-\/coordinate of the ending point. \\
+\hline
+{\em a\+YEnd} & The y-\/coordinate of the ending point. \\
+\hline
+{\em a\+Overlap} & A bitmask indicating which pixels to draw as overlapping. It can be one of the following values\+:
+\begin{DoxyItemize}
+\item LINE\+\_\+\+OVERLAP\+\_\+\+NONE\+: Do not draw any overlapping pixels.
+\item LINE\+\_\+\+OVERLAP\+\_\+\+MAJOR\+: Draw overlapping pixels in the main direction of the line.
+\item LINE\+\_\+\+OVERLAP\+\_\+\+MINOR\+: Draw overlapping pixels in the minor direction of the line. 
+\end{DoxyItemize}\\
+\hline
+{\em a\+Color} & The color of the line. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{lineViewer_8h_a61ede810545788de68b63dba5f62bfed_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lineViewer_8h_a61ede810545788de68b63dba5f62bfed_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{lineViewer_8h_a4f401e94afc2fe9426ab6ad33185cc73}\label{lineViewer_8h_a4f401e94afc2fe9426ab6ad33185cc73}} 
+\index{lineViewer.h@{lineViewer.h}!drawThickLine@{drawThickLine}}
+\index{drawThickLine@{drawThickLine}!lineViewer.h@{lineViewer.h}}
+\doxysubsubsection{\texorpdfstring{drawThickLine()}{drawThickLine()}}
+{\footnotesize\ttfamily void draw\+Thick\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}}}]{start,  }\item[{\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}}}]{end,  }\item[{unsigned int}]{a\+Thickness,  }\item[{uint32\+\_\+t}]{a\+Color }\end{DoxyParamCaption})}
+
+
+
+Draws a line with thickness using Bresenham\textquotesingle{}s algorithm. 
+
+This function draws a line with the specified thickness using Bresenham\textquotesingle{}s algorithm.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+XStart} & The x-\/coordinate of the starting point. \\
+\hline
+{\em a\+YStart} & The y-\/coordinate of the starting point. \\
+\hline
+{\em a\+XEnd} & The x-\/coordinate of the ending point. \\
+\hline
+{\em a\+YEnd} & The y-\/coordinate of the ending point. \\
+\hline
+{\em a\+Thickness} & The thickness of the line. \\
+\hline
+{\em a\+Color} & The color of the line.\\
+\hline
+\end{DoxyParams}
+Bresenham with thickness No pixel missed and every pixel only drawn once! The code is bigger and more complicated than draw\+Thick\+Line\+Simple() but it tends to be faster, since drawing a pixel is often a slow operation. a\+Thickness\+Mode can be one of LINE\+\_\+\+THICKNESS\+\_\+\+MIDDLE, LINE\+\_\+\+THICKNESS\+\_\+\+DRAW\+\_\+\+CLOCKWISE, LINE\+\_\+\+THICKNESS\+\_\+\+DRAW\+\_\+\+COUNTERCLOCKWISE For coordinate system with 0.\+0 top left Swap X and Y delta and calculate clockwise (new delta X inverted) or counterclockwise (new delta Y inverted) rectangular direction. The right rectangular direction for LINE\+\_\+\+OVERLAP\+\_\+\+MAJOR toggles with each octantHere is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lineViewer_8h_a4f401e94afc2fe9426ab6ad33185cc73_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lineViewer_8h_a4f401e94afc2fe9426ab6ad33185cc73_icgraph}
+\end{center}
+\end{figure}

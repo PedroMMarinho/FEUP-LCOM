@@ -1,0 +1,6 @@
+<map id="sp_end" name="sp_end">
+<area shape="rect" id="node1" title="Ends the serial port operation." alt="" coords="5,31,73,57"/>
+<area shape="rect" id="node2" href="$serialPort_8c.html#a2684a673f5e4cdb9dc2b7ede8bd0b424" title="Reads a byte from a serial port." alt="" coords="123,5,197,32"/>
+<area shape="rect" id="node4" href="$serialPort_8c.html#a098cd912055172cb22fd2049f724a0d6" title="Writes a byte to a serial port." alt="" coords="121,56,199,83"/>
+<area shape="rect" id="node3" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title="Reads a byte from a port." alt="" coords="247,5,345,32"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="update_interrupts" name="update_interrupts">
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,143,57"/>
+<area shape="rect" id="node2" href="$rtc_8c.html#acac7fba459dd622ec85096f0f59f20ea" title=" " alt="" coords="193,5,267,32"/>
+<area shape="rect" id="node4" href="$rtc_8c.html#a51ef284d11c6cb4e3be63a86d78763bc" title=" " alt="" coords="191,56,269,83"/>
+<area shape="rect" id="node3" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title="Reads a byte from a port." alt="" coords="317,5,416,32"/>
+</map>

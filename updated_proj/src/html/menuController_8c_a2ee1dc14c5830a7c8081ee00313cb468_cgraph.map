@@ -1,0 +1,7 @@
+<map id="handleGameOverMenu" name="handleGameOverMenu">
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,177,57"/>
+<area shape="rect" id="node2" href="$menu_8c.html#aceaa3d76e97718b10dcddd65545310e3" title="Resets the menu to its initial state." alt="" coords="234,5,325,32"/>
+<area shape="rect" id="node4" href="$menu_8c.html#a6cd6e09dbb9ccefcb024e29d193f4b5a" title="Sets the type of the menu." alt="" coords="225,56,333,83"/>
+<area shape="rect" id="node3" href="$button_8c.html#a35aed4a2d403e0d35ea6f353e9e318f8" title="Frees the memory allocated for the button." alt="" coords="381,5,496,32"/>
+<area shape="rect" id="node5" href="$button_8c.html#afd6037293acc3a96469827641ba451ef" title="Creates a new button." alt="" coords="393,56,485,83"/>
+</map>

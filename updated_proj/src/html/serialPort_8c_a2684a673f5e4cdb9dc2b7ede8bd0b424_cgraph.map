@@ -1,0 +1,4 @@
+<map id="sp_read" name="sp_read">
+<area shape="rect" id="node1" title="Reads a byte from a serial port." alt="" coords="5,5,79,32"/>
+<area shape="rect" id="node2" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title="Reads a byte from a port." alt="" coords="127,5,225,32"/>
+</map>

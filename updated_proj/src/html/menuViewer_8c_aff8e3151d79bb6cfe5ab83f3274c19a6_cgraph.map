@@ -1,0 +1,6 @@
+<map id="drawEllipses" name="drawEllipses">
+<area shape="rect" id="node1" title="Draws animated ellipses on the menu." alt="" coords="5,31,109,57"/>
+<area shape="rect" id="node2" href="$graphics_8c.html#ad4efe9c8fe8912ecd65c5fc512c15d03" title="Draws an XPM image." alt="" coords="157,31,281,57"/>
+<area shape="rect" id="node3" href="$utilities_8c.html#a70076007e8799fb3b48697e26eda5390" title="Calculates the angle of a vector." alt="" coords="346,5,405,32"/>
+<area shape="rect" id="node4" href="$graphics_8c.html#abcd14d829edc3257916bdcc1a9aca216" title="Draws a pixel." alt="" coords="329,56,421,83"/>
+</map>

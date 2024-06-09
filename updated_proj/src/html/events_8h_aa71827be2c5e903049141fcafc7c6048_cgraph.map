@@ -1,0 +1,10 @@
+<map id="updateBallNextTransition" name="updateBallNextTransition">
+<area shape="rect" id="node1" title="Updates the next transition event for a ball on the table." alt="" coords="5,107,192,133"/>
+<area shape="rect" id="node2" href="$ball_8c.html#a2ac73f5d578d7c5970ab34cfc719b931" title="Checks if the Ball is not moving." alt="" coords="247,5,364,32"/>
+<area shape="rect" id="node3" href="$utilities_8c.html#a517a15c452bb6c79adb99080eff01ea2" title="Calculates the time for rolling motion to stop for a ball." alt="" coords="255,56,356,83"/>
+<area shape="rect" id="node5" href="$utilities_8c.html#a8366b7edcbc333d94fa05535ab7184af" title="Calculates the time for sliding motion to stop for a ball." alt="" coords="251,107,359,133"/>
+<area shape="rect" id="node7" href="$utilities_8c.html#a144e3089e854d7a5dc817cf09780f160" title="Calculates the time for spinning motion to stop for a ball." alt="" coords="253,157,357,184"/>
+<area shape="rect" id="node8" href="$event_8c.html#a8e151bee848e27b9e1791521d38b54c5" title="Creates a new invalid event." alt="" coords="240,208,371,235"/>
+<area shape="rect" id="node4" href="$utilities_8c.html#a42ada5d449eb0a5545123710cc8bf647" title="Calculates the magnitude of a vector." alt="" coords="427,56,534,83"/>
+<area shape="rect" id="node6" href="$utilities_8c.html#af7589640fa9f4b10339db00dc0079e81" title="Calculates the relative velocity of a ball." alt="" coords="419,107,543,133"/>
+</map>

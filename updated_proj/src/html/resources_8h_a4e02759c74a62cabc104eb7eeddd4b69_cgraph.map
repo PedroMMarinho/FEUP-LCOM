@@ -1,0 +1,7 @@
+<map id="destroyResources" name="destroyResources">
+<area shape="rect" id="node1" title="Destroys the resources of the game." alt="" coords="5,31,144,57"/>
+<area shape="rect" id="node2" href="$menu_8c.html#a9ef80fb2fccc51693e42cd53782bdcbe" title="Frees the memory allocated for the menu." alt="" coords="192,5,299,32"/>
+<area shape="rect" id="node3" href="$table_8c.html#a64ac10c7832cb134eddcf550bc806573" title="Destroys a Table object." alt="" coords="193,56,298,83"/>
+<area shape="rect" id="node4" href="$ball_8c.html#af00b389637859d07ef5f97152989aa6b" title="Destroys a Ball object." alt="" coords="356,31,452,57"/>
+<area shape="rect" id="node5" href="$button_8c.html#a35aed4a2d403e0d35ea6f353e9e318f8" title="Frees the memory allocated for the button." alt="" coords="347,81,461,108"/>
+</map>

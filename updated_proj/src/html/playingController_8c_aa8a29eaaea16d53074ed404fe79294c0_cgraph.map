@@ -1,0 +1,52 @@
+<map id="playingControllerHandle" name="playingControllerHandle">
+<area shape="rect" id="node1" title="Handles the playing controller." alt="" coords="5,1095,185,1121"/>
+<area shape="rect" id="node2" href="$table_8c.html#ad06f53bb270821737202cc9d2cd34426" title="Checks if the cue ball can be dropped at the current position." alt="" coords="260,5,361,32"/>
+<area shape="rect" id="node4" href="$table_8c.html#a0e36c18757f2fd43e008ee4ad165baaf" title="Draws the table on the screen." alt="" coords="267,541,355,568"/>
+<area shape="rect" id="node20" href="$rtc_8c.html#ad9afb3feaab1b3b76f930a2a87483d63" title="Returns the current ongoing game time." alt="" coords="249,1044,373,1071"/>
+<area shape="rect" id="node21" href="$rtc_8c.html#a4b0c34bf2886af6748ed891d83b01d22" title="Returns the current round time." alt="" coords="249,1095,373,1121"/>
+<area shape="rect" id="node22" href="$table_8c.html#a20c62836ab2d942753e121371c20319f" title="Retrieves the player who is not currently playing." alt="" coords="233,1145,388,1172"/>
+<area shape="rect" id="node23" href="$table_8c.html#a195ea837ae7cb36ad1fc88830892685f" title="Retrieves the player who is currently playing." alt="" coords="704,1175,836,1201"/>
+<area shape="rect" id="node24" href="$table_8c.html#a5bed6cd0e0c2525e17b176ac21398dd0" title="Moves the cue ball to the current mouse position." alt="" coords="273,1196,348,1223"/>
+<area shape="rect" id="node25" href="$button_8c.html#a4531a1a97d752ad9c83e77897e17f4b5" title="Checks if the mouse cursor is over a button." alt="" coords="235,1247,386,1273"/>
+<area shape="rect" id="node26" href="$simulate_8c.html#a3e9f071356d822dbe64df6a9c4428b9a" title="Initializes the shot event, setting the stick ball as the first event in the simulation." alt="" coords="260,1297,361,1324"/>
+<area shape="rect" id="node27" href="$playingController_8c.html#a277fdb063302367ffbfd19204c88a3cd" title=" " alt="" coords="263,1348,359,1375"/>
+<area shape="rect" id="node29" href="$graphics_8c.html#a32659541708692c0dda94dab8db36ae4" title="Swaps the front and back buffers." alt="" coords="257,1399,365,1425"/>
+<area shape="rect" id="node31" href="$table_8c.html#ab5daf53c5361c6e7951fde668cdcebfa" title="Switches the turn between players." alt="" coords="265,1449,356,1476"/>
+<area shape="rect" id="node32" href="$table_8c.html#a86556342c6a9726a30e62dc73899cebc" title="Updates the state of the cue stick, including charge level and direction vector." alt="" coords="247,220,374,247"/>
+<area shape="rect" id="node38" href="$simulate_8c.html#ac23420edf5968c6121679d2a009f0809" title="Updates the physics simulation of the table over a specified time period." alt="" coords="253,943,369,969"/>
+<area shape="rect" id="node50" href="$table_8c.html#a08fd274af564a212243fd39c056c383f" title="Updates the spin of the cue ball based on the mouse position." alt="" coords="263,93,358,120"/>
+<area shape="rect" id="node3" href="$utilities_8c.html#a42ada5d449eb0a5545123710cc8bf647" title="Calculates the magnitude of a vector." alt="" coords="931,87,1037,113"/>
+<area shape="rect" id="node5" href="$table_8c.html#ac4b03beb252a35b16f8872a1eb05e30b" title="Draws all balls on the table, including their current positions and states." alt="" coords="485,504,572,531"/>
+<area shape="rect" id="node6" href="$graphics_8c.html#ad4efe9c8fe8912ecd65c5fc512c15d03" title="Draws an XPM image." alt="" coords="708,384,832,411"/>
+<area shape="rect" id="node12" href="$table_8c.html#a3ebe3851067601ae99cec9e0547f4ecc" title="Draws the countdown timer on the screen." alt="" coords="464,637,593,664"/>
+<area shape="rect" id="node14" href="$cueViewer_8c.html#a063b22ed16bc5778bc3e28dc6259c70d" title="Draws the cue on the table." alt="" coords="489,352,568,379"/>
+<area shape="rect" id="node16" href="$table_8c.html#aeec6e20bf41117d5e5d7864e9f77058d" title="Draws the total game time on the screen." alt="" coords="465,580,592,607"/>
+<area shape="rect" id="node18" href="$player_8c.html#ada930b2e10791a6c1cd4db4db4a527dc" title="Draws the in&#45;game player&#39;s name on the screen." alt="" coords="436,688,621,715"/>
+<area shape="rect" id="node19" href="$table_8c.html#a7e6aa63a5c4ef3695e75f73442032ce9" title="Draws the spin circle on the screen." alt="" coords="469,453,588,480"/>
+<area shape="rect" id="node9" href="$ball_8c.html#a5562e5ec8e94dc559e7c2897aef911a4" title="Gets the image of the Ball." alt="" coords="715,485,825,512"/>
+<area shape="rect" id="node10" href="$ball_8c.html#a6245e677d89c5b87045d82c03209f93b" title="Gets the position of the Ball." alt="" coords="710,536,830,563"/>
+<area shape="rect" id="node11" href="$table_8c.html#a26853fae764068b7bd2f06a108769f59" title="Determines if the given ball belongs to the given player." alt="" coords="721,435,819,461"/>
+<area shape="rect" id="node7" href="$utilities_8c.html#a70076007e8799fb3b48697e26eda5390" title="Calculates the angle of a vector." alt="" coords="955,308,1013,335"/>
+<area shape="rect" id="node8" href="$graphics_8c.html#abcd14d829edc3257916bdcc1a9aca216" title="Draws a pixel." alt="" coords="938,384,1030,411"/>
+<area shape="rect" id="node13" href="$graphics_8c.html#a83df4b7f8579d6d479b72a3f18b3620f" title=" " alt="" coords="943,637,1025,664"/>
+<area shape="rect" id="node15" href="$lineViewer_8c.html#a4f401e94afc2fe9426ab6ad33185cc73" title="Draws a line with thickness using Bresenham&#39;s algorithm." alt="" coords="712,333,828,360"/>
+<area shape="rect" id="node17" href="$table_8c.html#a69bb3d45fcd49f4df84ea6a1c67d099c" title="Draws the game time in minutes and seconds on the screen using the provided font." alt="" coords="727,587,813,613"/>
+<area shape="rect" id="node28" href="$rtc_8c.html#ae9293a4142b32202d8c41036881dda74" title="Sets the current round time." alt="" coords="467,1348,590,1375"/>
+<area shape="rect" id="node30" href="$graphics_8c.html#a6f8c21bba24aa9957c09e423866422bf" title="Clears the canvas." alt="" coords="476,1399,581,1425"/>
+<area shape="rect" id="node33" href="$utilities_8c.html#a98dbd882f9682266f2d87337dc709bdc" title="Calculates the dot product of two vectors." alt="" coords="483,188,575,215"/>
+<area shape="rect" id="node34" href="$table_8c.html#aa17ae14b81432b26d994ebf090f0b9d3" title="Determines the collision point between the cue ball and another ball on the table." alt="" coords="465,239,593,265"/>
+<area shape="rect" id="node35" href="$utilities_8c.html#a75a2efa623d57f314f94a6fc919e761d" title="Rotates a 2D vector by a given angle." alt="" coords="490,137,567,164"/>
+<area shape="rect" id="node36" href="$utilities_8c.html#a5defb14844817689860c93d4d2fd3c0a" title="Calculates the unit vector from one point to another." alt="" coords="485,87,573,113"/>
+<area shape="rect" id="node37" href="$utilities_8c.html#ae78350457bd27abcfe7ff6d7e055d160" title="Normalizes a vector." alt="" coords="706,87,834,113"/>
+<area shape="rect" id="node39" href="$simulate_8c.html#aed1e5d03d2f59f9308bc97702c93577c" title="Evolves the motion of all balls on the table over a specified time period." alt="" coords="479,943,578,969"/>
+<area shape="rect" id="node41" href="$events_8c.html#ab58ba60736e19e4094180b548a0ad565" title="Finds the next event on the table." alt="" coords="473,892,584,919"/>
+<area shape="rect" id="node48" href="$resolver_8c.html#aa65d1d36ef508a9c90ee9c0bf11a7033" title="Resolves the given event on the table." alt="" coords="475,993,582,1020"/>
+<area shape="rect" id="node40" href="$evolve_8c.html#a54918714eb67c6beeac9b4e70dcec32d" title="Updates the motion of a ball over a specified time period." alt="" coords="702,1073,838,1100"/>
+<area shape="rect" id="node42" href="$events_8c.html#a19348c19f57f9b0fd7ba87b68e173ac9" title="Finds the next collision event between two balls on the table." alt="" coords="680,739,860,765"/>
+<area shape="rect" id="node43" href="$event_8c.html#a8e151bee848e27b9e1791521d38b54c5" title="Creates a new invalid event." alt="" coords="919,892,1049,919"/>
+<area shape="rect" id="node44" href="$events_8c.html#a677ef20f45f38639c5d967279708cb15" title="Finds the next collision event between a ball and a circular cushion on the table." alt="" coords="669,790,871,831"/>
+<area shape="rect" id="node45" href="$events_8c.html#ae2069e820ed131b38d776121eaa66b51" title="Finds the next collision event between a ball and a linear cushion on the table." alt="" coords="675,855,865,897"/>
+<area shape="rect" id="node46" href="$events_8c.html#a0eb960b68caca6c994f8684afb8e2450" title="Finds the next collision event between a ball and a pocket on the table." alt="" coords="671,921,869,948"/>
+<area shape="rect" id="node47" href="$events_8c.html#a184be682caa89210def5198629f615be" title="Finds the next transition event for a ball on the table." alt="" coords="701,972,839,999"/>
+<area shape="rect" id="node49" href="$resolver_8c.html#a1812040d9a3cde1a15daa74c8d093eb1" title="Asserts that a ball is in a spinning state." alt="" coords="711,1124,829,1151"/>
+</map>

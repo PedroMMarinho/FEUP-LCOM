@@ -1,0 +1,8 @@
+<map id="sp_clear" name="sp_clear">
+<area shape="rect" id="node1" title="Clears the serial port FIFO." alt="" coords="5,56,81,83"/>
+<area shape="rect" id="node2" href="$queue_8c.html#a61cadecf97e5deb315c0df2ba4d9a70f" title="pop a value from the queue" alt="" coords="129,5,223,32"/>
+<area shape="rect" id="node4" href="$serialPort_8c.html#a2684a673f5e4cdb9dc2b7ede8bd0b424" title="Reads a byte from a serial port." alt="" coords="139,56,213,83"/>
+<area shape="rect" id="node6" href="$serialPort_8c.html#a098cd912055172cb22fd2049f724a0d6" title="Writes a byte to a serial port." alt="" coords="137,107,215,133"/>
+<area shape="rect" id="node3" href="$queue_8c.html#ab24e6cf27bfe70fd3f103d8e97ca0407" title="check if the queue is empty" alt="" coords="271,5,393,32"/>
+<area shape="rect" id="node5" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title="Reads a byte from a port." alt="" coords="283,56,381,83"/>
+</map>

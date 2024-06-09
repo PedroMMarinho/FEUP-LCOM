@@ -1,0 +1,9 @@
+<map id="update_interrupts" name="update_interrupts">
+<area shape="rect" id="node1" title=" " alt="" coords="804,31,941,57"/>
+<area shape="rect" id="node2" href="$rtc_8c.html#afa3d64bd9ee0ad30e8b87809b24cce00" title=" " alt="" coords="617,56,756,83"/>
+<area shape="rect" id="node3" href="$rtc_8c.html#a88a31da998dedaa26c3e2e4d69b31743" title="Subscribes and enables RTC interrupts." alt="" coords="453,5,561,32"/>
+<area shape="rect" id="node7" href="$rtc_8c.html#a2a6094aed95b8610afb0493578ecb855" title="Unsubscribes RTC interrupts." alt="" coords="445,56,569,83"/>
+<area shape="rect" id="node4" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="307,31,397,57"/>
+<area shape="rect" id="node5" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,31,259,57"/>
+<area shape="rect" id="node6" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,31,128,57"/>
+</map>

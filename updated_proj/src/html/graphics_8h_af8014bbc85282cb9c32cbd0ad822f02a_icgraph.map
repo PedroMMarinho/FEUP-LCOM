@@ -1,0 +1,6 @@
+<map id="changeMode" name="changeMode">
+<area shape="rect" id="node1" title="Changes the video mode." alt="" coords="445,5,551,32"/>
+<area shape="rect" id="node2" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="307,5,397,32"/>
+<area shape="rect" id="node3" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,5,259,32"/>
+<area shape="rect" id="node4" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,5,128,32"/>
+</map>

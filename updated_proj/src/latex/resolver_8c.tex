@@ -1,0 +1,392 @@
+\hypertarget{resolver_8c}{}\doxysection{physics/resolve/resolver.c File Reference}
+\label{resolver_8c}\index{physics/resolve/resolver.c@{physics/resolve/resolver.c}}
+{\ttfamily \#include \char`\"{}resolver.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../events.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../physics\+Macros.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../utilities.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+Include dependency graph for resolver.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{resolver_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{resolver_8c_aa65d1d36ef508a9c90ee9c0bf11a7033}{resolve\+Event}} (\mbox{\hyperlink{structTable}{Table}} $\ast$table, \mbox{\hyperlink{structEvent}{Event}} event)
+\begin{DoxyCompactList}\small\item\em Resolves the given event on the table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{resolver_8c_a985c4af47184c17561153a1e9195fe51}{resolve\+Ball\+Ball}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball1, \mbox{\hyperlink{structBall}{Ball}} $\ast$ball2)
+\begin{DoxyCompactList}\small\item\em Resolves the collision between two balls. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{resolver_8c_a8bb53a42f8cbdb39874e2887c96094b6}{make\+Balls\+Kiss}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball1, \mbox{\hyperlink{structBall}{Ball}} $\ast$ball2)
+\begin{DoxyCompactList}\small\item\em Adjusts the positions of two balls to prevent overlap. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{resolver_8c_afabfb497e054c9f95cb0291131cda180}{resolve\+Ball\+Cushion\+Realistic}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball, \mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} cushion\+Normal, double restitution, double friction)
+\begin{DoxyCompactList}\small\item\em Resolves the collision between a ball and a cushion in a realistic manner. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{resolver_8c_a1ad81eaf2026638e1041cde4a4cca6a5}{resolve\+Ball\+Cushion}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball, \mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} cushion\+Normal, double restitution)
+\begin{DoxyCompactList}\small\item\em Resolves the collision between a ball and a cushion. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{resolver_8c_af13870ae091b8733e03d8e09349a4126}{make\+Ball\+Linear\+Cushion\+Kiss}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball, \mbox{\hyperlink{structLinearCushion}{Linear\+Cushion}} $\ast$cushion)
+\begin{DoxyCompactList}\small\item\em Adjusts the position of a ball after a linear cushion collision. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{resolver_8c_a0bac3c206b578787133c8eff2e74f197}{make\+Ball\+Circular\+Cushion\+Kiss}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball, \mbox{\hyperlink{structCircularCushion}{Circular\+Cushion}} $\ast$cushion)
+\begin{DoxyCompactList}\small\item\em Adjusts the position of a ball after a circular cushion collision. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{resolver_8c_a007ae7c13c89276935982ac28776a29b}{resolve\+Ball\+Pocket}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball, \mbox{\hyperlink{structTable}{Table}} $\ast$table, \mbox{\hyperlink{structPocket}{Pocket}} $\ast$pocket)
+\begin{DoxyCompactList}\small\item\em Resolves the collision between a ball and a pocket. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{resolver_8c_a6c811ab6d9e938abf6e82b27f4e92ebb}{assert\+Stationary}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball)
+\begin{DoxyCompactList}\small\item\em Asserts that a ball is in a stationary state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{resolver_8c_a1812040d9a3cde1a15daa74c8d093eb1}{assert\+Spinning}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball)
+\begin{DoxyCompactList}\small\item\em Asserts that a ball is in a spinning state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{resolver_8c_a4ad2ed8f03da80356f34f91ceb946ba2}{resolve\+Stick\+Ball}} (\mbox{\hyperlink{structCue}{Cue}} $\ast$cue, \mbox{\hyperlink{structBall}{Ball}} $\ast$ball, double max\+Speed)
+\begin{DoxyCompactList}\small\item\em Resolves the collision between the cue stick and a ball. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{resolver_8c_a1812040d9a3cde1a15daa74c8d093eb1}\label{resolver_8c_a1812040d9a3cde1a15daa74c8d093eb1}} 
+\index{resolver.c@{resolver.c}!assertSpinning@{assertSpinning}}
+\index{assertSpinning@{assertSpinning}!resolver.c@{resolver.c}}
+\doxysubsubsection{\texorpdfstring{assertSpinning()}{assertSpinning()}}
+{\footnotesize\ttfamily void assert\+Spinning (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball }\end{DoxyParamCaption})}
+
+
+
+Asserts that a ball is in a spinning state. 
+
+This function sets a ball\textquotesingle{}s velocity and angular velocity to zero, putting it in a spinning state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball} & Pointer to the ball to be set as spinning. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{resolver_8c_a1812040d9a3cde1a15daa74c8d093eb1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{resolver_8c_a6c811ab6d9e938abf6e82b27f4e92ebb}\label{resolver_8c_a6c811ab6d9e938abf6e82b27f4e92ebb}} 
+\index{resolver.c@{resolver.c}!assertStationary@{assertStationary}}
+\index{assertStationary@{assertStationary}!resolver.c@{resolver.c}}
+\doxysubsubsection{\texorpdfstring{assertStationary()}{assertStationary()}}
+{\footnotesize\ttfamily void assert\+Stationary (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball }\end{DoxyParamCaption})}
+
+
+
+Asserts that a ball is in a stationary state. 
+
+This function sets a ball\textquotesingle{}s velocity and angular velocity to zero, putting it in a stationary state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball} & Pointer to the ball to be set as stationary. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{resolver_8c_a6c811ab6d9e938abf6e82b27f4e92ebb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{resolver_8c_a0bac3c206b578787133c8eff2e74f197}\label{resolver_8c_a0bac3c206b578787133c8eff2e74f197}} 
+\index{resolver.c@{resolver.c}!makeBallCircularCushionKiss@{makeBallCircularCushionKiss}}
+\index{makeBallCircularCushionKiss@{makeBallCircularCushionKiss}!resolver.c@{resolver.c}}
+\doxysubsubsection{\texorpdfstring{makeBallCircularCushionKiss()}{makeBallCircularCushionKiss()}}
+{\footnotesize\ttfamily void make\+Ball\+Circular\+Cushion\+Kiss (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball,  }\item[{\mbox{\hyperlink{structCircularCushion}{Circular\+Cushion}} $\ast$}]{cushion }\end{DoxyParamCaption})}
+
+
+
+Adjusts the position of a ball after a circular cushion collision. 
+
+This function adjusts the position of a ball after colliding with a circular cushion to prevent overlap.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball} & Pointer to the ball involved in the collision. \\
+\hline
+{\em cushion} & Pointer to the \mbox{\hyperlink{structCircularCushion}{Circular\+Cushion}} structure representing the cushion. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{resolver_8c_a0bac3c206b578787133c8eff2e74f197_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{resolver_8c_a0bac3c206b578787133c8eff2e74f197_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{resolver_8c_af13870ae091b8733e03d8e09349a4126}\label{resolver_8c_af13870ae091b8733e03d8e09349a4126}} 
+\index{resolver.c@{resolver.c}!makeBallLinearCushionKiss@{makeBallLinearCushionKiss}}
+\index{makeBallLinearCushionKiss@{makeBallLinearCushionKiss}!resolver.c@{resolver.c}}
+\doxysubsubsection{\texorpdfstring{makeBallLinearCushionKiss()}{makeBallLinearCushionKiss()}}
+{\footnotesize\ttfamily void make\+Ball\+Linear\+Cushion\+Kiss (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball,  }\item[{\mbox{\hyperlink{structLinearCushion}{Linear\+Cushion}} $\ast$}]{cushion }\end{DoxyParamCaption})}
+
+
+
+Adjusts the position of a ball after a linear cushion collision. 
+
+This function adjusts the position of a ball after colliding with a linear cushion to prevent overlap.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball} & Pointer to the ball involved in the collision. \\
+\hline
+{\em cushion} & Pointer to the \mbox{\hyperlink{structLinearCushion}{Linear\+Cushion}} structure representing the cushion. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{resolver_8c_af13870ae091b8733e03d8e09349a4126_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{resolver_8c_af13870ae091b8733e03d8e09349a4126_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{resolver_8c_a8bb53a42f8cbdb39874e2887c96094b6}\label{resolver_8c_a8bb53a42f8cbdb39874e2887c96094b6}} 
+\index{resolver.c@{resolver.c}!makeBallsKiss@{makeBallsKiss}}
+\index{makeBallsKiss@{makeBallsKiss}!resolver.c@{resolver.c}}
+\doxysubsubsection{\texorpdfstring{makeBallsKiss()}{makeBallsKiss()}}
+{\footnotesize\ttfamily void make\+Balls\+Kiss (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball1,  }\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball2 }\end{DoxyParamCaption})}
+
+
+
+Adjusts the positions of two balls to prevent overlap. 
+
+This function adjusts the positions of two balls if they overlap after a collision.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball1} & Pointer to the first ball. \\
+\hline
+{\em ball2} & Pointer to the second ball. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{resolver_8c_a8bb53a42f8cbdb39874e2887c96094b6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{resolver_8c_a8bb53a42f8cbdb39874e2887c96094b6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{resolver_8c_a985c4af47184c17561153a1e9195fe51}\label{resolver_8c_a985c4af47184c17561153a1e9195fe51}} 
+\index{resolver.c@{resolver.c}!resolveBallBall@{resolveBallBall}}
+\index{resolveBallBall@{resolveBallBall}!resolver.c@{resolver.c}}
+\doxysubsubsection{\texorpdfstring{resolveBallBall()}{resolveBallBall()}}
+{\footnotesize\ttfamily void resolve\+Ball\+Ball (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball1,  }\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball2 }\end{DoxyParamCaption})}
+
+
+
+Resolves the collision between two balls. 
+
+This function calculates the result of a collision between two balls and updates their velocities accordingly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball1} & Pointer to the first ball involved in the collision. \\
+\hline
+{\em ball2} & Pointer to the second ball involved in the collision. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{resolver_8c_a985c4af47184c17561153a1e9195fe51_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{resolver_8c_a985c4af47184c17561153a1e9195fe51_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{resolver_8c_a1ad81eaf2026638e1041cde4a4cca6a5}\label{resolver_8c_a1ad81eaf2026638e1041cde4a4cca6a5}} 
+\index{resolver.c@{resolver.c}!resolveBallCushion@{resolveBallCushion}}
+\index{resolveBallCushion@{resolveBallCushion}!resolver.c@{resolver.c}}
+\doxysubsubsection{\texorpdfstring{resolveBallCushion()}{resolveBallCushion()}}
+{\footnotesize\ttfamily void resolve\+Ball\+Cushion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball,  }\item[{\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}}}]{cushion\+Normal,  }\item[{double}]{restitution }\end{DoxyParamCaption})}
+
+
+
+Resolves the collision between a ball and a cushion. 
+
+This function calculates the result of a collision between a ball and a cushion and updates the ball\textquotesingle{}s velocity accordingly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball} & Pointer to the ball involved in the collision. \\
+\hline
+{\em cushion\+Normal} & The normal vector of the cushion. \\
+\hline
+{\em restitution} & The coefficient of restitution for the collision. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{resolver_8c_a1ad81eaf2026638e1041cde4a4cca6a5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{resolver_8c_a1ad81eaf2026638e1041cde4a4cca6a5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{resolver_8c_afabfb497e054c9f95cb0291131cda180}\label{resolver_8c_afabfb497e054c9f95cb0291131cda180}} 
+\index{resolver.c@{resolver.c}!resolveBallCushionRealistic@{resolveBallCushionRealistic}}
+\index{resolveBallCushionRealistic@{resolveBallCushionRealistic}!resolver.c@{resolver.c}}
+\doxysubsubsection{\texorpdfstring{resolveBallCushionRealistic()}{resolveBallCushionRealistic()}}
+{\footnotesize\ttfamily void resolve\+Ball\+Cushion\+Realistic (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball,  }\item[{\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}}}]{cushion\+Normal,  }\item[{double}]{restitution,  }\item[{double}]{friction }\end{DoxyParamCaption})}
+
+
+
+Resolves the collision between a ball and a cushion in a realistic manner. 
+
+This function calculates the result of a collision between a ball and a cushion, considering realistic physics.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball} & Pointer to the ball involved in the collision. \\
+\hline
+{\em cushion\+Normal} & The normal vector of the cushion. \\
+\hline
+{\em restitution} & The coefficient of restitution for the collision. \\
+\hline
+{\em friction} & The coefficient of friction for the collision. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{resolver_8c_afabfb497e054c9f95cb0291131cda180_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{resolver_8c_a007ae7c13c89276935982ac28776a29b}\label{resolver_8c_a007ae7c13c89276935982ac28776a29b}} 
+\index{resolver.c@{resolver.c}!resolveBallPocket@{resolveBallPocket}}
+\index{resolveBallPocket@{resolveBallPocket}!resolver.c@{resolver.c}}
+\doxysubsubsection{\texorpdfstring{resolveBallPocket()}{resolveBallPocket()}}
+{\footnotesize\ttfamily void resolve\+Ball\+Pocket (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball,  }\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table,  }\item[{\mbox{\hyperlink{structPocket}{Pocket}} $\ast$}]{pocket }\end{DoxyParamCaption})}
+
+
+
+Resolves the collision between a ball and a pocket. 
+
+This function calculates the result of a collision between a ball and a pocket and updates the ball\textquotesingle{}s state accordingly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball} & Pointer to the ball involved in the collision. \\
+\hline
+{\em pocket} & Pointer to the \mbox{\hyperlink{structPocket}{Pocket}} structure representing the pocket. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{resolver_8c_a007ae7c13c89276935982ac28776a29b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{resolver_8c_aa65d1d36ef508a9c90ee9c0bf11a7033}\label{resolver_8c_aa65d1d36ef508a9c90ee9c0bf11a7033}} 
+\index{resolver.c@{resolver.c}!resolveEvent@{resolveEvent}}
+\index{resolveEvent@{resolveEvent}!resolver.c@{resolver.c}}
+\doxysubsubsection{\texorpdfstring{resolveEvent()}{resolveEvent()}}
+{\footnotesize\ttfamily void resolve\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table,  }\item[{\mbox{\hyperlink{structEvent}{Event}}}]{event }\end{DoxyParamCaption})}
+
+
+
+Resolves the given event on the table. 
+
+This function handles different types of events that occur during gameplay and applies appropriate actions to resolve them.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Pointer to the \mbox{\hyperlink{structTable}{Table}} structure. \\
+\hline
+{\em event} & The event to be resolved. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{resolver_8c_aa65d1d36ef508a9c90ee9c0bf11a7033_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{resolver_8c_aa65d1d36ef508a9c90ee9c0bf11a7033_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{resolver_8c_a4ad2ed8f03da80356f34f91ceb946ba2}\label{resolver_8c_a4ad2ed8f03da80356f34f91ceb946ba2}} 
+\index{resolver.c@{resolver.c}!resolveStickBall@{resolveStickBall}}
+\index{resolveStickBall@{resolveStickBall}!resolver.c@{resolver.c}}
+\doxysubsubsection{\texorpdfstring{resolveStickBall()}{resolveStickBall()}}
+{\footnotesize\ttfamily void resolve\+Stick\+Ball (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCue}{Cue}} $\ast$}]{cue,  }\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball,  }\item[{double}]{max\+Speed }\end{DoxyParamCaption})}
+
+
+
+Resolves the collision between the cue stick and a ball. 
+
+This function calculates the result of a collision between the cue stick and a ball and updates the ball\textquotesingle{}s velocity accordingly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cue} & Pointer to the \mbox{\hyperlink{structCue}{Cue}} structure representing the cue stick. \\
+\hline
+{\em ball} & Pointer to the ball involved in the collision. \\
+\hline
+{\em max\+Speed} & The maximum speed of the shot. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=269pt]{resolver_8c_a4ad2ed8f03da80356f34f91ceb946ba2_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{resolver_8c_a4ad2ed8f03da80356f34f91ceb946ba2_icgraph}
+\end{center}
+\end{figure}

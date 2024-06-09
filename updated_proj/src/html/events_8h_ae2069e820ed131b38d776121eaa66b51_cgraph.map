@@ -1,0 +1,25 @@
+<map id="getNextBallLinearCushionCollision" name="getNextBallLinearCushionCollision">
+<area shape="rect" id="node1" title="Finds the next collision event between a ball and a linear cushion on the table." alt="" coords="5,454,196,495"/>
+<area shape="rect" id="node2" href="$ball_8c.html#a2ac73f5d578d7c5970ab34cfc719b931" title="Checks if the Ball is not moving." alt="" coords="551,183,668,209"/>
+<area shape="rect" id="node3" href="$utilities_8c.html#aa7b60acd35a7d23364aa9fcc1bd7c89e" title="Calculates the time for a linear cushion collision with a ball." alt="" coords="244,436,493,463"/>
+<area shape="rect" id="node21" href="$event_8c.html#a8e151bee848e27b9e1791521d38b54c5" title="Creates a new invalid event." alt="" coords="303,487,434,513"/>
+<area shape="rect" id="node22" href="$utilities_8c.html#ab713552cfd027e60a8e16368280d144c" title="Prints the details of an event." alt="" coords="324,588,413,615"/>
+<area shape="rect" id="node4" href="$utilities_8c.html#a70076007e8799fb3b48697e26eda5390" title="Calculates the angle of a vector." alt="" coords="967,411,1026,437"/>
+<area shape="rect" id="node5" href="$graphics_8c.html#af4090a22121cf0039e5c5df5a019d3ce" title="Extracts the blue component from a color." alt="" coords="590,461,629,488"/>
+<area shape="rect" id="node6" href="$utilities_8c.html#a98dbd882f9682266f2d87337dc709bdc" title="Calculates the dot product of two vectors." alt="" coords="563,512,655,539"/>
+<area shape="rect" id="node7" href="$evolve_8c.html#a54918714eb67c6beeac9b4e70dcec32d" title="Updates the motion of a ball over a specified time period." alt="" coords="541,233,677,260"/>
+<area shape="rect" id="node11" href="$utilities_8c.html#a42ada5d449eb0a5545123710cc8bf647" title="Calculates the magnitude of a vector." alt="" coords="1136,259,1243,285"/>
+<area shape="rect" id="node19" href="$utilities_8c.html#a1c0eb54a750dfe192d89eee1d9684244" title="Calculates the unit vector from the ball&#39;s." alt="" coords="751,360,832,387"/>
+<area shape="rect" id="node20" href="$utilities_8c.html#a56e20a4ec201380cb4c9656d0859ebd0" title="Solves a quadratic equation." alt="" coords="549,563,669,589"/>
+<area shape="rect" id="node8" href="$evolve_8c.html#a16f5cd5c4147761656c85ef7fbb16831" title="Evolves the perpendicular spin of a ball over a specified time period." alt="" coords="905,208,1088,235"/>
+<area shape="rect" id="node9" href="$evolve_8c.html#a1074b8ff2090924fe7788481d5317a29" title="Evolves the rolling state of a ball over a specified time period." alt="" coords="729,259,854,285"/>
+<area shape="rect" id="node13" href="$evolve_8c.html#af37d495f652f29ed0cd5b52302f0d4da" title="Evolves the sliding state of a ball over a specified time period." alt="" coords="725,309,857,336"/>
+<area shape="rect" id="node15" href="$ball_8c.html#a4b33f035df87741a10f5d7aefacafb43" title="Gets the state of the Ball." alt="" coords="740,5,843,32"/>
+<area shape="rect" id="node16" href="$utilities_8c.html#a517a15c452bb6c79adb99080eff01ea2" title="Calculates the time for rolling motion to stop for a ball." alt="" coords="946,107,1047,133"/>
+<area shape="rect" id="node17" href="$utilities_8c.html#a8366b7edcbc333d94fa05535ab7184af" title="Calculates the time for sliding motion to stop for a ball." alt="" coords="737,157,845,184"/>
+<area shape="rect" id="node18" href="$utilities_8c.html#a144e3089e854d7a5dc817cf09780f160" title="Calculates the time for spinning motion to stop for a ball." alt="" coords="739,56,843,83"/>
+<area shape="rect" id="node10" href="$utilities_8c.html#ae78350457bd27abcfe7ff6d7e055d160" title="Normalizes a vector." alt="" coords="933,360,1061,387"/>
+<area shape="rect" id="node12" href="$utilities_8c.html#a75a2efa623d57f314f94a6fc919e761d" title="Rotates a 2D vector by a given angle." alt="" coords="958,309,1035,336"/>
+<area shape="rect" id="node14" href="$utilities_8c.html#af7589640fa9f4b10339db00dc0079e81" title="Calculates the relative velocity of a ball." alt="" coords="935,259,1059,285"/>
+<area shape="rect" id="node23" href="$utilities_8c.html#a4eb7e31dfb51a3c980f601932a804656" title="Prints a floating&#45;point number." alt="" coords="567,664,652,691"/>
+</map>

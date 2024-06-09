@@ -1,0 +1,10 @@
+<map id="util_get_LSB" name="util_get_LSB">
+<area shape="rect" id="node1" title="Gets the least significant byte of a value." alt="" coords="917,31,1020,57"/>
+<area shape="rect" id="node2" href="$serialPort_8c.html#ad9324ef1f8b45d2db10c8d4973bf01ad" title="Sets the bitrate of the serial port." alt="" coords="748,5,835,32"/>
+<area shape="rect" id="node8" href="$timer_8c.html#af2c04fa8e97ffa748fd3f612886a92a7" title="Sets the frequency of a timer." alt="" coords="713,56,869,83"/>
+<area shape="rect" id="node3" href="$serialPort_8c.html#a8f1a0c52f5822536d1fa2a1358e972af" title="Initializes the serial port." alt="" coords="600,5,665,32"/>
+<area shape="rect" id="node4" href="$serialPort_8c.html#a19c3e017bd5ab5a4be6b2fbacce9ac6a" title="Subscribes to the serial port interrupts." alt="" coords="445,5,552,32"/>
+<area shape="rect" id="node5" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="307,5,397,32"/>
+<area shape="rect" id="node6" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,5,259,32"/>
+<area shape="rect" id="node7" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,5,128,32"/>
+</map>

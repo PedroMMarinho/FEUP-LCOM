@@ -1,0 +1,10 @@
+<map id="handleOnlineMenu" name="handleOnlineMenu">
+<area shape="rect" id="node1" title=" " alt="" coords="5,56,149,83"/>
+<area shape="rect" id="node2" href="$menu_8c.html#aceaa3d76e97718b10dcddd65545310e3" title="Resets the menu to its initial state." alt="" coords="217,5,307,32"/>
+<area shape="rect" id="node4" href="$serialPort_8c.html#ab1ddddd34fc1d50526bdb47ace0b0a7d" title="Resets the multiplayer state." alt="" coords="197,56,327,83"/>
+<area shape="rect" id="node7" href="$menu_8c.html#a6cd6e09dbb9ccefcb024e29d193f4b5a" title="Sets the type of the menu." alt="" coords="208,107,316,133"/>
+<area shape="rect" id="node3" href="$button_8c.html#a35aed4a2d403e0d35ea6f353e9e318f8" title="Frees the memory allocated for the button." alt="" coords="375,5,489,32"/>
+<area shape="rect" id="node5" href="$queue_8c.html#a61cadecf97e5deb315c0df2ba4d9a70f" title="pop a value from the queue" alt="" coords="385,56,479,83"/>
+<area shape="rect" id="node6" href="$queue_8c.html#ab24e6cf27bfe70fd3f103d8e97ca0407" title="check if the queue is empty" alt="" coords="537,56,660,83"/>
+<area shape="rect" id="node8" href="$button_8c.html#afd6037293acc3a96469827641ba451ef" title="Creates a new button." alt="" coords="386,107,478,133"/>
+</map>

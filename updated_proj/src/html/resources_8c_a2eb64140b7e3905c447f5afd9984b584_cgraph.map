@@ -1,0 +1,7 @@
+<map id="loadResources" name="loadResources">
+<area shape="rect" id="node1" title="Loads the resources of the game." alt="" coords="5,31,123,57"/>
+<area shape="rect" id="node2" href="$menu_8c.html#ab948fc250bbf5f4724f5b4da60057ed0" title="Creates a new menu." alt="" coords="171,31,256,57"/>
+<area shape="rect" id="node3" href="$mouseModel_8c.html#abd64fd476265e0fb0463cc3d82823701" title="Creates a new mouse." alt="" coords="312,5,404,32"/>
+<area shape="rect" id="node4" href="$menu_8c.html#a6cd6e09dbb9ccefcb024e29d193f4b5a" title="Sets the type of the menu." alt="" coords="304,56,412,83"/>
+<area shape="rect" id="node5" href="$button_8c.html#afd6037293acc3a96469827641ba451ef" title="Creates a new button." alt="" coords="460,56,552,83"/>
+</map>

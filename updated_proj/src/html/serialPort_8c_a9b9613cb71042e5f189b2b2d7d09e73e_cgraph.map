@@ -1,0 +1,7 @@
+<map id="sp_unsubscribe" name="sp_unsubscribe">
+<area shape="rect" id="node1" title="Unsubscribes from the serial port interrupts." alt="" coords="5,31,128,57"/>
+<area shape="rect" id="node2" href="$serialPort_8c.html#a82faf7b16bf6c1fd8f7cc21484e0f9bb" title="Ends the serial port operation." alt="" coords="176,31,244,57"/>
+<area shape="rect" id="node3" href="$serialPort_8c.html#a2684a673f5e4cdb9dc2b7ede8bd0b424" title="Reads a byte from a serial port." alt="" coords="294,5,367,32"/>
+<area shape="rect" id="node5" href="$serialPort_8c.html#a098cd912055172cb22fd2049f724a0d6" title="Writes a byte to a serial port." alt="" coords="292,56,369,83"/>
+<area shape="rect" id="node4" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title="Reads a byte from a port." alt="" coords="417,5,516,32"/>
+</map>

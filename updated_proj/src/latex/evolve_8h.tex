@@ -1,0 +1,180 @@
+\hypertarget{evolve_8h}{}\doxysection{physics/evolve.h File Reference}
+\label{evolve_8h}\index{physics/evolve.h@{physics/evolve.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../model/ball/ball.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../model/table.\+h\char`\"{}}\newline
+Include dependency graph for evolve.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{evolve_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{evolve_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{evolve_8h_a54918714eb67c6beeac9b4e70dcec32d}{evolve\+Ball\+Motion}} (\mbox{\hyperlink{structTable}{Table}} $\ast$table, \mbox{\hyperlink{structBall}{Ball}} $\ast$ball, double time)
+\begin{DoxyCompactList}\small\item\em Updates the motion of a ball over a specified time period. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{evolve_8h_af37d495f652f29ed0cd5b52302f0d4da}{evolve\+Slide\+State}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball, double t, double u\+Spinning, double u\+Sliding, double g)
+\begin{DoxyCompactList}\small\item\em Evolves the sliding state of a ball over a specified time period. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{evolve_8h_a27869ba8fedeb91fe7d40f53b8cae7c1}{evolve\+Roll\+State}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball, double t, double u\+Rolling, double u\+Sliding, double g)
+\begin{DoxyCompactList}\small\item\em Evolves the rolling state of a ball over a specified time period. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{evolve_8h_a16f5cd5c4147761656c85ef7fbb16831}{evolve\+Prependicular\+Spin}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball, double t, double u\+Spinning, double g)
+\begin{DoxyCompactList}\small\item\em Evolves the perpendicular spin of a ball over a specified time period. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{evolve_8h_a54918714eb67c6beeac9b4e70dcec32d}\label{evolve_8h_a54918714eb67c6beeac9b4e70dcec32d}} 
+\index{evolve.h@{evolve.h}!evolveBallMotion@{evolveBallMotion}}
+\index{evolveBallMotion@{evolveBallMotion}!evolve.h@{evolve.h}}
+\doxysubsubsection{\texorpdfstring{evolveBallMotion()}{evolveBallMotion()}}
+{\footnotesize\ttfamily void evolve\+Ball\+Motion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table,  }\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball,  }\item[{double}]{time }\end{DoxyParamCaption})}
+
+
+
+Updates the motion of a ball over a specified time period. 
+
+This function updates the motion of a ball over a specified time period, considering its current state and transitions, along with parameters such as friction and gravity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Pointer to the \mbox{\hyperlink{structTable}{Table}} structure. \\
+\hline
+{\em ball} & Pointer to the \mbox{\hyperlink{structBall}{Ball}} structure representing the ball. \\
+\hline
+{\em time} & The time period over which the motion is updated. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{evolve_8h_a54918714eb67c6beeac9b4e70dcec32d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{evolve_8h_a54918714eb67c6beeac9b4e70dcec32d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{evolve_8h_a16f5cd5c4147761656c85ef7fbb16831}\label{evolve_8h_a16f5cd5c4147761656c85ef7fbb16831}} 
+\index{evolve.h@{evolve.h}!evolvePrependicularSpin@{evolvePrependicularSpin}}
+\index{evolvePrependicularSpin@{evolvePrependicularSpin}!evolve.h@{evolve.h}}
+\doxysubsubsection{\texorpdfstring{evolvePrependicularSpin()}{evolvePrependicularSpin()}}
+{\footnotesize\ttfamily void evolve\+Prependicular\+Spin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball,  }\item[{double}]{t,  }\item[{double}]{u\+Spinning,  }\item[{double}]{g }\end{DoxyParamCaption})}
+
+
+
+Evolves the perpendicular spin of a ball over a specified time period. 
+
+This function evolves the perpendicular spin of a ball over a specified time period, updating its angular velocity based on spinning friction and gravity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball} & Pointer to the \mbox{\hyperlink{structBall}{Ball}} structure representing the ball. \\
+\hline
+{\em t} & The time period over which the perpendicular spin is evolved. \\
+\hline
+{\em u\+Spinning} & Spinning friction coefficient. \\
+\hline
+{\em g} & Acceleration due to gravity. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{evolve_8h_a16f5cd5c4147761656c85ef7fbb16831_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{evolve_8h_a27869ba8fedeb91fe7d40f53b8cae7c1}\label{evolve_8h_a27869ba8fedeb91fe7d40f53b8cae7c1}} 
+\index{evolve.h@{evolve.h}!evolveRollState@{evolveRollState}}
+\index{evolveRollState@{evolveRollState}!evolve.h@{evolve.h}}
+\doxysubsubsection{\texorpdfstring{evolveRollState()}{evolveRollState()}}
+{\footnotesize\ttfamily void evolve\+Roll\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball,  }\item[{double}]{t,  }\item[{double}]{u\+Rolling,  }\item[{double}]{u\+Sliding,  }\item[{double}]{g }\end{DoxyParamCaption})}
+
+
+
+Evolves the rolling state of a ball over a specified time period. 
+
+This function evolves the rolling state of a ball over a specified time period, updating its position and velocity based on rolling friction, spinning friction, and gravity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball} & Pointer to the \mbox{\hyperlink{structBall}{Ball}} structure representing the ball. \\
+\hline
+{\em t} & The time period over which the rolling state is evolved. \\
+\hline
+{\em u\+Rolling} & Rolling friction coefficient. \\
+\hline
+{\em u\+Spinning} & Spinning friction coefficient. \\
+\hline
+{\em g} & Acceleration due to gravity. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{evolve_8h_a27869ba8fedeb91fe7d40f53b8cae7c1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{evolve_8h_a27869ba8fedeb91fe7d40f53b8cae7c1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{evolve_8h_af37d495f652f29ed0cd5b52302f0d4da}\label{evolve_8h_af37d495f652f29ed0cd5b52302f0d4da}} 
+\index{evolve.h@{evolve.h}!evolveSlideState@{evolveSlideState}}
+\index{evolveSlideState@{evolveSlideState}!evolve.h@{evolve.h}}
+\doxysubsubsection{\texorpdfstring{evolveSlideState()}{evolveSlideState()}}
+{\footnotesize\ttfamily void evolve\+Slide\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball,  }\item[{double}]{t,  }\item[{double}]{u\+Spinning,  }\item[{double}]{u\+Sliding,  }\item[{double}]{g }\end{DoxyParamCaption})}
+
+
+
+Evolves the sliding state of a ball over a specified time period. 
+
+This function evolves the sliding state of a ball over a specified time period, updating its position and velocity based on sliding friction, spinning friction, and gravity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball} & Pointer to the \mbox{\hyperlink{structBall}{Ball}} structure representing the ball. \\
+\hline
+{\em t} & The time period over which the sliding state is evolved. \\
+\hline
+{\em u\+Spinning} & Spinning friction coefficient. \\
+\hline
+{\em u\+Sliding} & Sliding friction coefficient. \\
+\hline
+{\em g} & Acceleration due to gravity. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{evolve_8h_af37d495f652f29ed0cd5b52302f0d4da_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{evolve_8h_af37d495f652f29ed0cd5b52302f0d4da_icgraph}
+\end{center}
+\end{figure}

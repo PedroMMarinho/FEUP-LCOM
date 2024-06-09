@@ -1,0 +1,194 @@
+\hypertarget{player_8h}{}\doxysection{model/player.h File Reference}
+\label{player_8h}\index{model/player.h@{model/player.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}vector.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../labs/graphics.\+h\char`\"{}}\newline
+Include dependency graph for player.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{player_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{player_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structPlayer}{Player}}
+\begin{DoxyCompactList}\small\item\em Struct that represents the player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{player_8h_a348c0b521c22ab6e71c2ec25e915acaa}{player\+Ball}} \mbox{\hyperlink{player_8h_adf3c88f5c2907161592d5ae79c8a16a7}{player\+Ball}}
+\begin{DoxyCompactList}\small\item\em Enum that represents the type of player ball. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structPlayer}{Player}} \mbox{\hyperlink{player_8h_a480a040facb94f90060562cd65274385}{Player}}
+\begin{DoxyCompactList}\small\item\em Struct that represents the player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{player_8h_a348c0b521c22ab6e71c2ec25e915acaa}{player\+Ball}} \{ \mbox{\hyperlink{player_8h_a348c0b521c22ab6e71c2ec25e915acaaa7c49ad6b2ae75c2e8fefef3f7341c5ee}{PLAYERSOLID}}
+, \mbox{\hyperlink{player_8h_a348c0b521c22ab6e71c2ec25e915acaaa13a9e76e796934b2fae7c48fb1e8e37f}{PLAYERSTRIPED}}
+, \mbox{\hyperlink{player_8h_a348c0b521c22ab6e71c2ec25e915acaaa08aed2bed1b95894a6b4f5db699b613f}{PLAYERBALLNONE}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enum that represents the type of player ball. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structPlayer}{Player}} $\ast$ \mbox{\hyperlink{player_8h_a34fe23d165dfa7bba1f5f1a53d394ad4}{new\+Player}} (char $\ast$name, \mbox{\hyperlink{player_8h_a348c0b521c22ab6e71c2ec25e915acaa}{player\+Ball}} ball\+Type, bool is\+Playing)
+\begin{DoxyCompactList}\small\item\em Creates a new \mbox{\hyperlink{structPlayer}{Player}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{player_8h_aeaca5c627e5599b60cc71af248c0f98e}{destroy\+Player}} (\mbox{\hyperlink{structPlayer}{Player}} $\ast$player)
+\begin{DoxyCompactList}\small\item\em Destroys a \mbox{\hyperlink{structPlayer}{Player}} object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{player_8h_ada930b2e10791a6c1cd4db4db4a527dc}{draw\+In\+Game\+Player\+Name}} (\mbox{\hyperlink{structPlayer}{Player}} $\ast$player, xpm\+\_\+image\+\_\+t $\ast$font, int x, int y, int spacing)
+\begin{DoxyCompactList}\small\item\em Draws the in-\/game player\textquotesingle{}s name on the screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{player_8h_a480a040facb94f90060562cd65274385}\label{player_8h_a480a040facb94f90060562cd65274385}} 
+\index{player.h@{player.h}!Player@{Player}}
+\index{Player@{Player}!player.h@{player.h}}
+\doxysubsubsection{\texorpdfstring{Player}{Player}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structPlayer}{Player}} \mbox{\hyperlink{structPlayer}{Player}}}
+
+
+
+Struct that represents the player. 
+
+\mbox{\Hypertarget{player_8h_adf3c88f5c2907161592d5ae79c8a16a7}\label{player_8h_adf3c88f5c2907161592d5ae79c8a16a7}} 
+\index{player.h@{player.h}!playerBall@{playerBall}}
+\index{playerBall@{playerBall}!player.h@{player.h}}
+\doxysubsubsection{\texorpdfstring{playerBall}{playerBall}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{player_8h_a348c0b521c22ab6e71c2ec25e915acaa}{player\+Ball}} \mbox{\hyperlink{player_8h_a348c0b521c22ab6e71c2ec25e915acaa}{player\+Ball}}}
+
+
+
+Enum that represents the type of player ball. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{player_8h_a348c0b521c22ab6e71c2ec25e915acaa}\label{player_8h_a348c0b521c22ab6e71c2ec25e915acaa}} 
+\index{player.h@{player.h}!playerBall@{playerBall}}
+\index{playerBall@{playerBall}!player.h@{player.h}}
+\doxysubsubsection{\texorpdfstring{playerBall}{playerBall}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{player_8h_a348c0b521c22ab6e71c2ec25e915acaa}{player\+Ball}}}
+
+
+
+Enum that represents the type of player ball. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PLAYERSOLID@{PLAYERSOLID}!player.h@{player.h}}\index{player.h@{player.h}!PLAYERSOLID@{PLAYERSOLID}}}\mbox{\Hypertarget{player_8h_a348c0b521c22ab6e71c2ec25e915acaaa7c49ad6b2ae75c2e8fefef3f7341c5ee}\label{player_8h_a348c0b521c22ab6e71c2ec25e915acaaa7c49ad6b2ae75c2e8fefef3f7341c5ee}} 
+PLAYERSOLID&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PLAYERSTRIPED@{PLAYERSTRIPED}!player.h@{player.h}}\index{player.h@{player.h}!PLAYERSTRIPED@{PLAYERSTRIPED}}}\mbox{\Hypertarget{player_8h_a348c0b521c22ab6e71c2ec25e915acaaa13a9e76e796934b2fae7c48fb1e8e37f}\label{player_8h_a348c0b521c22ab6e71c2ec25e915acaaa13a9e76e796934b2fae7c48fb1e8e37f}} 
+PLAYERSTRIPED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PLAYERBALLNONE@{PLAYERBALLNONE}!player.h@{player.h}}\index{player.h@{player.h}!PLAYERBALLNONE@{PLAYERBALLNONE}}}\mbox{\Hypertarget{player_8h_a348c0b521c22ab6e71c2ec25e915acaaa08aed2bed1b95894a6b4f5db699b613f}\label{player_8h_a348c0b521c22ab6e71c2ec25e915acaaa08aed2bed1b95894a6b4f5db699b613f}} 
+PLAYERBALLNONE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{player_8h_aeaca5c627e5599b60cc71af248c0f98e}\label{player_8h_aeaca5c627e5599b60cc71af248c0f98e}} 
+\index{player.h@{player.h}!destroyPlayer@{destroyPlayer}}
+\index{destroyPlayer@{destroyPlayer}!player.h@{player.h}}
+\doxysubsubsection{\texorpdfstring{destroyPlayer()}{destroyPlayer()}}
+{\footnotesize\ttfamily void destroy\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPlayer}{Player}} $\ast$}]{player }\end{DoxyParamCaption})}
+
+
+
+Destroys a \mbox{\hyperlink{structPlayer}{Player}} object. 
+
+This function frees the memory allocated for the \mbox{\hyperlink{structPlayer}{Player}} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Pointer to the \mbox{\hyperlink{structPlayer}{Player}} object to be destroyed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{player_8h_ada930b2e10791a6c1cd4db4db4a527dc}\label{player_8h_ada930b2e10791a6c1cd4db4db4a527dc}} 
+\index{player.h@{player.h}!drawInGamePlayerName@{drawInGamePlayerName}}
+\index{drawInGamePlayerName@{drawInGamePlayerName}!player.h@{player.h}}
+\doxysubsubsection{\texorpdfstring{drawInGamePlayerName()}{drawInGamePlayerName()}}
+{\footnotesize\ttfamily int draw\+In\+Game\+Player\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPlayer}{Player}} $\ast$}]{player,  }\item[{xpm\+\_\+image\+\_\+t $\ast$}]{font,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{spacing }\end{DoxyParamCaption})}
+
+
+
+Draws the in-\/game player\textquotesingle{}s name on the screen. 
+
+This function draws the player\textquotesingle{}s name on the screen using the specified font and coordinates.
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Pointer to the \mbox{\hyperlink{structPlayer}{Player}} object. \\
+\hline
+{\em font} & Pointer to the xpm\+\_\+image\+\_\+t object representing the font. \\
+\hline
+{\em x} & The x-\/coordinate where the name should be drawn. \\
+\hline
+{\em y} & The y-\/coordinate where the name should be drawn. \\
+\hline
+{\em spacing} & The spacing between characters. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 on failure. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{player_8h_ada930b2e10791a6c1cd4db4db4a527dc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{player_8h_ada930b2e10791a6c1cd4db4db4a527dc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{player_8h_a34fe23d165dfa7bba1f5f1a53d394ad4}\label{player_8h_a34fe23d165dfa7bba1f5f1a53d394ad4}} 
+\index{player.h@{player.h}!newPlayer@{newPlayer}}
+\index{newPlayer@{newPlayer}!player.h@{player.h}}
+\doxysubsubsection{\texorpdfstring{newPlayer()}{newPlayer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPlayer}{Player}}$\ast$ new\+Player (\begin{DoxyParamCaption}\item[{char $\ast$}]{name,  }\item[{\mbox{\hyperlink{player_8h_a348c0b521c22ab6e71c2ec25e915acaa}{player\+Ball}}}]{ball\+Type,  }\item[{bool}]{is\+Playing }\end{DoxyParamCaption})}
+
+
+
+Creates a new \mbox{\hyperlink{structPlayer}{Player}} object. 
+
+This function allocates memory for a new \mbox{\hyperlink{structPlayer}{Player}} object and initializes it with the given name, ball type, and playing status.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the player. \\
+\hline
+{\em ball\+Type} & The type of ball assigned to the player. \\
+\hline
+{\em is\+Playing} & Boolean indicating if the player is currently playing. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Player$\ast$ Pointer to the newly created \mbox{\hyperlink{structPlayer}{Player}} object. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{player_8h_a34fe23d165dfa7bba1f5f1a53d394ad4_icgraph}
+\end{center}
+\end{figure}

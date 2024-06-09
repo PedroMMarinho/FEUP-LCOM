@@ -1,0 +1,99 @@
+\hypertarget{Game_8c}{}\doxysection{Game.\+c File Reference}
+\label{Game_8c}\index{Game.c@{Game.c}}
+{\ttfamily \#include \char`\"{}Game.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}labs/graphics.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}labs/kbc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}labs/keyboard.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}labs/mouse.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}labs/rtc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}labs/serial\+Port.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}labs/timer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}model/vector.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xpms/ball.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}viewer/cue\+Viewer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}viewer/line\+Viewer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}States/states.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}controllers/menu\+Controller.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}controllers/multiplayer\+Controller.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}controllers/playing\+Controller.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}resources.\+h\char`\"{}}\newline
+Include dependency graph for Game.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Game_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{Game_8c_af914d9c0c56eba0cd037f32d5af60cf1}{init\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the game. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{Game_8c_a9466a53aca2dcb5a4d1e94b8d28f4911}{game\+Loop}} (\mbox{\hyperlink{structResources}{Resources}} $\ast$resources)
+\begin{DoxyCompactList}\small\item\em Main game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{Game_8c_a9466a53aca2dcb5a4d1e94b8d28f4911}\label{Game_8c_a9466a53aca2dcb5a4d1e94b8d28f4911}} 
+\index{Game.c@{Game.c}!gameLoop@{gameLoop}}
+\index{gameLoop@{gameLoop}!Game.c@{Game.c}}
+\doxysubsubsection{\texorpdfstring{gameLoop()}{gameLoop()}}
+{\footnotesize\ttfamily int game\+Loop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structResources}{Resources}} $\ast$}]{resources }\end{DoxyParamCaption})}
+
+
+
+Main game loop. 
+
+This function represents the main game loop which handles the different states of the game, such as MENU and PLAYING, and processes input from the I/O devices.
+
+
+\begin{DoxyParams}{Parameters}
+{\em resources} & Pointer to the resources structure containing the current game state and other game data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Game_8c_a9466a53aca2dcb5a4d1e94b8d28f4911_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Game_8c_a9466a53aca2dcb5a4d1e94b8d28f4911_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{Game_8c_af914d9c0c56eba0cd037f32d5af60cf1}\label{Game_8c_af914d9c0c56eba0cd037f32d5af60cf1}} 
+\index{Game.c@{Game.c}!initGame@{initGame}}
+\index{initGame@{initGame}!Game.c@{Game.c}}
+\doxysubsubsection{\texorpdfstring{initGame()}{initGame()}}
+{\footnotesize\ttfamily int init\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the game. 
+
+\begin{DoxyReturn}{Returns}
+int 0 if running, 1 otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Game_8c_af914d9c0c56eba0cd037f32d5af60cf1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{Game_8c_af914d9c0c56eba0cd037f32d5af60cf1_icgraph}
+\end{center}
+\end{figure}

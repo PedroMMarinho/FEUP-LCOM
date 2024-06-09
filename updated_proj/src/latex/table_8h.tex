@@ -1,0 +1,540 @@
+\hypertarget{table_8h}{}\doxysection{model/table.h File Reference}
+\label{table_8h}\index{model/table.h@{model/table.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}vector.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ball/ball.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mouse\+Model.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cue.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cushion.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pocket.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}player.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}button.\+h\char`\"{}}\newline
+Include dependency graph for table.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structTable}{Table}}
+\begin{DoxyCompactList}\small\item\em Struct that represents the table(when playing) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{table_8h_a4cc39f049df62b331976f9a4482bd3ea}{GAME\+\_\+\+STATE}} \mbox{\hyperlink{table_8h_a9a56947f70af3273dd5a0137daae1dc8}{GAME\+\_\+\+STATE}}
+\begin{DoxyCompactList}\small\item\em Enum that represents the game state. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structTable}{Table}} \mbox{\hyperlink{table_8h_aaa5713bb2ecdf81c430009179b806232}{Table}}
+\begin{DoxyCompactList}\small\item\em Struct that represents the table(when playing) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{table_8h_a4cc39f049df62b331976f9a4482bd3ea}{GAME\+\_\+\+STATE}} \{ \newline
+\mbox{\hyperlink{table_8h_a4cc39f049df62b331976f9a4482bd3eaa56a12b47e812dfad01ec8a8f78bfd99b}{AIMING}}
+, \mbox{\hyperlink{table_8h_a4cc39f049df62b331976f9a4482bd3eaa7b771453d1a8c8cc2efab221859139d8}{SHOOTING}}
+, \mbox{\hyperlink{table_8h_a4cc39f049df62b331976f9a4482bd3eaa757971c0bc5a1972d5f1b1be2c0e2087}{WAITING}}
+, \mbox{\hyperlink{table_8h_a4cc39f049df62b331976f9a4482bd3eaa508d66e652e8caea37acca3dbb8f1b3b}{SIMULATING}}
+, \newline
+\mbox{\hyperlink{table_8h_a4cc39f049df62b331976f9a4482bd3eaa0a541c22918eac9459f78cdec0304c82}{ADVANTAGE}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enum that represents the game state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structTable}{Table}} $\ast$ \mbox{\hyperlink{table_8h_a9ef30cef961ee374d50fc769b85cecb6}{new\+Table}} ()
+\begin{DoxyCompactList}\small\item\em Creates and initializes a new \mbox{\hyperlink{structTable}{Table}} structure with all necessary components such as players, balls, cushions, and graphical assets. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{table_8h_a64ac10c7832cb134eddcf550bc806573}{destroy\+Table}} (\mbox{\hyperlink{structTable}{Table}} $\ast$table)
+\begin{DoxyCompactList}\small\item\em Destroys a \mbox{\hyperlink{structTable}{Table}} object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{table_8h_a0e36c18757f2fd43e008ee4ad165baaf}{draw\+Table}} (\mbox{\hyperlink{structTable}{Table}} $\ast$table, int game\+Time, int round\+Time)
+\begin{DoxyCompactList}\small\item\em Draws the table on the screen. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{table_8h_a86556342c6a9726a30e62dc73899cebc}{update\+Cue\+State}} (\mbox{\hyperlink{structTable}{Table}} $\ast$table, bool power)
+\begin{DoxyCompactList}\small\item\em Updates the state of the cue stick, including charge level and direction vector. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{table_8h_a24763fb42986a86831fe92b93697d3e1}{get\+Colision\+Point}} (\mbox{\hyperlink{structTable}{Table}} $\ast$table, \mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} $\ast$collision\+Point)
+\begin{DoxyCompactList}\small\item\em Determines the collision point between the cue ball and another ball on the table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{table_8h_a5bed6cd0e0c2525e17b176ac21398dd0}{glue\+Ball}} (\mbox{\hyperlink{structTable}{Table}} $\ast$table)
+\begin{DoxyCompactList}\small\item\em Moves the cue ball to the current mouse position. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{table_8h_ad06f53bb270821737202cc9d2cd34426}{can\+Drop\+Ball}} (\mbox{\hyperlink{structTable}{Table}} $\ast$table)
+\begin{DoxyCompactList}\small\item\em Checks if the cue ball can be dropped at the current position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{table_8h_ab5daf53c5361c6e7951fde668cdcebfa}{switch\+Turn}} (\mbox{\hyperlink{structTable}{Table}} $\ast$table)
+\begin{DoxyCompactList}\small\item\em Switches the turn between players. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structPlayer}{Player}} $\ast$ \mbox{\hyperlink{table_8h_a195ea837ae7cb36ad1fc88830892685f}{get\+Playing\+Player}} (\mbox{\hyperlink{structTable}{Table}} $\ast$table)
+\begin{DoxyCompactList}\small\item\em Retrieves the player who is currently playing. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structPlayer}{Player}} $\ast$ \mbox{\hyperlink{table_8h_a20c62836ab2d942753e121371c20319f}{get\+Not\+Playing\+Player}} (\mbox{\hyperlink{structTable}{Table}} $\ast$table)
+\begin{DoxyCompactList}\small\item\em Retrieves the player who is not currently playing. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{table_8h_a26853fae764068b7bd2f06a108769f59}{is\+Player\+Ball}} (\mbox{\hyperlink{structPlayer}{Player}} $\ast$player, \mbox{\hyperlink{structBall}{Ball}} $\ast$ball)
+\begin{DoxyCompactList}\small\item\em Determines if the given ball belongs to the given player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{table_8h_ac4b03beb252a35b16f8872a1eb05e30b}{draw\+Balls}} (\mbox{\hyperlink{structTable}{Table}} $\ast$table)
+\begin{DoxyCompactList}\small\item\em Draws all balls on the table, including their current positions and states. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{table_8h_a08fd274af564a212243fd39c056c383f}{update\+Spin}} (\mbox{\hyperlink{structTable}{Table}} $\ast$table)
+\begin{DoxyCompactList}\small\item\em Updates the spin of the cue ball based on the mouse position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{table_8h_a9a56947f70af3273dd5a0137daae1dc8}\label{table_8h_a9a56947f70af3273dd5a0137daae1dc8}} 
+\index{table.h@{table.h}!GAME\_STATE@{GAME\_STATE}}
+\index{GAME\_STATE@{GAME\_STATE}!table.h@{table.h}}
+\doxysubsubsection{\texorpdfstring{GAME\_STATE}{GAME\_STATE}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{table_8h_a4cc39f049df62b331976f9a4482bd3ea}{GAME\+\_\+\+STATE}} \mbox{\hyperlink{table_8h_a4cc39f049df62b331976f9a4482bd3ea}{GAME\+\_\+\+STATE}}}
+
+
+
+Enum that represents the game state. 
+
+\mbox{\Hypertarget{table_8h_aaa5713bb2ecdf81c430009179b806232}\label{table_8h_aaa5713bb2ecdf81c430009179b806232}} 
+\index{table.h@{table.h}!Table@{Table}}
+\index{Table@{Table}!table.h@{table.h}}
+\doxysubsubsection{\texorpdfstring{Table}{Table}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structTable}{Table}} \mbox{\hyperlink{structTable}{Table}}}
+
+
+
+Struct that represents the table(when playing) 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{table_8h_a4cc39f049df62b331976f9a4482bd3ea}\label{table_8h_a4cc39f049df62b331976f9a4482bd3ea}} 
+\index{table.h@{table.h}!GAME\_STATE@{GAME\_STATE}}
+\index{GAME\_STATE@{GAME\_STATE}!table.h@{table.h}}
+\doxysubsubsection{\texorpdfstring{GAME\_STATE}{GAME\_STATE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{table_8h_a4cc39f049df62b331976f9a4482bd3ea}{GAME\+\_\+\+STATE}}}
+
+
+
+Enum that represents the game state. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AIMING@{AIMING}!table.h@{table.h}}\index{table.h@{table.h}!AIMING@{AIMING}}}\mbox{\Hypertarget{table_8h_a4cc39f049df62b331976f9a4482bd3eaa56a12b47e812dfad01ec8a8f78bfd99b}\label{table_8h_a4cc39f049df62b331976f9a4482bd3eaa56a12b47e812dfad01ec8a8f78bfd99b}} 
+AIMING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SHOOTING@{SHOOTING}!table.h@{table.h}}\index{table.h@{table.h}!SHOOTING@{SHOOTING}}}\mbox{\Hypertarget{table_8h_a4cc39f049df62b331976f9a4482bd3eaa7b771453d1a8c8cc2efab221859139d8}\label{table_8h_a4cc39f049df62b331976f9a4482bd3eaa7b771453d1a8c8cc2efab221859139d8}} 
+SHOOTING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WAITING@{WAITING}!table.h@{table.h}}\index{table.h@{table.h}!WAITING@{WAITING}}}\mbox{\Hypertarget{table_8h_a4cc39f049df62b331976f9a4482bd3eaa757971c0bc5a1972d5f1b1be2c0e2087}\label{table_8h_a4cc39f049df62b331976f9a4482bd3eaa757971c0bc5a1972d5f1b1be2c0e2087}} 
+WAITING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SIMULATING@{SIMULATING}!table.h@{table.h}}\index{table.h@{table.h}!SIMULATING@{SIMULATING}}}\mbox{\Hypertarget{table_8h_a4cc39f049df62b331976f9a4482bd3eaa508d66e652e8caea37acca3dbb8f1b3b}\label{table_8h_a4cc39f049df62b331976f9a4482bd3eaa508d66e652e8caea37acca3dbb8f1b3b}} 
+SIMULATING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADVANTAGE@{ADVANTAGE}!table.h@{table.h}}\index{table.h@{table.h}!ADVANTAGE@{ADVANTAGE}}}\mbox{\Hypertarget{table_8h_a4cc39f049df62b331976f9a4482bd3eaa0a541c22918eac9459f78cdec0304c82}\label{table_8h_a4cc39f049df62b331976f9a4482bd3eaa0a541c22918eac9459f78cdec0304c82}} 
+ADVANTAGE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{table_8h_ad06f53bb270821737202cc9d2cd34426}\label{table_8h_ad06f53bb270821737202cc9d2cd34426}} 
+\index{table.h@{table.h}!canDropBall@{canDropBall}}
+\index{canDropBall@{canDropBall}!table.h@{table.h}}
+\doxysubsubsection{\texorpdfstring{canDropBall()}{canDropBall()}}
+{\footnotesize\ttfamily bool can\+Drop\+Ball (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table }\end{DoxyParamCaption})}
+
+
+
+Checks if the cue ball can be dropped at the current position. 
+
+This function checks if the cue ball can be dropped at the current mouse position without colliding with other balls or going out of bounds.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Pointer to the \mbox{\hyperlink{structTable}{Table}} structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True if the cue ball can be dropped, false otherwise. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{table_8h_ad06f53bb270821737202cc9d2cd34426_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table_8h_ad06f53bb270821737202cc9d2cd34426_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{table_8h_a64ac10c7832cb134eddcf550bc806573}\label{table_8h_a64ac10c7832cb134eddcf550bc806573}} 
+\index{table.h@{table.h}!destroyTable@{destroyTable}}
+\index{destroyTable@{destroyTable}!table.h@{table.h}}
+\doxysubsubsection{\texorpdfstring{destroyTable()}{destroyTable()}}
+{\footnotesize\ttfamily void destroy\+Table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table }\end{DoxyParamCaption})}
+
+
+
+Destroys a \mbox{\hyperlink{structTable}{Table}} object. 
+
+This function frees the memory allocated for the \mbox{\hyperlink{structTable}{Table}} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Pointer to the \mbox{\hyperlink{structTable}{Table}} object to be destroyed. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=281pt]{table_8h_a64ac10c7832cb134eddcf550bc806573_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table_8h_a64ac10c7832cb134eddcf550bc806573_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{table_8h_ac4b03beb252a35b16f8872a1eb05e30b}\label{table_8h_ac4b03beb252a35b16f8872a1eb05e30b}} 
+\index{table.h@{table.h}!drawBalls@{drawBalls}}
+\index{drawBalls@{drawBalls}!table.h@{table.h}}
+\doxysubsubsection{\texorpdfstring{drawBalls()}{drawBalls()}}
+{\footnotesize\ttfamily void draw\+Balls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table }\end{DoxyParamCaption})}
+
+
+
+Draws all balls on the table, including their current positions and states. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Pointer to the \mbox{\hyperlink{structTable}{Table}} structure. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table_8h_ac4b03beb252a35b16f8872a1eb05e30b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table_8h_ac4b03beb252a35b16f8872a1eb05e30b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{table_8h_a0e36c18757f2fd43e008ee4ad165baaf}\label{table_8h_a0e36c18757f2fd43e008ee4ad165baaf}} 
+\index{table.h@{table.h}!drawTable@{drawTable}}
+\index{drawTable@{drawTable}!table.h@{table.h}}
+\doxysubsubsection{\texorpdfstring{drawTable()}{drawTable()}}
+{\footnotesize\ttfamily int draw\+Table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table,  }\item[{int}]{game\+Time,  }\item[{int}]{round\+Time }\end{DoxyParamCaption})}
+
+
+
+Draws the table on the screen. 
+
+This function draws the table on the screen using the specified xpm images.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Pointer to the \mbox{\hyperlink{structTable}{Table}} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, 1 on failure. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table_8h_a0e36c18757f2fd43e008ee4ad165baaf_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table_8h_a0e36c18757f2fd43e008ee4ad165baaf_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{table_8h_a24763fb42986a86831fe92b93697d3e1}\label{table_8h_a24763fb42986a86831fe92b93697d3e1}} 
+\index{table.h@{table.h}!getColisionPoint@{getColisionPoint}}
+\index{getColisionPoint@{getColisionPoint}!table.h@{table.h}}
+\doxysubsubsection{\texorpdfstring{getColisionPoint()}{getColisionPoint()}}
+{\footnotesize\ttfamily bool get\+Colision\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table,  }\item[{\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} $\ast$}]{collision\+Point }\end{DoxyParamCaption})}
+
+
+
+Determines the collision point between the cue ball and another ball on the table. 
+
+This function calculates the collision point between the cue ball and another ball on the table based on their positions and directions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Pointer to the \mbox{\hyperlink{structTable}{Table}} structure. \\
+\hline
+{\em colision\+Point} & Pointer to a vector\+\_\+t structure where the collision point will be stored. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True if a collision point is found, false otherwise. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{table_8h_a24763fb42986a86831fe92b93697d3e1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table_8h_a24763fb42986a86831fe92b93697d3e1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{table_8h_a20c62836ab2d942753e121371c20319f}\label{table_8h_a20c62836ab2d942753e121371c20319f}} 
+\index{table.h@{table.h}!getNotPlayingPlayer@{getNotPlayingPlayer}}
+\index{getNotPlayingPlayer@{getNotPlayingPlayer}!table.h@{table.h}}
+\doxysubsubsection{\texorpdfstring{getNotPlayingPlayer()}{getNotPlayingPlayer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPlayer}{Player}}$\ast$ get\+Not\+Playing\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table }\end{DoxyParamCaption})}
+
+
+
+Retrieves the player who is not currently playing. 
+
+This function returns a pointer to the player who is not currently playing the game.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Pointer to the \mbox{\hyperlink{structTable}{Table}} structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Player$\ast$ Pointer to the not-\/playing player. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table_8h_a20c62836ab2d942753e121371c20319f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{table_8h_a195ea837ae7cb36ad1fc88830892685f}\label{table_8h_a195ea837ae7cb36ad1fc88830892685f}} 
+\index{table.h@{table.h}!getPlayingPlayer@{getPlayingPlayer}}
+\index{getPlayingPlayer@{getPlayingPlayer}!table.h@{table.h}}
+\doxysubsubsection{\texorpdfstring{getPlayingPlayer()}{getPlayingPlayer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPlayer}{Player}}$\ast$ get\+Playing\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table }\end{DoxyParamCaption})}
+
+
+
+Retrieves the player who is currently playing. 
+
+This function returns a pointer to the player who is currently playing the game.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Pointer to the \mbox{\hyperlink{structTable}{Table}} structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Player$\ast$ Pointer to the playing player. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table_8h_a195ea837ae7cb36ad1fc88830892685f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{table_8h_a5bed6cd0e0c2525e17b176ac21398dd0}\label{table_8h_a5bed6cd0e0c2525e17b176ac21398dd0}} 
+\index{table.h@{table.h}!glueBall@{glueBall}}
+\index{glueBall@{glueBall}!table.h@{table.h}}
+\doxysubsubsection{\texorpdfstring{glueBall()}{glueBall()}}
+{\footnotesize\ttfamily void glue\+Ball (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table }\end{DoxyParamCaption})}
+
+
+
+Moves the cue ball to the current mouse position. 
+
+This function moves the cue ball to the current mouse position, allowing the player to position the cue ball before shooting.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Pointer to the \mbox{\hyperlink{structTable}{Table}} structure. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table_8h_a5bed6cd0e0c2525e17b176ac21398dd0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{table_8h_a26853fae764068b7bd2f06a108769f59}\label{table_8h_a26853fae764068b7bd2f06a108769f59}} 
+\index{table.h@{table.h}!isPlayerBall@{isPlayerBall}}
+\index{isPlayerBall@{isPlayerBall}!table.h@{table.h}}
+\doxysubsubsection{\texorpdfstring{isPlayerBall()}{isPlayerBall()}}
+{\footnotesize\ttfamily bool is\+Player\+Ball (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPlayer}{Player}} $\ast$}]{player,  }\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball }\end{DoxyParamCaption})}
+
+
+
+Determines if the given ball belongs to the given player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Pointer to the \mbox{\hyperlink{structPlayer}{Player}} structure. \\
+\hline
+{\em ball} & Pointer to the \mbox{\hyperlink{structBall}{Ball}} structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True if the ball belongs to the player, false otherwise. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table_8h_a26853fae764068b7bd2f06a108769f59_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{table_8h_a9ef30cef961ee374d50fc769b85cecb6}\label{table_8h_a9ef30cef961ee374d50fc769b85cecb6}} 
+\index{table.h@{table.h}!newTable@{newTable}}
+\index{newTable@{newTable}!table.h@{table.h}}
+\doxysubsubsection{\texorpdfstring{newTable()}{newTable()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structTable}{Table}}$\ast$ new\+Table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates and initializes a new \mbox{\hyperlink{structTable}{Table}} structure with all necessary components such as players, balls, cushions, and graphical assets. 
+
+\begin{DoxyReturn}{Returns}
+Table$\ast$ Pointer to the newly created \mbox{\hyperlink{structTable}{Table}} structure. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table_8h_a9ef30cef961ee374d50fc769b85cecb6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table_8h_a9ef30cef961ee374d50fc769b85cecb6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{table_8h_ab5daf53c5361c6e7951fde668cdcebfa}\label{table_8h_ab5daf53c5361c6e7951fde668cdcebfa}} 
+\index{table.h@{table.h}!switchTurn@{switchTurn}}
+\index{switchTurn@{switchTurn}!table.h@{table.h}}
+\doxysubsubsection{\texorpdfstring{switchTurn()}{switchTurn()}}
+{\footnotesize\ttfamily void switch\+Turn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table }\end{DoxyParamCaption})}
+
+
+
+Switches the turn between players. 
+
+This function switches the turn between players after a shot is taken. It also resets some game state variables for the new turn.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Pointer to the \mbox{\hyperlink{structTable}{Table}} structure. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table_8h_ab5daf53c5361c6e7951fde668cdcebfa_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{table_8h_a86556342c6a9726a30e62dc73899cebc}\label{table_8h_a86556342c6a9726a30e62dc73899cebc}} 
+\index{table.h@{table.h}!updateCueState@{updateCueState}}
+\index{updateCueState@{updateCueState}!table.h@{table.h}}
+\doxysubsubsection{\texorpdfstring{updateCueState()}{updateCueState()}}
+{\footnotesize\ttfamily int update\+Cue\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table,  }\item[{bool}]{power }\end{DoxyParamCaption})}
+
+
+
+Updates the state of the cue stick, including charge level and direction vector. 
+
+This function updates the state of the cue stick based on the user input (mouse movement). It calculates the charge level and direction vector of the cue stick for shooting the cue ball.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Pointer to the \mbox{\hyperlink{structTable}{Table}} structure. \\
+\hline
+{\em power} & Indicates whether the cue stick is being charged or not. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 0 if the update is successful. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table_8h_a86556342c6a9726a30e62dc73899cebc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table_8h_a86556342c6a9726a30e62dc73899cebc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{table_8h_a08fd274af564a212243fd39c056c383f}\label{table_8h_a08fd274af564a212243fd39c056c383f}} 
+\index{table.h@{table.h}!updateSpin@{updateSpin}}
+\index{updateSpin@{updateSpin}!table.h@{table.h}}
+\doxysubsubsection{\texorpdfstring{updateSpin()}{updateSpin()}}
+{\footnotesize\ttfamily bool update\+Spin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table }\end{DoxyParamCaption})}
+
+
+
+Updates the spin of the cue ball based on the mouse position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Pointer to the \mbox{\hyperlink{structTable}{Table}} structure. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{table_8h_a08fd274af564a212243fd39c056c383f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table_8h_a08fd274af564a212243fd39c056c383f_icgraph}
+\end{center}
+\end{figure}

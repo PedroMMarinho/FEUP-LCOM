@@ -1,0 +1,870 @@
+\hypertarget{utilities_8h}{}\doxysection{physics/utilities.h File Reference}
+\label{utilities_8h}\index{physics/utilities.h@{physics/utilities.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../model/vector.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../model/table.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../model/ball/ball.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../model/cushion.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../model/pocket.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../model/event.\+h\char`\"{}}\newline
+Include dependency graph for utilities.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structQuarticCoeff}{Quartic\+Coeff}}
+\begin{DoxyCompactList}\small\item\em Struct that represents the coefficients of a quartic equation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{utilities_8h_ab713552cfd027e60a8e16368280d144c}{print\+Event}} (\mbox{\hyperlink{structEvent}{Event}} $\ast$event)
+\begin{DoxyCompactList}\small\item\em Prints the details of an event. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utilities_8h_a4eb7e31dfb51a3c980f601932a804656}{print\+Float}} (double num)
+\begin{DoxyCompactList}\small\item\em Prints a floating-\/point number. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utilities_8h_a7f344824722c27f4c8b72cb587707bd2}{print\+Coef}} (\mbox{\hyperlink{structQuarticCoeff}{Quartic\+Coeff}} q)
+\begin{DoxyCompactList}\small\item\em Prints the coefficients of a quartic equation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utilities_8h_a1adf03923655fd741ae86e93544e5bb2}{print\+Vector}} (\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} vec)
+\begin{DoxyCompactList}\small\item\em Prints the components of a vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} \mbox{\hyperlink{utilities_8h_ac63b54a8110469a4b6259550fa35ba9a}{unit\+Vector}} (\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} a, \mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} b)
+\begin{DoxyCompactList}\small\item\em Calculates the unit vector from one point to another. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{utilities_8h_a70076007e8799fb3b48697e26eda5390}{angle}} (\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} vec1)
+\begin{DoxyCompactList}\small\item\em Calculates the angle of a vector. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{utilities_8h_a3dc747873a3c7e312efcf0fb5a622e75}{angle\+Between}} (\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} vec1, \mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} vec2)
+\begin{DoxyCompactList}\small\item\em Calculates the angle between two vectors. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} \mbox{\hyperlink{utilities_8h_aecaf46bad7c3ca50690897bba2f57641}{line\+Point\+Closest\+To}} (\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} p1, \mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} p2, \mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} p)
+\begin{DoxyCompactList}\small\item\em Finds the point on a line closest to a given point. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} \mbox{\hyperlink{utilities_8h_ae78350457bd27abcfe7ff6d7e055d160}{normalize\+Vector}} (\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} \mbox{\hyperlink{structvector}{vector}})
+\begin{DoxyCompactList}\small\item\em Normalizes a vector. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{utilities_8h_a98dbd882f9682266f2d87337dc709bdc}{dot\+Product}} (\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} a, \mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} b)
+\begin{DoxyCompactList}\small\item\em Calculates the dot product of two vectors. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{utilities_8h_a42ada5d449eb0a5545123710cc8bf647}{magnitude\+Of}} (\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} \mbox{\hyperlink{structvector}{vector}})
+\begin{DoxyCompactList}\small\item\em Calculates the magnitude of a vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} \mbox{\hyperlink{utilities_8h_a75a2efa623d57f314f94a6fc919e761d}{rotate2d}} (\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} vec, double ang)
+\begin{DoxyCompactList}\small\item\em Rotates a 2D vector by a given angle. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{utilities_8h_a0eefe5b43b95bd28a54243c148a69a35}{quartic}} (double a, double b, double c, double d, double e, double $\ast$ans)
+\begin{DoxyCompactList}\small\item\em Solves a quartic equation. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{utilities_8h_a3931e85da406e9df6796d4ea8c5b9d23}{cubic}} (double b, double c, double d)
+\begin{DoxyCompactList}\small\item\em Solves a cubic equation. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{utilities_8h_ae8e5f8b10dd8134b47299168d36cd3b4}{find\+Smaller\+Coeficient}} (size\+\_\+t n, \mbox{\hyperlink{structQuarticCoeff}{Quartic\+Coeff}} $\ast$coeficients, double $\ast$result)
+\begin{DoxyCompactList}\small\item\em Finds the smallest positive root of a quartic equation. This function finds the smallest positive root of a quartic equation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} \mbox{\hyperlink{utilities_8h_a1c0eb54a750dfe192d89eee1d9684244}{get\+\_\+u\+Vec}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball, double ang)
+\begin{DoxyCompactList}\small\item\em Calculates the unit vector from the ball\textquotesingle{}s. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} \mbox{\hyperlink{utilities_8h_af7589640fa9f4b10339db00dc0079e81}{relative\+Velocity}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball)
+\begin{DoxyCompactList}\small\item\em Calculates the relative velocity of a ball. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{utilities_8h_a8366b7edcbc333d94fa05535ab7184af}{get\+Slide\+Time}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball, double u, double g)
+\begin{DoxyCompactList}\small\item\em Calculates the time for sliding motion to stop for a ball. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{utilities_8h_a517a15c452bb6c79adb99080eff01ea2}{get\+Roll\+Time}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball, double u, double g)
+\begin{DoxyCompactList}\small\item\em Calculates the time for rolling motion to stop for a ball. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{utilities_8h_a144e3089e854d7a5dc817cf09780f160}{get\+Spin\+Time}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball, double u, double g)
+\begin{DoxyCompactList}\small\item\em Calculates the time for spinning motion to stop for a ball. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{utilities_8h_aa7b60acd35a7d23364aa9fcc1bd7c89e}{get\+Ball\+Linear\+Cushion\+Collision\+Time}} (\mbox{\hyperlink{structTable}{Table}} $\ast$table, \mbox{\hyperlink{structBall}{Ball}} $\ast$ball, \mbox{\hyperlink{structLinearCushion}{Linear\+Cushion}} $\ast$cushion)
+\begin{DoxyCompactList}\small\item\em Calculates the time for a linear cushion collision with a ball. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structQuarticCoeff}{Quartic\+Coeff}} \mbox{\hyperlink{utilities_8h_a00262457943146f3d292cd409099937b}{get\+Ball\+Ball\+Collision\+Coeff}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball1, \mbox{\hyperlink{structBall}{Ball}} $\ast$ball2, double u\+Rolling, double u\+Slidding, double g)
+\begin{DoxyCompactList}\small\item\em Calculates the coefficients of a ball-\/ball collision. This function calculates the coefficients of a quartic equation representing a $\ast$ball-\/ball collision. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structQuarticCoeff}{Quartic\+Coeff}} \mbox{\hyperlink{utilities_8h_a653a4c8f91bafdf128c08fa146197d14}{get\+Ball\+Pocket\+Collision\+Coeff}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball, \mbox{\hyperlink{structPocket}{Pocket}} $\ast$pocket, double u\+Rolling, double u\+Slidding, double g)
+\begin{DoxyCompactList}\small\item\em Calculates the coefficients of a ball-\/pocket collision. This function calculates the coefficients of a quartic equation representing a $\ast$ball-\/pocket collision. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structQuarticCoeff}{Quartic\+Coeff}} \mbox{\hyperlink{utilities_8h_ac223ab756d084d6afe5d62e2198ca349}{get\+Ball\+Circular\+Cushion\+Collision\+Coeff}} (\mbox{\hyperlink{structBall}{Ball}} $\ast$ball, \mbox{\hyperlink{structCircularCushion}{Circular\+Cushion}} $\ast$cushion, double u\+Rolling, double u\+Slidding, double g)
+\begin{DoxyCompactList}\small\item\em Calculates the coefficients of a ball-\/circular cushion collision. This function calculates the coefficients of a quartic equation representing a $\ast$ball-\/circular cushion collision. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{utilities_8h_a70076007e8799fb3b48697e26eda5390}\label{utilities_8h_a70076007e8799fb3b48697e26eda5390}} 
+\index{utilities.h@{utilities.h}!angle@{angle}}
+\index{angle@{angle}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{angle()}{angle()}}
+{\footnotesize\ttfamily double angle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}}}]{vec1 }\end{DoxyParamCaption})}
+
+
+
+Calculates the angle of a vector. 
+
+This function calculates the angle of a vector in radians.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec1} & The vector for which to calculate the angle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The angle of the vector in radians. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_a70076007e8799fb3b48697e26eda5390_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utilities_8h_a3dc747873a3c7e312efcf0fb5a622e75}\label{utilities_8h_a3dc747873a3c7e312efcf0fb5a622e75}} 
+\index{utilities.h@{utilities.h}!angleBetween@{angleBetween}}
+\index{angleBetween@{angleBetween}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{angleBetween()}{angleBetween()}}
+{\footnotesize\ttfamily double angle\+Between (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}}}]{vec1,  }\item[{\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}}}]{vec2 }\end{DoxyParamCaption})}
+
+
+
+Calculates the angle between two vectors. 
+
+This function calculates the angle between two vectors in radians.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec1} & The first vector. \\
+\hline
+{\em vec2} & The second vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The angle between the vectors in radians. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_a3dc747873a3c7e312efcf0fb5a622e75_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utilities_8h_a3931e85da406e9df6796d4ea8c5b9d23}\label{utilities_8h_a3931e85da406e9df6796d4ea8c5b9d23}} 
+\index{utilities.h@{utilities.h}!cubic@{cubic}}
+\index{cubic@{cubic}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{cubic()}{cubic()}}
+{\footnotesize\ttfamily double cubic (\begin{DoxyParamCaption}\item[{double}]{b,  }\item[{double}]{c,  }\item[{double}]{d }\end{DoxyParamCaption})}
+
+
+
+Solves a cubic equation. 
+
+This function solves a cubic equation of the form x$^\wedge$3 + bx$^\wedge$2 + cx + d = 0.
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & The coefficient of x$^\wedge$2. \\
+\hline
+{\em c} & The coefficient of x. \\
+\hline
+{\em d} & The constant term. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The solution of the cubic equation. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{utilities_8h_a3931e85da406e9df6796d4ea8c5b9d23_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utilities_8h_a98dbd882f9682266f2d87337dc709bdc}\label{utilities_8h_a98dbd882f9682266f2d87337dc709bdc}} 
+\index{utilities.h@{utilities.h}!dotProduct@{dotProduct}}
+\index{dotProduct@{dotProduct}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{dotProduct()}{dotProduct()}}
+{\footnotesize\ttfamily double dot\+Product (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}}}]{a,  }\item[{\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}}}]{b }\end{DoxyParamCaption})}
+
+
+
+Calculates the dot product of two vectors. 
+
+This function calculates the dot product of two vectors.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The first vector. \\
+\hline
+{\em b} & The second vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The dot product of the two vectors. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_a98dbd882f9682266f2d87337dc709bdc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utilities_8h_ae8e5f8b10dd8134b47299168d36cd3b4}\label{utilities_8h_ae8e5f8b10dd8134b47299168d36cd3b4}} 
+\index{utilities.h@{utilities.h}!findSmallerCoeficient@{findSmallerCoeficient}}
+\index{findSmallerCoeficient@{findSmallerCoeficient}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{findSmallerCoeficient()}{findSmallerCoeficient()}}
+{\footnotesize\ttfamily int find\+Smaller\+Coeficient (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n,  }\item[{\mbox{\hyperlink{structQuarticCoeff}{Quartic\+Coeff}} $\ast$}]{coeficients,  }\item[{double $\ast$}]{result }\end{DoxyParamCaption})}
+
+
+
+Finds the smallest positive root of a quartic equation. This function finds the smallest positive root of a quartic equation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The number of coefficients. \\
+\hline
+{\em coeficients} & An array of \mbox{\hyperlink{structQuarticCoeff}{Quartic\+Coeff}} structures. \\
+\hline
+{\em result} & Pointer to store the smallest positive root. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the smallest positive root in the coefficients array. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_ae8e5f8b10dd8134b47299168d36cd3b4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_ae8e5f8b10dd8134b47299168d36cd3b4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utilities_8h_a1c0eb54a750dfe192d89eee1d9684244}\label{utilities_8h_a1c0eb54a750dfe192d89eee1d9684244}} 
+\index{utilities.h@{utilities.h}!get\_uVec@{get\_uVec}}
+\index{get\_uVec@{get\_uVec}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{get\_uVec()}{get\_uVec()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} get\+\_\+u\+Vec (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball,  }\item[{double}]{ang }\end{DoxyParamCaption})}
+
+
+
+Calculates the unit vector from the ball\textquotesingle{}s. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball} & Pointer to the \mbox{\hyperlink{structBall}{Ball}} structure. \\
+\hline
+{\em ang} & The angle of the ball\textquotesingle{}s velocity vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The unit vector from the ball\textquotesingle{}s position to the point of contact. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_a1c0eb54a750dfe192d89eee1d9684244_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_a1c0eb54a750dfe192d89eee1d9684244_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utilities_8h_a00262457943146f3d292cd409099937b}\label{utilities_8h_a00262457943146f3d292cd409099937b}} 
+\index{utilities.h@{utilities.h}!getBallBallCollisionCoeff@{getBallBallCollisionCoeff}}
+\index{getBallBallCollisionCoeff@{getBallBallCollisionCoeff}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{getBallBallCollisionCoeff()}{getBallBallCollisionCoeff()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structQuarticCoeff}{Quartic\+Coeff}} get\+Ball\+Ball\+Collision\+Coeff (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball1,  }\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball2,  }\item[{double}]{u\+Rolling,  }\item[{double}]{u\+Slidding,  }\item[{double}]{g }\end{DoxyParamCaption})}
+
+
+
+Calculates the coefficients of a ball-\/ball collision. This function calculates the coefficients of a quartic equation representing a $\ast$ball-\/ball collision. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball1} & Pointer to the first \mbox{\hyperlink{structBall}{Ball}} structure. \\
+\hline
+{\em ball2} & Pointer to the second \mbox{\hyperlink{structBall}{Ball}} structure. \\
+\hline
+{\em u\+Rolling} & The coefficient of rolling friction. \\
+\hline
+{\em u\+Sliding} & The coefficient of sliding friction. \\
+\hline
+{\em g} & The gravitational acceleration. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The coefficients of the collision equation. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_a00262457943146f3d292cd409099937b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_a00262457943146f3d292cd409099937b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utilities_8h_ac223ab756d084d6afe5d62e2198ca349}\label{utilities_8h_ac223ab756d084d6afe5d62e2198ca349}} 
+\index{utilities.h@{utilities.h}!getBallCircularCushionCollisionCoeff@{getBallCircularCushionCollisionCoeff}}
+\index{getBallCircularCushionCollisionCoeff@{getBallCircularCushionCollisionCoeff}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{getBallCircularCushionCollisionCoeff()}{getBallCircularCushionCollisionCoeff()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structQuarticCoeff}{Quartic\+Coeff}} get\+Ball\+Circular\+Cushion\+Collision\+Coeff (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball,  }\item[{\mbox{\hyperlink{structCircularCushion}{Circular\+Cushion}} $\ast$}]{cushion,  }\item[{double}]{u\+Rolling,  }\item[{double}]{u\+Slidding,  }\item[{double}]{g }\end{DoxyParamCaption})}
+
+
+
+Calculates the coefficients of a ball-\/circular cushion collision. This function calculates the coefficients of a quartic equation representing a $\ast$ball-\/circular cushion collision. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball} & Pointer to the \mbox{\hyperlink{structBall}{Ball}} structure. \\
+\hline
+{\em cushion} & Pointer to the \mbox{\hyperlink{structCircularCushion}{Circular\+Cushion}} structure. \\
+\hline
+{\em u\+Rolling} & The coefficient of rolling friction. \\
+\hline
+{\em u\+Sliding} & The coefficient of sliding friction. \\
+\hline
+{\em g} & The gravitational acceleration. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The coefficients of the collision equation. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_ac223ab756d084d6afe5d62e2198ca349_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_ac223ab756d084d6afe5d62e2198ca349_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utilities_8h_aa7b60acd35a7d23364aa9fcc1bd7c89e}\label{utilities_8h_aa7b60acd35a7d23364aa9fcc1bd7c89e}} 
+\index{utilities.h@{utilities.h}!getBallLinearCushionCollisionTime@{getBallLinearCushionCollisionTime}}
+\index{getBallLinearCushionCollisionTime@{getBallLinearCushionCollisionTime}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{getBallLinearCushionCollisionTime()}{getBallLinearCushionCollisionTime()}}
+{\footnotesize\ttfamily double get\+Ball\+Linear\+Cushion\+Collision\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTable}{Table}} $\ast$}]{table,  }\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball,  }\item[{\mbox{\hyperlink{structLinearCushion}{Linear\+Cushion}} $\ast$}]{cushion }\end{DoxyParamCaption})}
+
+
+
+Calculates the time for a linear cushion collision with a ball. 
+
+This function calculates the time for a linear cushion collision with a ball.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Pointer to the \mbox{\hyperlink{structTable}{Table}} structure. \\
+\hline
+{\em ball} & Pointer to the \mbox{\hyperlink{structBall}{Ball}} structure. \\
+\hline
+{\em cushion} & Pointer to the \mbox{\hyperlink{structLinearCushion}{Linear\+Cushion}} structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The time for the collision. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_aa7b60acd35a7d23364aa9fcc1bd7c89e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_aa7b60acd35a7d23364aa9fcc1bd7c89e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utilities_8h_a653a4c8f91bafdf128c08fa146197d14}\label{utilities_8h_a653a4c8f91bafdf128c08fa146197d14}} 
+\index{utilities.h@{utilities.h}!getBallPocketCollisionCoeff@{getBallPocketCollisionCoeff}}
+\index{getBallPocketCollisionCoeff@{getBallPocketCollisionCoeff}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{getBallPocketCollisionCoeff()}{getBallPocketCollisionCoeff()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structQuarticCoeff}{Quartic\+Coeff}} get\+Ball\+Pocket\+Collision\+Coeff (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball,  }\item[{\mbox{\hyperlink{structPocket}{Pocket}} $\ast$}]{pocket,  }\item[{double}]{u\+Rolling,  }\item[{double}]{u\+Slidding,  }\item[{double}]{g }\end{DoxyParamCaption})}
+
+
+
+Calculates the coefficients of a ball-\/pocket collision. This function calculates the coefficients of a quartic equation representing a $\ast$ball-\/pocket collision. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball} & Pointer to the \mbox{\hyperlink{structBall}{Ball}} structure. \\
+\hline
+{\em pocket} & Pointer to the \mbox{\hyperlink{structPocket}{Pocket}} structure. \\
+\hline
+{\em u\+Rolling} & The coefficient of rolling friction. \\
+\hline
+{\em u\+Sliding} & The coefficient of sliding friction. \\
+\hline
+{\em g} & The gravitational acceleration. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The coefficients of the collision equation. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_a653a4c8f91bafdf128c08fa146197d14_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_a653a4c8f91bafdf128c08fa146197d14_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utilities_8h_a517a15c452bb6c79adb99080eff01ea2}\label{utilities_8h_a517a15c452bb6c79adb99080eff01ea2}} 
+\index{utilities.h@{utilities.h}!getRollTime@{getRollTime}}
+\index{getRollTime@{getRollTime}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{getRollTime()}{getRollTime()}}
+{\footnotesize\ttfamily double get\+Roll\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball,  }\item[{double}]{u,  }\item[{double}]{g }\end{DoxyParamCaption})}
+
+
+
+Calculates the time for rolling motion to stop for a ball. 
+
+This function calculates the time for rolling motion to stop for a ball.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball} & Pointer to the \mbox{\hyperlink{structBall}{Ball}} structure. \\
+\hline
+{\em u} & The coefficient of friction. \\
+\hline
+{\em g} & The gravitational acceleration. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The time for rolling motion to stop. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{utilities_8h_a517a15c452bb6c79adb99080eff01ea2_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_a517a15c452bb6c79adb99080eff01ea2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utilities_8h_a8366b7edcbc333d94fa05535ab7184af}\label{utilities_8h_a8366b7edcbc333d94fa05535ab7184af}} 
+\index{utilities.h@{utilities.h}!getSlideTime@{getSlideTime}}
+\index{getSlideTime@{getSlideTime}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{getSlideTime()}{getSlideTime()}}
+{\footnotesize\ttfamily double get\+Slide\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball,  }\item[{double}]{u,  }\item[{double}]{g }\end{DoxyParamCaption})}
+
+
+
+Calculates the time for sliding motion to stop for a ball. 
+
+This function calculates the time for sliding motion to stop for a ball.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball} & Pointer to the \mbox{\hyperlink{structBall}{Ball}} structure. \\
+\hline
+{\em u} & The coefficient of friction. \\
+\hline
+{\em g} & The gravitational acceleration. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The time for sliding motion to stop. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{utilities_8h_a8366b7edcbc333d94fa05535ab7184af_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_a8366b7edcbc333d94fa05535ab7184af_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utilities_8h_a144e3089e854d7a5dc817cf09780f160}\label{utilities_8h_a144e3089e854d7a5dc817cf09780f160}} 
+\index{utilities.h@{utilities.h}!getSpinTime@{getSpinTime}}
+\index{getSpinTime@{getSpinTime}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{getSpinTime()}{getSpinTime()}}
+{\footnotesize\ttfamily double get\+Spin\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball,  }\item[{double}]{u,  }\item[{double}]{g }\end{DoxyParamCaption})}
+
+
+
+Calculates the time for spinning motion to stop for a ball. 
+
+This function calculates the time for spinning motion to stop for a ball.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball} & Pointer to the \mbox{\hyperlink{structBall}{Ball}} structure. \\
+\hline
+{\em u} & The coefficient of friction. \\
+\hline
+{\em g} & The gravitational acceleration. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The time for spinning motion to stop. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_a144e3089e854d7a5dc817cf09780f160_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utilities_8h_aecaf46bad7c3ca50690897bba2f57641}\label{utilities_8h_aecaf46bad7c3ca50690897bba2f57641}} 
+\index{utilities.h@{utilities.h}!linePointClosestTo@{linePointClosestTo}}
+\index{linePointClosestTo@{linePointClosestTo}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{linePointClosestTo()}{linePointClosestTo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} line\+Point\+Closest\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}}}]{p1,  }\item[{\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}}}]{p2,  }\item[{\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}}}]{p }\end{DoxyParamCaption})}
+
+
+
+Finds the point on a line closest to a given point. 
+
+This function calculates the point on a line defined by two points (p1 and p2) that is closest to a given point (p).
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & The first point defining the line. \\
+\hline
+{\em p2} & The second point defining the line. \\
+\hline
+{\em p} & The point for which to find the closest point on the line. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The point on the line closest to the given point. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=291pt]{utilities_8h_aecaf46bad7c3ca50690897bba2f57641_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_aecaf46bad7c3ca50690897bba2f57641_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utilities_8h_a42ada5d449eb0a5545123710cc8bf647}\label{utilities_8h_a42ada5d449eb0a5545123710cc8bf647}} 
+\index{utilities.h@{utilities.h}!magnitudeOf@{magnitudeOf}}
+\index{magnitudeOf@{magnitudeOf}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{magnitudeOf()}{magnitudeOf()}}
+{\footnotesize\ttfamily double magnitude\+Of (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}}}]{vector }\end{DoxyParamCaption})}
+
+
+
+Calculates the magnitude of a vector. 
+
+This function calculates the magnitude (length) of a vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector} & The vector for which to calculate the magnitude. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The magnitude of the vector. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_a42ada5d449eb0a5545123710cc8bf647_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utilities_8h_ae78350457bd27abcfe7ff6d7e055d160}\label{utilities_8h_ae78350457bd27abcfe7ff6d7e055d160}} 
+\index{utilities.h@{utilities.h}!normalizeVector@{normalizeVector}}
+\index{normalizeVector@{normalizeVector}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{normalizeVector()}{normalizeVector()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} normalize\+Vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}}}]{vector }\end{DoxyParamCaption})}
+
+
+
+Normalizes a vector. 
+
+This function normalizes a vector, making its magnitude equal to 1.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector} & The vector to normalize. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The normalized vector. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{utilities_8h_ae78350457bd27abcfe7ff6d7e055d160_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_ae78350457bd27abcfe7ff6d7e055d160_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utilities_8h_a7f344824722c27f4c8b72cb587707bd2}\label{utilities_8h_a7f344824722c27f4c8b72cb587707bd2}} 
+\index{utilities.h@{utilities.h}!printCoef@{printCoef}}
+\index{printCoef@{printCoef}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{printCoef()}{printCoef()}}
+{\footnotesize\ttfamily void print\+Coef (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structQuarticCoeff}{Quartic\+Coeff}}}]{q }\end{DoxyParamCaption})}
+
+
+
+Prints the coefficients of a quartic equation. 
+
+This function prints the coefficients (a, b, c, d, e) of a quartic equation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & The \mbox{\hyperlink{structQuarticCoeff}{Quartic\+Coeff}} structure containing the coefficients. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utilities_8h_ab713552cfd027e60a8e16368280d144c}\label{utilities_8h_ab713552cfd027e60a8e16368280d144c}} 
+\index{utilities.h@{utilities.h}!printEvent@{printEvent}}
+\index{printEvent@{printEvent}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{printEvent()}{printEvent()}}
+{\footnotesize\ttfamily void print\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEvent}{Event}} $\ast$}]{event }\end{DoxyParamCaption})}
+
+
+
+Prints the details of an event. 
+
+This function prints the type and time of the event.
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Pointer to the \mbox{\hyperlink{structEvent}{Event}} structure. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{utilities_8h_ab713552cfd027e60a8e16368280d144c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_ab713552cfd027e60a8e16368280d144c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utilities_8h_a4eb7e31dfb51a3c980f601932a804656}\label{utilities_8h_a4eb7e31dfb51a3c980f601932a804656}} 
+\index{utilities.h@{utilities.h}!printFloat@{printFloat}}
+\index{printFloat@{printFloat}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{printFloat()}{printFloat()}}
+{\footnotesize\ttfamily void print\+Float (\begin{DoxyParamCaption}\item[{double}]{num }\end{DoxyParamCaption})}
+
+
+
+Prints a floating-\/point number. 
+
+This function prints a floating-\/point number.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & The floating-\/point number to print. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_a4eb7e31dfb51a3c980f601932a804656_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utilities_8h_a1adf03923655fd741ae86e93544e5bb2}\label{utilities_8h_a1adf03923655fd741ae86e93544e5bb2}} 
+\index{utilities.h@{utilities.h}!printVector@{printVector}}
+\index{printVector@{printVector}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{printVector()}{printVector()}}
+{\footnotesize\ttfamily void print\+Vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}}}]{vec }\end{DoxyParamCaption})}
+
+
+
+Prints the components of a vector. 
+
+This function prints the x and y components of a vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & The vector to print. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utilities_8h_a0eefe5b43b95bd28a54243c148a69a35}\label{utilities_8h_a0eefe5b43b95bd28a54243c148a69a35}} 
+\index{utilities.h@{utilities.h}!quartic@{quartic}}
+\index{quartic@{quartic}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{quartic()}{quartic()}}
+{\footnotesize\ttfamily int quartic (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b,  }\item[{double}]{c,  }\item[{double}]{d,  }\item[{double}]{e,  }\item[{double $\ast$}]{ans }\end{DoxyParamCaption})}
+
+
+
+Solves a quartic equation. 
+
+This function solves a quartic equation of the form x$^\wedge$4 + bx$^\wedge$3 + cx$^\wedge$2 + dx + e = 0.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The coefficient of x$^\wedge$3. \\
+\hline
+{\em b} & The coefficient of x$^\wedge$2. \\
+\hline
+{\em c} & The coefficient of x. \\
+\hline
+{\em d} & The constant term. \\
+\hline
+{\em e} & The constant term. \\
+\hline
+{\em ans} & Pointer to an array to store the solutions. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of solutions. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{utilities_8h_a0eefe5b43b95bd28a54243c148a69a35_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utilities_8h_af7589640fa9f4b10339db00dc0079e81}\label{utilities_8h_af7589640fa9f4b10339db00dc0079e81}} 
+\index{utilities.h@{utilities.h}!relativeVelocity@{relativeVelocity}}
+\index{relativeVelocity@{relativeVelocity}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{relativeVelocity()}{relativeVelocity()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} relative\+Velocity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structBall}{Ball}} $\ast$}]{ball }\end{DoxyParamCaption})}
+
+
+
+Calculates the relative velocity of a ball. 
+
+This function calculates the relative velocity of a ball at a given state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball} & Pointer to the \mbox{\hyperlink{structBall}{Ball}} structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The relative velocity of the ball. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_af7589640fa9f4b10339db00dc0079e81_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utilities_8h_a75a2efa623d57f314f94a6fc919e761d}\label{utilities_8h_a75a2efa623d57f314f94a6fc919e761d}} 
+\index{utilities.h@{utilities.h}!rotate2d@{rotate2d}}
+\index{rotate2d@{rotate2d}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{rotate2d()}{rotate2d()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} rotate2d (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}}}]{vec,  }\item[{double}]{ang }\end{DoxyParamCaption})}
+
+
+
+Rotates a 2D vector by a given angle. 
+
+This function rotates a 2D vector by a given angle in radians.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & The vector to rotate. \\
+\hline
+{\em ang} & The angle of rotation in radians. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The rotated vector. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_a75a2efa623d57f314f94a6fc919e761d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utilities_8h_ac63b54a8110469a4b6259550fa35ba9a}\label{utilities_8h_ac63b54a8110469a4b6259550fa35ba9a}} 
+\index{utilities.h@{utilities.h}!unitVector@{unitVector}}
+\index{unitVector@{unitVector}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{unitVector()}{unitVector()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}} unit\+Vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}}}]{a,  }\item[{\mbox{\hyperlink{vector_8h_a44f8285ddb5bd8e55dd64651e13de7e3}{vector\+\_\+t}}}]{b }\end{DoxyParamCaption})}
+
+
+
+Calculates the unit vector from one point to another. 
+
+This function calculates the unit vector pointing from one point (start) to another point (end).
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & The starting point. \\
+\hline
+{\em end} & The ending point. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The unit vector from start to end. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_ac63b54a8110469a4b6259550fa35ba9a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utilities_8h_ac63b54a8110469a4b6259550fa35ba9a_icgraph}
+\end{center}
+\end{figure}

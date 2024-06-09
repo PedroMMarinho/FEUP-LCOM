@@ -1,0 +1,4 @@
+<map id="queue_front" name="queue_front">
+<area shape="rect" id="node1" title="get the front value of the queue" alt="" coords="5,5,105,32"/>
+<area shape="rect" id="node2" href="$queue_8c.html#ab24e6cf27bfe70fd3f103d8e97ca0407" title="check if the queue is empty" alt="" coords="153,5,276,32"/>
+</map>

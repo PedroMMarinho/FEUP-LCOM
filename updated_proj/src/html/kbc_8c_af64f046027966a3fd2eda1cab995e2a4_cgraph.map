@@ -1,0 +1,4 @@
+<map id="kbc_insert_command" name="kbc_insert_command">
+<area shape="rect" id="node1" title="Inserts a command into the keyboard controller (KBC)." alt="" coords="5,5,167,32"/>
+<area shape="rect" id="node2" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title="Reads a byte from a port." alt="" coords="215,5,313,32"/>
+</map>

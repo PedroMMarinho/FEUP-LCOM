@@ -1,0 +1,488 @@
+\hypertarget{graphics_8h}{}\doxysection{labs/graphics.h File Reference}
+\label{graphics_8h}\index{labs/graphics.h@{labs/graphics.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+Include dependency graph for graphics.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{graphics_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphics_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{graphics_8h_a5a481f6814a0c089c0abe17d3b7c6595}{map\+Memory}} (uint16\+\_\+t mode)
+\begin{DoxyCompactList}\small\item\em Maps memory for the given video mode. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{graphics_8h_af8014bbc85282cb9c32cbd0ad822f02a}{change\+Mode}} (uint16\+\_\+t mode)
+\begin{DoxyCompactList}\small\item\em Changes the video mode. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{graphics_8h_a32659541708692c0dda94dab8db36ae4}{swap\+\_\+buffers}} ()
+\begin{DoxyCompactList}\small\item\em Swaps the front and back buffers. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{graphics_8h_a5e5b25bd525250f61f40b9e9f212d5e6}{vg\+\_\+draw\+\_\+hline}} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t len, uint32\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws a horizontal line. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{graphics_8h_a240fc458a4f42c9396bcc98d47f253e3}{vg\+\_\+draw\+\_\+vline}} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t len, uint32\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws a vertical line. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{graphics_8h_a99d2da2559e11200c6b40c469e9977ec}{vg\+\_\+draw\+\_\+rectangle}} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t width, uint16\+\_\+t height, uint32\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws a rectangle. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{graphics_8h_abcd14d829edc3257916bdcc1a9aca216}{draw\+\_\+pixel}} (uint16\+\_\+t x, uint16\+\_\+t y, uint32\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws a pixel. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{graphics_8h_aeec97399adfeeef505ee4f130381da93}{vg\+\_\+draw\+\_\+pattern}} (uint8\+\_\+t no\+\_\+rectangles, uint32\+\_\+t first, uint8\+\_\+t step)
+\begin{DoxyCompactList}\small\item\em Draws a pattern. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{graphics_8h_a377a4d00a4b958b9d41e3289c0f10abc}{R}} (uint32\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Extracts the red component from a color. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{graphics_8h_a5392c6c7a5c4cf34a80334729119a19a}{G}} (uint32\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Extracts the green component from a color. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{graphics_8h_af4090a22121cf0039e5c5df5a019d3ce}{B}} (uint32\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Extracts the blue component from a color. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{graphics_8h_ad4efe9c8fe8912ecd65c5fc512c15d03}{draw\+XPMImage}} (xpm\+\_\+image\+\_\+t img, double x, double y, double \mbox{\hyperlink{utilities_8h_a70076007e8799fb3b48697e26eda5390}{angle}})
+\begin{DoxyCompactList}\small\item\em Draws an XPM image. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{graphics_8h_a6f8c21bba24aa9957c09e423866422bf}{clean\+Canvas}} ()
+\begin{DoxyCompactList}\small\item\em Clears the canvas. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{graphics_8h_a83df4b7f8579d6d479b72a3f18b3620f}{draw\+Text}} (char $\ast$text, xpm\+\_\+image\+\_\+t $\ast$font, uint16\+\_\+t x, uint16\+\_\+t y, uint8\+\_\+t spacing)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{graphics_8h_af4090a22121cf0039e5c5df5a019d3ce}\label{graphics_8h_af4090a22121cf0039e5c5df5a019d3ce}} 
+\index{graphics.h@{graphics.h}!B@{B}}
+\index{B@{B}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{B()}{B()}}
+{\footnotesize\ttfamily uint8\+\_\+t B (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Extracts the blue component from a color. 
+
+This function retrieves the blue component from a 32-\/bit color value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & The 32-\/bit color value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The blue component. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphics_8h_af4090a22121cf0039e5c5df5a019d3ce_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphics_8h_af8014bbc85282cb9c32cbd0ad822f02a}\label{graphics_8h_af8014bbc85282cb9c32cbd0ad822f02a}} 
+\index{graphics.h@{graphics.h}!changeMode@{changeMode}}
+\index{changeMode@{changeMode}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{changeMode()}{changeMode()}}
+{\footnotesize\ttfamily int change\+Mode (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{mode }\end{DoxyParamCaption})}
+
+
+
+Changes the video mode. 
+
+This function switches the display to the specified video mode.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & The video mode to be set.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, one otherwise. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphics_8h_af8014bbc85282cb9c32cbd0ad822f02a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphics_8h_a6f8c21bba24aa9957c09e423866422bf}\label{graphics_8h_a6f8c21bba24aa9957c09e423866422bf}} 
+\index{graphics.h@{graphics.h}!cleanCanvas@{cleanCanvas}}
+\index{cleanCanvas@{cleanCanvas}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{cleanCanvas()}{cleanCanvas()}}
+{\footnotesize\ttfamily int() clean\+Canvas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clears the canvas. 
+
+This function clears the entire drawing canvas, usually by setting it to a default(all black) background color.
+
+\begin{DoxyReturn}{Returns}
+0 on success, one otherwise. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphics_8h_a6f8c21bba24aa9957c09e423866422bf_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphics_8h_abcd14d829edc3257916bdcc1a9aca216}\label{graphics_8h_abcd14d829edc3257916bdcc1a9aca216}} 
+\index{graphics.h@{graphics.h}!draw\_pixel@{draw\_pixel}}
+\index{draw\_pixel@{draw\_pixel}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{draw\_pixel()}{draw\_pixel()}}
+{\footnotesize\ttfamily int draw\+\_\+pixel (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint32\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draws a pixel. 
+
+This function sets the color of a single pixel at (x, y).
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate of the pixel. \\
+\hline
+{\em y} & The y-\/coordinate of the pixel. \\
+\hline
+{\em color} & The color of the pixel. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, one otherwise. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphics_8h_abcd14d829edc3257916bdcc1a9aca216_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphics_8h_a83df4b7f8579d6d479b72a3f18b3620f}\label{graphics_8h_a83df4b7f8579d6d479b72a3f18b3620f}} 
+\index{graphics.h@{graphics.h}!drawText@{drawText}}
+\index{drawText@{drawText}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{drawText()}{drawText()}}
+{\footnotesize\ttfamily int draw\+Text (\begin{DoxyParamCaption}\item[{char $\ast$}]{text,  }\item[{xpm\+\_\+image\+\_\+t $\ast$}]{font,  }\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint8\+\_\+t}]{spacing }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphics_8h_a83df4b7f8579d6d479b72a3f18b3620f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphics_8h_a83df4b7f8579d6d479b72a3f18b3620f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphics_8h_ad4efe9c8fe8912ecd65c5fc512c15d03}\label{graphics_8h_ad4efe9c8fe8912ecd65c5fc512c15d03}} 
+\index{graphics.h@{graphics.h}!drawXPMImage@{drawXPMImage}}
+\index{drawXPMImage@{drawXPMImage}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{drawXPMImage()}{drawXPMImage()}}
+{\footnotesize\ttfamily int draw\+XPMImage (\begin{DoxyParamCaption}\item[{xpm\+\_\+image\+\_\+t}]{img,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{angle }\end{DoxyParamCaption})}
+
+
+
+Draws an XPM image. 
+
+This function draws an XPM image at the specified position and rotation angle.
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & The XPM image to draw. \\
+\hline
+{\em x} & The x-\/coordinate where the image will be drawn. \\
+\hline
+{\em y} & The y-\/coordinate where the image will be drawn. \\
+\hline
+{\em angle} & The rotation angle of the image. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, one otherwise. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{graphics_8h_ad4efe9c8fe8912ecd65c5fc512c15d03_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphics_8h_ad4efe9c8fe8912ecd65c5fc512c15d03_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphics_8h_a5392c6c7a5c4cf34a80334729119a19a}\label{graphics_8h_a5392c6c7a5c4cf34a80334729119a19a}} 
+\index{graphics.h@{graphics.h}!G@{G}}
+\index{G@{G}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{G()}{G()}}
+{\footnotesize\ttfamily uint8\+\_\+t G (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Extracts the green component from a color. 
+
+This function retrieves the green component from a 32-\/bit color value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & The 32-\/bit color value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The green component. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=243pt]{graphics_8h_a5392c6c7a5c4cf34a80334729119a19a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphics_8h_a5a481f6814a0c089c0abe17d3b7c6595}\label{graphics_8h_a5a481f6814a0c089c0abe17d3b7c6595}} 
+\index{graphics.h@{graphics.h}!mapMemory@{mapMemory}}
+\index{mapMemory@{mapMemory}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{mapMemory()}{mapMemory()}}
+{\footnotesize\ttfamily int map\+Memory (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{mode }\end{DoxyParamCaption})}
+
+
+
+Maps memory for the given video mode. 
+
+This function sets up the memory mapping for the specified video mode.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & The video mode to be set.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, one otherwise. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphics_8h_a5a481f6814a0c089c0abe17d3b7c6595_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphics_8h_a377a4d00a4b958b9d41e3289c0f10abc}\label{graphics_8h_a377a4d00a4b958b9d41e3289c0f10abc}} 
+\index{graphics.h@{graphics.h}!R@{R}}
+\index{R@{R}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{R()}{R()}}
+{\footnotesize\ttfamily uint8\+\_\+t R (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Extracts the red component from a color. 
+
+This function retrieves the red component from a 32-\/bit color value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & The 32-\/bit color value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The red component. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=243pt]{graphics_8h_a377a4d00a4b958b9d41e3289c0f10abc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphics_8h_a32659541708692c0dda94dab8db36ae4}\label{graphics_8h_a32659541708692c0dda94dab8db36ae4}} 
+\index{graphics.h@{graphics.h}!swap\_buffers@{swap\_buffers}}
+\index{swap\_buffers@{swap\_buffers}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{swap\_buffers()}{swap\_buffers()}}
+{\footnotesize\ttfamily int() swap\+\_\+buffers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Swaps the front and back buffers. 
+
+This function performs double buffering by swapping the buffers, which helps to avoid flickering.
+
+\begin{DoxyReturn}{Returns}
+0 on success, one otherwise. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{graphics_8h_a32659541708692c0dda94dab8db36ae4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphics_8h_a32659541708692c0dda94dab8db36ae4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphics_8h_a5e5b25bd525250f61f40b9e9f212d5e6}\label{graphics_8h_a5e5b25bd525250f61f40b9e9f212d5e6}} 
+\index{graphics.h@{graphics.h}!vg\_draw\_hline@{vg\_draw\_hline}}
+\index{vg\_draw\_hline@{vg\_draw\_hline}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{vg\_draw\_hline()}{vg\_draw\_hline()}}
+{\footnotesize\ttfamily int() vg\+\_\+draw\+\_\+hline (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{len,  }\item[{uint32\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draws a horizontal line. 
+
+This function draws a horizontal line starting at (x, y) with the specified length and color.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate of the start point. \\
+\hline
+{\em y} & The y-\/coordinate of the start point. \\
+\hline
+{\em len} & The length of the line. \\
+\hline
+{\em color} & The color of the line. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, one otherwise. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{graphics_8h_a5e5b25bd525250f61f40b9e9f212d5e6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphics_8h_a5e5b25bd525250f61f40b9e9f212d5e6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphics_8h_aeec97399adfeeef505ee4f130381da93}\label{graphics_8h_aeec97399adfeeef505ee4f130381da93}} 
+\index{graphics.h@{graphics.h}!vg\_draw\_pattern@{vg\_draw\_pattern}}
+\index{vg\_draw\_pattern@{vg\_draw\_pattern}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{vg\_draw\_pattern()}{vg\_draw\_pattern()}}
+{\footnotesize\ttfamily int vg\+\_\+draw\+\_\+pattern (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{no\+\_\+rectangles,  }\item[{uint32\+\_\+t}]{first,  }\item[{uint8\+\_\+t}]{step }\end{DoxyParamCaption})}
+
+
+
+Draws a pattern. 
+
+This function draws a pattern with a specified number of rectangles, initial color, and step.
+
+
+\begin{DoxyParams}{Parameters}
+{\em no\+\_\+rectangles} & Number of rectangles in the pattern. \\
+\hline
+{\em first} & The initial color. \\
+\hline
+{\em step} & The step for the color. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, non-\/zero otherwise. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphics_8h_aeec97399adfeeef505ee4f130381da93_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphics_8h_a99d2da2559e11200c6b40c469e9977ec}\label{graphics_8h_a99d2da2559e11200c6b40c469e9977ec}} 
+\index{graphics.h@{graphics.h}!vg\_draw\_rectangle@{vg\_draw\_rectangle}}
+\index{vg\_draw\_rectangle@{vg\_draw\_rectangle}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{vg\_draw\_rectangle()}{vg\_draw\_rectangle()}}
+{\footnotesize\ttfamily int() vg\+\_\+draw\+\_\+rectangle (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{width,  }\item[{uint16\+\_\+t}]{height,  }\item[{uint32\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draws a rectangle. 
+
+This function draws a rectangle with the specified dimensions and color.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate of the top-\/left corner. \\
+\hline
+{\em y} & The y-\/coordinate of the top-\/left corner. \\
+\hline
+{\em width} & The width of the rectangle. \\
+\hline
+{\em height} & The height of the rectangle. \\
+\hline
+{\em color} & The color of the rectangle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, one otherwise. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphics_8h_a99d2da2559e11200c6b40c469e9977ec_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphics_8h_a99d2da2559e11200c6b40c469e9977ec_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphics_8h_a240fc458a4f42c9396bcc98d47f253e3}\label{graphics_8h_a240fc458a4f42c9396bcc98d47f253e3}} 
+\index{graphics.h@{graphics.h}!vg\_draw\_vline@{vg\_draw\_vline}}
+\index{vg\_draw\_vline@{vg\_draw\_vline}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{vg\_draw\_vline()}{vg\_draw\_vline()}}
+{\footnotesize\ttfamily int vg\+\_\+draw\+\_\+vline (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{len,  }\item[{uint32\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draws a vertical line. 
+
+This function draws a vertical line starting at (x, y) with the specified length and color.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate of the start point. \\
+\hline
+{\em y} & The y-\/coordinate of the start point. \\
+\hline
+{\em len} & The length of the line. \\
+\hline
+{\em color} & The color of the line. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, one otherwise. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{graphics_8h_a240fc458a4f42c9396bcc98d47f253e3_cgraph}
+\end{center}
+\end{figure}

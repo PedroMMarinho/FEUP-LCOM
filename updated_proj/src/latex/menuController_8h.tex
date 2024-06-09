@@ -1,0 +1,72 @@
+\hypertarget{menuController_8h}{}\doxysection{controllers/menu\+Controller.h File Reference}
+\label{menuController_8h}\index{controllers/menuController.h@{controllers/menuController.h}}
+{\ttfamily \#include \char`\"{}lcom/lcf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+States/states.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../model/menu.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}multiplayer\+Controller.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../labs/rtc.\+h\char`\"{}}\newline
+Include dependency graph for menu\+Controller.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuController_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{menuController_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{states_8h_a275a67132f10277ada3a0ee3d616b647}{STATE}} \mbox{\hyperlink{menuController_8h_a7c7a58765cda0a55100ee122aa0d7fd8}{menu\+Controller\+Handle}} (\mbox{\hyperlink{structMenu}{Menu}} $\ast$menu, char $\ast$player\+Name, \mbox{\hyperlink{states_8h_a833b28f90e109607cd5d9e826474893a}{DEVICE}} interrupt\+Type, const struct \mbox{\hyperlink{mouse_8c_aa93413b717e8f22525818b0f5efdd448}{packet}} $\ast$\mbox{\hyperlink{mouse_8c_aa93413b717e8f22525818b0f5efdd448}{packet}}, uint8\+\_\+t scan\+Code, unsigned \mbox{\hyperlink{timer_8c_a4bd3978f9fa83a0e08225dca54a00eb6}{elapsed}})
+\begin{DoxyCompactList}\small\item\em Handles the menu controller. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{menuController_8h_a7c7a58765cda0a55100ee122aa0d7fd8}\label{menuController_8h_a7c7a58765cda0a55100ee122aa0d7fd8}} 
+\index{menuController.h@{menuController.h}!menuControllerHandle@{menuControllerHandle}}
+\index{menuControllerHandle@{menuControllerHandle}!menuController.h@{menuController.h}}
+\doxysubsubsection{\texorpdfstring{menuControllerHandle()}{menuControllerHandle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{states_8h_a275a67132f10277ada3a0ee3d616b647}{STATE}} menu\+Controller\+Handle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMenu}{Menu}} $\ast$}]{menu,  }\item[{char $\ast$}]{player\+Name,  }\item[{\mbox{\hyperlink{states_8h_a833b28f90e109607cd5d9e826474893a}{DEVICE}}}]{interrupt\+Type,  }\item[{const struct \mbox{\hyperlink{mouse_8c_aa93413b717e8f22525818b0f5efdd448}{packet}} $\ast$}]{packet,  }\item[{uint8\+\_\+t}]{scan\+Code,  }\item[{unsigned}]{elapsed }\end{DoxyParamCaption})}
+
+
+
+Handles the menu controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em menu} & \mbox{\hyperlink{structMenu}{Menu}} to be handled \\
+\hline
+{\em player\+Name} & Name of the player \\
+\hline
+{\em interrupt\+Type} & Type of interrupt \\
+\hline
+{\em packet} & Packet to be handled \\
+\hline
+{\em scan\+Code} & Scan code to be handled \\
+\hline
+{\em elapsed} & Time elapsed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+STATE Next state 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuController_8h_a7c7a58765cda0a55100ee122aa0d7fd8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menuController_8h_a7c7a58765cda0a55100ee122aa0d7fd8_icgraph}
+\end{center}
+\end{figure}

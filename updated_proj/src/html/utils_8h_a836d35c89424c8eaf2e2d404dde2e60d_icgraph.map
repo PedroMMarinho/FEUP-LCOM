@@ -1,0 +1,11 @@
+<map id="delay_milli_seconds" name="delay_milli_seconds">
+<area shape="rect" id="node1" title=" " alt="" coords="976,31,1131,57"/>
+<area shape="rect" id="node2" href="$rtc_8c.html#a4d4955d5d77aadb1feb6b78d3e463e6b" title=" " alt="" coords="797,31,928,57"/>
+<area shape="rect" id="node3" href="$rtc_8c.html#a9db3d02888ce56d676eacc9e9ca5967d" title=" " alt="" coords="601,5,749,32"/>
+<area shape="rect" id="node8" href="$rtc_8c.html#a459cb824c1918558a5aca60ec6325c2f" title=" " alt="" coords="632,56,719,83"/>
+<area shape="rect" id="node4" href="$rtc_8c.html#a0b9ae809cf571f61e54712a23c65348e" title="RTC interrupt handler." alt="" coords="470,5,529,32"/>
+<area shape="rect" id="node5" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="307,31,397,57"/>
+<area shape="rect" id="node6" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,31,259,57"/>
+<area shape="rect" id="node7" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,31,128,57"/>
+<area shape="rect" id="node9" href="$rtc_8c.html#a88a31da998dedaa26c3e2e4d69b31743" title="Subscribes and enables RTC interrupts." alt="" coords="445,56,553,83"/>
+</map>

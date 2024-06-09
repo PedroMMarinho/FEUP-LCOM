@@ -1,0 +1,18 @@
+<map id="newInvalidEvent" name="newInvalidEvent">
+<area shape="rect" id="node1" title="Creates a new invalid event." alt="" coords="1245,187,1376,213"/>
+<area shape="rect" id="node2" href="$events_8c.html#a19348c19f57f9b0fd7ba87b68e173ac9" title="Finds the next collision event between two balls on the table." alt="" coords="1007,107,1187,133"/>
+<area shape="rect" id="node3" href="$events_8c.html#ab58ba60736e19e4094180b548a0ad565" title="Finds the next event on the table." alt="" coords="837,187,948,213"/>
+<area shape="rect" id="node9" href="$events_8c.html#a677ef20f45f38639c5d967279708cb15" title="Finds the next collision event between a ball and a circular cushion on the table." alt="" coords="996,209,1197,250"/>
+<area shape="rect" id="node10" href="$events_8c.html#ae2069e820ed131b38d776121eaa66b51" title="Finds the next collision event between a ball and a linear cushion on the table." alt="" coords="1001,274,1192,315"/>
+<area shape="rect" id="node11" href="$events_8c.html#a0eb960b68caca6c994f8684afb8e2450" title="Finds the next collision event between a ball and a pocket on the table." alt="" coords="997,340,1196,367"/>
+<area shape="rect" id="node12" href="$events_8c.html#a184be682caa89210def5198629f615be" title="Finds the next transition event for a ball on the table." alt="" coords="1028,56,1165,83"/>
+<area shape="rect" id="node13" href="$ball_8c.html#a271805fc2d53ac02c90bdb5e0656fd50" title="Creates a new ball." alt="" coords="1059,391,1134,417"/>
+<area shape="rect" id="node15" href="$events_8c.html#aa71827be2c5e903049141fcafc7c6048" title="Updates the next transition event for a ball on the table." alt="" coords="1003,5,1190,32"/>
+<area shape="rect" id="node4" href="$simulate_8c.html#ac23420edf5968c6121679d2a009f0809" title="Updates the physics simulation of the table over a specified time period." alt="" coords="673,187,789,213"/>
+<area shape="rect" id="node5" href="$playingController_8c.html#aa8a29eaaea16d53074ed404fe79294c0" title="Handles the playing controller." alt="" coords="445,195,625,221"/>
+<area shape="rect" id="node6" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="307,236,397,263"/>
+<area shape="rect" id="node7" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,236,259,263"/>
+<area shape="rect" id="node8" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,236,128,263"/>
+<area shape="rect" id="node14" href="$table_8c.html#a9ef30cef961ee374d50fc769b85cecb6" title="Creates and initializes a new Table structure with all necessary components such as players,..." alt="" coords="690,292,773,319"/>
+<area shape="rect" id="node16" href="$resolver_8c.html#aa65d1d36ef508a9c90ee9c0bf11a7033" title="Resolves the given event on the table." alt="" coords="839,56,946,83"/>
+</map>

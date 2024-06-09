@@ -1,0 +1,15 @@
+<map id="B" name="B">
+<area shape="rect" id="node1" title="Extracts the blue component from a color." alt="" coords="1532,87,1571,113"/>
+<area shape="rect" id="node2" href="$utilities_8c.html#a00262457943146f3d292cd409099937b" title="Calculates the coefficients of a ball&#45;ball collision. This function calculates the coefficients of a ..." alt="" coords="1268,7,1451,33"/>
+<area shape="rect" id="node10" href="$utilities_8c.html#aa7b60acd35a7d23364aa9fcc1bd7c89e" title="Calculates the time for a linear cushion collision with a ball." alt="" coords="1235,61,1484,88"/>
+<area shape="rect" id="node12" href="$resolver_8c.html#afabfb497e054c9f95cb0291131cda180" title="Resolves the collision between a ball and a cushion in a realistic manner." alt="" coords="1258,112,1461,139"/>
+<area shape="rect" id="node13" href="$graphics_8c.html#aeec97399adfeeef505ee4f130381da93" title="Draws a pattern." alt="" coords="1294,163,1425,189"/>
+<area shape="rect" id="node3" href="$events_8c.html#a19348c19f57f9b0fd7ba87b68e173ac9" title="Finds the next collision event between two balls on the table." alt="" coords="1001,5,1181,32"/>
+<area shape="rect" id="node4" href="$events_8c.html#ab58ba60736e19e4094180b548a0ad565" title="Finds the next event on the table." alt="" coords="837,35,948,61"/>
+<area shape="rect" id="node5" href="$simulate_8c.html#ac23420edf5968c6121679d2a009f0809" title="Updates the physics simulation of the table over a specified time period." alt="" coords="673,35,789,61"/>
+<area shape="rect" id="node6" href="$playingController_8c.html#aa8a29eaaea16d53074ed404fe79294c0" title="Handles the playing controller." alt="" coords="445,35,625,61"/>
+<area shape="rect" id="node7" href="$Game_8c.html#a9466a53aca2dcb5a4d1e94b8d28f4911" title="Main game loop." alt="" coords="307,35,397,61"/>
+<area shape="rect" id="node8" href="$Game_8c.html#af914d9c0c56eba0cd037f32d5af60cf1" title="Initializes the game." alt="" coords="176,35,259,61"/>
+<area shape="rect" id="node9" href="$main_8c.html#a90aad768b0a0b41e4bcacc566b0cae6e" title=" " alt="" coords="5,35,128,61"/>
+<area shape="rect" id="node11" href="$events_8c.html#ae2069e820ed131b38d776121eaa66b51" title="Finds the next collision event between a ball and a linear cushion on the table." alt="" coords="996,57,1187,98"/>
+</map>

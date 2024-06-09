@@ -1,0 +1,8 @@
+<map id="handleOptionsMenu" name="handleOptionsMenu">
+<area shape="rect" id="node1" title=" " alt="" coords="5,56,157,83"/>
+<area shape="rect" id="node2" href="$menu_8c.html#a474daa6efa961b451b5f1fb64bcf5093" title="Destroys a font." alt="" coords="210,5,309,32"/>
+<area shape="rect" id="node3" href="$menu_8c.html#aceaa3d76e97718b10dcddd65545310e3" title="Resets the menu to its initial state." alt="" coords="214,56,305,83"/>
+<area shape="rect" id="node5" href="$menu_8c.html#a6cd6e09dbb9ccefcb024e29d193f4b5a" title="Sets the type of the menu." alt="" coords="205,107,313,133"/>
+<area shape="rect" id="node4" href="$button_8c.html#a35aed4a2d403e0d35ea6f353e9e318f8" title="Frees the memory allocated for the button." alt="" coords="361,56,476,83"/>
+<area shape="rect" id="node6" href="$button_8c.html#afd6037293acc3a96469827641ba451ef" title="Creates a new button." alt="" coords="373,107,465,133"/>
+</map>

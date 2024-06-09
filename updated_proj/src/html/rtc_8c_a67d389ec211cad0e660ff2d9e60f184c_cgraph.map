@@ -1,0 +1,5 @@
+<map id="rtc_hour" name="rtc_hour">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,80,32"/>
+<area shape="rect" id="node2" href="$rtc_8c.html#acac7fba459dd622ec85096f0f59f20ea" title=" " alt="" coords="128,5,203,32"/>
+<area shape="rect" id="node3" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title="Reads a byte from a port." alt="" coords="251,5,349,32"/>
+</map>

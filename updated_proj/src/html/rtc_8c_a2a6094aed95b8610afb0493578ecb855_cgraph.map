@@ -1,0 +1,10 @@
+<map id="rtc_unsubscribe" name="rtc_unsubscribe">
+<area shape="rect" id="node1" title="Unsubscribes RTC interrupts." alt="" coords="5,56,129,83"/>
+<area shape="rect" id="node2" href="$rtc_8c.html#afa3d64bd9ee0ad30e8b87809b24cce00" title=" " alt="" coords="177,56,316,83"/>
+<area shape="rect" id="node3" href="$rtc_8c.html#a1e4949a2620e3ecd7289816e2916096a" title=" " alt="" coords="371,5,501,32"/>
+<area shape="rect" id="node7" href="$rtc_8c.html#a3e593342351ac9bdb4c306658936bf4a" title=" " alt="" coords="364,56,508,83"/>
+<area shape="rect" id="node8" href="$rtc_8c.html#ad4fe1fda254f80f3efacdc436b54ad27" title=" " alt="" coords="367,107,505,133"/>
+<area shape="rect" id="node4" href="$rtc_8c.html#acac7fba459dd622ec85096f0f59f20ea" title=" " alt="" coords="558,31,633,57"/>
+<area shape="rect" id="node6" href="$rtc_8c.html#a51ef284d11c6cb4e3be63a86d78763bc" title=" " alt="" coords="556,81,635,108"/>
+<area shape="rect" id="node5" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title="Reads a byte from a port." alt="" coords="683,31,781,57"/>
+</map>

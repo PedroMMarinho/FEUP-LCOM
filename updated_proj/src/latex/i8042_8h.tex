@@ -1,0 +1,98 @@
+\hypertarget{i8042_8h}{}\doxysection{labs/i8042.h File Reference}
+\label{i8042_8h}\index{labs/i8042.h@{labs/i8042.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+Include dependency graph for i8042.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=156pt]{i8042_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{i8042_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga2d17911b50c0aeebb2e3325c5b36d4f2}{KEYBOARD\+\_\+\+IRQ}}~1
+\begin{DoxyCompactList}\small\item\em Keyboard IRQ line. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_ga85964cb90343bb1a029b1d1b4229f910}{MOUSE\+\_\+\+IRQ}}~12
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga8c4d51072c2d50678bff2c2431f5ff26}{COMMAND\+\_\+\+WAIT}}~tickdelay(micros\+\_\+to\+\_\+ticks(20000)) /$\ast$$\ast$ $<$@brief Wait for command to respond$\ast$/
+\item 
+\#define \mbox{\hyperlink{group__i8042_gabc0cabc0ed97536f24986153ffe96b78}{KBC\+\_\+\+OUTPUT\+\_\+\+BUFFER}}~0x60
+\begin{DoxyCompactList}\small\item\em Port for the output buffer of the keyboard controler. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_ga0615d1ead5f06ae8445d2a8be8364636}{KBC\+\_\+\+STATUS}}~0x64
+\begin{DoxyCompactList}\small\item\em Keyboard controler status register. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_gae03631675a412b3649ef9bf512d7b02e}{KBC\+\_\+\+WRITE\+\_\+\+COMMAND}}~0x64
+\begin{DoxyCompactList}\small\item\em Port for writing commands to the keyboard controler. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_gab82acb4c25c58f1a6315e400f7452be1}{KBC\+\_\+\+COMMAND\+\_\+\+ARGS}}~0x60
+\begin{DoxyCompactList}\small\item\em Port for writing the arguments of a command to the keyboard controler ~\newline
+ \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_ga0b0716351d5375aa9b883d145c047808}{KBC\+\_\+\+STATUS\+\_\+\+PARITY}}~BIT(7)
+\begin{DoxyCompactList}\small\item\em Parity error bit in the status byte ~\newline
+ \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_ga383525d388cdcf1b834d2e5dc67a5a3e}{KBC\+\_\+\+STATUS\+\_\+\+TIMEOUT}}~BIT(6)
+\begin{DoxyCompactList}\small\item\em Timeout error bit in the status byte ~\newline
+ \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_gad4b08d993702e58b43e150d699309338}{KBC\+\_\+\+STATUS\+\_\+\+OUT\+\_\+\+BUF\+\_\+\+FULL}}~BIT(0)
+\begin{DoxyCompactList}\small\item\em Output buffer full bit in the status byte ~\newline
+ \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_ga164568c7e1243aa605742201a9074aec}{KBC\+\_\+\+STATUS\+\_\+\+IN\+\_\+\+BUF\+\_\+\+FULL}}~BIT(1)
+\begin{DoxyCompactList}\small\item\em Input buffer full bit in the status byte ~\newline
+ \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_gae6e5de71cfce0c9398fd35515d0edafb}{KBC\+\_\+\+STATUS\+\_\+\+AUX}}~BIT(5)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structMouse}{Mouse}} data bit in the status byte ~\newline
+ \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__i8042_ga3a456e3f32dfb363ccbefd11740adf3f}{ESC\+\_\+\+KEY\+\_\+\+SCAN}}~0x81
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga9687584bce5e862b8fdd8ec50082cafa}{KBC\+\_\+\+READ\+\_\+\+CMD\+\_\+\+BYTE}}~0x20
+\item 
+\#define \mbox{\hyperlink{group__i8042_gaca33a3f0aa27f801bf8c0dbed5961c7f}{KBC\+\_\+\+WRITE\+\_\+\+CMD\+\_\+\+BYTE}}~0x60
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga93f057e20db5d215f737d81968c2628e}{KBC\+\_\+\+SELF\+\_\+\+CHECK}}~0x\+AA
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga32f95691d11bb09479c06131f7ba9ebd}{KBC\+\_\+\+CHECK\+\_\+\+INTERFACE}}~0x\+AB
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga32cd0251665dbce000c1afbf6621469c}{KBC\+\_\+\+DISABLE\+\_\+\+INTERFACE}}~0x\+AD
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga0ed1c330ae5740268b81abc4010aa7d0}{KBC\+\_\+\+ENABLE\+\_\+\+INTERFACE}}~0x\+AE
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga27c4267800118ec8c413f75f0bc45dc3}{KBC\+\_\+\+WRITE\+\_\+\+BYTE\+\_\+\+TO\+\_\+\+MOUSE}}~0x\+D4
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga3ab43150718690b2f0c596df2faef5ca}{KBC\+\_\+\+ENABLE\+\_\+\+KB\+\_\+\+INTERRUPT}}~BIT(0)
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga735c06ab7fde4e601f565a8287830a51}{KBC\+\_\+\+ENABLE\+\_\+\+MOUSE\+\_\+\+INTERRUPT}}~BIT(1)
+\item 
+\#define \mbox{\hyperlink{group__i8042_gac40887059e6908d6eafc54d6eb71fde8}{KBC\+\_\+\+DISABLE\+\_\+\+KB\+\_\+\+INTERFACE}}~BIT(4)
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga88253bca8b48841743c0d3a84454615d}{KBC\+\_\+\+DISABLE\+\_\+\+MOUSE\+\_\+\+INTERFACE}}~BIT(5)
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga841cebcb7d56f8cc3505c202865f3dc2}{MOUSE\+\_\+\+DISABLE\+\_\+\+DATA\+\_\+\+REPORTING}}~0x\+F5
+\item 
+\#define \mbox{\hyperlink{group__i8042_gab9680a69d58165012e6b3c102d6cec69}{MOUSE\+\_\+\+ENABLE\+\_\+\+DATA\+\_\+\+REPORTING}}~0x\+F4
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga0f021282e84ac74fed1437c44248bb3a}{MOUSE\+\_\+\+DATA\+\_\+\+PACKET\+\_\+\+XOVFL}}~BIT(7)
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga004d5334b3e0bf364906365d583e2c1c}{MOUSE\+\_\+\+DATA\+\_\+\+PACKET\+\_\+\+YOVFL}}~BIT(6)
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga532489acd47cc5f5c1edb773f8061588}{MOUSE\+\_\+\+DATA\+\_\+\+PACKET\+\_\+\+YMSB}}~BIT(5)
+\item 
+\#define \mbox{\hyperlink{group__i8042_gaa25650ddd43207421eca2cc79c949e82}{MOUSE\+\_\+\+DATA\+\_\+\+PACKET\+\_\+\+XMSB}}~BIT(4)
+\item 
+\#define \mbox{\hyperlink{group__i8042_gaae2dd2296ab46ffd1702d18b0b263af5}{MOUSE\+\_\+\+DATA\+\_\+\+PACKET\+\_\+\+MB}}~BIT(2)
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga0b5bb32c1dac118df8b4c98b1ca1975d}{MOUSE\+\_\+\+DATA\+\_\+\+PACKET\+\_\+\+RB}}~BIT(1)
+\item 
+\#define \mbox{\hyperlink{group__i8042_gaa52ae42240917d18904ea7d266cc29fe}{MOUSE\+\_\+\+DATA\+\_\+\+PACKET\+\_\+\+LB}}~1
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga3789391a769864fd2d3f40d035fd8a74}{MOUSE\+\_\+\+OK}}~0x\+FA
+\item 
+\#define \mbox{\hyperlink{group__i8042_gafdb284baa26a13eb4e0092793839c34b}{MOUSE\+\_\+\+INVALID\+\_\+\+BYTE}}~0x\+FE
+\item 
+\#define \mbox{\hyperlink{group__i8042_ga75ebb9e8d0615febfa6c7c96ad48a38b}{MOUSE\+\_\+\+ERROR}}~0x\+FC
+\end{DoxyCompactItemize}

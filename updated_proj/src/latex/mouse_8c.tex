@@ -1,0 +1,280 @@
+\hypertarget{mouse_8c}{}\doxysection{labs/mouse.c File Reference}
+\label{mouse_8c}\index{labs/mouse.c@{labs/mouse.c}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}i8042.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mouse.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}kbc.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for mouse.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{mouse_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void() \mbox{\hyperlink{mouse_8c_a210374b50462acdedab00df64d5cea3c}{mouse\+\_\+ih}} ()
+\begin{DoxyCompactList}\small\item\em Subscribes and enables \mbox{\hyperlink{structMouse}{Mouse}} interrupts. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{mouse_8c_a78d6ab1939ee921e46ca8f388ec988d2}{mouse\+Error}} ()
+\begin{DoxyCompactList}\small\item\em Checks if there was an error in the interrupt handler. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{mouse_8c_a56719b09e2356fcd9d79e6fcf59f15fd}{mouse\+\_\+subscribe}} (uint8\+\_\+t $\ast$bit\+\_\+no)
+\begin{DoxyCompactList}\small\item\em Subscribes and enables \mbox{\hyperlink{structMouse}{Mouse}} interrupts. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{mouse_8c_aab5e1dc43daf2cc458f26d87211b994f}{mouse\+\_\+unsubscribe}} ()
+\begin{DoxyCompactList}\small\item\em Unsubscribes \mbox{\hyperlink{structMouse}{Mouse}} interrupts. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{mouse_8c_a88ea06f9a7da7857c3c0243e7633a6a0}{update\+Packet}} (uint8\+\_\+t mouse\+Byte)
+\begin{DoxyCompactList}\small\item\em Updates the packet with the new byte. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{mouse_8c_a0e3ca5bf99417cf6e14d0ba5922ab467}{complete\+\_\+packet}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the packet is complete. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{mouse_8c_a630c5bb9cbfcca20fac7347ff46794dc}{disable\+Data\+Reporting}} ()
+\begin{DoxyCompactList}\small\item\em Disables data reporting. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{mouse_8c_a6f7675b17bacd7bb2aeb6be1aaff6cc1}{is\+Packet\+Complete}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the packet is complete. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{mouse_8c_aa93413b717e8f22525818b0f5efdd448}{packet}} \mbox{\hyperlink{mouse_8c_a1889c5e28857070e4f202baf4ff61c3a}{get\+Mouse\+Packet}} ()
+\begin{DoxyCompactList}\small\item\em Gets the packet read from the output buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{mouse_8c_a77f17e571ee6f36cae9dfd94c1160996}{mouse\+\_\+hook\+Id}} = 2
+\item 
+static bool \mbox{\hyperlink{mouse_8c_a7a3172cc98e93d8eadfb9ab30373799e}{error}} = false
+\item 
+static int \mbox{\hyperlink{mouse_8c_a7f896883ba4328c4557a5104f1f490c5}{byte\+Number}} = 0
+\item 
+static struct packet \mbox{\hyperlink{mouse_8c_aa93413b717e8f22525818b0f5efdd448}{packet}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{mouse_8c_a0e3ca5bf99417cf6e14d0ba5922ab467}\label{mouse_8c_a0e3ca5bf99417cf6e14d0ba5922ab467}} 
+\index{mouse.c@{mouse.c}!complete\_packet@{complete\_packet}}
+\index{complete\_packet@{complete\_packet}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{complete\_packet()}{complete\_packet()}}
+{\footnotesize\ttfamily int complete\+\_\+packet (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the packet is complete. 
+
+\begin{DoxyReturn}{Returns}
+true if the packet is complete, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{mouse_8c_a630c5bb9cbfcca20fac7347ff46794dc}\label{mouse_8c_a630c5bb9cbfcca20fac7347ff46794dc}} 
+\index{mouse.c@{mouse.c}!disableDataReporting@{disableDataReporting}}
+\index{disableDataReporting@{disableDataReporting}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{disableDataReporting()}{disableDataReporting()}}
+{\footnotesize\ttfamily int disable\+Data\+Reporting (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Disables data reporting. 
+
+\begin{DoxyReturn}{Returns}
+0 upon success, one otherwise. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mouse_8c_a630c5bb9cbfcca20fac7347ff46794dc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mouse_8c_a630c5bb9cbfcca20fac7347ff46794dc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{mouse_8c_a1889c5e28857070e4f202baf4ff61c3a}\label{mouse_8c_a1889c5e28857070e4f202baf4ff61c3a}} 
+\index{mouse.c@{mouse.c}!getMousePacket@{getMousePacket}}
+\index{getMousePacket@{getMousePacket}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{getMousePacket()}{getMousePacket()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{mouse_8c_aa93413b717e8f22525818b0f5efdd448}{packet}} get\+Mouse\+Packet (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the packet read from the output buffer. 
+
+\begin{DoxyReturn}{Returns}
+The packet read from the output buffer. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mouse_8c_a1889c5e28857070e4f202baf4ff61c3a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{mouse_8c_a6f7675b17bacd7bb2aeb6be1aaff6cc1}\label{mouse_8c_a6f7675b17bacd7bb2aeb6be1aaff6cc1}} 
+\index{mouse.c@{mouse.c}!isPacketComplete@{isPacketComplete}}
+\index{isPacketComplete@{isPacketComplete}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{isPacketComplete()}{isPacketComplete()}}
+{\footnotesize\ttfamily bool is\+Packet\+Complete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the packet is complete. 
+
+\begin{DoxyReturn}{Returns}
+true if the packet is complete, false otherwise. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mouse_8c_a6f7675b17bacd7bb2aeb6be1aaff6cc1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{mouse_8c_a210374b50462acdedab00df64d5cea3c}\label{mouse_8c_a210374b50462acdedab00df64d5cea3c}} 
+\index{mouse.c@{mouse.c}!mouse\_ih@{mouse\_ih}}
+\index{mouse\_ih@{mouse\_ih}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{mouse\_ih()}{mouse\_ih()}}
+{\footnotesize\ttfamily void() mouse\+\_\+ih (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Subscribes and enables \mbox{\hyperlink{structMouse}{Mouse}} interrupts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bit\+\_\+no} & Address of memory to be initialized with the bit number to be set in the mask returned upon an interrupt.\\
+\hline
+\end{DoxyParams}
+Sets var error to 1 if there was an error Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mouse_8c_a210374b50462acdedab00df64d5cea3c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mouse_8c_a210374b50462acdedab00df64d5cea3c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{mouse_8c_a56719b09e2356fcd9d79e6fcf59f15fd}\label{mouse_8c_a56719b09e2356fcd9d79e6fcf59f15fd}} 
+\index{mouse.c@{mouse.c}!mouse\_subscribe@{mouse\_subscribe}}
+\index{mouse\_subscribe@{mouse\_subscribe}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{mouse\_subscribe()}{mouse\_subscribe()}}
+{\footnotesize\ttfamily int() mouse\+\_\+subscribe (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{bit\+\_\+no }\end{DoxyParamCaption})}
+
+
+
+Subscribes and enables \mbox{\hyperlink{structMouse}{Mouse}} interrupts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bit\+\_\+no} & Address of memory to be initialized with the bit number to be set in the mask returned upon an interrupt.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 upon success, one otherwise. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mouse_8c_a56719b09e2356fcd9d79e6fcf59f15fd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{mouse_8c_aab5e1dc43daf2cc458f26d87211b994f}\label{mouse_8c_aab5e1dc43daf2cc458f26d87211b994f}} 
+\index{mouse.c@{mouse.c}!mouse\_unsubscribe@{mouse\_unsubscribe}}
+\index{mouse\_unsubscribe@{mouse\_unsubscribe}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{mouse\_unsubscribe()}{mouse\_unsubscribe()}}
+{\footnotesize\ttfamily int() mouse\+\_\+unsubscribe (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Unsubscribes \mbox{\hyperlink{structMouse}{Mouse}} interrupts. 
+
+\begin{DoxyReturn}{Returns}
+0 upon success, one otherwise. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mouse_8c_aab5e1dc43daf2cc458f26d87211b994f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{mouse_8c_a78d6ab1939ee921e46ca8f388ec988d2}\label{mouse_8c_a78d6ab1939ee921e46ca8f388ec988d2}} 
+\index{mouse.c@{mouse.c}!mouseError@{mouseError}}
+\index{mouseError@{mouseError}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{mouseError()}{mouseError()}}
+{\footnotesize\ttfamily bool mouse\+Error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if there was an error in the interrupt handler. 
+
+\begin{DoxyReturn}{Returns}
+true if there was an error, false otherwise. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mouse_8c_a78d6ab1939ee921e46ca8f388ec988d2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{mouse_8c_a88ea06f9a7da7857c3c0243e7633a6a0}\label{mouse_8c_a88ea06f9a7da7857c3c0243e7633a6a0}} 
+\index{mouse.c@{mouse.c}!updatePacket@{updatePacket}}
+\index{updatePacket@{updatePacket}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{updatePacket()}{updatePacket()}}
+{\footnotesize\ttfamily int update\+Packet (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{mouse\+Byte }\end{DoxyParamCaption})}
+
+
+
+Updates the packet with the new byte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse\+Byte} & The new byte to be added to the packet.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 upon success, one otherwise. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mouse_8c_a88ea06f9a7da7857c3c0243e7633a6a0_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{mouse_8c_a7f896883ba4328c4557a5104f1f490c5}\label{mouse_8c_a7f896883ba4328c4557a5104f1f490c5}} 
+\index{mouse.c@{mouse.c}!byteNumber@{byteNumber}}
+\index{byteNumber@{byteNumber}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{byteNumber}{byteNumber}}
+{\footnotesize\ttfamily int byte\+Number = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{mouse_8c_a7a3172cc98e93d8eadfb9ab30373799e}\label{mouse_8c_a7a3172cc98e93d8eadfb9ab30373799e}} 
+\index{mouse.c@{mouse.c}!error@{error}}
+\index{error@{error}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{error}{error}}
+{\footnotesize\ttfamily bool error = false\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{mouse_8c_a77f17e571ee6f36cae9dfd94c1160996}\label{mouse_8c_a77f17e571ee6f36cae9dfd94c1160996}} 
+\index{mouse.c@{mouse.c}!mouse\_hookId@{mouse\_hookId}}
+\index{mouse\_hookId@{mouse\_hookId}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{mouse\_hookId}{mouse\_hookId}}
+{\footnotesize\ttfamily int mouse\+\_\+hook\+Id = 2\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{mouse_8c_aa93413b717e8f22525818b0f5efdd448}\label{mouse_8c_aa93413b717e8f22525818b0f5efdd448}} 
+\index{mouse.c@{mouse.c}!packet@{packet}}
+\index{packet@{packet}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{packet}{packet}}
+{\footnotesize\ttfamily struct packet packet\hspace{0.3cm}{\ttfamily [static]}}
+

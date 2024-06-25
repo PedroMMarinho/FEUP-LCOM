@@ -1,9 +1,8 @@
 # FEUP-LCOM 2023/2024
 Weekly Labs as well as Final project in C for the LCOM curricular unit.
 ## Project Infos
-
 - Date: 2nd Year, 2nd Semester
-- Course: Laboratório de Computadores 
+- Course: Laboratório de Computadores | Computer Laboratory
 - Course Link: [https://sigarra.up.pt/feup/pt/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=501671](https://sigarra.up.pt/feup/pt/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=520323)
 ## Disclaimer
 This repository, along with other FEUP-COURSE* repositories on GitHub, contains school projects from the respective courses at FEUP. The code provided here is intended solely for educational purposes. I disclaim any responsibility or liability for any faults, inconsistencies, or issues in the code.

@@ -89,7 +89,7 @@ Table *newTable() {
 
   vector_t cueBallPosition = {269, 442};
 
-  table->balls[0] = newBall(cueBallPosition, bola9, WHITE);
+  table->balls[0] = newBall(cueBallPosition, whiteBall, WHITE);
 
   vector_t otherBallPosition = {782, 442};
   table->balls[1] = newBall(otherBallPosition, ball8, BLACK);
@@ -266,7 +266,7 @@ Table *newTable() {
 
   // Set physics attributes
   table->gravityAcceleration = 9.81;
-  table->slidingFriction = 90;
+  table->slidingFriction = 130;
   table->spinningFriction = 6;
   table->rollingFriction = 30;
   table->cushionRestitution = 0.7;

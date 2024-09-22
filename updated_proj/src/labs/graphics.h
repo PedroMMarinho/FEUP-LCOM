@@ -1,5 +1,7 @@
 #pragma once
 #include <lcom/lcf.h>
+#include "../model/vector.h"
+
 
 /**
  * @brief Maps memory for the given video mode.
@@ -154,4 +156,4 @@ int (cleanCanvas)();
 
 int drawText(char* text, xpm_image_t* font,uint16_t x, uint16_t y,uint8_t spacing);
 
-
+int drawBallXpm(xpm_image_t colorMap, xpm_image_t ballXpm, vector_t pos, vector3_t rotation);

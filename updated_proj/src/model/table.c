@@ -12,21 +12,22 @@
 #include "../xpms/slotBalls/ballSlot6.xpm"
 #include "../xpms/table.xpm"
 #include "../xpms/tableBackground.xpm"
-#include "../xpms/tableBalls/bola1.xpm"
-#include "../xpms/tableBalls/bola10.xpm"
-#include "../xpms/tableBalls/bola11.xpm"
-#include "../xpms/tableBalls/bola12.xpm"
-#include "../xpms/tableBalls/bola13.xpm"
-#include "../xpms/tableBalls/bola14.xpm"
-#include "../xpms/tableBalls/bola15.xpm"
-#include "../xpms/tableBalls/bola2.xpm"
-#include "../xpms/tableBalls/bola3.xpm"
-#include "../xpms/tableBalls/bola4.xpm"
-#include "../xpms/tableBalls/bola5.xpm"
-#include "../xpms/tableBalls/bola6.xpm"
-#include "../xpms/tableBalls/bola7.xpm"
-#include "../xpms/tableBalls/bola8.xpm"
-#include "../xpms/tableBalls/bola9.xpm"
+#include "../xpms/ballColorMap/bola1Map.xpm"
+#include "../xpms/ballColorMap/bola10Map.xpm"
+#include "../xpms/ballColorMap/bola11Map.xpm"
+#include "../xpms/ballColorMap/bola12Map.xpm"
+#include "../xpms/ballColorMap/bola13Map.xpm"
+#include "../xpms/ballColorMap/bola14Map.xpm"
+#include "../xpms/ballColorMap/bola15Map.xpm"
+#include "../xpms/ballColorMap/bola2Map.xpm"
+#include "../xpms/ballColorMap/bola3Map.xpm"
+#include "../xpms/ballColorMap/bola4Map.xpm"
+#include "../xpms/ballColorMap/bola5Map.xpm"
+#include "../xpms/ballColorMap/bola6Map.xpm"
+#include "../xpms/ballColorMap/bola7Map.xpm"
+#include "../xpms/ballColorMap/bola8Map.xpm"
+#include "../xpms/ballColorMap/bola9Map.xpm"
+#include "../xpms/ballColorMap/bolaBrancaMap.xpm"
 #include "../xpms/tableBalls/bolaBranca.xpm"
 #include "../xpms/spinCircle.xpm"
 #include "../xpms/exitButton.xpm"
@@ -65,22 +66,22 @@ Table *newTable() {
   xpm_image_t bola14;
   xpm_image_t bola15;
 
-  xpm_load(bolaBrancaXpm, XPM_8_8_8, &whiteBall);
-  xpm_load(bola8Xpm, XPM_8_8_8, &ball8);
-  xpm_load(bola1Xpm, XPM_8_8_8, &bola1);
-  xpm_load(bola2Xpm, XPM_8_8_8, &bola2);
-  xpm_load(bola3Xpm, XPM_8_8_8, &bola3);
-  xpm_load(bola4Xpm, XPM_8_8_8, &bola4);
-  xpm_load(bola5Xpm, XPM_8_8_8, &bola5);
-  xpm_load(bola6Xpm, XPM_8_8_8, &bola6);
-  xpm_load(bola7Xpm, XPM_8_8_8, &bola7);
-  xpm_load(bola9Xpm, XPM_8_8_8, &bola9);
-  xpm_load(bola10Xpm, XPM_8_8_8, &bola10);
-  xpm_load(bola11Xpm, XPM_8_8_8, &bola11);
-  xpm_load(bola12Xpm, XPM_8_8_8, &bola12);
-  xpm_load(bola13Xpm, XPM_8_8_8, &bola13);
-  xpm_load(bola14Xpm, XPM_8_8_8, &bola14);
-  xpm_load(bola15Xpm, XPM_8_8_8, &bola15);
+  xpm_load(bolaBrancaMapXpm, XPM_8_8_8, &whiteBall);
+  xpm_load(bola8MapXpm, XPM_8_8_8, &ball8);
+  xpm_load(bola1MapXpm, XPM_8_8_8, &bola1);
+  xpm_load(bola2MapXpm, XPM_8_8_8, &bola2);
+  xpm_load(bola3MapXpm, XPM_8_8_8, &bola3);
+  xpm_load(bola4MapXpm, XPM_8_8_8, &bola4);
+  xpm_load(bola5MapXpm, XPM_8_8_8, &bola5);
+  xpm_load(bola6MapXpm, XPM_8_8_8, &bola6);
+  xpm_load(bola7MapXpm, XPM_8_8_8, &bola7);
+  xpm_load(bola9MapXpm, XPM_8_8_8, &bola9);
+  xpm_load(bola10MapXpm, XPM_8_8_8, &bola10);
+  xpm_load(bola11MapXpm, XPM_8_8_8, &bola11);
+  xpm_load(bola12MapXpm, XPM_8_8_8, &bola12);
+  xpm_load(bola13MapXpm, XPM_8_8_8, &bola13);
+  xpm_load(bola14MapXpm, XPM_8_8_8, &bola14);
+  xpm_load(bola15MapXpm, XPM_8_8_8, &bola15);
 
   table->ballNumber = 16;
   table->balls = (Ball **) malloc(sizeof(Ball *) * table->ballNumber);
@@ -115,6 +116,10 @@ Table *newTable() {
   otherBallPosition.x = 842;
   otherBallPosition.y = 472;
   table->balls[9] = newBall(otherBallPosition, bola9, STRIPED);
+  table->balls[9]->rotation.x = 0;
+  table->balls[9]->rotation.y = 0;
+  table->balls[9]->rotation.z = 0;
+
   otherBallPosition.x = 752;
   otherBallPosition.y = 458;
   table->balls[10] = newBall(otherBallPosition, bola10, STRIPED);
@@ -140,6 +145,7 @@ Table *newTable() {
   xpm_image_t exitButton;
   xpm_image_t exitButtonSelected;
   xpm_image_t cursor;
+  xpm_image_t ballsXpm;
   
   xpm_load(cueCursorXpm, XPM_8_8_8, &cursor);
   xpm_load(matchUIXpm, XPM_8_8_8, &matchUI);
@@ -147,6 +153,7 @@ Table *newTable() {
   xpm_load(spinCircleXpm, XPM_8_8_8, &spinCircle);
   xpm_load(exitButtonXpm, XPM_8_8_8, &exitButton);
   xpm_load(exitButtonSelectedXpm, XPM_8_8_8, &exitButtonSelected);
+  xpm_load(bolaBrancaXpm, XPM_8_8_8, &ballsXpm);
 
   table->img = img;
   table->ui = matchUI;
@@ -156,6 +163,7 @@ Table *newTable() {
   vector_t size = {51, 51};
   table->exitButton = newButton(exitButton, exitButtonSelected, pos, size);
   table->exitSelected = false;
+  table->ballsXpm = ballsXpm;
 
   // Set pockets
   vector_t p1, p2;
@@ -258,7 +266,7 @@ Table *newTable() {
 
   // Set physics attributes
   table->gravityAcceleration = 9.81;
-  table->slidingFriction = 90;
+  table->slidingFriction = 130;
   table->spinningFriction = 6;
   table->rollingFriction = 30;
   table->cushionRestitution = 0.7;
@@ -366,7 +374,7 @@ void drawBalls(Table *table) {
   for (size_t i = 0; i < table->ballNumber; i++) {
     Ball *ball = table->balls[i];
     if (ball->state != POCKETED || ball->type == WHITE) {
-      drawXPMImage(getBallImage(ball), getBallPosition(ball).x, getBallPosition(ball).y, 0);
+      drawBallXpm(getBallImage(ball), table->ballsXpm, getBallPosition(ball), ball->rotation);
     }
 
     if (ballTypesAttributed) {
@@ -427,6 +435,11 @@ int drawTable(Table *table, int gameTime, int roundTime) {
   drawInGamePlayerName(table->player1, table->font, 145, 47, 16);
   drawInGamePlayerName(table->player2, table->font, 748, 49, 16);
 
+  for (size_t i = 0; i<6; i++){
+    LinearCushion* cushion = table->linearCushions[i];
+    drawThickLine(cushion->p1, cushion->p2, 3, 0xffffff);
+  }
+
   //DEBUG
   
   /* vector_t p1, p2;
@@ -476,6 +489,8 @@ int drawTable(Table *table, int gameTime, int roundTime) {
   // DRAW BALLS
   drawBalls(table);
 
+
+
   if (drawGameTime(gameTime, table->font))
     return 1; // game Time
   if (table->player1->isPlaying) {
@@ -484,6 +499,7 @@ int drawTable(Table *table, int gameTime, int roundTime) {
   else {
     drawCountDown(table->font, roundTime, 632, 60);
   }
+
 
   switch (table->state) {
     case AIMING:

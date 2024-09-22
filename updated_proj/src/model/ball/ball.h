@@ -32,6 +32,7 @@ typedef struct Ball {
   BALL_STATE state;
   vector_t position;
   vector_t velocity;
+  vector3_t rotation;
   vector3_t ang_velocity;
   xpm_image_t img;
   size_t radius;
